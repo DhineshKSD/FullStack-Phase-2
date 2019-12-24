@@ -1,0 +1,168 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="EmployeeOnboardingModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Address">
+    <Key>
+      <PropertyRef Name="Address_id" />
+    </Key>
+    <Property Name="Address_id" Type="int" Nullable="false" />
+    <Property Name="PersonalInfo_id" Type="int" Nullable="false" />
+    <Property Name="AddressCode" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="Address" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="City" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="State" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Country" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Education">
+    <Key>
+      <PropertyRef Name="Education_id" />
+    </Key>
+    <Property Name="Education_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Employee_id" Type="int" Nullable="false" />
+    <Property Name="Course" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Institute" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="GradePoint" Type="real" Nullable="false" />
+    <Property Name="From" Type="date" Nullable="false" />
+    <Property Name="To" Type="date" Nullable="false" />
+    <Property Name="YearOfPassing" Type="bigint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Employee">
+    <Key>
+      <PropertyRef Name="Employee_id" />
+    </Key>
+    <Property Name="Employee_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FirstName" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="LastName" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="PersonalEmail" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Contact" Type="bigint" Nullable="false" />
+    <Property Name="JobTitle" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Department" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Compensation" Type="bigint" Nullable="false" />
+    <Property Name="DOJ" Type="date" Nullable="false" />
+    <Property Name="UserName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Password" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ReportingTo" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="isAdmin" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PersonalInfo">
+    <Key>
+      <PropertyRef Name="PersonalInfo_id" />
+    </Key>
+    <Property Name="PersonalInfo_id" Type="int" Nullable="false" />
+    <Property Name="Employee_id" Type="int" Nullable="false" />
+    <Property Name="Gender" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="DateOfBirth" Type="date" Nullable="false" />
+    <Property Name="PlaceOfBirth" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="MaritalStatus" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="BloodGroup" Type="varchar" MaxLength="10" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PreviousEmployment">
+    <Key>
+      <PropertyRef Name="PreviousEmployment_id" />
+    </Key>
+    <Property Name="PreviousEmployment_id" Type="int" Nullable="false" />
+    <Property Name="Employee_id" Type="int" Nullable="false" />
+    <Property Name="EmployerName" Type="nvarchar(max)" />
+    <Property Name="StartDate" Type="date" />
+    <Property Name="EndDate" Type="date" />
+    <Property Name="Designation" Type="nvarchar(max)" />
+    <Property Name="Salary" Type="bigint" />
+  </EntityType>
+  <EntityType Name="Proof">
+    <Key>
+      <PropertyRef Name="Proof_id" />
+    </Key>
+    <Property Name="Proof_id" Type="int" Nullable="false" />
+    <Property Name="Employee_id" Type="int" Nullable="false" />
+    <Property Name="ProofCode" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="ProofName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ProofId" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <Association Name="Address_PersonalInfo">
+    <End Role="PersonalInfo" Type="Self.PersonalInfo" Multiplicity="1" />
+    <End Role="Address" Type="Self.Address" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PersonalInfo">
+        <PropertyRef Name="PersonalInfo_id" />
+      </Principal>
+      <Dependent Role="Address">
+        <PropertyRef Name="PersonalInfo_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Education_NewRecruit">
+    <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
+    <End Role="Education" Type="Self.Education" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employee">
+        <PropertyRef Name="Employee_id" />
+      </Principal>
+      <Dependent Role="Education">
+        <PropertyRef Name="Employee_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="PersonalInfo_NewRecruit">
+    <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
+    <End Role="PersonalInfo" Type="Self.PersonalInfo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employee">
+        <PropertyRef Name="Employee_id" />
+      </Principal>
+      <Dependent Role="PersonalInfo">
+        <PropertyRef Name="Employee_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="PreviousEmployment_NewRecruit">
+    <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
+    <End Role="PreviousEmployment" Type="Self.PreviousEmployment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employee">
+        <PropertyRef Name="Employee_id" />
+      </Principal>
+      <Dependent Role="PreviousEmployment">
+        <PropertyRef Name="Employee_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Proof_Employee">
+    <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
+    <End Role="Proof" Type="Self.Proof" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employee">
+        <PropertyRef Name="Employee_id" />
+      </Principal>
+      <Dependent Role="Proof">
+        <PropertyRef Name="Employee_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="EmployeeOnboardingModelStoreContainer">
+    <EntitySet Name="Address" EntityType="Self.Address" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Education" EntityType="Self.Education" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Employee" EntityType="Self.Employee" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PersonalInfo" EntityType="Self.PersonalInfo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PreviousEmployment" EntityType="Self.PreviousEmployment" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Proof" EntityType="Self.Proof" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="Address_PersonalInfo" Association="Self.Address_PersonalInfo">
+      <End Role="PersonalInfo" EntitySet="PersonalInfo" />
+      <End Role="Address" EntitySet="Address" />
+    </AssociationSet>
+    <AssociationSet Name="Education_NewRecruit" Association="Self.Education_NewRecruit">
+      <End Role="Employee" EntitySet="Employee" />
+      <End Role="Education" EntitySet="Education" />
+    </AssociationSet>
+    <AssociationSet Name="PersonalInfo_NewRecruit" Association="Self.PersonalInfo_NewRecruit">
+      <End Role="Employee" EntitySet="Employee" />
+      <End Role="PersonalInfo" EntitySet="PersonalInfo" />
+    </AssociationSet>
+    <AssociationSet Name="PreviousEmployment_NewRecruit" Association="Self.PreviousEmployment_NewRecruit">
+      <End Role="Employee" EntitySet="Employee" />
+      <End Role="PreviousEmployment" EntitySet="PreviousEmployment" />
+    </AssociationSet>
+    <AssociationSet Name="Proof_Employee" Association="Self.Proof_Employee">
+      <End Role="Employee" EntitySet="Employee" />
+      <End Role="Proof" EntitySet="Proof" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

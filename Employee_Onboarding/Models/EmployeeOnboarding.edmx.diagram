@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="cb62440b953144258a6b39249e2a296a" Name="Diagram1" ZoomLevel="55">
+        <EntityTypeShape EntityType="EmployeeOnboardingModel.Address" Width="1.5" PointX="5.25" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="EmployeeOnboardingModel.Education" Width="1.5" PointX="3" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="EmployeeOnboardingModel.Employee" Width="1.5" PointX="0.75" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="EmployeeOnboardingModel.PersonalInfo" Width="1.5" PointX="3" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="EmployeeOnboardingModel.PreviousEmployment" Width="1.5" PointX="3" PointY="8.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="EmployeeOnboardingModel.Proof" Width="1.5" PointX="3" PointY="11.75" IsExpanded="true" />
+        <AssociationConnector Association="EmployeeOnboardingModel.Address_PersonalInfo" ManuallyRouted="false" />
+        <AssociationConnector Association="EmployeeOnboardingModel.Education_NewRecruit" ManuallyRouted="false" />
+        <AssociationConnector Association="EmployeeOnboardingModel.PersonalInfo_NewRecruit" ManuallyRouted="false" />
+        <AssociationConnector Association="EmployeeOnboardingModel.PreviousEmployment_NewRecruit" ManuallyRouted="false" />
+        <AssociationConnector Association="EmployeeOnboardingModel.Proof_Employee" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

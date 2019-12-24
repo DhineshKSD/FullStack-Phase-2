@@ -1,0 +1,464 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="EmployeeOnboardingModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Address">
+          <Key>
+            <PropertyRef Name="Address_id" />
+          </Key>
+          <Property Name="Address_id" Type="int" Nullable="false" />
+          <Property Name="PersonalInfo_id" Type="int" Nullable="false" />
+          <Property Name="AddressCode" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="Address" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="City" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="State" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Country" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Education">
+          <Key>
+            <PropertyRef Name="Education_id" />
+          </Key>
+          <Property Name="Education_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Employee_id" Type="int" Nullable="false" />
+          <Property Name="Course" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Institute" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="GradePoint" Type="real" Nullable="false" />
+          <Property Name="From" Type="date" Nullable="false" />
+          <Property Name="To" Type="date" Nullable="false" />
+          <Property Name="YearOfPassing" Type="bigint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Employee">
+          <Key>
+            <PropertyRef Name="Employee_id" />
+          </Key>
+          <Property Name="Employee_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FirstName" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="LastName" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="PersonalEmail" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Contact" Type="bigint" Nullable="false" />
+          <Property Name="JobTitle" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Department" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Compensation" Type="bigint" Nullable="false" />
+          <Property Name="DOJ" Type="date" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Password" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="ReportingTo" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="isAdmin" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PersonalInfo">
+          <Key>
+            <PropertyRef Name="PersonalInfo_id" />
+          </Key>
+          <Property Name="PersonalInfo_id" Type="int" Nullable="false" />
+          <Property Name="Employee_id" Type="int" Nullable="false" />
+          <Property Name="Gender" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="DateOfBirth" Type="date" Nullable="false" />
+          <Property Name="PlaceOfBirth" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="MaritalStatus" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="BloodGroup" Type="varchar" MaxLength="10" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PreviousEmployment">
+          <Key>
+            <PropertyRef Name="PreviousEmployment_id" />
+          </Key>
+          <Property Name="PreviousEmployment_id" Type="int" Nullable="false" />
+          <Property Name="Employee_id" Type="int" Nullable="false" />
+          <Property Name="EmployerName" Type="nvarchar(max)" />
+          <Property Name="StartDate" Type="date" />
+          <Property Name="EndDate" Type="date" />
+          <Property Name="Designation" Type="nvarchar(max)" />
+          <Property Name="Salary" Type="bigint" />
+        </EntityType>
+        <EntityType Name="Proof">
+          <Key>
+            <PropertyRef Name="Proof_id" />
+          </Key>
+          <Property Name="Proof_id" Type="int" Nullable="false" />
+          <Property Name="Employee_id" Type="int" Nullable="false" />
+          <Property Name="ProofCode" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="ProofName" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="ProofId" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <Association Name="Address_PersonalInfo">
+          <End Role="PersonalInfo" Type="Self.PersonalInfo" Multiplicity="1" />
+          <End Role="Address" Type="Self.Address" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PersonalInfo">
+              <PropertyRef Name="PersonalInfo_id" />
+            </Principal>
+            <Dependent Role="Address">
+              <PropertyRef Name="PersonalInfo_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Education_NewRecruit">
+          <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
+          <End Role="Education" Type="Self.Education" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="Employee_id" />
+            </Principal>
+            <Dependent Role="Education">
+              <PropertyRef Name="Employee_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="PersonalInfo_NewRecruit">
+          <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
+          <End Role="PersonalInfo" Type="Self.PersonalInfo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="Employee_id" />
+            </Principal>
+            <Dependent Role="PersonalInfo">
+              <PropertyRef Name="Employee_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="PreviousEmployment_NewRecruit">
+          <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
+          <End Role="PreviousEmployment" Type="Self.PreviousEmployment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="Employee_id" />
+            </Principal>
+            <Dependent Role="PreviousEmployment">
+              <PropertyRef Name="Employee_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Proof_Employee">
+          <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
+          <End Role="Proof" Type="Self.Proof" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="Employee_id" />
+            </Principal>
+            <Dependent Role="Proof">
+              <PropertyRef Name="Employee_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="EmployeeOnboardingModelStoreContainer">
+          <EntitySet Name="Address" EntityType="Self.Address" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Education" EntityType="Self.Education" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Employee" EntityType="Self.Employee" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PersonalInfo" EntityType="Self.PersonalInfo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PreviousEmployment" EntityType="Self.PreviousEmployment" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Proof" EntityType="Self.Proof" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="Address_PersonalInfo" Association="Self.Address_PersonalInfo">
+            <End Role="PersonalInfo" EntitySet="PersonalInfo" />
+            <End Role="Address" EntitySet="Address" />
+          </AssociationSet>
+          <AssociationSet Name="Education_NewRecruit" Association="Self.Education_NewRecruit">
+            <End Role="Employee" EntitySet="Employee" />
+            <End Role="Education" EntitySet="Education" />
+          </AssociationSet>
+          <AssociationSet Name="PersonalInfo_NewRecruit" Association="Self.PersonalInfo_NewRecruit">
+            <End Role="Employee" EntitySet="Employee" />
+            <End Role="PersonalInfo" EntitySet="PersonalInfo" />
+          </AssociationSet>
+          <AssociationSet Name="PreviousEmployment_NewRecruit" Association="Self.PreviousEmployment_NewRecruit">
+            <End Role="Employee" EntitySet="Employee" />
+            <End Role="PreviousEmployment" EntitySet="PreviousEmployment" />
+          </AssociationSet>
+          <AssociationSet Name="Proof_Employee" Association="Self.Proof_Employee">
+            <End Role="Employee" EntitySet="Employee" />
+            <End Role="Proof" EntitySet="Proof" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="EmployeeOnboardingModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Address">
+          <Key>
+            <PropertyRef Name="Address_id" />
+          </Key>
+          <Property Name="Address_id" Type="Int32" Nullable="false" />
+          <Property Name="PersonalInfo_id" Type="Int32" Nullable="false" />
+          <Property Name="AddressCode" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Address1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="City" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="State" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Country" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="PersonalInfo" Relationship="Self.Address_PersonalInfo" FromRole="Address" ToRole="PersonalInfo" />
+        </EntityType>
+        <EntityType Name="Education">
+          <Key>
+            <PropertyRef Name="Education_id" />
+          </Key>
+          <Property Name="Education_id" Type="Int32" Nullable="false" />
+          <Property Name="Employee_id" Type="Int32" Nullable="false" />
+          <Property Name="Course" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Institute" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="GradePoint" Type="Single" Nullable="false" />
+          <Property Name="From" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="To" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="YearOfPassing" Type="Int64" Nullable="false" />
+          <NavigationProperty Name="Employee" Relationship="Self.Education_NewRecruit" FromRole="Education" ToRole="Employee" />
+        </EntityType>
+        <EntityType Name="Employee">
+          <Key>
+            <PropertyRef Name="Employee_id" />
+          </Key>
+          <Property Name="Employee_id" Type="Int32" Nullable="false" />
+          <Property Name="FirstName" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="LastName" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PersonalEmail" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Contact" Type="Int64" Nullable="false" />
+          <Property Name="JobTitle" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Department" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Compensation" Type="Int64" Nullable="false" />
+          <Property Name="DOJ" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="UserName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ReportingTo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="isAdmin" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Educations" Relationship="Self.Education_NewRecruit" FromRole="Employee" ToRole="Education" />
+          <NavigationProperty Name="PersonalInfoes" Relationship="Self.PersonalInfo_NewRecruit" FromRole="Employee" ToRole="PersonalInfo" />
+          <NavigationProperty Name="PreviousEmployments" Relationship="Self.PreviousEmployment_NewRecruit" FromRole="Employee" ToRole="PreviousEmployment" />
+          <NavigationProperty Name="Proofs" Relationship="Self.Proof_Employee" FromRole="Employee" ToRole="Proof" />
+        </EntityType>
+        <EntityType Name="PersonalInfo">
+          <Key>
+            <PropertyRef Name="PersonalInfo_id" />
+          </Key>
+          <Property Name="PersonalInfo_id" Type="Int32" Nullable="false" />
+          <Property Name="Employee_id" Type="Int32" Nullable="false" />
+          <Property Name="Gender" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DateOfBirth" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="PlaceOfBirth" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="MaritalStatus" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="BloodGroup" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Addresses" Relationship="Self.Address_PersonalInfo" FromRole="PersonalInfo" ToRole="Address" />
+          <NavigationProperty Name="Employee" Relationship="Self.PersonalInfo_NewRecruit" FromRole="PersonalInfo" ToRole="Employee" />
+        </EntityType>
+        <EntityType Name="PreviousEmployment">
+          <Key>
+            <PropertyRef Name="PreviousEmployment_id" />
+          </Key>
+          <Property Name="PreviousEmployment_id" Type="Int32" Nullable="false" />
+          <Property Name="Employee_id" Type="Int32" Nullable="false" />
+          <Property Name="EmployerName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="StartDate" Type="DateTime" Precision="0" />
+          <Property Name="EndDate" Type="DateTime" Precision="0" />
+          <Property Name="Designation" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Salary" Type="Int64" />
+          <NavigationProperty Name="Employee" Relationship="Self.PreviousEmployment_NewRecruit" FromRole="PreviousEmployment" ToRole="Employee" />
+        </EntityType>
+        <EntityType Name="Proof">
+          <Key>
+            <PropertyRef Name="Proof_id" />
+          </Key>
+          <Property Name="Proof_id" Type="Int32" Nullable="false" />
+          <Property Name="Employee_id" Type="Int32" Nullable="false" />
+          <Property Name="ProofCode" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ProofName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ProofId" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Employee" Relationship="Self.Proof_Employee" FromRole="Proof" ToRole="Employee" />
+        </EntityType>
+        <Association Name="Address_PersonalInfo">
+          <End Role="PersonalInfo" Type="Self.PersonalInfo" Multiplicity="1" />
+          <End Role="Address" Type="Self.Address" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PersonalInfo">
+              <PropertyRef Name="PersonalInfo_id" />
+            </Principal>
+            <Dependent Role="Address">
+              <PropertyRef Name="PersonalInfo_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Education_NewRecruit">
+          <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
+          <End Role="Education" Type="Self.Education" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="Employee_id" />
+            </Principal>
+            <Dependent Role="Education">
+              <PropertyRef Name="Employee_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="PersonalInfo_NewRecruit">
+          <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
+          <End Role="PersonalInfo" Type="Self.PersonalInfo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="Employee_id" />
+            </Principal>
+            <Dependent Role="PersonalInfo">
+              <PropertyRef Name="Employee_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="PreviousEmployment_NewRecruit">
+          <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
+          <End Role="PreviousEmployment" Type="Self.PreviousEmployment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="Employee_id" />
+            </Principal>
+            <Dependent Role="PreviousEmployment">
+              <PropertyRef Name="Employee_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Proof_Employee">
+          <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
+          <End Role="Proof" Type="Self.Proof" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="Employee_id" />
+            </Principal>
+            <Dependent Role="Proof">
+              <PropertyRef Name="Employee_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="EmployeeOnboardingEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Addresses" EntityType="Self.Address" />
+          <EntitySet Name="Educations" EntityType="Self.Education" />
+          <EntitySet Name="Employees" EntityType="Self.Employee" />
+          <EntitySet Name="PersonalInfoes" EntityType="Self.PersonalInfo" />
+          <EntitySet Name="PreviousEmployments" EntityType="Self.PreviousEmployment" />
+          <EntitySet Name="Proofs" EntityType="Self.Proof" />
+          <AssociationSet Name="Address_PersonalInfo" Association="Self.Address_PersonalInfo">
+            <End Role="PersonalInfo" EntitySet="PersonalInfoes" />
+            <End Role="Address" EntitySet="Addresses" />
+          </AssociationSet>
+          <AssociationSet Name="Education_NewRecruit" Association="Self.Education_NewRecruit">
+            <End Role="Employee" EntitySet="Employees" />
+            <End Role="Education" EntitySet="Educations" />
+          </AssociationSet>
+          <AssociationSet Name="PersonalInfo_NewRecruit" Association="Self.PersonalInfo_NewRecruit">
+            <End Role="Employee" EntitySet="Employees" />
+            <End Role="PersonalInfo" EntitySet="PersonalInfoes" />
+          </AssociationSet>
+          <AssociationSet Name="PreviousEmployment_NewRecruit" Association="Self.PreviousEmployment_NewRecruit">
+            <End Role="Employee" EntitySet="Employees" />
+            <End Role="PreviousEmployment" EntitySet="PreviousEmployments" />
+          </AssociationSet>
+          <AssociationSet Name="Proof_Employee" Association="Self.Proof_Employee">
+            <End Role="Employee" EntitySet="Employees" />
+            <End Role="Proof" EntitySet="Proofs" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="EmployeeOnboardingModelStoreContainer" CdmEntityContainer="EmployeeOnboardingEntities">
+          <EntitySetMapping Name="Addresses">
+            <EntityTypeMapping TypeName="EmployeeOnboardingModel.Address">
+              <MappingFragment StoreEntitySet="Address">
+                <ScalarProperty Name="Address_id" ColumnName="Address_id" />
+                <ScalarProperty Name="PersonalInfo_id" ColumnName="PersonalInfo_id" />
+                <ScalarProperty Name="AddressCode" ColumnName="AddressCode" />
+                <ScalarProperty Name="Address1" ColumnName="Address" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="Country" ColumnName="Country" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Educations">
+            <EntityTypeMapping TypeName="EmployeeOnboardingModel.Education">
+              <MappingFragment StoreEntitySet="Education">
+                <ScalarProperty Name="Education_id" ColumnName="Education_id" />
+                <ScalarProperty Name="Employee_id" ColumnName="Employee_id" />
+                <ScalarProperty Name="Course" ColumnName="Course" />
+                <ScalarProperty Name="Institute" ColumnName="Institute" />
+                <ScalarProperty Name="GradePoint" ColumnName="GradePoint" />
+                <ScalarProperty Name="From" ColumnName="From" />
+                <ScalarProperty Name="To" ColumnName="To" />
+                <ScalarProperty Name="YearOfPassing" ColumnName="YearOfPassing" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Employees">
+            <EntityTypeMapping TypeName="EmployeeOnboardingModel.Employee">
+              <MappingFragment StoreEntitySet="Employee">
+                <ScalarProperty Name="Employee_id" ColumnName="Employee_id" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="PersonalEmail" ColumnName="PersonalEmail" />
+                <ScalarProperty Name="Contact" ColumnName="Contact" />
+                <ScalarProperty Name="JobTitle" ColumnName="JobTitle" />
+                <ScalarProperty Name="Department" ColumnName="Department" />
+                <ScalarProperty Name="Compensation" ColumnName="Compensation" />
+                <ScalarProperty Name="DOJ" ColumnName="DOJ" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="ReportingTo" ColumnName="ReportingTo" />
+                <ScalarProperty Name="isAdmin" ColumnName="isAdmin" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PersonalInfoes">
+            <EntityTypeMapping TypeName="EmployeeOnboardingModel.PersonalInfo">
+              <MappingFragment StoreEntitySet="PersonalInfo">
+                <ScalarProperty Name="PersonalInfo_id" ColumnName="PersonalInfo_id" />
+                <ScalarProperty Name="Employee_id" ColumnName="Employee_id" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
+                <ScalarProperty Name="PlaceOfBirth" ColumnName="PlaceOfBirth" />
+                <ScalarProperty Name="MaritalStatus" ColumnName="MaritalStatus" />
+                <ScalarProperty Name="BloodGroup" ColumnName="BloodGroup" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PreviousEmployments">
+            <EntityTypeMapping TypeName="EmployeeOnboardingModel.PreviousEmployment">
+              <MappingFragment StoreEntitySet="PreviousEmployment">
+                <ScalarProperty Name="PreviousEmployment_id" ColumnName="PreviousEmployment_id" />
+                <ScalarProperty Name="Employee_id" ColumnName="Employee_id" />
+                <ScalarProperty Name="EmployerName" ColumnName="EmployerName" />
+                <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+                <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+                <ScalarProperty Name="Designation" ColumnName="Designation" />
+                <ScalarProperty Name="Salary" ColumnName="Salary" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Proofs">
+            <EntityTypeMapping TypeName="EmployeeOnboardingModel.Proof">
+              <MappingFragment StoreEntitySet="Proof">
+                <ScalarProperty Name="Proof_id" ColumnName="Proof_id" />
+                <ScalarProperty Name="Employee_id" ColumnName="Employee_id" />
+                <ScalarProperty Name="ProofCode" ColumnName="ProofCode" />
+                <ScalarProperty Name="ProofName" ColumnName="ProofName" />
+                <ScalarProperty Name="ProofId" ColumnName="ProofId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
