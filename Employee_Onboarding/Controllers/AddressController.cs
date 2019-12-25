@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
@@ -18,13 +19,13 @@ namespace Employee_Onboarding.Controllers
 
         [ResponseType(typeof(Address))]
         [Route("api/GetAddressess")]
-        public IHttpActionResult GetAddress()
+        public IHttpActionResult GetAddressess()
         {
             try
             {
                 var listOfAddress = db.Addresses.Select(emp => new
                 {
-                    ID = emp.Address_id,
+                    Address_id = emp.Address_id,
                     PersonalInfo_id = emp.PersonalInfo_id,
                     AddressCode = emp.AddressCode,
                     Address1 = emp.Address1,
@@ -45,7 +46,7 @@ namespace Employee_Onboarding.Controllers
         [HttpGet]
         [Route("api/GetAddress/{id=id}")]
         [ResponseType(typeof(Address))]
-        public IHttpActionResult GetPersonalInfo(string id)
+        public IHttpActionResult GetAddress(string id)
         {
             try
             {
@@ -54,7 +55,7 @@ namespace Employee_Onboarding.Controllers
                 {
                     var listOfAddress = db.Addresses.Where(x => x.PersonalInfo_id == empId).Select(emp => new
                     {
-                        ID = emp.Address_id,
+                        Address_id = emp.Address_id,
                         PersonalInfo_id = emp.PersonalInfo_id,
                         AddressCode = emp.AddressCode,
                         Address1 = emp.Address1,
@@ -78,7 +79,7 @@ namespace Employee_Onboarding.Controllers
         [HttpPost]
         [Route("api/AddAddress/{id=id}")]
         [ResponseType(typeof(Address))]
-        public IHttpActionResult AddPreviousEmployment(string id, Address address)
+        public IHttpActionResult AddAddress(string id, Address address)
         {
             try
             {
@@ -93,6 +94,61 @@ namespace Employee_Onboarding.Controllers
                 return Ok("Employee Addresses Details Successfully Added");
             }
 
+            catch (Exception ex)
+            {
+                LogFile.WriteLog(ex);
+                return BadRequest();
+            }
+        }
+
+        [HttpPost]                                                        //All three Education as a single entry
+        [Route("api/AddAllAddress/{id=id}")]
+        [ResponseType(typeof(Address))]
+        public IHttpActionResult PostAddress(string id, List<Address> address)
+        {
+            try
+            {
+                var empid = DatabaseAction.GetEmployeeID(id);
+                if (!ModelState.IsValid)
+                {
+                    return BadRequest(ModelState);
+                }
+                foreach (var vp in address)
+                {
+                    db.Addresses.Add(vp);
+                }
+                db.SaveChanges();
+                return Ok("Employee Address Details Successfully Added");
+            }
+            catch (Exception ex)
+            {
+                LogFile.WriteLog(ex);
+                return BadRequest();
+            }
+        }
+
+        [HttpPut]                                                        //All three Proof in a single entry
+        [Route("api/PutAllAddress/{id=id}")]
+        [ResponseType(typeof(Address))]
+        public IHttpActionResult PutAllAddress(string id, List<Address> address)
+        {
+            try
+            {
+                var empid = DatabaseAction.GetEmployeeID(id);
+                if (!ModelState.IsValid)
+                {
+                    return BadRequest(ModelState);
+                }
+
+                foreach (var vp in address)
+                {
+                    db.Entry(vp).State = EntityState.Modified;
+                }
+
+
+                db.SaveChanges();
+                return Ok("Address Details Updated Successfully");
+            }
             catch (Exception ex)
             {
                 LogFile.WriteLog(ex);

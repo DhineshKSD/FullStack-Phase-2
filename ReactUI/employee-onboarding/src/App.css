@@ -1,0 +1,31 @@
+body{
+  overflow-x: hidden;
+}
+.App {    
+  text-align: center;   
+  color :black; 
+}    
+.navheader{    
+  position: sticky;
+  margin-top: 10px;    
+  background-color: #d4d7da;
+  width:100%;  
+  font-weight: bold; 
+}
+label{
+  position: relative;
+  right:36%;
+}
+.form{
+  position: relative;
+  left:33.5%;
+}
+#submit{
+  position: relative;
+  left:3em;
+}
+#cancel{
+  position: relative;
+  left:10em;
+  bottom: 2.25em;
+}

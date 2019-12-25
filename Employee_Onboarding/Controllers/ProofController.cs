@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
@@ -18,13 +19,13 @@ namespace Employee_Onboarding.Controllers
 
         [ResponseType(typeof(Proof))]
         [Route("api/GetProofs")]
-        public IHttpActionResult GetPreviousEmployments()
+        public IHttpActionResult GetProofs()
         {
             try
             {
                 var listOfProof = db.Proofs.Select(emp => new
                 {
-                    ID = emp.Proof_id,
+                    Proof_id = emp.Proof_id,
                     Employee_id = emp.Employee_id,
                     ProofCode = emp.ProofCode,
                     ProofName = emp.ProofName,
@@ -43,7 +44,7 @@ namespace Employee_Onboarding.Controllers
         [HttpGet]
         [Route("api/GetProof/{id=id}")]
         [ResponseType(typeof(Proof))]
-        public IHttpActionResult GetPreviousEmployment(string id)
+        public IHttpActionResult GetProof(string id)
         {
             try
             {
@@ -52,7 +53,7 @@ namespace Employee_Onboarding.Controllers
                 {
                     var listOfProof = db.Proofs.Where(x => x.Employee_id == empId).Select(emp => new
                     {
-                        ID = emp.Proof_id,
+                        Proof_id = emp.Proof_id,
                         Employee_id = emp.Employee_id,
                         ProofCode = emp.ProofCode,
                         ProofName = emp.ProofName,
@@ -74,7 +75,7 @@ namespace Employee_Onboarding.Controllers
         [HttpPost]
         [Route("api/AddProof/{id=id}")]
         [ResponseType(typeof(Proof))]
-        public IHttpActionResult AddPreviousEmployment(string id, Proof proof)
+        public IHttpActionResult AddProof(string id, Proof proof)
         {
             try
             {
@@ -89,6 +90,61 @@ namespace Employee_Onboarding.Controllers
                 return Ok("Employee proof Details Successfully Added");
             }
 
+            catch (Exception ex)
+            {
+                LogFile.WriteLog(ex);
+                return BadRequest();
+            }
+        }
+
+        [HttpPost]                                                        //All three Proof in a single entry
+        [Route("api/AddAllProof/{id=id}")]
+        [ResponseType(typeof(Proof))]
+        public IHttpActionResult PostProof(string id, List<Proof> proof)
+        {
+            try
+            {
+                var empid = DatabaseAction.GetEmployeeID(id);
+                if (!ModelState.IsValid)
+                {
+                    return BadRequest(ModelState);
+                }
+                foreach (var vp in proof)
+                {
+                    db.Proofs.Add(vp);
+                }
+                db.SaveChanges();
+                return Ok("Employee proof Details Successfully Added");
+            }
+            catch (Exception ex)
+            {
+                LogFile.WriteLog(ex);
+                return BadRequest();
+            }
+        }
+
+        [HttpPut]                                                        //All three Proof in a single entry
+        [Route("api/PutAllProof/{id=id}")]
+        [ResponseType(typeof(Proof))]
+        public IHttpActionResult PutProof(string id, List<Proof> proof)
+        {
+            try
+            {
+                var empid = DatabaseAction.GetEmployeeID(id);
+                if (!ModelState.IsValid)
+                {
+                    return BadRequest(ModelState);
+                }
+
+                foreach (var vp in proof)
+                {
+                    db.Entry(vp).State = EntityState.Modified;
+                }
+                
+
+                db.SaveChanges();
+                return Ok("Proof Details Updated Successfully");
+            }
             catch (Exception ex)
             {
                 LogFile.WriteLog(ex);

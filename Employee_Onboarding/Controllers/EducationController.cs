@@ -78,10 +78,36 @@ namespace Employee_Onboarding.Controllers
                 return BadRequest();
             }
         }
-        [HttpPost]
+        [HttpPost]                                                        //All three Education as a single entry
         [Route("api/AddEducation/{id=id}")]
         [ResponseType(typeof(Education))]
-        public IHttpActionResult PostEducation(string id, Education education)
+        public IHttpActionResult PostEducation(string id, List<Education> education)
+        {
+            try
+            {
+                var empid = DatabaseAction.GetEmployeeID(id);
+                if (!ModelState.IsValid)
+                {
+                    return BadRequest(ModelState);
+                }
+                foreach (var vp in education)
+                {
+                    db.Educations.Add(vp);
+                }
+                db.SaveChanges();
+                return Ok("Employee Education Details Successfully Added");
+            }
+            catch (Exception ex)
+            {
+                LogFile.WriteLog(ex);
+                return BadRequest();
+            }
+        }
+
+        [HttpPost]                                                        //One Education At a Time
+        [Route("api/AddEducation1/{id=id}")]
+        [ResponseType(typeof(Education))]
+        public IHttpActionResult PostEducation1(string id,Education education)
         {
             try
             {
@@ -103,12 +129,12 @@ namespace Employee_Onboarding.Controllers
             }
         }
 
+
         [HttpPut]
         [ResponseType(typeof(void))]
         [Route("api/PutEducation/{id=id}")]
         public IHttpActionResult PutEmployee(string id, Education education)
-        {
-            
+        {  
             try
             {
                 education.Employee_id = DatabaseAction.GetEmployeeID(id);
@@ -130,22 +156,54 @@ namespace Employee_Onboarding.Controllers
             }
         }
 
+        [HttpPut]                                                        //All three Proof in a single entry
+        [Route("api/PutAllEducation/{id=id}")]
+        [ResponseType(typeof(Proof))]
+        public IHttpActionResult PutAllEducation(string id, List<Education> education)
+        {
+            try
+            {
+                var empid = DatabaseAction.GetEmployeeID(id);
+                if (!ModelState.IsValid)
+                {
+                    return BadRequest(ModelState);
+                }
+
+                foreach (var vp in education)
+                {
+                    db.Entry(vp).State = EntityState.Modified;
+                }
+
+
+                db.SaveChanges();
+                return Ok("Education Details Updated Successfully");
+            }
+            catch (Exception ex)
+            {
+                LogFile.WriteLog(ex);
+                return BadRequest();
+            }
+        }
+
         [HttpDelete]
         [Route("api/removeEducation/{id=id}")]
         [ResponseType(typeof(Education))]
         
-        public IHttpActionResult DeleteEducation(int id)
+        public IHttpActionResult DeleteEducation(string id)
         {
-            Education education = db.Educations.Find(id);
-            if (education == null)
+            var empid =  DatabaseAction.GetEmployeeID(id);
+            var y = db.Educations.Where(x => x.Employee_id == empid).ToList();
+            if (y == null)
             {
                 return NotFound();
             }
-
-            db.Educations.Remove(education);
+            foreach (var vp in y)
+            {
+                db.Educations.Remove(vp);
+            }
             db.SaveChanges();
 
-            return Ok(education);
+            return Ok("Education Details Successfully Deleted");
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
@@ -24,7 +25,7 @@ namespace Employee_Onboarding.Controllers
             {
                 var listOfPreviousEmployment = db.PreviousEmployments.Select(emp => new
                 {
-                    ID = emp.PreviousEmployment_id,
+                    PreviousEmployment_id = emp.PreviousEmployment_id,
                     Employee_id = emp.Employee_id,
                     EmployerName = emp.EmployerName,
                     StartDate = emp.StartDate,
@@ -54,7 +55,7 @@ namespace Employee_Onboarding.Controllers
                 {
                     var listOfPreviousEmployment = db.PreviousEmployments.Where(x => x.Employee_id == empId).Select(emp => new
                     {
-                        ID = emp.PreviousEmployment_id,
+                        PreviousEmployment_id = emp.PreviousEmployment_id,
                         Employee_id = emp.Employee_id,
                         EmployerName = emp.EmployerName,
                         StartDate = emp.StartDate,
@@ -93,6 +94,33 @@ namespace Employee_Onboarding.Controllers
                 return Ok("Employee PreviousEmployments Details Successfully Added");
             }
 
+            catch (Exception ex)
+            {
+                LogFile.WriteLog(ex);
+                return BadRequest();
+            }
+        }
+
+
+        [HttpPut]
+        [ResponseType(typeof(void))]
+        [Route("api/PutPreviousEmployment/{id=id}")]
+        public IHttpActionResult PutPreviousEmployment(string id, PreviousEmployment previousemployment)
+        {
+            try
+            {
+                previousemployment.Employee_id = DatabaseAction.GetEmployeeID(id);
+                if (!ModelState.IsValid)
+                {
+                    return BadRequest(ModelState);
+                }
+
+
+                db.Entry(previousemployment).State = EntityState.Modified;
+
+                db.SaveChanges();
+                return Ok("Previous Employment Details Updated Successfully");
+            }
             catch (Exception ex)
             {
                 LogFile.WriteLog(ex);

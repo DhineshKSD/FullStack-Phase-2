@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
@@ -24,7 +25,7 @@ namespace Employee_Onboarding.Controllers
             {
                 var listOfPersonalInfo = db.PersonalInfoes.Select(emp => new
                 {
-                    ID = emp.PersonalInfo_id,
+                    PersonalInfo_id = emp.PersonalInfo_id,
                     Employee_id = emp.Employee_id,
                     Gender = emp.Gender,
                     DateOfBirth = emp.DateOfBirth,
@@ -54,7 +55,7 @@ namespace Employee_Onboarding.Controllers
                 {
                     var listOfPersonalInfo = db.PersonalInfoes.Where(x => x.Employee_id == empId).Select(emp => new
                     {
-                        ID = emp.PersonalInfo_id,
+                        PersonalInfo_id = emp.PersonalInfo_id,
                         Employee_id = emp.Employee_id,
                         Gender = emp.Gender,
                         DateOfBirth = emp.DateOfBirth,
@@ -78,7 +79,7 @@ namespace Employee_Onboarding.Controllers
         [HttpPost]
         [Route("api/AddPersonalInfo/{id=id}")]
         [ResponseType(typeof(PreviousEmployment))]
-        public IHttpActionResult AddPreviousEmployment(string id, PersonalInfo personalinfo)
+        public IHttpActionResult AddPersonalInfo(string id, PersonalInfo personalinfo)
         {
             try
             {
@@ -93,6 +94,61 @@ namespace Employee_Onboarding.Controllers
                 return Ok("Employee PersonalInfo Details Successfully Added");
             }
 
+            catch (Exception ex)
+            {
+                LogFile.WriteLog(ex);
+                return BadRequest();
+            }
+        }
+
+        [HttpPut]                                                        //All three Proof in a single entry
+        [Route("api/PutPersonalInfo/{id=id}")]
+        [ResponseType(typeof(Proof))]
+        public IHttpActionResult PutPersonalInfo(string id, List<Education> education)
+        {
+            try
+            {
+                var empid = DatabaseAction.GetEmployeeID(id);
+                if (!ModelState.IsValid)
+                {
+                    return BadRequest(ModelState);
+                }
+
+                foreach (var vp in education)
+                {
+                    db.Entry(vp).State = EntityState.Modified;
+                }
+
+
+                db.SaveChanges();
+                return Ok("Education Details Updated Successfully");
+            }
+            catch (Exception ex)
+            {
+                LogFile.WriteLog(ex);
+                return BadRequest();
+            }
+        }
+
+        [HttpPut]
+        [ResponseType(typeof(void))]
+        [Route("api/PutPersonalInfo1/{id=id}")]
+        public IHttpActionResult PutPersonalInfo1(string id, PersonalInfo personalinfo)
+        {
+            try
+            {
+                personalinfo.Employee_id = DatabaseAction.GetEmployeeID(id);
+                if (!ModelState.IsValid)
+                {
+                    return BadRequest(ModelState);
+                }
+
+
+                db.Entry(personalinfo).State = EntityState.Modified;
+
+                db.SaveChanges();
+                return Ok("Personalinfo Details Updated Successfully");
+            }
             catch (Exception ex)
             {
                 LogFile.WriteLog(ex);

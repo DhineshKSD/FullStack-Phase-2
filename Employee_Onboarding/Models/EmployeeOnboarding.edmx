@@ -9,7 +9,7 @@
           <Key>
             <PropertyRef Name="Address_id" />
           </Key>
-          <Property Name="Address_id" Type="int" Nullable="false" />
+          <Property Name="Address_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="PersonalInfo_id" Type="int" Nullable="false" />
           <Property Name="AddressCode" Type="varchar" MaxLength="10" Nullable="false" />
           <Property Name="Address" Type="nvarchar(max)" Nullable="false" />
@@ -52,7 +52,7 @@
           <Key>
             <PropertyRef Name="PersonalInfo_id" />
           </Key>
-          <Property Name="PersonalInfo_id" Type="int" Nullable="false" />
+          <Property Name="PersonalInfo_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Employee_id" Type="int" Nullable="false" />
           <Property Name="Gender" Type="varchar" MaxLength="10" Nullable="false" />
           <Property Name="DateOfBirth" Type="date" Nullable="false" />
@@ -64,7 +64,7 @@
           <Key>
             <PropertyRef Name="PreviousEmployment_id" />
           </Key>
-          <Property Name="PreviousEmployment_id" Type="int" Nullable="false" />
+          <Property Name="PreviousEmployment_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Employee_id" Type="int" Nullable="false" />
           <Property Name="EmployerName" Type="nvarchar(max)" />
           <Property Name="StartDate" Type="date" />
@@ -76,7 +76,7 @@
           <Key>
             <PropertyRef Name="Proof_id" />
           </Key>
-          <Property Name="Proof_id" Type="int" Nullable="false" />
+          <Property Name="Proof_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Employee_id" Type="int" Nullable="false" />
           <Property Name="ProofCode" Type="varchar" MaxLength="10" Nullable="false" />
           <Property Name="ProofName" Type="nvarchar(max)" Nullable="false" />
