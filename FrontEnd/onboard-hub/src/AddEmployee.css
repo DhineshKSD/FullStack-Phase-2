@@ -4,11 +4,3 @@
   margin-bottom: 10px;    
   color :black !important;    
 }
-body{
-    overflow: auto;
-}
-#button{
-    position: relative;
-    right: 0em;
-    bottom: 23em;
-  }

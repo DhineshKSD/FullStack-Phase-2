@@ -1,0 +1,44 @@
+#formemp{
+  position: relative;
+  width: 40%;
+  Left:31%;
+}
+body{
+  overflow-x: hidden;
+}
+.App {    
+  text-align: center;   
+  color :black; 
+}   
+h4{
+  position: relative;
+  top:0.8em;
+} 
+.navheader{   
+  position: sticky;
+  margin-top: 10px;    
+  background-color: #d4d7da;
+  width:100%;  
+  font-weight: bold; 
+}
+label{
+  position: relative;
+  text-align: left;
+}
+
+#side1{
+  position: relative;
+  top:4.25em;
+  left:-2.25%;
+}
+#side2{
+  position: relative;
+  left:55%;
+  bottom: 16em;
+}
+#button{
+  position: relative;
+  right: 0em;
+  bottom: 11em;
+}
+

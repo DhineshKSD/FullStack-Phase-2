@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http.Formatting;
 using System.Web.Http;
+using System.Web.Http.Cors;
 
 namespace Employee_Onboarding
 {
@@ -13,6 +14,9 @@ namespace Employee_Onboarding
             // Web API configuration and services
 
             // Web API routes
+            EnableCorsAttribute cors = new EnableCorsAttribute("*", "*", "*");
+            config.EnableCors(cors);
+
             config.Formatters.JsonFormatter.AddUriPathExtensionMapping("json", "application/json");
             var json = config.Formatters.JsonFormatter;
             json.SerializerSettings.PreserveReferencesHandling = Newtonsoft.Json.PreserveReferencesHandling.Objects;

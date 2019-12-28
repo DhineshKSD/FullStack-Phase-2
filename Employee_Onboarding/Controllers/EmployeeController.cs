@@ -19,7 +19,7 @@ namespace Employee_Onboarding.Controllers
         // GET: api/Employees
         [HttpGet]
         [Route("api/GetEmployees")]
-        public IHttpActionResult GetEmployees()
+        public object GetEmployees()
         {
             try
             {
@@ -40,7 +40,7 @@ namespace Employee_Onboarding.Controllers
                     isAdmin = r.isAdmin,
                 });
 
-                return Ok(listOfEmployees.ToList());
+                return listOfEmployees.ToList();
             }
             catch (Exception ex)
             {
@@ -105,7 +105,7 @@ namespace Employee_Onboarding.Controllers
         [HttpPost]
         [Route("api/signup/addEmployee")]
         [ResponseType(typeof(Employee))]
-        public IHttpActionResult PostEmployee(Employee employee)
+        public object PostEmployee(Employee employee)
         {
             try
             {
@@ -123,7 +123,11 @@ namespace Employee_Onboarding.Controllers
                 }
                 db.Employees.Add(employee);
                 db.SaveChanges();
-                return Ok("Employee Successfully Added");
+                return new Response
+                {
+                    Status = "Success",
+                    Message = "Data Successfully"
+                };
             }
 
             catch (Exception ex)

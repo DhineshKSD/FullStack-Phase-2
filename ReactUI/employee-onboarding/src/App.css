@@ -4,8 +4,16 @@ body{
 .App {    
   text-align: center;   
   color :black; 
-}    
-.navheader{    
+}   
+h4{
+  position: relative;
+  top:-0.8em;
+} 
+h3{
+  position: relative;
+  bottom: 0.5em;
+}
+.navheader{   
   position: sticky;
   margin-top: 10px;    
   background-color: #d4d7da;
@@ -14,18 +22,59 @@ body{
 }
 label{
   position: relative;
-  right:36%;
+  text-align: left;
 }
-.form{
+#button{
   position: relative;
-  left:33.5%;
+  right: 0em;
+  bottom: 23em;
 }
-#submit{
+#formemp{
   position: relative;
-  left:3em;
+  width: 40%;
+  Left:7%;
+  top:-1em;
 }
-#cancel{
+#formemp1{
   position: relative;
-  left:10em;
-  bottom: 2.25em;
+  width: 40%;
+  Left:55%;
+  bottom: 27.9em;
 }
+.container{
+  position: relative;
+  top:4em;
+}
+#nav{
+  position: fixed;
+  top:5em;
+}
+#nav1{
+  position: relative;
+  top:0em;
+}
+.position-fixed{
+  width:50%;
+  left:25%;
+}
+.nav-item{
+  position: relative;
+  left:11em;
+}
+h1{
+  position: relative;
+  top:4em;
+  left:2em;
+}
+#message{
+  position: relative;
+  top:4.5em;
+  height:70vh;
+}
+#message1{
+  position: relative;
+  top:4.5em;
+  min-height: 70vh;
+  height:auto;
+}
+
