@@ -8,24 +8,23 @@ export class Home extends Component {
     render() {
         return (
             <div id="card">
-                <Paper elevation={3}>
-                        <Card id="CardMessage">
-                            <Paper elevation={3}>
-                                <Card id="card1">
+               
+                        <Card id="CardMessage" elevation={3}>
+                           
+                                <Card id="card1" elevation={7}>
                                 <CardContent>
                                 <img src={Employee} className="Employee-logo" alt="logo" />
                                 </CardContent>
                                 </Card>
-                            </Paper>
-                            <Paper elevation={3}>
-                                <Card id="card2">
+                        
+                                <Card id="card2" elevation={7}>
                                 <CardContent>
                                 <p id="Welcome">Welcome To Psiog's Employee On-Boarding Hub</p>
                                 </CardContent>
                                 </Card>
-                            </Paper>
+                            
                         </Card>   
-                </Paper>
+              
             </div>
         )
     }

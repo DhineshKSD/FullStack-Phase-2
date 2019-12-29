@@ -14,6 +14,8 @@ import NotificationsIcon from '@material-ui/icons/Notifications';
 import MoreIcon from '@material-ui/icons/MoreVert';
 import '../App.css';  
 import logo from '../Assets/OnboardLogo.png';
+import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom'; 
+import AppRouter from '../AppRouter';
 
 const useStyles = makeStyles(theme => ({
   grow: {
@@ -164,7 +166,9 @@ export default function PrimarySearchAppBar() {
     <div className={classes.grow}>
       <AppBar position="fixed" className="not-scrolled">
         <Toolbar>
-        <img src={logo} className="App-logo" alt="logo" />
+        <Router>
+        <Link to={'/Home'} onClick={event =>  window.location.href='/Home'}><img src={logo} className="App-logo" alt="logo" /></Link>
+        </Router>
           <Typography id="Heading" className={classes.title} variant="h6" noWrap>
             On-Board Hub
           </Typography>

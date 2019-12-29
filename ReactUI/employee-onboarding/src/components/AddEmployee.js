@@ -89,12 +89,12 @@ this.setState({[e.target.name]:e.target.value});
  
 render() {  
 return (  
-   <Container className="App">  
+   <Container className="EmployeeCardContainer">  
     
     <Paper elevation={3}>
     <Card id="EmployeeCard" >
       <CardContent> 
-      <h3 className="PageHeading">Enter NewHires Informations</h3> 
+      <h3 className="PageHeading">Enter New-Hires Informations</h3> 
       <Form className="form" >  
         <div id="formemp">
           <Col>  
@@ -141,12 +141,12 @@ return (
         <FormGroup row id="button">  
           <Col sm={5} >  
           </Col>  
-          <Col sm={1}>  
+          <Col sm={1} id="AddEmpButton">  
           <ButtonMat id="submit"type="button" onClick={this.AddEmployee} variant="contained" color="primary">
           Submit
           </ButtonMat> 
           </Col>  
-          <Col sm={1}>  
+          <Col sm={1} id="AddEmpButton">  
           <ButtonMat variant="contained" color="secondary">Cancel</ButtonMat>{' '}  
           </Col>  
           <Col sm={5}>  

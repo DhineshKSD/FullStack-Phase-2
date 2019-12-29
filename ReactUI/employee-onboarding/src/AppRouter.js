@@ -1,7 +1,8 @@
 import React from 'react';  
 import AddEmployee from '../src/components/AddEmployee';  
 import Employeelist from '../src/components/EmployeeList';  
-import EditEmployee from '../src/components/EditEmployee';  
+import EditEmployee from '../src/components/EditEmployee'; 
+import PersonalInfo from '../src/components/PersonalInfo'; 
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom'; 
 import Home from '../src/components/Home';
 import '../src/App.css'; 
@@ -30,7 +31,8 @@ const AppRouter = () => {
           <Route exact path='/Home' component={Home} /> 
           <Route path='/AddEmployee' component={AddEmployee} />  
           <Route path='/edit/:id' component={EditEmployee} />  
-          <Route path='/Employeelist' component={Employeelist} />  
+          <Route path='/Employeelist' component={Employeelist} />
+          <Route path='/PersonalInfo' component={PersonalInfo} />   
         </Switch>  
       </div>  
     </Router>  

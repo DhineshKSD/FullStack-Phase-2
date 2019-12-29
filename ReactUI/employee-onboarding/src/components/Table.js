@@ -2,6 +2,11 @@ import React, { Component } from 'react';
 import axios from 'axios';  
 import { Link } from 'react-router-dom';  
 import ButtonMat from '@material-ui/core/Button';
+import EditIcon from '@material-ui/icons/Edit';
+import DeleteIcon from '@material-ui/icons/Delete';
+import SendIcon from '@material-ui/icons/Send';
+
+
 class Table extends Component {  
   constructor(props) {  
     super(props);  
@@ -30,13 +35,13 @@ class Table extends Component {
             {this.props.obj.Department}  
           </td>  
           <td>  
-          <Link to={"/edit/"+this.props.obj.Employee_id} style={{ textDecoration: 'none' }}><ButtonMat variant="contained" color="Primary">Edit</ButtonMat></Link>  
+          <Link to={"/edit/"+this.props.obj.Employee_id} style={{ textDecoration: 'none' }}><ButtonMat elevation={3} variant="contained" color="Primary" startIcon={<EditIcon />}>Edit</ButtonMat></Link>  
           </td>  
           <td>  
-          <ButtonMat type="button" onClick={this.DeleteStudent} variant="contained" color="secondary">Delete</ButtonMat>  
+          <ButtonMat elevation={3} type="button" onClick={this.DeleteStudent} variant="contained" color="secondary" startIcon={<DeleteIcon />}>Delete</ButtonMat>  
           </td>  
           <td>  
-          <ButtonMat type="button" variant="contained" color="secondary">Initiate</ButtonMat>  
+          <ButtonMat elevation={3} type="button" variant="contained" color="inherit" startIcon={<SendIcon />}>Initiate</ButtonMat>
           </td>
         </tr>  
     );  

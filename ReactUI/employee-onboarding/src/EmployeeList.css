@@ -1,0 +1,15 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans|Roboto&display=swap');
+#EmpListHeading{
+    position: relative;
+    font-family: 'Open Sans', sans-serif;
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.7em;
+}
+#EmpListCard{
+    position: relative;
+    top:4.5em;
+    min-height: 70vh;
+    height:auto;
+  }
+  

@@ -36,7 +36,9 @@ const MaritalStatus = [
 class PersonalInfo extends React.Component{  
 constructor(props){  
 super(props)  
-this.state = {  
+this.state = { 
+  FirstName:'',
+  LastName:'', 
   Gender:'',  
   DateOfBirth:'',  
   PlaceOfBirth:'',  
@@ -49,9 +51,22 @@ this.state = {
   Address2:'',  
   City2:'',  
   State2:'',
-  Country2:'',  
+  Country2:'', 
 }  
-}   
+}  
+componentDidMount() {  
+  axios.get('https://localhost:44319/api/GetEmployee/'+this.props.match.params.id)  
+      .then(response => {  
+          this.setState({   
+            FirstName: response.data.FirstName,   
+            LastName: response.data.LastName,   
+        });  
+        console.log(response.data);
+      })  
+      .catch(function (error) {  
+          console.log(error);  
+      })  
+}  
 AddPersonalInfo=()=>{  
   axios.post('https://localhost:44319/api/signup/addEmployee', {
     Gender:this.state.Gender,
@@ -146,19 +161,21 @@ return (
                       <CardContent> 
                       <h3 className="AddressInfoPageHeading">Address Information Section</h3>  
                        <div id="FormAddressInfo">
+                         <p id="PermanentAddress">Permanent Address</p>
                             <Col>                   
                             <TextField type="text" required id="standard-required" label="Permanent Address" autoComplete="off" placeholder="Permanent Address" fullWidth margin="normal" name="Address1" value={this.state.Address1} onChange={this.handleChange}/>
-                            <TextField type="text" required id="standard-required" label="Permanent Address City" autoComplete="off" placeholder="Permanent Address City" fullWidth margin="normal" name="City1" value={this.state.City1} onChange={this.handleChange}/> 
-                            <TextField type="text" required id="standard-required" label="Permanent Address State" autoComplete="off" placeholder="Permanent Address State" fullWidth margin="normal" name="State1" value={this.state.State1} onChange={this.handleChange}/>
-                            <TextField type="text" required id="standard-required" label="Permanent Address Country" autoComplete="off" placeholder="Permanent Address Country" fullWidth margin="normal" name="Country1" value={this.state.Country1} onChange={this.handleChange}/>   
-                             </Col>
+                            <TextField type="text" required id="standard-required" label="City" autoComplete="off" placeholder="City" fullWidth margin="normal" name="City1" value={this.state.City1} onChange={this.handleChange}/> 
+                            <TextField type="text" required id="standard-required" label="State" autoComplete="off" placeholder="State" fullWidth margin="normal" name="State1" value={this.state.State1} onChange={this.handleChange}/>
+                            <TextField type="text" required id="standard-required" label="Country" autoComplete="off" placeholder="Country" fullWidth margin="normal" name="Country1" value={this.state.Country1} onChange={this.handleChange}/>   
+                            </Col>
                       </div>
                       <div id="FormAddressInfo1">
+                      <p id="PresentAddress">Present Address</p>
                             <Col>                   
                             <TextField type="text" required id="standard-required" label="Present Address" autoComplete="off" placeholder="Present Address" fullWidth margin="normal" name="Address2" value={this.state.Address2} onChange={this.handleChange}/>
-                            <TextField type="text" required id="standard-required" label="Present Address City" autoComplete="off" placeholder="Present Address City" fullWidth margin="normal" name="City2" value={this.state.City2} onChange={this.handleChange}/> 
-                            <TextField type="text" required id="standard-required" label="Present Address State" autoComplete="off" placeholder="Present Address State" fullWidth margin="normal" name="State2" value={this.state.State2} onChange={this.handleChange}/>
-                            <TextField type="text" required id="standard-required" label="Present Address Country" autoComplete="off" placeholder="Present Address Country" fullWidth margin="normal" name="Country2" value={this.state.Country2} onChange={this.handleChange}/>   
+                            <TextField type="text" required id="standard-required" label="City" autoComplete="off" placeholder="City" fullWidth margin="normal" name="City2" value={this.state.City2} onChange={this.handleChange}/> 
+                            <TextField type="text" required id="standard-required" label="State" autoComplete="off" placeholder="State" fullWidth margin="normal" name="State2" value={this.state.State2} onChange={this.handleChange}/>
+                            <TextField type="text" required id="standard-required" label="Country" autoComplete="off" placeholder="Country" fullWidth margin="normal" name="Country2" value={this.state.Country2} onChange={this.handleChange}/>   
                              </Col>
                       </div>
                      </CardContent>

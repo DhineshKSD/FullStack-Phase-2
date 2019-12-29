@@ -30,9 +30,17 @@ export default function CenteredTabs() {
         textColor="primary"
         centered
       >
-        <Tab label="Home"/>
-        <Tab label="Add Employee" />
-        <Tab label="On-Boarding Queue" />
+        
+        <Router>
+        <Link to={'/Home'} style={{ textDecoration: 'none' }} onClick={event =>  window.location.href='/Home'}><Tab label="Home"/></Link>
+        </Router>
+        <Router>
+        <Link to={'/AddEmployee'} style={{ textDecoration: 'none' }} onClick={event =>  window.location.href='/AddEmployee'}><Tab label="Add Employee" /></Link>
+        </Router>
+        <Router>
+        <Link to={'/Employeelist'} style={{ textDecoration: 'none' }} onClick={event =>  window.location.href='/Employeelist'}><Tab label="On-Boarding Queue" /></Link>
+        </Router>
+       
       </Tabs>
     </Paper>
   );

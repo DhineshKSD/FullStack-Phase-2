@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';  
 import Table from './Table';  
 import '../App.css';
+import '../EmployeeList.css'
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 export default class Employeelist extends Component {  
@@ -29,9 +30,9 @@ export default class Employeelist extends Component {
     render() {  
       return (  
         <div>  
-          <Card id="message1">
+          <Card id="EmpListCard" elevation={3}>
                 <CardContent>
-          <h5 align="center">On-Boarding Queue</h5>  
+          <h5 id="EmpListHeading" align="center">On-Boarding Queue</h5>  
           <table className="table table-striped" style={{ marginTop: '1em' }}>  
             <thead>  
               <tr>  

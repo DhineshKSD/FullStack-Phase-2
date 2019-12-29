@@ -6,6 +6,7 @@ import ButtonMat from '@material-ui/core/Button';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom'; 
 import TextField from '@material-ui/core/TextField';
 import Employeelist from '../components/EmployeeList'; 
+import '../EditEmployee.css';
 import Card from '@material-ui/core/Card';
 import MenuItem from '@material-ui/core/MenuItem';
 import CardContent from '@material-ui/core/CardContent';
@@ -168,12 +169,12 @@ onChangeReportingTo(e) {
   }  
     render() {  
         return (  
-            <Container className="App">  
-            <Card id="EmployeeEdit">
+            <Container className="EmployeeEditCard">  
+            <Card elevation={3} id="EmployeeEdit">
                 <CardContent>
-             <h4 className="PageHeading">Update Employee Informations</h4>  
+             <h4 className="EmployeeEditPageHeading">Update Employee Informations</h4>  
                 <Form className="form" onSubmit={this.onSubmit}>  
-                <div id="formemp">
+                <div id="EditForm1">
                     <Col>  
                     <TextField type="text" required id="standard-required" label="FirstName" autoComplete="off" placeholder="FirstName" fullWidth margin="normal" name="FirstName" value={this.state.FirstName} onChange={this.onChangeFirstName} />
 
@@ -200,7 +201,7 @@ onChangeReportingTo(e) {
                         </TextField>
                         </Col>
                 </div>
-                <div id="formemp1">
+                <div id="EditForm2">
           <Col>
           <TextField type="number" required id="standard-required" label="Compensation" autoComplete="off" placeholder="Compensation" fullWidth margin="normal" name="Compensation" value={this.state.Compensation} onChange={this.onChangeCompensation}/>
 
@@ -217,12 +218,12 @@ onChangeReportingTo(e) {
                         <FormGroup id="button" row>  
                             <Col sm={5}>  
                             </Col>  
-                            <Col sm={1}>  
+                            <Col sm={1} id="EditEmpButton">  
                             <ButtonMat id="submit" type="submit" variant="contained" color="primary">
                              Submit
                             </ButtonMat> {' '}  
                             </Col>   
-                            <Col sm={1}>  
+                            <Col sm={1} id="EditEmpButton">  
                             <Link to={'/Employeelist'} style={{ textDecoration: 'none' }}><ButtonMat variant="contained" color="secondary">Cancel</ButtonMat>{' '}  </Link>
                             </Col>  
                             <Col sm={5}>  
