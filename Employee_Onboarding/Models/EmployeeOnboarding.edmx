@@ -5,18 +5,6 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="EmployeeOnboardingModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <EntityType Name="Address">
-          <Key>
-            <PropertyRef Name="Address_id" />
-          </Key>
-          <Property Name="Address_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="PersonalInfo_id" Type="int" Nullable="false" />
-          <Property Name="AddressCode" Type="varchar" MaxLength="10" Nullable="false" />
-          <Property Name="Address" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="City" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="State" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="Country" Type="nvarchar(max)" Nullable="false" />
-        </EntityType>
         <EntityType Name="Education">
           <Key>
             <PropertyRef Name="Education_id" />
@@ -24,6 +12,7 @@
           <Property Name="Education_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Employee_id" Type="int" Nullable="false" />
           <Property Name="Course" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="CourseCode" Type="varchar" MaxLength="10" Nullable="false" />
           <Property Name="Institute" Type="nvarchar(max)" Nullable="false" />
           <Property Name="GradePoint" Type="real" Nullable="false" />
           <Property Name="From" Type="date" Nullable="false" />
@@ -59,6 +48,14 @@
           <Property Name="PlaceOfBirth" Type="nvarchar(max)" Nullable="false" />
           <Property Name="MaritalStatus" Type="varchar" MaxLength="10" Nullable="false" />
           <Property Name="BloodGroup" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="Address1" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="City1" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="State1" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Country1" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Address2" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="City2" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="State2" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Country2" Type="nvarchar(max)" Nullable="false" />
         </EntityType>
         <EntityType Name="PreviousEmployment">
           <Key>
@@ -82,18 +79,6 @@
           <Property Name="ProofName" Type="nvarchar(max)" Nullable="false" />
           <Property Name="ProofId" Type="nvarchar(max)" Nullable="false" />
         </EntityType>
-        <Association Name="Address_PersonalInfo">
-          <End Role="PersonalInfo" Type="Self.PersonalInfo" Multiplicity="1" />
-          <End Role="Address" Type="Self.Address" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="PersonalInfo">
-              <PropertyRef Name="PersonalInfo_id" />
-            </Principal>
-            <Dependent Role="Address">
-              <PropertyRef Name="PersonalInfo_id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="Education_NewRecruit">
           <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
           <End Role="Education" Type="Self.Education" Multiplicity="*" />
@@ -143,16 +128,11 @@
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="EmployeeOnboardingModelStoreContainer">
-          <EntitySet Name="Address" EntityType="Self.Address" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Education" EntityType="Self.Education" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Employee" EntityType="Self.Employee" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PersonalInfo" EntityType="Self.PersonalInfo" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PreviousEmployment" EntityType="Self.PreviousEmployment" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Proof" EntityType="Self.Proof" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="Address_PersonalInfo" Association="Self.Address_PersonalInfo">
-            <End Role="PersonalInfo" EntitySet="PersonalInfo" />
-            <End Role="Address" EntitySet="Address" />
-          </AssociationSet>
           <AssociationSet Name="Education_NewRecruit" Association="Self.Education_NewRecruit">
             <End Role="Employee" EntitySet="Employee" />
             <End Role="Education" EntitySet="Education" />
@@ -174,19 +154,6 @@
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="EmployeeOnboardingModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityType Name="Address">
-          <Key>
-            <PropertyRef Name="Address_id" />
-          </Key>
-          <Property Name="Address_id" Type="Int32" Nullable="false" />
-          <Property Name="PersonalInfo_id" Type="Int32" Nullable="false" />
-          <Property Name="AddressCode" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Address1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="City" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="State" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Country" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="PersonalInfo" Relationship="Self.Address_PersonalInfo" FromRole="Address" ToRole="PersonalInfo" />
-        </EntityType>
         <EntityType Name="Education">
           <Key>
             <PropertyRef Name="Education_id" />
@@ -200,6 +167,7 @@
           <Property Name="To" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="YearOfPassing" Type="Int64" Nullable="false" />
           <NavigationProperty Name="Employee" Relationship="Self.Education_NewRecruit" FromRole="Education" ToRole="Employee" />
+          <Property Name="CourseCode" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="Employee">
           <Key>
@@ -234,8 +202,15 @@
           <Property Name="PlaceOfBirth" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="MaritalStatus" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="BloodGroup" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="Addresses" Relationship="Self.Address_PersonalInfo" FromRole="PersonalInfo" ToRole="Address" />
           <NavigationProperty Name="Employee" Relationship="Self.PersonalInfo_NewRecruit" FromRole="PersonalInfo" ToRole="Employee" />
+          <Property Name="Address1" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="City1" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="State1" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Country1" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Address2" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="City2" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="State2" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Country2" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="PreviousEmployment">
           <Key>
@@ -261,18 +236,6 @@
           <Property Name="ProofId" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="Employee" Relationship="Self.Proof_Employee" FromRole="Proof" ToRole="Employee" />
         </EntityType>
-        <Association Name="Address_PersonalInfo">
-          <End Role="PersonalInfo" Type="Self.PersonalInfo" Multiplicity="1" />
-          <End Role="Address" Type="Self.Address" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="PersonalInfo">
-              <PropertyRef Name="PersonalInfo_id" />
-            </Principal>
-            <Dependent Role="Address">
-              <PropertyRef Name="PersonalInfo_id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="Education_NewRecruit">
           <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
           <End Role="Education" Type="Self.Education" Multiplicity="*" />
@@ -322,16 +285,11 @@
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="EmployeeOnboardingEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="Addresses" EntityType="Self.Address" />
           <EntitySet Name="Educations" EntityType="Self.Education" />
           <EntitySet Name="Employees" EntityType="Self.Employee" />
           <EntitySet Name="PersonalInfoes" EntityType="Self.PersonalInfo" />
           <EntitySet Name="PreviousEmployments" EntityType="Self.PreviousEmployment" />
           <EntitySet Name="Proofs" EntityType="Self.Proof" />
-          <AssociationSet Name="Address_PersonalInfo" Association="Self.Address_PersonalInfo">
-            <End Role="PersonalInfo" EntitySet="PersonalInfoes" />
-            <End Role="Address" EntitySet="Addresses" />
-          </AssociationSet>
           <AssociationSet Name="Education_NewRecruit" Association="Self.Education_NewRecruit">
             <End Role="Employee" EntitySet="Employees" />
             <End Role="Education" EntitySet="Educations" />
@@ -355,22 +313,10 @@
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="EmployeeOnboardingModelStoreContainer" CdmEntityContainer="EmployeeOnboardingEntities">
-          <EntitySetMapping Name="Addresses">
-            <EntityTypeMapping TypeName="EmployeeOnboardingModel.Address">
-              <MappingFragment StoreEntitySet="Address">
-                <ScalarProperty Name="Address_id" ColumnName="Address_id" />
-                <ScalarProperty Name="PersonalInfo_id" ColumnName="PersonalInfo_id" />
-                <ScalarProperty Name="AddressCode" ColumnName="AddressCode" />
-                <ScalarProperty Name="Address1" ColumnName="Address" />
-                <ScalarProperty Name="City" ColumnName="City" />
-                <ScalarProperty Name="State" ColumnName="State" />
-                <ScalarProperty Name="Country" ColumnName="Country" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Educations">
             <EntityTypeMapping TypeName="EmployeeOnboardingModel.Education">
               <MappingFragment StoreEntitySet="Education">
+                <ScalarProperty Name="CourseCode" ColumnName="CourseCode" />
                 <ScalarProperty Name="Education_id" ColumnName="Education_id" />
                 <ScalarProperty Name="Employee_id" ColumnName="Employee_id" />
                 <ScalarProperty Name="Course" ColumnName="Course" />
@@ -404,6 +350,14 @@
           <EntitySetMapping Name="PersonalInfoes">
             <EntityTypeMapping TypeName="EmployeeOnboardingModel.PersonalInfo">
               <MappingFragment StoreEntitySet="PersonalInfo">
+                <ScalarProperty Name="Country2" ColumnName="Country2" />
+                <ScalarProperty Name="State2" ColumnName="State2" />
+                <ScalarProperty Name="City2" ColumnName="City2" />
+                <ScalarProperty Name="Address2" ColumnName="Address2" />
+                <ScalarProperty Name="Country1" ColumnName="Country1" />
+                <ScalarProperty Name="State1" ColumnName="State1" />
+                <ScalarProperty Name="City1" ColumnName="City1" />
+                <ScalarProperty Name="Address1" ColumnName="Address1" />
                 <ScalarProperty Name="PersonalInfo_id" ColumnName="PersonalInfo_id" />
                 <ScalarProperty Name="Employee_id" ColumnName="Employee_id" />
                 <ScalarProperty Name="Gender" ColumnName="Gender" />

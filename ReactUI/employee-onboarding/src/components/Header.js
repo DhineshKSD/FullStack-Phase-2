@@ -13,6 +13,7 @@ import MailIcon from '@material-ui/icons/Mail';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 import MoreIcon from '@material-ui/icons/MoreVert';
 import '../App.css';  
+import logo from '../Assets/OnboardLogo.png';
 
 const useStyles = makeStyles(theme => ({
   grow: {
@@ -114,6 +115,7 @@ export default function PrimarySearchAppBar() {
     >
       <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
       <MenuItem onClick={handleMenuClose}>My account</MenuItem>
+      <MenuItem onClick={handleMenuClose}>Logout</MenuItem>
     </Menu>
   );
 
@@ -162,18 +164,10 @@ export default function PrimarySearchAppBar() {
     <div className={classes.grow}>
       <AppBar position="fixed" className="not-scrolled">
         <Toolbar>
-          <IconButton
-            edge="start"
-            className={classes.menuButton}
-            color="inherit"
-            aria-label="open drawer"
-          >
-            <MenuIcon />
-          </IconButton>
-          <Typography className={classes.title} variant="h6" noWrap>
-            On-Boarding Hub
+        <img src={logo} className="App-logo" alt="logo" />
+          <Typography id="Heading" className={classes.title} variant="h6" noWrap>
+            On-Board Hub
           </Typography>
-          
           <div className={classes.grow} />
           <div className={classes.sectionDesktop}>
             <IconButton aria-label="show 4 new mails" color="inherit">

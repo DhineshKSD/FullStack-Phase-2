@@ -1,12 +1,41 @@
 import React from 'react';  
 import axios from 'axios';  
 import '../AddEmployee.css';  
+import '../App.css';
 import ButtonMat from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import Employeelist from './EmployeeList';
+import Paper from '@material-ui/core/Paper';
+import MenuItem from '@material-ui/core/MenuItem';
 import { Container, Col, Form, row, FormGroup, Label, Input, Button } from 'reactstrap';  
+const Department = [
+  {
+    value: 'IT',
+    name: 'Information Technology',
+  },
+  {
+    value: 'HR',
+    name: 'Human Resource',
+  },
+  {
+    value: 'BT',
+    name: 'Business Technology',
+  },
+  {
+    value: 'BD',
+    name: 'Business Development',
+  },
+  {
+    value: 'QA',
+    name: 'Quality Assurance',
+  },
+  {
+    value: 'TAC',
+    name: 'Technology Advisory Council',
+  },
+];
 class AddEmployee extends React.Component{  
 constructor(props){  
 super(props)  
@@ -23,7 +52,8 @@ this.state = {
   Password:'',  
   ReportingTo:''  
 }  
-}   
+} 
+  
 AddEmployee=()=>{  
   axios.post('https://localhost:44319/api/signup/addEmployee', {
     FirstName:this.state.FirstName,
@@ -40,7 +70,7 @@ AddEmployee=()=>{
 .then(json => {  
 if(json.data.Status==='Success')
 {  
-  alert("Data Save Successfully"); 
+  alert("New Hires Detail's Saved Successfully"); 
   console.log(json.data.Status);  
   this.props.history.push('/Employeelist')  
 }  
@@ -61,25 +91,37 @@ render() {
 return (  
    <Container className="App">  
     
-    
-    <Card id="EmployeeCard">
+    <Paper elevation={3}>
+    <Card id="EmployeeCard" >
       <CardContent> 
       <h3 className="PageHeading">Enter NewHires Informations</h3> 
-    <Form className="form" >  
-      <div id="formemp">
-      <Col>  
-      <TextField type="text" required id="standard-required" label="FirstName" autoComplete="off" placeholder="FirstName" fullWidth margin="normal" name="FirstName" value={this.state.FirstName} onChange={this.handleChange}/>
+      <Form className="form" >  
+        <div id="formemp">
+          <Col>  
+                <TextField type="text" required id="standard-required" label="FirstName" autoComplete="off" placeholder="FirstName" fullWidth margin="normal" name="FirstName" value={this.state.FirstName} onChange={this.handleChange}/>
 
-      <TextField type="text" required id="standard-required" label="LastName"autoComplete="off" placeholder="LastName" fullWidth margin="normal" name="LastName" value={this.state.LastName} onChange={this.handleChange}/>
+                <TextField type="text" required id="standard-required" label="LastName"autoComplete="off" placeholder="LastName" fullWidth margin="normal" name="LastName" value={this.state.LastName} onChange={this.handleChange}/>
 
-      <TextField type="email" required id="standard-required" label="PersonalEmail"autoComplete="off" placeholder="PersonalEmail" fullWidth margin="normal" name="PersonalEmail" value={this.state.PersonalEmail} onChange={this.handleChange}/>
+                <TextField type="email" required id="standard-required" label="PersonalEmail"autoComplete="off" placeholder="PersonalEmail" fullWidth margin="normal" name="PersonalEmail" value={this.state.PersonalEmail} onChange={this.handleChange}/>
 
-      <TextField type="number" required id="standard-required" label="Contact"autoComplete="off" placeholder="Contact" fullWidth margin="normal" name="Contact" value={this.state.Contact} onChange={this.handleChange}/>
+                <TextField type="number" required id="standard-required" label="Contact"autoComplete="off" placeholder="Contact" fullWidth margin="normal" name="Contact" value={this.state.Contact} onChange={this.handleChange}/>
 
-      <TextField type="text" required id="standard-required" label="JobTitle"autoComplete="off" placeholder="JobTitle" fullWidth margin="normal" name="JobTitle" value={this.state.JobTitle} onChange={this.handleChange}/>
+                <TextField type="text" required id="standard-required" label="JobTitle"autoComplete="off" placeholder="JobTitle" fullWidth margin="normal" name="JobTitle" value={this.state.JobTitle} onChange={this.handleChange}/>
 
-      <TextField type="text" required id="standard-required" label="Department"autoComplete="off" placeholder="Department" fullWidth margin="normal" name="Department" value={this.state.Department} onChange={this.handleChange}/>
-        </Col>
+                <TextField id="standard-required"
+                select
+                label="Department" fullWidth margin="normal"
+                name="Department"
+                value={this.state.Department} onChange={this.handleChange}
+                  helperText="Please select your Department"
+                >
+                {Department.map(option => (
+                  <MenuItem key={option.value} value={option.value}>
+                    {option.name}
+                  </MenuItem>
+                ))}
+                 </TextField>
+          </Col>
         </div>
         <div id="formemp1">
           <Col>
@@ -113,18 +155,10 @@ return (
       </Col>  
     </Form>
     </CardContent></Card>
-    
+    </Paper>
   </Container>  
 );  
 }  
 }  
-const formContainer = {
-  display: 'flex',
-  flexFlow: 'row wrap'
-};
 
-const style ={
-  display: 'flex',
-  justifyContent: 'center'
-}
 export default AddEmployee;

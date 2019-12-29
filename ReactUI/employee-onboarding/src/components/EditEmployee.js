@@ -7,7 +7,34 @@ import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import TextField from '@material-ui/core/TextField';
 import Employeelist from '../components/EmployeeList'; 
 import Card from '@material-ui/core/Card';
+import MenuItem from '@material-ui/core/MenuItem';
 import CardContent from '@material-ui/core/CardContent';
+const Department = [
+    {
+      value: 'IT',
+      name: 'Information Technology',
+    },
+    {
+      value: 'HR',
+      name: 'Human Resource',
+    },
+    {
+      value: 'BT',
+      name: 'Business Technology',
+    },
+    {
+      value: 'BD',
+      name: 'Business Development',
+    },
+    {
+      value: 'QA',
+      name: 'Quality Assurance',
+    },
+    {
+      value: 'TAC',
+      name: 'Technology Advisory Council',
+    },
+  ];
 class Edit extends React.Component {  
     constructor(props) {  
         super(props)  
@@ -142,7 +169,7 @@ onChangeReportingTo(e) {
     render() {  
         return (  
             <Container className="App">  
-            <Card id="message2">
+            <Card id="EmployeeEdit">
                 <CardContent>
              <h4 className="PageHeading">Update Employee Informations</h4>  
                 <Form className="form" onSubmit={this.onSubmit}>  
@@ -158,7 +185,19 @@ onChangeReportingTo(e) {
 
                     <TextField type="text" required id="standard-required" label="JobTitle"autoComplete="off" placeholder="JobTitle" fullWidth margin="normal" name="JobTitle" value={this.state.JobTitle} onChange={this.onChangeJobTitle}/>
 
-                    <TextField type="text" required id="standard-required" label="Department"autoComplete="off" placeholder="Department" fullWidth margin="normal" name="Department" value={this.state.Department} onChange={this.onChangeDepartment}/>
+                    <TextField id="standard-required"
+                        select
+                        label="Department" fullWidth margin="normal"
+                        name="Department"
+                        value={this.state.Department} onChange={this.onChangeDepartment}
+                        helperText="Please select your Department"
+                        >
+                        {Department.map(option => (
+                        <MenuItem key={option.value} value={option.value}>
+                            {option.name}
+                        </MenuItem>
+                        ))}
+                        </TextField>
                         </Col>
                 </div>
                 <div id="formemp1">

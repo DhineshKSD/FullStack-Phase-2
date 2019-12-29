@@ -1,22 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
   <EntityContainerMapping StorageEntityContainer="EmployeeOnboardingModelStoreContainer" CdmEntityContainer="EmployeeOnboardingEntities">
-    <EntitySetMapping Name="Addresses">
-      <EntityTypeMapping TypeName="EmployeeOnboardingModel.Address">
-        <MappingFragment StoreEntitySet="Address">
-          <ScalarProperty Name="Address_id" ColumnName="Address_id" />
-          <ScalarProperty Name="PersonalInfo_id" ColumnName="PersonalInfo_id" />
-          <ScalarProperty Name="AddressCode" ColumnName="AddressCode" />
-          <ScalarProperty Name="Address1" ColumnName="Address" />
-          <ScalarProperty Name="City" ColumnName="City" />
-          <ScalarProperty Name="State" ColumnName="State" />
-          <ScalarProperty Name="Country" ColumnName="Country" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="Educations">
       <EntityTypeMapping TypeName="EmployeeOnboardingModel.Education">
         <MappingFragment StoreEntitySet="Education">
+          <ScalarProperty Name="CourseCode" ColumnName="CourseCode" />
           <ScalarProperty Name="Education_id" ColumnName="Education_id" />
           <ScalarProperty Name="Employee_id" ColumnName="Employee_id" />
           <ScalarProperty Name="Course" ColumnName="Course" />
@@ -50,6 +38,14 @@
     <EntitySetMapping Name="PersonalInfoes">
       <EntityTypeMapping TypeName="EmployeeOnboardingModel.PersonalInfo">
         <MappingFragment StoreEntitySet="PersonalInfo">
+          <ScalarProperty Name="Country2" ColumnName="Country2" />
+          <ScalarProperty Name="State2" ColumnName="State2" />
+          <ScalarProperty Name="City2" ColumnName="City2" />
+          <ScalarProperty Name="Address2" ColumnName="Address2" />
+          <ScalarProperty Name="Country1" ColumnName="Country1" />
+          <ScalarProperty Name="State1" ColumnName="State1" />
+          <ScalarProperty Name="City1" ColumnName="City1" />
+          <ScalarProperty Name="Address1" ColumnName="Address1" />
           <ScalarProperty Name="PersonalInfo_id" ColumnName="PersonalInfo_id" />
           <ScalarProperty Name="Employee_id" ColumnName="Employee_id" />
           <ScalarProperty Name="Gender" ColumnName="Gender" />

@@ -35,6 +35,9 @@ class Table extends Component {
           <td>  
           <ButtonMat type="button" onClick={this.DeleteStudent} variant="contained" color="secondary">Delete</ButtonMat>  
           </td>  
+          <td>  
+          <ButtonMat type="button" variant="contained" color="secondary">Initiate</ButtonMat>  
+          </td>
         </tr>  
     );  
   }  

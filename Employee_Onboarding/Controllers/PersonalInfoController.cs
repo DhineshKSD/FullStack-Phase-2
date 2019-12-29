@@ -31,7 +31,15 @@ namespace Employee_Onboarding.Controllers
                     DateOfBirth = emp.DateOfBirth,
                     PlaceOfBirth = emp.PlaceOfBirth,
                     MaritalStatus = emp.MaritalStatus,
-                    BloodGroup = emp.BloodGroup
+                    BloodGroup = emp.BloodGroup,
+                    Address1=emp.Address1,
+                    City1=emp.City1,
+                    State1=emp.State1,
+                    Country1=emp.Country1,
+                    Address2 = emp.Address2,
+                    City2 = emp.City2,
+                    State2 = emp.State2,
+                    Country2 = emp.Country2,
                 });
 
                 return Ok(listOfPersonalInfo.ToList());
@@ -61,7 +69,15 @@ namespace Employee_Onboarding.Controllers
                         DateOfBirth = emp.DateOfBirth,
                         PlaceOfBirth = emp.PlaceOfBirth,
                         MaritalStatus = emp.MaritalStatus,
-                        BloodGroup = emp.BloodGroup
+                        BloodGroup = emp.BloodGroup,
+                        Address1 = emp.Address1,
+                        City1 = emp.City1,
+                        State1 = emp.State1,
+                        Country1 = emp.Country1,
+                        Address2 = emp.Address2,
+                        City2 = emp.City2,
+                        State2 = emp.State2,
+                        Country2 = emp.Country2,
                     });
                     return Ok(listOfPersonalInfo.ToList());
                 }

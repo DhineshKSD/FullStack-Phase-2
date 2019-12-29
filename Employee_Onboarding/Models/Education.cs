@@ -22,6 +22,7 @@ namespace Employee_Onboarding.Models
         public System.DateTime From { get; set; }
         public System.DateTime To { get; set; }
         public long YearOfPassing { get; set; }
+        public string CourseCode { get; set; }
     
         public virtual Employee Employee { get; set; }
     }

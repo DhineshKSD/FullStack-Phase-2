@@ -14,11 +14,6 @@ namespace Employee_Onboarding.Models
     
     public partial class PersonalInfo
     {
-        public PersonalInfo()
-        {
-            this.Addresses = new HashSet<Address>();
-        }
-    
         public int PersonalInfo_id { get; set; }
         public int Employee_id { get; set; }
         public string Gender { get; set; }
@@ -26,8 +21,15 @@ namespace Employee_Onboarding.Models
         public string PlaceOfBirth { get; set; }
         public string MaritalStatus { get; set; }
         public string BloodGroup { get; set; }
+        public string Address1 { get; set; }
+        public string City1 { get; set; }
+        public string State1 { get; set; }
+        public string Country1 { get; set; }
+        public string Address2 { get; set; }
+        public string City2 { get; set; }
+        public string State2 { get; set; }
+        public string Country2 { get; set; }
     
-        public virtual ICollection<Address> Addresses { get; set; }
         public virtual Employee Employee { get; set; }
     }
 }

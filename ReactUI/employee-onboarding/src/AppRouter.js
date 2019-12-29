@@ -13,7 +13,7 @@ const AppRouter = () => {
         <nav className="navbar navbar-expand-lg navheader">  
           <div className="collapse navbar-collapse" >  
             <ul className="navbar-nav mr-auto"> 
-            <li className="nav-item">  
+              <li className="nav-item">  
                 <Link to={'/Home'} className="nav-link">Home</Link>  
               </li> 
               <li className="nav-item">  

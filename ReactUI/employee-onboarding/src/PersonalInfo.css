@@ -1,0 +1,57 @@
+.PersonalInfoContainer{
+    position: relative;
+    top: 8em;
+    height:163vh;
+}
+.PersonalInfoPageHeading
+{
+    position: relative;
+    top: 0em;
+    text-align: center;
+}
+#FormPersonalInfo{
+    position: relative;
+    width:45%;
+    top:1em;
+    left:1em;
+}
+#FormPersonalInfo1{
+    position: relative;
+    width:45%;
+    bottom:18.3em;
+    left:31em;
+}
+#PersonalInfoCard{
+    position: relative;
+    height:70vh;
+    width:90%;
+    left:3em;
+}
+#AddressInfoCard{
+    position: relative;
+    top:4em;
+    height:70vh;
+    left:3em;
+    width:90%;
+}
+.AddressInfoPageHeading{
+    position: relative;
+    top: 0em;
+    text-align: center;
+}
+#FormAddressInfo{
+    position: relative;
+    width:45%;
+    top:1em;
+    left:1em; 
+}
+#FormAddressInfo1{
+    position: relative;
+    width:45%;
+    bottom:17em;
+    left:31em; 
+}
+#PersonalButton{
+    position: relative;
+    top:28em;
+}

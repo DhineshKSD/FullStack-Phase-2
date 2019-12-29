@@ -183,7 +183,6 @@
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Authenticate\IAuthService.cs" />
     <Compile Include="Authenticate\JWTService.cs" />
-    <Compile Include="Controllers\AddressController.cs" />
     <Compile Include="Controllers\EducationController.cs" />
     <Compile Include="Controllers\EmployeeController.cs" />
     <Compile Include="Controllers\EmploymentController.cs" />
@@ -195,9 +194,6 @@
     <Compile Include="Features\Login.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Address.cs">
-      <DependentUpon>EmployeeOnboarding.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Education.cs">
       <DependentUpon>EmployeeOnboarding.tt</DependentUpon>

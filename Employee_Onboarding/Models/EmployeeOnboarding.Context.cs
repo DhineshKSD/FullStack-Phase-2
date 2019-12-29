@@ -25,7 +25,6 @@ namespace Employee_Onboarding.Models
             throw new UnintentionalCodeFirstException();
         }
     
-        public DbSet<Address> Addresses { get; set; }
         public DbSet<Education> Educations { get; set; }
         public DbSet<Employee> Employees { get; set; }
         public DbSet<PersonalInfo> PersonalInfoes { get; set; }
