@@ -16,6 +16,7 @@ import '../App.css';
 import logo from '../Assets/OnboardLogo.png';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom'; 
 import AppRouter from '../AppRouter';
+import Login from '../components/Login';
 
 const useStyles = makeStyles(theme => ({
   grow: {
@@ -117,7 +118,7 @@ export default function PrimarySearchAppBar() {
     >
       <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
       <MenuItem onClick={handleMenuClose}>My account</MenuItem>
-      <MenuItem onClick={handleMenuClose}>Logout</MenuItem>
+      <Link to={'/Login'} style={{ textDecoration: 'none' }} onClick={event =>  window.location.href='/Login'}><MenuItem>Logout</MenuItem></Link>
     </Menu>
   );
 
@@ -167,7 +168,7 @@ export default function PrimarySearchAppBar() {
       <AppBar position="fixed" className="not-scrolled">
         <Toolbar>
         <Router>
-        <Link to={'/Home'} onClick={event =>  window.location.href='/Home'}><img src={logo} className="App-logo" alt="logo" /></Link>
+        <Link to={'/'} onClick={event =>  window.location.href='/'}><img src={logo} className="App-logo" alt="logo" /></Link>
         </Router>
           <Typography id="Heading" className={classes.title} variant="h6" noWrap>
             On-Board Hub

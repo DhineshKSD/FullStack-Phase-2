@@ -1,29 +1,29 @@
 .EmployeeEditCard{
-    position: relative;
-    height:100vh;
+position: relative;
+height:112vh;
 }
 #EmployeeEdit{
-    position: relative;
-    top:0em;
-   height:37.5em;
-  }
+position: relative;
+top:3em;
+height:37.5em;
+}
 .EmployeeEditPageHeading{
 text-align: center;
 top:0.5em;
 }
 #EditForm1{
-    position: relative;
-    width: 40%;
-    Left:7%;
-    top:1em;
-  }
-  #EditForm2{
-    position: relative;
-    width: 40%;
-    Left:55%;
-    bottom: 27.25em;
-  }
-  #EditEmpButton{
-      position: relative;
-      top:3em;
-  }
+position: relative;
+width: 40%;
+Left:7%;
+top:1em;
+}
+#EditForm2{
+position: relative;
+width: 40%;
+Left:55%;
+bottom: 27.25em;
+}
+#EditEmpButton{
+position: relative;
+top:3em;
+}

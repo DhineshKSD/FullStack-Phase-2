@@ -5,10 +5,13 @@ import ButtonMat from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
-import { Container, Col, Form, row, FormGroup, Label, Input, Button } from 'reactstrap';  
+import { Container, Col, Form, row, FormGroup, Label, Input, Button } from 'reactstrap';
+import PrimarySearchAppBar from '../components/Header';  
 import MenuItem from '@material-ui/core/MenuItem';
 import Paper from '@material-ui/core/Paper';
 import '../PersonalInfo.css'
+var id = localStorage.getItem("User");
+console.log(id);
 const Gender = [
   {
     value: 'Male',
@@ -55,7 +58,7 @@ this.state = {
 }  
 }  
 componentDidMount() {  
-  axios.get('https://localhost:44319/api/GetEmployee/'+this.props.match.params.id)  
+  axios.get('https://localhost:44319/api/GetEmployeeById/'+id)  
       .then(response => {  
           this.setState({   
             FirstName: response.data.FirstName,   
@@ -68,7 +71,7 @@ componentDidMount() {
       })  
 }  
 AddPersonalInfo=()=>{  
-  axios.post('https://localhost:44319/api/signup/addEmployee', {
+  axios.post('https://localhost:44319/api/AddPersonalInfo/'+id, {
     Gender:this.state.Gender,
     DateOfBirth:this.state.DateOfBirth,  
     PlaceOfBirth:this.state.PlaceOfBirth, 
@@ -86,15 +89,13 @@ AddPersonalInfo=()=>{
 .then(json => {  
 if(json.data.Status==='Success')
 {  
-  alert("Data Save Successfully"); 
-  console.log(json.data.Status);  
-  this.props.history.push('/Employeelist')  
+  alert("Personal Details Saved Successfully"); 
+  this.props.history.push('/Thanks');      
 }  
 else
 {  
 alert('Data not Saved');  
 debugger;  
-this.props.history.push('/Employeelist')  
 }  
 })  
 }  
@@ -105,6 +106,8 @@ this.setState({[e.target.name]:e.target.value});
  
 render() {  
 return (  
+  <div>
+     <PrimarySearchAppBar/>
    <Container className="PersonalInfoContainer"> 
                 <Form className="form" > 
                 
@@ -198,7 +201,8 @@ return (
               </FormGroup>    
           </Col> 
           </Form>
-  </Container>  
+  </Container>
+  </div>  
 );  
 }  
 }  

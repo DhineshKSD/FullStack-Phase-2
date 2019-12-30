@@ -2,6 +2,7 @@ import React from 'react';
 import axios from 'axios';  
 import '../AddEmployee.css';  
 import '../App.css';
+import '../Navigation.css';
 import ButtonMat from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import Card from '@material-ui/core/Card';
@@ -9,6 +10,8 @@ import CardContent from '@material-ui/core/CardContent';
 import Employeelist from './EmployeeList';
 import Paper from '@material-ui/core/Paper';
 import MenuItem from '@material-ui/core/MenuItem';
+import PrimarySearchAppBar from '../components/Header';
+import Navigation from '../components/Navigation';
 import { Container, Col, Form, row, FormGroup, Label, Input, Button } from 'reactstrap';  
 const Department = [
   {
@@ -89,10 +92,10 @@ this.setState({[e.target.name]:e.target.value});
  
 render() {  
 return (  
-   <Container className="EmployeeCardContainer">  
-    
-    <Paper elevation={3}>
-    <Card id="EmployeeCard" >
+  <div id="card">
+  <PrimarySearchAppBar/>
+  <Navigation/>
+    <Card id="EmployeeCard" elevation={3}>
       <CardContent> 
       <h3 className="PageHeading">Enter New-Hires Informations</h3> 
       <Form className="form" >  
@@ -154,9 +157,8 @@ return (
         </FormGroup>    
       </Col>  
     </Form>
-    </CardContent></Card>
-    </Paper>
-  </Container>  
+    </CardContent></Card> 
+  </div>
 );  
 }  
 }  

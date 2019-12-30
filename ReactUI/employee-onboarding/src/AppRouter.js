@@ -5,36 +5,23 @@ import EditEmployee from '../src/components/EditEmployee';
 import PersonalInfo from '../src/components/PersonalInfo'; 
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom'; 
 import Home from '../src/components/Home';
+import Login from '../src/components/Login';
+import Thanks from '../src/components/Thanks';
 import '../src/App.css'; 
+import '../src/Navigation.css'
+import '../src/Login.css'
 const AppRouter = () => {
     return(
-        <Router>  
-      <div className="container"> 
-      <div class="position-fixed">
-        <nav className="navbar navbar-expand-lg navheader">  
-          <div className="collapse navbar-collapse" >  
-            <ul className="navbar-nav mr-auto"> 
-              <li className="nav-item">  
-                <Link to={'/Home'} className="nav-link">Home</Link>  
-              </li> 
-              <li className="nav-item">  
-                <Link to={'/AddEmployee'} className="nav-link">AddEmployee</Link>  
-              </li>  
-              <li className="nav-item">  
-                <Link to={'/Employeelist'} className="nav-link">Employee List</Link>  
-              </li>  
-            </ul>  
-          </div>  
-        </nav> 
-        </div> <br />  
+        <Router>      
         <Switch>  
-          <Route exact path='/Home' component={Home} /> 
+          <Route path='/Login' component={Login} /> 
+          <Route exact path='/' component={Home} /> 
           <Route path='/AddEmployee' component={AddEmployee} />  
           <Route path='/edit/:id' component={EditEmployee} />  
           <Route path='/Employeelist' component={Employeelist} />
-          <Route path='/PersonalInfo' component={PersonalInfo} />   
+          <Route path='/PersonalInfo' component={PersonalInfo} />  
+          <Route path='/Thanks' component={Thanks} /> 
         </Switch>  
-      </div>  
     </Router>  
     )
 }

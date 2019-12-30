@@ -1,0 +1,58 @@
+#LoginCard{
+    position: relative;
+    height: 100vh;
+    background-image: url('../src/Assets/BG.jpg');
+    width:150%;
+    background-repeat: no-repeat;
+    right:5em;
+}
+#LoginCard1{
+    position: relative;
+    height: 80vh;
+    top:4.3em;
+    width:35%;
+    left:8em;
+}
+.LoginImage{
+    position: relative;
+    width:140%;
+    height:80vh;
+    right:10em;
+    bottom:1em;
+}
+#LoginCard2{
+    position: relative;
+    height: 80vh;
+    bottom:26.9em;
+    width:25%;
+    left:48em;
+}
+#LoginContent{
+    position: relative;
+    top:3em;
+    width:80%;
+    left:2.5em;
+}
+#Login{
+    position: relative;
+    font-size: 2em;
+    top:1.5em;
+    text-align: center;
+}
+.Avatar{
+    position: relative;
+    width:20%;
+    height: auto;
+    left:40%;
+    top:2em;
+}
+#SignIn{
+    position: relative;
+    top:3.5em;
+    left:41.5%;
+}
+#ForgotPassword{
+    position: relative;
+    left:66%;
+    bottom:2.5em;
+}

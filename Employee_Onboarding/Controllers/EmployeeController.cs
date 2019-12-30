@@ -71,6 +71,28 @@ namespace Employee_Onboarding.Controllers
             }
         }
 
+        [HttpGet]
+        [Route("api/GetEmployeeById/{id=id}")]
+        [ResponseType(typeof(Employee))]
+        public IHttpActionResult GetPersonalInfo(string id)
+        {
+            try
+            {
+                var empId = DatabaseAction.GetEmployeeID(id);
+                Employee employee = db.Employees.Find(empId);
+                if (employee == null)
+                {
+                    return NotFound();
+                }
+                return Ok(employee);
+                }
+                catch (Exception ex)
+                {
+                    LogFile.WriteLog(ex);
+                    return BadRequest();
+                }
+            }
+
         [HttpPut]
         [ResponseType(typeof(void))]
         [Route("api/PutEmployee/{id=id}")]

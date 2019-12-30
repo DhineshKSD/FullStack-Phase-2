@@ -1,45 +1,46 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans|Roboto&display=swap');
 .PageHeading    
 {    
-  margin-top: 10px;    
-  margin-bottom: 10px;    
-  color :black !important;    
+margin-top: 10px;    
+margin-bottom: 10px;    
+color :black !important;    
+}
+#card{
+  position: relative;
+  height: 128vh;
 }
 body{
-    overflow: auto;
+overflow: auto;
 }
 #button{
-    position: relative;
-    right: 0em;
-    bottom: 23em;
-  }
-.EmployeeCardContainer{
-    position: relative;
-    height:100vh;
-}  
+position: relative;
+right: 0em;
+bottom: 23em;
+}
 .PageHeading{
-    position: relative;
-    text-align: center;
-    font-family: 'Open Sans', sans-serif;
-    font-weight: bold;
+position: relative;
+text-align: center;
+font-family: 'Open Sans', sans-serif;
+font-weight: bold;
 }
 #EmployeeCard{
-    position: relative;
-    height: 37em;
-  }
-  #formemp{
-    position: relative;
-    width: 40%;
-    Left:7%;
-    top:-1em;
-  }
-  #formemp1{
-    position: relative;
-    width: 40%;
-    Left:55%;
-    bottom: 29.25em;
-  }
-  #AddEmpButton{
-    position: relative;
-    top:1em; 
-  }
+position: relative;
+height: 37em;
+top:10.3em;
+}
+#formemp{
+position: relative;
+width: 40%;
+Left:7%;
+top:-1em;
+}
+#formemp1{
+position: relative;
+width: 40%;
+Left:55%;
+bottom: 29.25em;
+}
+#AddEmpButton{
+position: relative;
+top:1em; 
+}

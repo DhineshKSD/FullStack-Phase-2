@@ -10,6 +10,7 @@ import '../EditEmployee.css';
 import Card from '@material-ui/core/Card';
 import MenuItem from '@material-ui/core/MenuItem';
 import CardContent from '@material-ui/core/CardContent';
+import PrimarySearchAppBar from '../components/Header';
 const Department = [
     {
       value: 'IT',
@@ -168,8 +169,12 @@ onChangeReportingTo(e) {
         this.props.history.push('/Employeelist')  
   }  
     render() {  
-        return (  
+        return (
+          <div>
+            <PrimarySearchAppBar/>
+           
             <Container className="EmployeeEditCard">  
+            
             <Card elevation={3} id="EmployeeEdit">
                 <CardContent>
              <h4 className="EmployeeEditPageHeading">Update Employee Informations</h4>  
@@ -233,6 +238,7 @@ onChangeReportingTo(e) {
                 </Form>  
                 </CardContent></Card>
             </Container>  
+            </div> 
         );  
     }  
 }  

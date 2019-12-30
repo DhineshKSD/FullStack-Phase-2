@@ -7,15 +7,14 @@ import './App.css';
 import CenteredTabs from './NavTab';
 import PersonalInfo from '../src/components/PersonalInfo';
 import AddEmployee from '../src/components/AddEmployee';
+import Login from '../src/components/Login'
 function App() {  
   return (  
     <div>
-    <PrimarySearchAppBar/>
     
-    <Container id = "nav1">
-         <AppRouter/>
+    <Container id ="nav1">
+      <AppRouter/>
     </Container>
-    
     </div>
   );  
 }  

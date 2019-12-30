@@ -95,7 +95,7 @@ namespace Employee_Onboarding.Controllers
         [HttpPost]
         [Route("api/AddPersonalInfo/{id=id}")]
         [ResponseType(typeof(PreviousEmployment))]
-        public IHttpActionResult AddPersonalInfo(string id, PersonalInfo personalinfo)
+        public object AddPersonalInfo(string id, PersonalInfo personalinfo)
         {
             try
             {
@@ -107,7 +107,11 @@ namespace Employee_Onboarding.Controllers
 
                 db.PersonalInfoes.Add(personalinfo);
                 db.SaveChanges();
-                return Ok("Employee PersonalInfo Details Successfully Added");
+                return new Response
+                {
+                    Status = "Success",
+                    Message = "Employee PersonalInfo Details Successfully Added"
+                };
             }
 
             catch (Exception ex)
