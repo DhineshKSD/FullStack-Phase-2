@@ -5,6 +5,18 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="EmployeeOnboardingModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Document">
+          <Key>
+            <PropertyRef Name="Document_id" />
+          </Key>
+          <Property Name="Document_id" Type="int" Nullable="false" />
+          <Property Name="Employee_id" Type="int" Nullable="false" />
+          <Property Name="DocumentCode" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="DocumentPath" Type="nvarchar(max)" />
+          <Property Name="DocumentDescription" Type="nvarchar(max)" />
+          <Property Name="DocumentType" Type="nvarchar(max)" />
+          <Property Name="Data" Type="nvarchar(max)" />
+        </EntityType>
         <EntityType Name="Education">
           <Key>
             <PropertyRef Name="Education_id" />
@@ -79,6 +91,18 @@
           <Property Name="ProofName" Type="nvarchar(max)" Nullable="false" />
           <Property Name="ProofId" Type="nvarchar(max)" Nullable="false" />
         </EntityType>
+        <Association Name="BackgroundCheck_NewRecruit">
+          <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
+          <End Role="Document" Type="Self.Document" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="Employee_id" />
+            </Principal>
+            <Dependent Role="Document">
+              <PropertyRef Name="Employee_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="Education_NewRecruit">
           <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
           <End Role="Education" Type="Self.Education" Multiplicity="*" />
@@ -128,11 +152,16 @@
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="EmployeeOnboardingModelStoreContainer">
+          <EntitySet Name="Document" EntityType="Self.Document" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Education" EntityType="Self.Education" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Employee" EntityType="Self.Employee" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PersonalInfo" EntityType="Self.PersonalInfo" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PreviousEmployment" EntityType="Self.PreviousEmployment" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Proof" EntityType="Self.Proof" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="BackgroundCheck_NewRecruit" Association="Self.BackgroundCheck_NewRecruit">
+            <End Role="Employee" EntitySet="Employee" />
+            <End Role="Document" EntitySet="Document" />
+          </AssociationSet>
           <AssociationSet Name="Education_NewRecruit" Association="Self.Education_NewRecruit">
             <End Role="Employee" EntitySet="Employee" />
             <End Role="Education" EntitySet="Education" />
@@ -190,6 +219,7 @@
           <NavigationProperty Name="PersonalInfoes" Relationship="Self.PersonalInfo_NewRecruit" FromRole="Employee" ToRole="PersonalInfo" />
           <NavigationProperty Name="PreviousEmployments" Relationship="Self.PreviousEmployment_NewRecruit" FromRole="Employee" ToRole="PreviousEmployment" />
           <NavigationProperty Name="Proofs" Relationship="Self.Proof_Employee" FromRole="Employee" ToRole="Proof" />
+          <NavigationProperty Name="Documents" Relationship="EmployeeOnboardingModel.BackgroundCheck_NewRecruit" FromRole="Employee" ToRole="Document" />
         </EntityType>
         <EntityType Name="PersonalInfo">
           <Key>
@@ -306,7 +336,37 @@
             <End Role="Employee" EntitySet="Employees" />
             <End Role="Proof" EntitySet="Proofs" />
           </AssociationSet>
+          <EntitySet Name="Documents" EntityType="EmployeeOnboardingModel.Document" />
+          <AssociationSet Name="BackgroundCheck_NewRecruit" Association="EmployeeOnboardingModel.BackgroundCheck_NewRecruit">
+            <End Role="Employee" EntitySet="Employees" />
+            <End Role="Document" EntitySet="Documents" />
+          </AssociationSet>
         </EntityContainer>
+        <EntityType Name="Document">
+          <Key>
+            <PropertyRef Name="Document_id" />
+          </Key>
+          <Property Name="Document_id" Type="Int32" Nullable="false" />
+          <Property Name="Employee_id" Type="Int32" Nullable="false" />
+          <Property Name="DocumentCode" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="DocumentPath" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DocumentDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DocumentType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Data" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Employee" Relationship="EmployeeOnboardingModel.BackgroundCheck_NewRecruit" FromRole="Document" ToRole="Employee" />
+        </EntityType>
+        <Association Name="BackgroundCheck_NewRecruit">
+          <End Type="EmployeeOnboardingModel.Employee" Role="Employee" Multiplicity="1" />
+          <End Type="EmployeeOnboardingModel.Document" Role="Document" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="Employee_id" />
+            </Principal>
+            <Dependent Role="Document">
+              <PropertyRef Name="Employee_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -389,6 +449,19 @@
                 <ScalarProperty Name="ProofCode" ColumnName="ProofCode" />
                 <ScalarProperty Name="ProofName" ColumnName="ProofName" />
                 <ScalarProperty Name="ProofId" ColumnName="ProofId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Documents">
+            <EntityTypeMapping TypeName="EmployeeOnboardingModel.Document">
+              <MappingFragment StoreEntitySet="Document">
+                <ScalarProperty Name="Data" ColumnName="Data" />
+                <ScalarProperty Name="DocumentType" ColumnName="DocumentType" />
+                <ScalarProperty Name="DocumentDescription" ColumnName="DocumentDescription" />
+                <ScalarProperty Name="DocumentPath" ColumnName="DocumentPath" />
+                <ScalarProperty Name="DocumentCode" ColumnName="DocumentCode" />
+                <ScalarProperty Name="Employee_id" ColumnName="Employee_id" />
+                <ScalarProperty Name="Document_id" ColumnName="Document_id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

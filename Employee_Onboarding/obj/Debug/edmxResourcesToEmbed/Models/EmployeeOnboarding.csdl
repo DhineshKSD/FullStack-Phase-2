@@ -36,6 +36,7 @@
     <NavigationProperty Name="PersonalInfoes" Relationship="Self.PersonalInfo_NewRecruit" FromRole="Employee" ToRole="PersonalInfo" />
     <NavigationProperty Name="PreviousEmployments" Relationship="Self.PreviousEmployment_NewRecruit" FromRole="Employee" ToRole="PreviousEmployment" />
     <NavigationProperty Name="Proofs" Relationship="Self.Proof_Employee" FromRole="Employee" ToRole="Proof" />
+    <NavigationProperty Name="Documents" Relationship="EmployeeOnboardingModel.BackgroundCheck_NewRecruit" FromRole="Employee" ToRole="Document" />
   </EntityType>
   <EntityType Name="PersonalInfo">
     <Key>
@@ -152,5 +153,35 @@
       <End Role="Employee" EntitySet="Employees" />
       <End Role="Proof" EntitySet="Proofs" />
     </AssociationSet>
+    <EntitySet Name="Documents" EntityType="EmployeeOnboardingModel.Document" />
+    <AssociationSet Name="BackgroundCheck_NewRecruit" Association="EmployeeOnboardingModel.BackgroundCheck_NewRecruit">
+      <End Role="Employee" EntitySet="Employees" />
+      <End Role="Document" EntitySet="Documents" />
+    </AssociationSet>
   </EntityContainer>
+  <EntityType Name="Document">
+    <Key>
+      <PropertyRef Name="Document_id" />
+    </Key>
+    <Property Name="Document_id" Type="Int32" Nullable="false" />
+    <Property Name="Employee_id" Type="Int32" Nullable="false" />
+    <Property Name="DocumentCode" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="DocumentPath" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DocumentDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DocumentType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Data" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Employee" Relationship="EmployeeOnboardingModel.BackgroundCheck_NewRecruit" FromRole="Document" ToRole="Employee" />
+  </EntityType>
+  <Association Name="BackgroundCheck_NewRecruit">
+    <End Type="EmployeeOnboardingModel.Employee" Role="Employee" Multiplicity="1" />
+    <End Type="EmployeeOnboardingModel.Document" Role="Document" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employee">
+        <PropertyRef Name="Employee_id" />
+      </Principal>
+      <Dependent Role="Document">
+        <PropertyRef Name="Employee_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
 </Schema>

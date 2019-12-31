@@ -24,24 +24,29 @@ grant_type: 'Password',
 } 
 Login=()=>{  
 axios.post('https://localhost:44319/token', this.state)  
-.then(res =>  {localStorage.setItem('Token',res.data);
+.then(res =>  {
+localStorage.setItem('Token',res.data);
 localStorage.setItem('User',this.state.UserName);
 console.log(res);
 if(this.state.UserName==="P100")
 {
+  alert("Logging In");
   this.props.history.push('/')   
 }
 else
 {
+  alert("Logging In");
   this.props.history.push('/PersonalInfo')   
 }
-})}  
+})
+}  
 handleChange= (e)=> {  
 this.setState({[e.target.name]:e.target.value});  
 }    
 componentDidMount() { 
 localStorage.removeItem('Token');
 localStorage.removeItem('User');
+localStorage.removeItem('FirstName');
 }
   render() {
     return (

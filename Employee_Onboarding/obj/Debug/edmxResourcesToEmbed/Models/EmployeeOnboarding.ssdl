@@ -1,5 +1,17 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="EmployeeOnboardingModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Document">
+    <Key>
+      <PropertyRef Name="Document_id" />
+    </Key>
+    <Property Name="Document_id" Type="int" Nullable="false" />
+    <Property Name="Employee_id" Type="int" Nullable="false" />
+    <Property Name="DocumentCode" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="DocumentPath" Type="nvarchar(max)" />
+    <Property Name="DocumentDescription" Type="nvarchar(max)" />
+    <Property Name="DocumentType" Type="nvarchar(max)" />
+    <Property Name="Data" Type="nvarchar(max)" />
+  </EntityType>
   <EntityType Name="Education">
     <Key>
       <PropertyRef Name="Education_id" />
@@ -74,6 +86,18 @@
     <Property Name="ProofName" Type="nvarchar(max)" Nullable="false" />
     <Property Name="ProofId" Type="nvarchar(max)" Nullable="false" />
   </EntityType>
+  <Association Name="BackgroundCheck_NewRecruit">
+    <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
+    <End Role="Document" Type="Self.Document" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employee">
+        <PropertyRef Name="Employee_id" />
+      </Principal>
+      <Dependent Role="Document">
+        <PropertyRef Name="Employee_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="Education_NewRecruit">
     <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
     <End Role="Education" Type="Self.Education" Multiplicity="*" />
@@ -123,11 +147,16 @@
     </ReferentialConstraint>
   </Association>
   <EntityContainer Name="EmployeeOnboardingModelStoreContainer">
+    <EntitySet Name="Document" EntityType="Self.Document" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Education" EntityType="Self.Education" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Employee" EntityType="Self.Employee" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="PersonalInfo" EntityType="Self.PersonalInfo" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="PreviousEmployment" EntityType="Self.PreviousEmployment" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Proof" EntityType="Self.Proof" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="BackgroundCheck_NewRecruit" Association="Self.BackgroundCheck_NewRecruit">
+      <End Role="Employee" EntitySet="Employee" />
+      <End Role="Document" EntitySet="Document" />
+    </AssociationSet>
     <AssociationSet Name="Education_NewRecruit" Association="Self.Education_NewRecruit">
       <End Role="Employee" EntitySet="Employee" />
       <End Role="Education" EntitySet="Education" />

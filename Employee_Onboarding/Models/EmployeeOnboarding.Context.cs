@@ -30,5 +30,6 @@ namespace Employee_Onboarding.Models
         public DbSet<PersonalInfo> PersonalInfoes { get; set; }
         public DbSet<PreviousEmployment> PreviousEmployments { get; set; }
         public DbSet<Proof> Proofs { get; set; }
+        public DbSet<Document> Documents { get; set; }
     }
 }

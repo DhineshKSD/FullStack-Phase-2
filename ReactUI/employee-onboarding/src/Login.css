@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans|Roboto&display=swap');
 #LoginCard{
     position: relative;
     height: 100vh;
@@ -10,28 +11,28 @@
     position: relative;
     height: 80vh;
     top:4.3em;
-    width:35%;
-    left:8em;
+    width:38%;
+    left:8.5em;
 }
 .LoginImage{
     position: relative;
     width:140%;
     height:80vh;
-    right:10em;
+    right:7em;
     bottom:1em;
 }
 #LoginCard2{
     position: relative;
     height: 80vh;
     bottom:26.9em;
-    width:25%;
-    left:48em;
+    width:22%;
+    left:52em;
 }
 #LoginContent{
     position: relative;
     top:3em;
     width:80%;
-    left:2.5em;
+    left:2em;
 }
 #Login{
     position: relative;
@@ -44,15 +45,16 @@
     width:20%;
     height: auto;
     left:40%;
-    top:2em;
+    top:2.5em;
 }
 #SignIn{
     position: relative;
     top:3.5em;
-    left:41.5%;
+    left:40%;
+    font-family: 'Open Sans', sans-serif;
 }
 #ForgotPassword{
     position: relative;
-    left:66%;
+    left:61%;
     bottom:2.5em;
 }

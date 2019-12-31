@@ -148,6 +148,11 @@
   <ItemGroup>
     <Compile Include="Accessory Classes\DatabaseAction.cs" />
     <Compile Include="Accessory Classes\LogFile.cs" />
+    <Compile Include="Accessory Classes\Mail.cs" />
+    <Compile Include="Controllers\DocumentController.cs" />
+    <Compile Include="Models\Document.cs">
+      <DependentUpon>EmployeeOnboarding.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Response.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />

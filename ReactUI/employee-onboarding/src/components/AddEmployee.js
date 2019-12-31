@@ -56,7 +56,6 @@ this.state = {
   ReportingTo:''  
 }  
 } 
-  
 AddEmployee=()=>{  
   axios.post('https://localhost:44319/api/signup/addEmployee', {
     FirstName:this.state.FirstName,

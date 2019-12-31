@@ -27,12 +27,26 @@ width:46%;
 left:39em;
 bottom:22.3em;
 }
+#WelcomeUser{
+    position: relative;
+    text-align: center;
+    font-size: 1.5em;
+    top:1.5em;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: bold;
+}
 #Welcome{
     position: relative;
-    top:3.15em;
+    top:1em;
     text-align: center;
     padding:20px;
     font-size: 2em;
     font-weight: bold;
     font-family: 'Open Sans', sans-serif;
+}
+.ThanksAvatarWelcome{
+    position: relative;
+    width:25%;
+    left:38%;
+    top:1em;
 }

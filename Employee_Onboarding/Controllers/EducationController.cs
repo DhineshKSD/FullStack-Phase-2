@@ -109,7 +109,7 @@ namespace Employee_Onboarding.Controllers
         [HttpPost]                                                        //One Education At a Time
         [Route("api/AddEducation1/{id=id}")]
         [ResponseType(typeof(Education))]
-        public IHttpActionResult PostEducation1(string id,Education education)
+        public object PostEducation1(string id,Education education)
         {
             try
             {
@@ -121,7 +121,11 @@ namespace Employee_Onboarding.Controllers
 
                 db.Educations.Add(education);
                 db.SaveChanges();
-                return Ok("Employee Education Details Successfully Added");
+                return new Response
+                {
+                    Status = "Success",
+                    Message = "Data Successfully"
+                };
             }
 
             catch (Exception ex)

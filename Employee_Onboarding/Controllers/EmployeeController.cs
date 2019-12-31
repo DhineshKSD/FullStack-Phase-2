@@ -4,6 +4,7 @@ using System.Data;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Web;
 using System.Web.Http;
 using System.Web.Http.Description;
 using Employee_Onboarding;
@@ -145,6 +146,12 @@ namespace Employee_Onboarding.Controllers
                 }
                 db.Employees.Add(employee);
                 db.SaveChanges();
+
+                
+                var userName = employee.UserName;
+                var pass = employee.Password;
+                Mail.EmailGeneration(employee.PersonalEmail,employee.FirstName, userName,pass);
+
                 return new Response
                 {
                     Status = "Success",
@@ -176,6 +183,8 @@ namespace Employee_Onboarding.Controllers
 
             return Ok(employee);
         }
+
+
 
         protected override void Dispose(bool disposing)
         {

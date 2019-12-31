@@ -20,6 +20,7 @@ namespace Employee_Onboarding.Models
             this.PersonalInfoes = new HashSet<PersonalInfo>();
             this.PreviousEmployments = new HashSet<PreviousEmployment>();
             this.Proofs = new HashSet<Proof>();
+            this.Documents = new HashSet<Document>();
         }
     
         public int Employee_id { get; set; }
@@ -40,5 +41,6 @@ namespace Employee_Onboarding.Models
         public virtual ICollection<PersonalInfo> PersonalInfoes { get; set; }
         public virtual ICollection<PreviousEmployment> PreviousEmployments { get; set; }
         public virtual ICollection<Proof> Proofs { get; set; }
+        public virtual ICollection<Document> Documents { get; set; }
     }
 }

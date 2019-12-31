@@ -8,8 +8,9 @@ import Home from '../src/components/Home';
 import Login from '../src/components/Login';
 import Thanks from '../src/components/Thanks';
 import '../src/App.css'; 
-import '../src/Navigation.css'
-import '../src/Login.css'
+import '../src/Navigation.css';
+import '../src/Login.css';
+import Education from '../src/components/Education'
 const AppRouter = () => {
     return(
         <Router>      
@@ -21,6 +22,7 @@ const AppRouter = () => {
           <Route path='/Employeelist' component={Employeelist} />
           <Route path='/PersonalInfo' component={PersonalInfo} />  
           <Route path='/Thanks' component={Thanks} /> 
+          <Route path='/Education' component={Education} /> 
         </Switch>  
     </Router>  
     )

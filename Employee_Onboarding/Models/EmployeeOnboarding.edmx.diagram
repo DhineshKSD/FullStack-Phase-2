@@ -14,6 +14,8 @@
         <AssociationConnector Association="EmployeeOnboardingModel.PersonalInfo_NewRecruit" ManuallyRouted="false" />
         <AssociationConnector Association="EmployeeOnboardingModel.PreviousEmployment_NewRecruit" ManuallyRouted="false" />
         <AssociationConnector Association="EmployeeOnboardingModel.Proof_Employee" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="EmployeeOnboardingModel.Document" Width="1.5" PointX="3" PointY="15.5" />
+        <AssociationConnector Association="EmployeeOnboardingModel.BackgroundCheck_NewRecruit" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

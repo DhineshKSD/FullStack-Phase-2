@@ -90,7 +90,7 @@ AddPersonalInfo=()=>{
 if(json.data.Status==='Success')
 {  
   alert("Personal Details Saved Successfully"); 
-  this.props.history.push('/Thanks');      
+  this.props.history.push('/Education');      
 }  
 else
 {  
@@ -109,16 +109,16 @@ return (
   <div>
      <PrimarySearchAppBar/>
    <Container className="PersonalInfoContainer"> 
-                <Form className="form" > 
+                <Form className="form" autoComplete="off"> 
                 
                 <Card elevation={3} id="PersonalInfoCard">
                     <CardContent>  
                     <h3 className="PersonalInfoPageHeading">Personal Information Section</h3>  
                   <div id="FormPersonalInfo">
                   <Col>  
-                        <TextField type="text" required id="standard-required" label="FirstName" autoComplete="off" placeholder="FirstName" fullWidth margin="normal" name="FirstName" value={this.state.FirstName} onChange={this.handleChange}/>
+                        <TextField type="text" required id="standard-required" label="FirstName" autoComplete="off" placeholder="FirstName" fullWidth margin="normal" name="FirstName" value={this.state.FirstName}/>
 
-                        <TextField type="text" required id="standard-required" label="LastName" autoComplete="off" placeholder="LastName" fullWidth margin="normal" name="LastName" value={this.state.LastName} onChange={this.handleChange}/>
+                        <TextField type="text" required id="standard-required" label="LastName" autoComplete="off" placeholder="LastName" fullWidth margin="normal" name="LastName" value={this.state.LastName}/>
 
                         <TextField id="standard-required"
                         select

@@ -3,7 +3,7 @@ import AddEmployee from '../components/AddEmployee';
 import Employeelist from '../components/EmployeeList';  
 import EditEmployee from '../components/EditEmployee'; 
 import PersonalInfo from '../components/PersonalInfo'; 
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom'; 
+import { BrowserRouter as Router, Switch, Route, NavLink } from 'react-router-dom'; 
 import Home from '../components/Home';
 import Login from '../components/Login'
 import '../App.css'; 
@@ -21,18 +21,18 @@ export class Navigation extends React.Component {
                         <div className="collapse navbar-collapse" >  
                             <ul className="navbar-nav mr-auto"> 
                             <li className="nav-item">  
-                                <Link to={'/'} onClick={event =>  window.location.href='/'}className="nav-link">Home</Link>  
+                                <NavLink to={'/'} exact={true} activeClassName="active" onClick={event =>  window.location.href='/'} className="nav-link">Home</NavLink>  
                             </li> 
                             <li className="nav-item">  
-                                <Link to={'/AddEmployee'} onClick={event =>  window.location.href='/AddEmployee'}className="nav-link">AddEmployee</Link>  
+                                <NavLink to={'/AddEmployee'} activeClassName="active" onClick={event =>  window.location.href='/AddEmployee'}className="nav-link">AddEmployee</NavLink>  
                             </li>  
                             <li className="nav-item">  
-                                <Link to={'/Employeelist'} onClick={event =>  window.location.href='/Employeelist'}className="nav-link">Employee List</Link>  
+                                <NavLink to={'/Employeelist'} activeClassName="active" onClick={event =>  window.location.href='/Employeelist'}className="nav-link">Employee List</NavLink>  
                             </li>  
                             </ul>  
                         </div>  
                         </nav> 
-                        </div>
+                    </div>
             </div>
             </div>
             </Router>
