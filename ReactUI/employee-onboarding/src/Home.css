@@ -1,43 +1,46 @@
-
+#Homecard{
+    position: relative;
+    overflow: hidden;
+}
 #CardMessage{
 position: relative;
-height:65vh;
+height:100vh;
 top:11.3em;
 overflow-y: hidden;
 }
 #card1{
 position: relative;
 text-align: justify;
-height:60vh;
+height:55vh;
 width:46%;
 left:2em;
-top:1em;
+top:2em;
 }
 .Employee-logo{
 position: relative;
 width:100%;
-top:0.8em;
+top:0.3em;
 height:20em;
 }
 #card2{
 position: relative;
 text-align: justify;
-height:60vh;
+height:55vh;
 width:46%;
 left:39em;
-bottom:22.3em;
+bottom:20.5em;
 }
 #WelcomeUser{
     position: relative;
     text-align: center;
     font-size: 1.5em;
-    top:1.5em;
+    top:1.2em;
     font-family: 'Open Sans', sans-serif;
     font-weight: bold;
 }
 #Welcome{
     position: relative;
-    top:1em;
+    top:0.5em;
     text-align: center;
     padding:20px;
     font-size: 2em;
@@ -48,5 +51,5 @@ bottom:22.3em;
     position: relative;
     width:25%;
     left:38%;
-    top:1em;
+    top:0.2em;
 }

@@ -6,6 +6,7 @@
     width:150%;
     background-repeat: no-repeat;
     right:5em;
+    overflow-y: hidden;
 }
 #LoginCard1{
     position: relative;
@@ -24,33 +25,33 @@
 #LoginCard2{
     position: relative;
     height: 80vh;
-    bottom:26.9em;
+    bottom:28.55em;
     width:22%;
     left:52em;
 }
 #LoginContent{
     position: relative;
-    top:3em;
+    top:3.5em;
     width:80%;
     left:2em;
 }
 #Login{
     position: relative;
-    font-size: 2em;
-    top:1.5em;
+    font-size: 2.5em;
+    top:1.3em;
     text-align: center;
 }
 .Avatar{
     position: relative;
-    width:20%;
+    width:25%;
     height: auto;
-    left:40%;
-    top:2.5em;
+    left:37%;
+    top:3em;
 }
 #SignIn{
     position: relative;
-    top:3.5em;
-    left:40%;
+    top:4em;
+    left:39%;
     font-family: 'Open Sans', sans-serif;
 }
 #ForgotPassword{

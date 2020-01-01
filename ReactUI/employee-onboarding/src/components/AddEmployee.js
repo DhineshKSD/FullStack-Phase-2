@@ -94,10 +94,10 @@ return (
   <div id="card">
   <PrimarySearchAppBar/>
   <Navigation/>
-    <Card id="EmployeeCard" elevation={3}>
+    <Card id="EmployeeCard" elevation={7}>
       <CardContent> 
       <h3 className="PageHeading">Enter New-Hires Informations</h3> 
-      <Form className="form" >  
+      <Form className="form" required>  
         <div id="formemp">
           <Col>  
                 <TextField type="text" required id="standard-required" label="FirstName" autoComplete="off" placeholder="FirstName" fullWidth margin="normal" name="FirstName" value={this.state.FirstName} onChange={this.handleChange}/>

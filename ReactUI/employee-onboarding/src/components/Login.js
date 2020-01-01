@@ -38,6 +38,10 @@ else
   alert("Logging In");
   this.props.history.push('/PersonalInfo')   
 }
+}).catch(error => { // your error handling goes here}
+  console.log(error);
+  alert("Invalid Credential");
+  window.location.href='/Login';
 })
 }  
 handleChange= (e)=> {  

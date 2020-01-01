@@ -1,15 +1,18 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans|Roboto&display=swap');
 .EmployeeEditCard{
 position: relative;
-height:112vh;
+height:100vh;
 }
 #EmployeeEdit{
 position: relative;
-top:3em;
+top:1em;
 height:37.5em;
 }
 .EmployeeEditPageHeading{
 text-align: center;
 top:0.5em;
+font-family: 'Open Sans', sans-serif;
+font-weight: bold;
 }
 #EditForm1{
 position: relative;

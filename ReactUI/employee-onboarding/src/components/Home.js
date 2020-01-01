@@ -14,12 +14,20 @@ import ThanksAvatar from '../Assets/ThanksAvatar.png';
 
 var Name;
 export class Home extends Component {
+    constructor(props){  
+        super(props)  
+        this.state = {  
+        FirstName:'' ,
+        disp:''  
+        }
+    }
     componentDidMount() {  
         var userId = localStorage.getItem("User");
         axios.get('https://localhost:44319/api/GetEmployeeById/'+userId)  
             .then(response => {  
                 this.setState({   
-                  FirstName: response.data.FirstName,   
+                  FirstName: response.data.FirstName,
+                  disp : localStorage.setItem('FirstName',response.data.FirstName)   
                    }); 
               localStorage.setItem('FirstName',response.data.FirstName);
             })  
@@ -28,12 +36,11 @@ export class Home extends Component {
             })  
       }  
     render() {
-        Name = localStorage.getItem('FirstName');
         return (
-            <div id="card">
+            <div id="Homecard" >
                <PrimarySearchAppBar/>
                     <Navigation/>
-                        <Card id="CardMessage" elevation={7}>
+                        <Card id="CardMessage">
                            
                                 <Card id="card1" elevation={7}>
                                 <CardContent>
@@ -45,7 +52,7 @@ export class Home extends Component {
                                 <CardContent>
                                 <img src={ThanksAvatar} className="ThanksAvatarWelcome" alt="ThanksAvatar" />
 
-                                <p id="WelcomeUser"> "Hello {Name}"</p>
+                                <p id="WelcomeUser"> "Hello {localStorage.getItem('FirstName')}"</p>
                                 <p id="Welcome">Welcome To Psiog's Employee On-Boarding Hub</p>
                                 </CardContent>
                                 </Card>
