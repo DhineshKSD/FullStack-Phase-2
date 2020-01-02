@@ -53,3 +53,23 @@ bottom:20.5em;
     left:38%;
     top:0.2em;
 }
+#StartFilling{
+    position: relative;
+    top:6em;
+    left:50%;
+}
+#Instructions{
+    position: relative;
+    top:8.2em;
+    left:36.5%;
+}
+#UserCardMessage{
+    position: relative;
+    height:89vh;
+    top:8em;
+    overflow-y: hidden;
+}
+#UserHomecard{
+    position: relative;
+    overflow: hidden;
+}

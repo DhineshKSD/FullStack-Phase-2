@@ -5,6 +5,9 @@ import ButtonMat from '@material-ui/core/Button';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import '../Education.css';
+import PrimarySearchAppBar from '../components/Header'; 
+import IconButton from '@material-ui/core/IconButton'
+import Snackbar from '@material-ui/core/Snackbar';
 export class Education extends Component {
 constructor(props){  
 super(props)  
@@ -17,9 +20,13 @@ From:'',
 To:'',  
 YearOfPassing:'', 
 isButtonDisabled: false,
+snackbaropen :false, snackbarmsg:'' 
+}; 
+this.handleChange = this.handleChange.bind(this);   
 }
+snackbarClose = (e) =>{
+    this.setState({snackbaropen:false});
 }
-
 AddEducation=()=>{
 var userId = localStorage.getItem("User");  
 axios.post('https://localhost:44319/api/AddEducation1/'+userId, {
@@ -34,12 +41,14 @@ axios.post('https://localhost:44319/api/AddEducation1/'+userId, {
 .then(json => {  
 if(json.data.Status==='Success')
 {  
-alert("Education Detail's Saved Successfully"); 
-  this.props.history.push('/Thanks');   
+this.setState({snackbaropen:true , snackbarmsg : "Education Detail's Saved Successfully"}) 
+//alert("Education Detail's Saved Successfully"); 
+window.location.href='/Thanks';   
 }  
 else
-{  
-alert('Data not Saved');  
+{ 
+this.setState({snackbaropen:true , snackbarmsg : "Data not Saved"})  
+//alert('Data not Saved');  
 debugger;   
 }  
 })}
@@ -49,7 +58,23 @@ this.setState({[e.target.name]:e.target.value});
 render() {
         return (
             <div>
-                <Card id="EducationCard" elevation={7}>
+                 <PrimarySearchAppBar/>
+                 <Snackbar 
+                    anchorOrigin={{vertical:'bottom',horizontal:'left'}}
+                    open = {this.state.snackbaropen}
+                    autoHideDuration = {100000}
+                    onClose={this.snackbarClose}
+                    message = {<span id="message-id">{this.state.snackbarmsg}</span>}
+                    action ={[
+                    <IconButton 
+                    key="close"
+                    arial-label="close"
+                    color="secondary"
+                    onClick={this.snackbarClose}>
+                    </IconButton>
+                    ]}
+                    />
+                <Card id="EducationCard" elevation={10}>
                 <CardContent id="EduCard">
                     <p1 id="EduHeading">UnderGraduate Education</p1>
                 <TextField type="text" required id="standard-required" label="Course" autoComplete="off" placeholder="Course" fullWidth margin="normal" name="Course" value={this.state.Course} onChange={this.handleChange}/>

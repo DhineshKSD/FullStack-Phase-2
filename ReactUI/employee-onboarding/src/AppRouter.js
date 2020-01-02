@@ -7,6 +7,7 @@ import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import Home from '../src/components/Home';
 import Login from '../src/components/Login';
 import Thanks from '../src/components/Thanks';
+import UserHome from '../src/components/UserHome'
 import '../src/App.css'; 
 import '../src/Navigation.css';
 import '../src/Login.css';
@@ -23,6 +24,7 @@ const AppRouter = () => {
           <Route path='/PersonalInfo' component={PersonalInfo} />  
           <Route path='/Thanks' component={Thanks} /> 
           <Route path='/Education' component={Education} /> 
+          <Route path='/UserHome' component={UserHome} /> 
         </Switch>  
     </Router>  
     )

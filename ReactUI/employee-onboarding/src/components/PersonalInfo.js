@@ -9,7 +9,9 @@ import { Container, Col, Form, row, FormGroup, Label, Input, Button } from 'reac
 import PrimarySearchAppBar from '../components/Header';  
 import MenuItem from '@material-ui/core/MenuItem';
 import Paper from '@material-ui/core/Paper';
-import '../PersonalInfo.css'
+import '../PersonalInfo.css';
+import IconButton from '@material-ui/core/IconButton'
+import Snackbar from '@material-ui/core/Snackbar';
 var id = localStorage.getItem("User");
 console.log(id);
 const Gender = [
@@ -55,8 +57,13 @@ this.state = {
   City2:'',  
   State2:'',
   Country2:'', 
-}  
-}  
+  snackbaropen :false, snackbarmsg:''  
+}; 
+this.handleChange = this.handleChange.bind(this);   
+} 
+snackbarClose = (e) =>{
+  this.setState({snackbaropen:false});
+} 
 componentDidMount() {  
   axios.get('https://localhost:44319/api/GetEmployeeById/'+id)  
       .then(response => {  
@@ -89,12 +96,14 @@ AddPersonalInfo=()=>{
 .then(json => {  
 if(json.data.Status==='Success')
 {  
-  alert("Personal Details Saved Successfully"); 
-  this.props.history.push('/Education');      
+  this.setState({snackbaropen:true , snackbarmsg : "Personal Details Saved Successfully"}) 
+  //alert("Personal Details Saved Successfully"); 
+  window.location.href='/Education';      
 }  
 else
-{  
-alert('Data not Saved');  
+{
+  this.setState({snackbaropen:true , snackbarmsg : "Data not Saved"})   
+//alert('Data not Saved');  
 debugger;  
 }  
 })  
@@ -108,6 +117,21 @@ render() {
 return (  
   <div>
      <PrimarySearchAppBar/>
+     <Snackbar 
+        anchorOrigin={{vertical:'bottom',horizontal:'left'}}
+        open = {this.state.snackbaropen}
+        autoHideDuration = {100000}
+        onClose={this.snackbarClose}
+        message = {<span id="message-id">{this.state.snackbarmsg}</span>}
+        action ={[
+          <IconButton 
+          key="close"
+          arial-label="close"
+          color="secondary"
+          onClick={this.snackbarClose}>
+          </IconButton>
+        ]}
+        />
    <Container className="PersonalInfoContainer"> 
                 <Form className="form" autoComplete="off"> 
                 

@@ -166,7 +166,7 @@ onChangeReportingTo(e) {
     axios.put('https://localhost:44319/api/PutEmployee/'+this.props.match.params.id, obj)  
         .then(res => console.log(res.data));  
         debugger;  
-        this.props.history.push('/Employeelist')  
+        this.props.history.push('/Employeelist');  
   }  
     render() {  
         return (

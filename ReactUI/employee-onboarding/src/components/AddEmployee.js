@@ -13,6 +13,8 @@ import MenuItem from '@material-ui/core/MenuItem';
 import PrimarySearchAppBar from '../components/Header';
 import Navigation from '../components/Navigation';
 import { Container, Col, Form, row, FormGroup, Label, Input, Button } from 'reactstrap';  
+import IconButton from '@material-ui/core/IconButton'
+import Snackbar from '@material-ui/core/Snackbar';
 const Department = [
   {
     value: 'IT',
@@ -53,9 +55,14 @@ this.state = {
   DOJ:'',
   UserName:'',  
   Password:'',  
-  ReportingTo:''  
-}  
+  ReportingTo:'',
+  snackbaropen :false, snackbarmsg:''  
+}; 
+this.handleChange = this.handleChange.bind(this); 
 } 
+snackbarClose = (e) =>{
+  this.setState({snackbaropen:false});
+}
 AddEmployee=()=>{  
   axios.post('https://localhost:44319/api/signup/addEmployee', {
     FirstName:this.state.FirstName,
@@ -71,16 +78,18 @@ AddEmployee=()=>{
     ReportingTo:this.state.ReportingTo})  
 .then(json => {  
 if(json.data.Status==='Success')
-{  
-  alert("New Hires Detail's Saved Successfully"); 
+{
+  this.setState({snackbaropen:true , snackbarmsg : "New Hires Detail's Saved Successfully"})  
+  //alert("New Hires Detail's Saved Successfully"); 
   console.log(json.data.Status);  
-  this.props.history.push('/Employeelist')  
+  window.location.href='/Employeelist'; 
 }  
 else
 {  
-alert('Data not Saved');  
+this.setState({snackbaropen:true , snackbarmsg : "Data not Saved"})    
+//alert('Data not Saved');  
 debugger;  
-this.props.history.push('/Employeelist')  
+window.location.href='/Employeelist'; 
 }  
 })  
 }  
@@ -92,6 +101,21 @@ this.setState({[e.target.name]:e.target.value});
 render() {  
 return (  
   <div id="card">
+    <Snackbar 
+        anchorOrigin={{vertical:'bottom',horizontal:'left'}}
+        open = {this.state.snackbaropen}
+        autoHideDuration = {500000}
+        onClose={this.snackbarClose}
+        message = {<span id="message-id">{this.state.snackbarmsg}</span>}
+        action ={[
+          <IconButton 
+          key="close"
+          arial-label="close"
+          color="secondary"
+          onClick={this.snackbarClose}>
+          </IconButton>
+        ]}
+        />
   <PrimarySearchAppBar/>
   <Navigation/>
     <Card id="EmployeeCard" elevation={7}>

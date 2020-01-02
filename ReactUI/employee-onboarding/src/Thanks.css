@@ -3,19 +3,19 @@
     height:80vh;
     width:50%;
     left:26%;
-    top:4em;
+    top:6.1em;
 }
 #Thanks{
     position: relative;
     text-align: center;
     font-size: 2em;
     left:-5%;
-    top:8.5em;
+    top:9em;
 }
 .ThanksAvatar{
     position: relative;
     width:30%;
     height: auto;
     left:35%;
-    top:5em;
+    top:6em;
 }
