@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import LoginImage from '../Assets/3.png';
+import LoginImage from '../Assets/LoginFormSide.png';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import '../Login.css';
