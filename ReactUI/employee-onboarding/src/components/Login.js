@@ -36,7 +36,6 @@ axios.post('https://localhost:44319/token', this.state)
 .then(res =>  {
 localStorage.setItem('Token',res.data);
 localStorage.setItem('User',this.state.UserName);
-console.log(res);
 if(this.state.UserName==="P100")
 {
   //alert("Logging In");
@@ -92,9 +91,9 @@ localStorage.removeItem('FirstName');
               </div>
               <header id = "Login">Login</header>
               <div id="LoginContent">
-              <TextField type="text" required id="standard-required" label="UserName" autoComplete="off" placeholder="UserName" fullWidth margin="normal" name="UserName" value={this.state.UserName} onChange={this.handleChange}/>
+              <TextField type="text" required id="standard-required" inputProps={{ maxLength: 4 }} label="UserName" autoComplete="off" placeholder="UserName" fullWidth margin="normal" name="UserName" value={this.state.UserName} onChange={this.handleChange}/>
 
-              <TextField type="password" required id="standard-required" label="Password"autoComplete="off" placeholder="Password" fullWidth margin="normal" name="Password" value={this.state.Password} onChange={this.handleChange}/>
+              <TextField type="password" required id="standard-required" inputProps={{ maxLength: 9 }} label="Password"autoComplete="off" placeholder="Password" fullWidth margin="normal" name="Password" value={this.state.Password} onChange={this.handleChange}/>
               <FormControlLabel
                 control={<Checkbox value="remember" color="primary" />}
                 label="Remember me"

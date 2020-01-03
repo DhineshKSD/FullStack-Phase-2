@@ -9,7 +9,7 @@ import SendIcon from '@material-ui/icons/Send';
 
 class Table extends Component {  
   constructor(props) {  
-    super(props);  
+    super(props);
     }  
     DeleteStudent= () =>{  
      axios.delete('https://localhost:44319/api/removeEmployee/'+this.props.obj.Employee_id)  
@@ -26,7 +26,7 @@ class Table extends Component {
             {this.props.obj.FirstName}  
           </td>  
           <td>  
-            {this.props.obj.DOJ}  
+            {this.props.obj.DOJ.split('T')[0]}  
           </td>  
           <td>  
             {this.props.obj.JobTitle}  

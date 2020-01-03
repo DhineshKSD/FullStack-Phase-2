@@ -59,7 +59,7 @@ class Edit extends React.Component {
             Contact:'',  
             JobTitle:'',  
             Department:'',  
-            Compensation:'',  
+            Compensation:'450000',  
             DOJ:'',
             UserName:'',  
             Password:'',  
@@ -187,31 +187,30 @@ onChangeReportingTo(e) {
 
                     <TextField type="email" required id="standard-required" label="PersonalEmail"autoComplete="off" placeholder="PersonalEmail" fullWidth margin="normal" name="PersonalEmail" value={this.state.PersonalEmail} onChange={this.onChangePersonalEmail}/>
 
-                    <TextField type="number" required id="standard-required" label="Contact"autoComplete="off" placeholder="Contact" fullWidth margin="normal" name="Contact" value={this.state.Contact} onChange={this.onChangeContact}/>
+                    <TextField type="number" required id="standard-required" label="Contact"autoComplete="off" placeholder="Contact" fullWidth margin="normal" name="Contact" onInput={(e)=>{ e.target.value = Math.max(0, parseInt(e.target.value) ).toString().slice(0,10)}}
+                    value={this.state.Contact} onChange={this.onChangeContact}/>
 
                     <TextField type="text" required id="standard-required" label="JobTitle"autoComplete="off" placeholder="JobTitle" fullWidth margin="normal" name="JobTitle" value={this.state.JobTitle} onChange={this.onChangeJobTitle}/>
-
-                    <TextField id="standard-required"
-                        select
-                        label="Department" fullWidth margin="normal"
-                        name="Department"
-                        value={this.state.Department} onChange={this.onChangeDepartment}
-                        helperText="Please select your Department"
-                        >
-                        {Department.map(option => (
-                        <MenuItem key={option.value} value={option.value}>
-                            {option.name}
-                        </MenuItem>
-                        ))}
-                        </TextField>
-                        </Col>
+                    </Col>
                 </div>
-                <div id="EditForm2">
+          <div id="EditForm2">
           <Col>
-          <TextField type="number" required id="standard-required" label="Compensation" autoComplete="off" placeholder="Compensation" fullWidth margin="normal" name="Compensation" value={this.state.Compensation} onChange={this.onChangeCompensation}/>
-
+          <TextField id="standard-required"
+          select
+          label="Department" fullWidth margin="normal"
+          name="Department"
+          value={this.state.Department} onChange={this.onChangeDepartment}
           
-          <TextField id="date"label="Joining Date" type="text" defaultValue="2017-05-24" fullWidth margin="normal"name="DOJ" value={this.state.DOJ} onChange={this.onChangeDOJ} InputLabelProps={{shrink: true, }}/>
+          >
+          {Department.map(option => (
+          <MenuItem key={option.value} value={option.value}>
+              {option.name}
+          </MenuItem>
+          ))}
+          </TextField>
+
+          <TextField id="date"label="Joining Date" type="text" defaultValue="2017-05-24" fullWidth margin="normal"name="DOJ" value={this.state.DOJ.split('T')[0]} onChange={this.onChangeDOJ} InputLabelProps={{shrink: true, }}/>
+          
           <TextField type="text" required id="standard-required" label="UserName" autoComplete="off" placeholder="UserName" fullWidth margin="normal" name="UserName" value={this.state.UserName} onChange={this.onChangeUserName}/>
 
           <TextField type="text" required id="standard-required" label="Password" autoComplete="off" placeholder="Password" fullWidth margin="normal" name="Password" value={this.state.Password} onChange={this.onChangePassword}/>

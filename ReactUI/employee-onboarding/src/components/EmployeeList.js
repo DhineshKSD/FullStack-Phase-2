@@ -37,7 +37,7 @@ export default class Employeelist extends Component {
           <Card id="EmpListCard" elevation={7}>
                 <CardContent>
           <h5 id="EmpListHeading" align="center">On-Boarding Queue</h5>  
-          <table className="table table-striped" style={{ marginTop: '1em' }}>  
+          <table className="table table-striped" style={{ marginTop: '2em' }}>  
             <thead>  
               <tr>  
                 <th>Name</th>  

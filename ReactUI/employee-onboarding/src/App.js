@@ -9,6 +9,7 @@ import PersonalInfo from '../src/components/PersonalInfo';
 import AddEmployee from '../src/components/AddEmployee';
 import Login from '../src/components/Login';
 import Education from '../src/components/Education'
+import Stepper from '../src/Stepper'
 function App() {  
   return (  
     <div>

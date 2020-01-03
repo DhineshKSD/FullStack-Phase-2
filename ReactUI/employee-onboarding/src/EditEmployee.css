@@ -1,12 +1,12 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans|Roboto&display=swap');
 .EmployeeEditCard{
 position: relative;
-height:100vh;
+height:90vh;
 }
 #EmployeeEdit{
 position: relative;
-top:1em;
-height:37.5em;
+top:1.4em;
+height:34em;
 }
 .EmployeeEditPageHeading{
 text-align: center;
@@ -17,16 +17,17 @@ font-weight: bold;
 #EditForm1{
 position: relative;
 width: 40%;
-Left:7%;
+Left:6.5%;
 top:1em;
 }
 #EditForm2{
 position: relative;
 width: 40%;
-Left:55%;
-bottom: 27.25em;
+Left:54%;
+bottom: 21.4em;
 }
 #EditEmpButton{
 position: relative;
-top:3em;
+top:5em;
+right: 0.4em;
 }
