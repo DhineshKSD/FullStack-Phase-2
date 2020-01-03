@@ -7,6 +7,7 @@ import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import PrimarySearchAppBar from '../components/Header';
 import Navigation from '../components/Navigation';
+import Avatar from '@material-ui/core/Avatar';
 export default class Employeelist extends Component {  
   constructor(props) {  
       super(props);  
@@ -40,6 +41,7 @@ export default class Employeelist extends Component {
           <table className="table table-striped" style={{ marginTop: '2em' }}>  
             <thead>  
               <tr>  
+                <th>Avatar</th>
                 <th>Name</th>  
                 <th>Date.of.Joining</th>  
                 <th>Role</th>  

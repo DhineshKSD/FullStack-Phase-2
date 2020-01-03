@@ -24,8 +24,8 @@ const Gender = [
     name: 'Female',
   },
   {
-    value: 'Transgender',
-    name: 'Transgender',
+    value: 'Others',
+    name: 'Others',
   },
 ];
 const MaritalStatus = [
@@ -36,6 +36,48 @@ const MaritalStatus = [
   {
     value: 'Married',
     name: 'Married',
+  },
+  {
+    value: 'Divorced',
+    name: 'Divorced',
+  },
+  {
+    value: 'Widow',
+    name: 'Widow',
+  },
+];
+const BloodGroup = [
+  {
+    value: 'O+',
+    name: 'O+',
+  },
+  {
+    value: 'O-',
+    name: 'O-',
+  },
+  {
+    value: 'A+',
+    name: 'A+',
+  },
+  {
+    value: 'A-',
+    name: 'A-',
+  },
+  {
+    value: 'B+',
+    name: 'B+',
+  },
+  {
+    value: 'B-',
+    name: 'B-',
+  },
+  {
+    value: 'AB+',
+    name: 'AB+',
+  },
+  {
+    value: 'AB-',
+    name: 'AB-',
   },
 ];
 class PersonalInfo extends React.Component{  
@@ -140,9 +182,9 @@ return (
                     <h3 className="PersonalInfoPageHeading">Personal Information Section</h3>  
                   <div id="FormPersonalInfo">
                   <Col>  
-                        <TextField type="text" required id="standard-required" label="FirstName" autoComplete="off" placeholder="FirstName" fullWidth margin="normal" name="FirstName" value={this.state.FirstName}/>
+                        <TextField type="text" required id="standard-required" label="FirstName" autoComplete="off" placeholder="FirstName" fullWidth margin="normal" name="FirstName" InputProps={{ readOnly: true, }} value={this.state.FirstName}/>
 
-                        <TextField type="text" required id="standard-required" label="LastName" autoComplete="off" placeholder="LastName" fullWidth margin="normal" name="LastName" value={this.state.LastName}/>
+                        <TextField type="text" required id="standard-required" label="LastName" autoComplete="off" placeholder="LastName" fullWidth margin="normal" name="LastName" InputProps={{ readOnly: true, }} value={this.state.LastName}/>
 
                         <TextField id="standard-required"
                         select
@@ -157,7 +199,20 @@ return (
                           </MenuItem>
                         ))}
                         </TextField>
-                        <TextField id="text"label="Blood Group" type="text"fullWidth margin="normal"name="BloodGroup" value={this.state.BloodGroup} onChange={this.handleChange}/>
+                        <TextField id="standard-required"
+                        select
+                        label="BloodGroup" fullWidth margin="normal"
+                        name="BloodGroup"
+                        value={this.state.BloodGroup} onChange={this.handleChange}
+                          helperText="Please select your BloodGroup"
+                        >
+                        {BloodGroup.map(option => (
+                          <MenuItem key={option.value} value={option.value}>
+                            {option.name}
+                          </MenuItem>
+                        ))}
+                        </TextField>
+                        
                   </Col>
                   </div>
                   <div id="FormPersonalInfo1">

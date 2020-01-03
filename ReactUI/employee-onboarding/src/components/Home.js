@@ -10,6 +10,7 @@ import Navigation from '../components/Navigation';
 import '../Home.css';
 import axios from 'axios';
 import ThanksAvatar from '../Assets/ThanksAvatar.png'; 
+import decode from 'jwt-decode';
 
 
 var Name;
@@ -34,7 +35,14 @@ export class Home extends Component {
             .catch(function (error) {  
                 console.log(error);  
             })  
+            //this.IsTokenExpired();
       }  
+      /*IsTokenExpired(){
+          var Token = localStorage.getItem("Token");
+          var DecodedToken = decode(Token);
+          var time = (DecodedToken.exp < Date.now() / 1000); 
+           localStorage.setItem('key',time)
+      }*/
     render() {
         return (
             <div id="Homecard" >

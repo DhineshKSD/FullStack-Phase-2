@@ -15,6 +15,7 @@ import Navigation from '../components/Navigation';
 import { Container, Col, Form, row, FormGroup, Label, Input, Button } from 'reactstrap';  
 import IconButton from '@material-ui/core/IconButton'
 import Snackbar from '@material-ui/core/Snackbar';
+
 const Department = [
   {
     value: 'IT',
@@ -54,7 +55,7 @@ this.state = {
   Compensation:'450000',  
   DOJ:'',
   UserName:'',  
-  Password:'',  
+  Password:("Psiog"+(((1+Math.random())*0x10000)|0).toString(16).substring(1)),  
   ReportingTo:'',
   snackbaropen :false, snackbarmsg:''  
 }; 
@@ -96,7 +97,9 @@ window.location.href='/Employeelist';
 handleChange= (e)=> {  
 this.setState({[e.target.name]:e.target.value});  
 } 
-
+clearform = (e) =>{
+  window.location.href="/AddEmployee";
+}
  
 render() {  
 return (  
@@ -156,9 +159,9 @@ return (
           
           <TextField id="date"label="Joining Date" type="date"defaultValue="2017-05-24" fullWidth margin="normal"name="DOJ" value={this.state.DOJ} onChange={this.handleChange}InputLabelProps={{shrink: true, }}/>
           
-          <TextField type="text" required id="standard-required" label="UserName" autoComplete="off" placeholder="UserName" fullWidth margin="normal" name="UserName" value={this.state.UserName} onChange={this.handleChange}/>
+          <TextField type="text" required id="standard-required" label="UserName" autoComplete="off" placeholder="UserName" fullWidth margin="normal" name="UserName" inputProps={{ maxLength: 4 }} value={this.state.UserName} onChange={this.handleChange}/>
 
-          <TextField type="Password" required id="standard-required" label="Password" autoComplete="off" placeholder="Password" fullWidth margin="normal" name="Password" value={this.state.Password} onChange={this.handleChange}/>
+          <TextField type="text" required id="standard-required" label="Password" autoComplete="off" placeholder="Password" fullWidth margin="normal" name="Password" InputProps={{ readOnly: true, }} value={this.state.Password} />
 
           <TextField type="text" required id="standard-required" label="ReportingTo" autoComplete="off" placeholder="ReportingTo" fullWidth margin="normal" name="ReportingTo" value={this.state.ReportingTo} onChange={this.handleChange}/>
         </Col>
@@ -173,7 +176,7 @@ return (
             </ButtonMat> 
             </Col>  
             <Col sm={1} id="AddEmpButton">  
-            <ButtonMat variant="contained" color="secondary">Cancel</ButtonMat>{' '}  
+            <ButtonMat variant="contained" color="secondary" onClick={this.clearform}>Cancel</ButtonMat>{' '} 
             </Col>  
             <Col sm={5}>  
             </Col>  

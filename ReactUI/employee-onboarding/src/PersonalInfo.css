@@ -13,12 +13,12 @@
     position: relative;
     width:45%;
     top:1em;
-    left:1em;
+    left:1.5em;
 }
 #FormPersonalInfo1{
     position: relative;
     width:45%;
-    bottom:18.3em;
+    bottom:19.5em;
     left:31em;
 }
 #PersonalInfoCard{
@@ -43,7 +43,7 @@
     position: relative;
     width:45%;
     top:0em;
-    left:1em; 
+    left:1.5em; 
 }
 #FormAddressInfo1{
     position: relative;

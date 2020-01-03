@@ -213,7 +213,7 @@ onChangeReportingTo(e) {
           
           <TextField type="text" required id="standard-required" label="UserName" autoComplete="off" placeholder="UserName" fullWidth margin="normal" name="UserName" value={this.state.UserName} onChange={this.onChangeUserName}/>
 
-          <TextField type="text" required id="standard-required" label="Password" autoComplete="off" placeholder="Password" fullWidth margin="normal" name="Password" value={this.state.Password} onChange={this.onChangePassword}/>
+          <TextField type="text" required id="standard-required" label="Password" autoComplete="off" placeholder="Password" InputProps={{ readOnly: true, }} fullWidth margin="normal" name="Password" value={this.state.Password} onChange={this.onChangePassword}/>
 
           <TextField type="text" required id="standard-required" label="ReportingTo" autoComplete="off" placeholder="ReportingTo" fullWidth margin="normal" name="ReportingTo" value={this.state.ReportingTo} onChange={this.onChangeReportingTo}/>
           </Col>

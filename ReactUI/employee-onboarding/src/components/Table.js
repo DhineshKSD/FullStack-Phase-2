@@ -5,7 +5,7 @@ import ButtonMat from '@material-ui/core/Button';
 import EditIcon from '@material-ui/icons/Edit';
 import DeleteIcon from '@material-ui/icons/Delete';
 import SendIcon from '@material-ui/icons/Send';
-
+import Avatar from '@material-ui/core/Avatar';
 
 class Table extends Component {  
   constructor(props) {  
@@ -22,6 +22,9 @@ class Table extends Component {
   render() {  
     return (  
         <tr>  
+          <td>  
+           <Avatar style={{backgroundColor: '#3f51b5'}}>{this.props.obj.FirstName.charAt(0)}</Avatar>  
+          </td>
           <td>  
             {this.props.obj.FirstName}  
           </td>  
