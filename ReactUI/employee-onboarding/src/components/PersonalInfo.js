@@ -99,7 +99,8 @@ this.state = {
   City2:'',  
   State2:'',
   Country2:'', 
-  snackbaropen :false, snackbarmsg:''  
+  snackbaropen :false, snackbarmsg:'',
+  isAvailable:false    
 }; 
 this.handleChange = this.handleChange.bind(this);   
 } 
@@ -151,9 +152,12 @@ debugger;
 })  
 }  
 handleChange= (e)=> {  
-this.setState({[e.target.name]:e.target.value});  
+this.setState({[e.target.name]:e.target.value});
+this.setState( {isAvailable: true });    
 } 
-
+clearform = (e) =>{
+  window.location.href="/PersonalInfo";
+}
  
 render() {  
 return (  
@@ -268,12 +272,14 @@ return (
                 <Col sm={5} >  
                 </Col>  
                 <Col sm={1} id="PersonalButton">  
-                <ButtonMat id="submit"type="button" onClick={this.AddPersonalInfo} variant="contained" color="primary">
+                <ButtonMat id="submit"type="button" disabled={!this.state.Gender||!this.state.DateOfBirth||!this.state.PlaceOfBirth||!this.state.MaritalStatus||!this.state.BloodGroup||
+               !this.state.Address1||!this.state.City1||!this.state.State1||!this.state.Country1||!this.state.Address2||!this.state.City2||!this.state.State2||!this.state.Country2} 
+                onClick={this.AddPersonalInfo} variant="contained" color="primary">
                 Submit
                 </ButtonMat> 
                 </Col>  
                 <Col sm={1} id="PersonalButton">  
-                <ButtonMat variant="contained" color="secondary">Cancel</ButtonMat>{' '}  
+                <ButtonMat variant="contained" color="secondary" onClick={this.clearform}>Cancel</ButtonMat>{' '}  
                 </Col>  
                 <Col sm={5}>  
                 </Col>  

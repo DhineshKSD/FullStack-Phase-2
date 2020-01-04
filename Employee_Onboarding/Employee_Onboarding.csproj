@@ -147,6 +147,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Accessory Classes\DatabaseAction.cs" />
+    <Compile Include="Accessory Classes\Hash.cs" />
     <Compile Include="Accessory Classes\LogFile.cs" />
     <Compile Include="Accessory Classes\Mail.cs" />
     <Compile Include="Controllers\DocumentController.cs" />

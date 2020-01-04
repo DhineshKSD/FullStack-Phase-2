@@ -39,6 +39,8 @@ namespace Employee_Onboarding.Controllers
                     Password = r.Password,
                     ReportingTo = r.ReportingTo,
                     isAdmin = r.isAdmin,
+                    MailStatus = r.MailStatus,
+
                 });
 
                 return listOfEmployees.ToList();
@@ -86,13 +88,14 @@ namespace Employee_Onboarding.Controllers
                     return NotFound();
                 }
                 return Ok(employee);
-                }
-                catch (Exception ex)
-                {
-                    LogFile.WriteLog(ex);
-                    return BadRequest();
-                }
             }
+            catch (Exception ex)
+            {
+                LogFile.WriteLog(ex);
+                return BadRequest();
+            }
+        }
+    
 
         [HttpPut]
         [ResponseType(typeof(void))]
@@ -147,11 +150,6 @@ namespace Employee_Onboarding.Controllers
                 db.Employees.Add(employee);
                 db.SaveChanges();
 
-                
-                var userName = employee.UserName;
-                var pass = employee.Password;
-                Mail.EmailGeneration(employee.PersonalEmail,employee.FirstName, userName,pass);
-
                 return new Response
                 {
                     Status = "Success",
@@ -184,7 +182,32 @@ namespace Employee_Onboarding.Controllers
             return Ok(employee);
         }
 
+        [HttpGet]
+        [Route("api/SendMail/{id=id}")]
+        [ResponseType(typeof(Employee))]
+        public object SendMail(int id)
+        {
+            try
+            {
+                Employee employee = db.Employees.Find(id);
 
+                var userName = employee.UserName;
+                var pass = employee.Password;
+                Mail.EmailGeneration(employee.PersonalEmail, employee.FirstName, userName, pass);
+
+                return new Response
+                {
+                    Status = "Success",
+                    Message = "Mail Sent Successfully"
+                };
+            }
+
+            catch (Exception ex)
+            {
+                LogFile.WriteLog(ex);
+                return BadRequest();
+            }
+        }
 
         protected override void Dispose(bool disposing)
         {

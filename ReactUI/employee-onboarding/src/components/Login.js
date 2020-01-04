@@ -23,7 +23,8 @@ this.state = {
 UserName:'',  
 Password:'', 
 grant_type: 'Password',   
-snackbaropen :false, snackbarmsg:''
+snackbaropen :false, snackbarmsg:'',
+isAvailable:false
 } ;
 this.handleChange = this.handleChange.bind(this);
 }
@@ -54,13 +55,18 @@ else
 })
 }  
 handleChange= (e)=> {  
-this.setState({[e.target.name]:e.target.value});  
+this.setState({[e.target.name]:e.target.value}); 
+this.setState( {isAvailable: true }); 
 }    
 componentDidMount() { 
 localStorage.removeItem('Token');
 localStorage.removeItem('User');
 localStorage.removeItem('FirstName');
 }
+handleSubmit = event => {
+  event.preventDefault();
+  this.Login();
+};
   render() {
     return (
       <div id="LoginCard">
@@ -90,13 +96,19 @@ localStorage.removeItem('FirstName');
               <img src={Avatar} className="Avatar" alt="Avatar" />
               </div>
               <header id = "Login">Login</header>
+              <form onSubmit={this.handleSubmit}>
               <div id="LoginContent">
               <TextField type="text" required id="standard-required" inputProps={{ maxLength: 4 }} label="UserName" autoComplete="off" placeholder="UserName" fullWidth margin="normal" name="UserName" value={this.state.UserName} onChange={this.handleChange}/>
 
               <TextField type="password" required id="standard-required" inputProps={{ maxLength: 9 }} label="Password"autoComplete="off" placeholder="Password" fullWidth margin="normal" name="Password" value={this.state.Password} onChange={this.handleChange}/>
+              <ButtonMat id="SignIn" type="submit" variant="contained" color="primary">
+              Login
+              </ButtonMat>
+              </div>
+              </form>
               <FormControlLabel
                 control={<Checkbox value="remember" color="primary" />}
-                label="Remember me"
+                label="Remember me" id="Remember"
               />
               <Grid container id="ForgotPassword">
                 <Grid item xs>
@@ -105,10 +117,6 @@ localStorage.removeItem('FirstName');
                   </Link>
                 </Grid>
               </Grid>
-              </div>
-              <ButtonMat id="SignIn" type="button" onClick={this.Login} variant="contained" color="primary">
-              Login
-              </ButtonMat>
           </CardContent>
         </Card>
         </div>

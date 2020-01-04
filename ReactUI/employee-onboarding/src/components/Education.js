@@ -20,7 +20,8 @@ From:'',
 To:'',  
 YearOfPassing:'', 
 isButtonDisabled: false,
-snackbaropen :false, snackbarmsg:'' 
+snackbaropen :false, snackbarmsg:'',
+isAvailable:false 
 }; 
 this.handleChange = this.handleChange.bind(this);   
 }
@@ -53,7 +54,8 @@ debugger;
 }  
 })}
 handleChange= (e)=> {  
-this.setState({[e.target.name]:e.target.value});  
+this.setState({[e.target.name]:e.target.value});
+this.setState( {isAvailable: true });    
 }
 render() {
         return (
@@ -89,7 +91,7 @@ render() {
 
                 <TextField type="number" required id="standard-required" label="YearOfPassing"autoComplete="off" placeholder="YearOfPassing" fullWidth margin="normal" name="YearOfPassing" value={this.state.YearOfPassing} onChange={this.handleChange}/> 
             
-                <ButtonMat id="Educationsubmit"type="button" onClick={this.AddEducation} disabled={this.state.isButtonDisabled} variant="contained" color="primary">
+                <ButtonMat id="Educationsubmit"type="button" onClick={this.AddEducation} disabled={!this.state.Course||!this.state.Institute||!this.state.From||!this.state.To||!this.state.YearOfPassing} variant="contained" color="primary">
                     Submit
                 </ButtonMat> 
                 </CardContent>

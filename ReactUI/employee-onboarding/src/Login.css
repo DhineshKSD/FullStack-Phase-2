@@ -50,12 +50,17 @@
 }
 #SignIn{
     position: relative;
-    top:4em;
+    top:5em;
     left:39%;
     font-family: 'Open Sans', sans-serif;
 }
 #ForgotPassword{
     position: relative;
-    left:61%;
-    bottom:2.5em;
+    left:58%;
+    bottom:1.1em;
+}
+#Remember{
+    position: relative;
+    top:1.5em;
+    left:8%;
 }

@@ -51,6 +51,7 @@ class Edit extends React.Component {
         this.onChangeUserName = this.onChangeUserName.bind(this);    
         this.onChangePassword = this.onChangePassword.bind(this);  
         this.onChangeReportingTo = this.onChangeReportingTo.bind(this);
+        this.MailStatus = this.onChangeMailStatus.bind(this);
         this.onSubmit = this.onSubmit.bind(this);  
          this.state = {  
             FirstName:'',  
@@ -63,7 +64,8 @@ class Edit extends React.Component {
             DOJ:'',
             UserName:'',  
             Password:'',  
-            ReportingTo:''  
+            ReportingTo:'',
+            MailStatus:'',
         }  
     }  
   componentDidMount() {  
@@ -80,7 +82,8 @@ class Edit extends React.Component {
                 DOJ: response.data.DOJ,
                 UserName: response.data.UserName,   
                 Password: response.data.Password,  
-                ReportingTo: response.data.ReportingTo,  
+                ReportingTo: response.data.ReportingTo, 
+                MailStatus:response.data.MailStatus, 
             });  
             console.log(response.data.DOJ);
           })  
@@ -144,6 +147,11 @@ onChangeReportingTo(e) {
         ReportingTo: e.target.value  
     }); 
 }  
+onChangeMailStatus(e){
+  this.setState({  
+    MailStatus: e.target.value  
+}); 
+}
   onSubmit(e) {  
     debugger;  
     e.preventDefault();  
@@ -160,7 +168,8 @@ onChangeReportingTo(e) {
         UserName:this.state.UserName,
         Password:this.state.Password, 
         ReportingTo:this.state.ReportingTo,
-        isAdmin: "false"
+        MailStatus:this.state.MailStatus,
+        isAdmin: "false",
     }; 
     console.log(obj); 
     axios.put('https://localhost:44319/api/PutEmployee/'+this.props.match.params.id, obj)  

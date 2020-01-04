@@ -19,6 +19,7 @@
     <EntitySetMapping Name="Employees">
       <EntityTypeMapping TypeName="EmployeeOnboardingModel.Employee">
         <MappingFragment StoreEntitySet="Employee">
+          <ScalarProperty Name="MailStatus" ColumnName="MailStatus" />
           <ScalarProperty Name="Employee_id" ColumnName="Employee_id" />
           <ScalarProperty Name="FirstName" ColumnName="FirstName" />
           <ScalarProperty Name="LastName" ColumnName="LastName" />

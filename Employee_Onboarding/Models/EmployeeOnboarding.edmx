@@ -48,6 +48,7 @@
           <Property Name="Password" Type="nvarchar(max)" Nullable="false" />
           <Property Name="ReportingTo" Type="nvarchar(max)" Nullable="false" />
           <Property Name="isAdmin" Type="bit" Nullable="false" />
+          <Property Name="MailStatus" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="PersonalInfo">
           <Key>
@@ -220,6 +221,7 @@
           <NavigationProperty Name="PreviousEmployments" Relationship="Self.PreviousEmployment_NewRecruit" FromRole="Employee" ToRole="PreviousEmployment" />
           <NavigationProperty Name="Proofs" Relationship="Self.Proof_Employee" FromRole="Employee" ToRole="Proof" />
           <NavigationProperty Name="Documents" Relationship="EmployeeOnboardingModel.BackgroundCheck_NewRecruit" FromRole="Employee" ToRole="Document" />
+          <Property Name="MailStatus" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="PersonalInfo">
           <Key>
@@ -391,6 +393,7 @@
           <EntitySetMapping Name="Employees">
             <EntityTypeMapping TypeName="EmployeeOnboardingModel.Employee">
               <MappingFragment StoreEntitySet="Employee">
+                <ScalarProperty Name="MailStatus" ColumnName="MailStatus" />
                 <ScalarProperty Name="Employee_id" ColumnName="Employee_id" />
                 <ScalarProperty Name="FirstName" ColumnName="FirstName" />
                 <ScalarProperty Name="LastName" ColumnName="LastName" />

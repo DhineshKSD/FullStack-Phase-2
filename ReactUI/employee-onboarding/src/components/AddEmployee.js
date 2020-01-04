@@ -57,7 +57,9 @@ this.state = {
   UserName:'',  
   Password:("Psiog"+(((1+Math.random())*0x10000)|0).toString(16).substring(1)),  
   ReportingTo:'',
-  snackbaropen :false, snackbarmsg:''  
+  MailStatus:'Initiate',
+  snackbaropen :false, snackbarmsg:'',
+  isAvailable:false  
 }; 
 this.handleChange = this.handleChange.bind(this); 
 } 
@@ -76,7 +78,8 @@ AddEmployee=()=>{
     DOJ:this.state.DOJ, 
     UserName:this.state.UserName,
     Password:this.state.Password, 
-    ReportingTo:this.state.ReportingTo})  
+    ReportingTo:this.state.ReportingTo,
+    MailStatus:this.state.MailStatus})  
 .then(json => {  
 if(json.data.Status==='Success')
 {
@@ -95,7 +98,8 @@ window.location.href='/Employeelist';
 })  
 }  
 handleChange= (e)=> {  
-this.setState({[e.target.name]:e.target.value});  
+this.setState({[e.target.name]:e.target.value});
+this.setState( {isAvailable: true });   
 } 
 clearform = (e) =>{
   window.location.href="/AddEmployee";
@@ -161,7 +165,7 @@ return (
           
           <TextField type="text" required id="standard-required" label="UserName" autoComplete="off" placeholder="UserName" fullWidth margin="normal" name="UserName" inputProps={{ maxLength: 4 }} value={this.state.UserName} onChange={this.handleChange}/>
 
-          <TextField type="text" required id="standard-required" label="Password" autoComplete="off" placeholder="Password" fullWidth margin="normal" name="Password" InputProps={{ readOnly: true, }} value={this.state.Password} />
+          <TextField type="Password" required id="standard-required" label="Password" autoComplete="off" placeholder="Password" fullWidth margin="normal" name="Password" InputProps={{ readOnly: true, }} value={this.state.Password} />
 
           <TextField type="text" required id="standard-required" label="ReportingTo" autoComplete="off" placeholder="ReportingTo" fullWidth margin="normal" name="ReportingTo" value={this.state.ReportingTo} onChange={this.handleChange}/>
         </Col>
@@ -171,7 +175,8 @@ return (
             <Col sm={5} >  
             </Col>  
             <Col sm={1} id="AddEmpButton">  
-            <ButtonMat id="submit"type="button" onClick={this.AddEmployee} variant="contained" color="primary">
+            <ButtonMat id="submit"type="button" disabled={!this.state.UserName||!this.state.Password||!this.state.PersonalEmail||!this.state.Contact||!this.state.JobTitle||
+            !this.state.Department||!this.state.DOJ||!this.state.UserName||!this.state.ReportingTo} onClick={this.AddEmployee} variant="contained" color="primary">
             Submit
             </ButtonMat> 
             </Col>  

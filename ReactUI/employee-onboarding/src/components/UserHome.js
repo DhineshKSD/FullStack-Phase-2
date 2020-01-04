@@ -13,6 +13,7 @@ import Navigation from '../components/Navigation';
 import '../Home.css';
 import axios from 'axios';
 import ThanksAvatar from '../Assets/ThanksAvatar.png'; 
+import Instruction from '../components/Instruction'
 
 
 var Name;
@@ -38,12 +39,13 @@ export class UserHome extends Component {
                 console.log(error);  
             })  
       }  
+      
     render() {
         return (
             <div id="UserHomecard" >
                <PrimarySearchAppBar/>
                <Col sm={1} id="Instructions">  
-                <ButtonMat variant="contained" color="secondary">Instructions</ButtonMat>{' '}
+               <Instruction />
                 </Col>
                 <Col sm={1} id="StartFilling">  
                 <Link to={'/PersonalInfo'} style={{ textDecoration: 'none' }}><ButtonMat variant="contained" color="secondary">StartFilling</ButtonMat>{' '}  </Link>
