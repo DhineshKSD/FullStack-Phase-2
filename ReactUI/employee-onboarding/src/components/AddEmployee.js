@@ -59,7 +59,8 @@ this.state = {
   ReportingTo:'',
   MailStatus:'Initiate',
   snackbaropen :false, snackbarmsg:'',
-  isAvailable:false  
+  isAvailable:false,
+  SubmissionStatus:false,  
 }; 
 this.handleChange = this.handleChange.bind(this); 
 } 
@@ -79,7 +80,8 @@ AddEmployee=()=>{
     UserName:this.state.UserName,
     Password:this.state.Password, 
     ReportingTo:this.state.ReportingTo,
-    MailStatus:this.state.MailStatus})  
+    MailStatus:this.state.MailStatus,
+    SubmissionStatus:this.state.SubmissionStatus})  
 .then(json => {  
 if(json.data.Status==='Success')
 {

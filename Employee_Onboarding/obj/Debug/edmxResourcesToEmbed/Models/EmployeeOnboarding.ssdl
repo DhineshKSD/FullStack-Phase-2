@@ -44,6 +44,9 @@
     <Property Name="ReportingTo" Type="nvarchar(max)" Nullable="false" />
     <Property Name="isAdmin" Type="bit" Nullable="false" />
     <Property Name="MailStatus" Type="nvarchar(max)" />
+    <Property Name="Salt" Type="nvarchar(max)" />
+    <Property Name="HashedPassword" Type="nvarchar(max)" />
+    <Property Name="SubmissionStatus" Type="bit" />
   </EntityType>
   <EntityType Name="PersonalInfo">
     <Key>

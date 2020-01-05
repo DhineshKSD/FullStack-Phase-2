@@ -16,6 +16,7 @@ namespace Employee_Onboarding.Controllers
     public class EmployeeController : ApiController
     {
         private EmployeeOnboardingEntities db = new EmployeeOnboardingEntities();
+       // public string PasswordBeforeHash;
 
         // GET: api/Employees
         [HttpGet]
@@ -40,6 +41,9 @@ namespace Employee_Onboarding.Controllers
                     ReportingTo = r.ReportingTo,
                     isAdmin = r.isAdmin,
                     MailStatus = r.MailStatus,
+                    Salt=r.Salt,
+                    HashedPassword=r.HashedPassword,
+                    SubmissionStatus=r.SubmissionStatus,
 
                 });
 
@@ -61,6 +65,27 @@ namespace Employee_Onboarding.Controllers
             try
             {
                 Employee employee = db.Employees.Find(id);
+                if (employee == null)
+                {
+                    return NotFound();
+                }
+                return Ok(employee);
+            }
+            catch (Exception ex)
+            {
+                LogFile.WriteLog(ex);
+                return BadRequest();
+            }
+        }
+
+        [ResponseType(typeof(Employee))]
+        [Route("api/GetEmployeeByUserId/{id=id}")]
+        public IHttpActionResult GetEmployeeByUserId(string id)
+        {
+            try
+            {
+                var empId = DatabaseAction.GetEmployeeID(id);
+                Employee employee = db.Employees.Find(empId);
                 if (employee == null)
                 {
                     return NotFound();
@@ -117,7 +142,34 @@ namespace Employee_Onboarding.Controllers
             try
             {
                 db.SaveChanges();
-                return Ok("Updated Successfully");
+                return Ok("Employee Details Updated Successfully");
+            }
+            catch (Exception ex)
+            {
+                LogFile.WriteLog(ex);
+                return BadRequest();
+            }
+        }
+
+        [HttpPut]
+        [ResponseType(typeof(void))]
+        [Route("api/PutEmployeeByUserId/{id=id}")]
+        public IHttpActionResult EmployeeByUserId(string id, Employee employee)
+        {
+            var empId = DatabaseAction.GetEmployeeID(id);
+            try
+            {
+                employee.Employee_id = DatabaseAction.GetEmployeeID(id);
+                if (!ModelState.IsValid)
+                {
+                    return BadRequest(ModelState);
+                }
+
+
+                db.Entry(employee).State = EntityState.Modified;
+
+                db.SaveChanges();
+                return Ok("Employee Details Updated Successfully");
             }
             catch (Exception ex)
             {
@@ -147,13 +199,16 @@ namespace Employee_Onboarding.Controllers
                 {
                     return BadRequest("Email ID Already Exists");
                 }
+               // PasswordBeforeHash = employee.Password;
+                employee.HashedPassword= Hash.GenerateHash(employee.Password);
+                employee.Salt = Hash.GenerateSalt(64);
                 db.Employees.Add(employee);
                 db.SaveChanges();
 
                 return new Response
                 {
                     Status = "Success",
-                    Message = "Data Successfully"
+                    Message = "Employee Data Posted Successfully"
                 };
             }
 

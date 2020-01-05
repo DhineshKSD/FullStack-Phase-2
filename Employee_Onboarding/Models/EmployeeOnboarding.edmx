@@ -49,6 +49,9 @@
           <Property Name="ReportingTo" Type="nvarchar(max)" Nullable="false" />
           <Property Name="isAdmin" Type="bit" Nullable="false" />
           <Property Name="MailStatus" Type="nvarchar(max)" />
+          <Property Name="Salt" Type="nvarchar(max)" />
+          <Property Name="HashedPassword" Type="nvarchar(max)" />
+          <Property Name="SubmissionStatus" Type="bit" />
         </EntityType>
         <EntityType Name="PersonalInfo">
           <Key>
@@ -222,6 +225,9 @@
           <NavigationProperty Name="Proofs" Relationship="Self.Proof_Employee" FromRole="Employee" ToRole="Proof" />
           <NavigationProperty Name="Documents" Relationship="EmployeeOnboardingModel.BackgroundCheck_NewRecruit" FromRole="Employee" ToRole="Document" />
           <Property Name="MailStatus" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Salt" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="HashedPassword" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SubmissionStatus" Type="Boolean" />
         </EntityType>
         <EntityType Name="PersonalInfo">
           <Key>
@@ -393,6 +399,9 @@
           <EntitySetMapping Name="Employees">
             <EntityTypeMapping TypeName="EmployeeOnboardingModel.Employee">
               <MappingFragment StoreEntitySet="Employee">
+                <ScalarProperty Name="SubmissionStatus" ColumnName="SubmissionStatus" />
+                <ScalarProperty Name="HashedPassword" ColumnName="HashedPassword" />
+                <ScalarProperty Name="Salt" ColumnName="Salt" />
                 <ScalarProperty Name="MailStatus" ColumnName="MailStatus" />
                 <ScalarProperty Name="Employee_id" ColumnName="Employee_id" />
                 <ScalarProperty Name="FirstName" ColumnName="FirstName" />

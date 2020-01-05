@@ -52,6 +52,9 @@ class Edit extends React.Component {
         this.onChangePassword = this.onChangePassword.bind(this);  
         this.onChangeReportingTo = this.onChangeReportingTo.bind(this);
         this.MailStatus = this.onChangeMailStatus.bind(this);
+        this.Salt=this.onChangeSalt.bind(this);
+        this.HashedPassword=this.onChangeHashedPassword.bind(this);
+        this.SubmissionStatus=this.onChangeSubmissionStatus.bind(this);
         this.onSubmit = this.onSubmit.bind(this);  
          this.state = {  
             FirstName:'',  
@@ -66,6 +69,9 @@ class Edit extends React.Component {
             Password:'',  
             ReportingTo:'',
             MailStatus:'',
+            Salt:' ',
+            HashedPassword:' ',
+            SubmissionStatus:'',
         }  
     }  
   componentDidMount() {  
@@ -83,7 +89,10 @@ class Edit extends React.Component {
                 UserName: response.data.UserName,   
                 Password: response.data.Password,  
                 ReportingTo: response.data.ReportingTo, 
-                MailStatus:response.data.MailStatus, 
+                MailStatus:response.data.MailStatus,
+                Salt:response.data.Salt,
+                HashedPassword:response.data.HashedPassword, 
+                SubmissionStatus:response.data.SubmissionStatus,
             });  
             console.log(response.data.DOJ);
           })  
@@ -143,13 +152,28 @@ class Edit extends React.Component {
     });  
 }  
 onChangeReportingTo(e) {  
-    this.setState({  
-        ReportingTo: e.target.value  
-    }); 
+  this.setState({  
+      ReportingTo: e.target.value  
+  }); 
 }  
 onChangeMailStatus(e){
+this.setState({  
+  MailStatus: e.target.value  
+}); 
+}
+onChangeSalt(e) {  
+    this.setState({  
+        Salt: e.target.value  
+    }); 
+}  
+onChangeHashedPassword(e){
   this.setState({  
-    MailStatus: e.target.value  
+    HashedPassword: e.target.value  
+}); 
+}
+onChangeSubmissionStatus(e){
+  this.setState({  
+    SubmissionStatus: e.target.value  
 }); 
 }
   onSubmit(e) {  
@@ -170,6 +194,9 @@ onChangeMailStatus(e){
         ReportingTo:this.state.ReportingTo,
         MailStatus:this.state.MailStatus,
         isAdmin: "false",
+        Salt:this.state.Salt,
+        HashedPassword:this.state.HashedPassword,
+        SubmissionStatus:this.state.SubmissionStatus,
     }; 
     console.log(obj); 
     axios.put('https://localhost:44319/api/PutEmployee/'+this.props.match.params.id, obj)  
@@ -220,9 +247,9 @@ onChangeMailStatus(e){
 
           <TextField id="date"label="Joining Date" type="text" defaultValue="2017-05-24" fullWidth margin="normal"name="DOJ" value={this.state.DOJ.split('T')[0]} onChange={this.onChangeDOJ} InputLabelProps={{shrink: true, }}/>
           
-          <TextField type="text" required id="standard-required" label="UserName" autoComplete="off" placeholder="UserName" fullWidth margin="normal" name="UserName" value={this.state.UserName} onChange={this.onChangeUserName}/>
+          <TextField type="text" required id="standard-required" label="UserName" autoComplete="off" placeholder="UserName" InputProps={{ readOnly: true, }} fullWidth margin="normal" name="UserName" value={this.state.UserName} onChange={this.onChangeUserName}/>
 
-          <TextField type="text" required id="standard-required" label="Password" autoComplete="off" placeholder="Password" InputProps={{ readOnly: true, }} fullWidth margin="normal" name="Password" value={this.state.Password} onChange={this.onChangePassword}/>
+          <TextField type="Password" required id="standard-required" label="Password" autoComplete="off" placeholder="Password" InputProps={{ readOnly: true, }} fullWidth margin="normal" name="Password" value={this.state.Password} onChange={this.onChangePassword}/>
 
           <TextField type="text" required id="standard-required" label="ReportingTo" autoComplete="off" placeholder="ReportingTo" fullWidth margin="normal" name="ReportingTo" value={this.state.ReportingTo} onChange={this.onChangeReportingTo}/>
           </Col>

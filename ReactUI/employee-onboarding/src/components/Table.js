@@ -25,7 +25,8 @@ class Table extends Component {
         Password:'',  
         ReportingTo:'',
         MailStatus:'',
-        snackbaropen :false, snackbarmsg:'',
+        snackbaropen :false, snackbarmsg:'',Salt:'',HashedPassword:'',
+        SubmissionStatus:''
     }; 
     this.SendMail = this.SendMail.bind(this);   
     } 
@@ -48,6 +49,9 @@ class Table extends Component {
             ReportingTo:this.props.obj.ReportingTo,
             MailStatus:"Initiated",
             isAdmin: "false",
+            Salt:this.props.obj.Salt,
+            HashedPassword:this.props.obj.HashedPassword,
+            SubmissionStatus:this.props.obj.SubmissionStatus,
         }; 
         console.log(obj); 
         axios.put('https://localhost:44319/api/PutEmployee/'+this.props.obj.Employee_id, obj)  

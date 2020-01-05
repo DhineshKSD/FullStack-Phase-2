@@ -48,15 +48,15 @@ export class Home extends Component {
             <div id="Homecard" >
                <PrimarySearchAppBar/>
                     <Navigation/>
-                        <Card id="CardMessage">
+                        <Card id="CardMessage" elevation={-7}>
                            
-                                <Card id="card1" elevation={7}>
+                                <Card id="card1" elevation={10}>
                                 <CardContent>
                                 <img src={Employee} className="Employee-logo" alt="logo" />
                                 </CardContent>
                                 </Card>
                         
-                                <Card id="card2" elevation={7}>
+                                <Card id="card2" elevation={10}>
                                 <CardContent>
                                 <img src={ThanksAvatar} className="ThanksAvatarWelcome" alt="ThanksAvatar" />
 

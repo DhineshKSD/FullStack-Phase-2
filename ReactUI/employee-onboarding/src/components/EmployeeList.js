@@ -38,7 +38,7 @@ export default class Employeelist extends Component {
           <Card id="EmpListCard" elevation={7}>
                 <CardContent>
           <h5 id="EmpListHeading" align="center">On-Boarding Queue</h5>  
-          <table className="table table-striped" style={{ marginTop: '2em' }}>  
+          <table className="table table-striped" style={{ marginTop: '2em' ,textAlign:'center'}}>  
             <thead>  
               <tr>  
                 <th>Avatar</th>
@@ -46,7 +46,7 @@ export default class Employeelist extends Component {
                 <th>Date.of.Joining</th>  
                 <th>Role</th>  
                 <th>Department</th>  
-                <th colSpan="4">Action</th>  
+                <th colSpan="4">Action </th>  
               </tr>  
             </thead>  
             <tbody>  

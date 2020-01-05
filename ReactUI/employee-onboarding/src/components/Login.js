@@ -85,12 +85,12 @@ handleSubmit = event => {
           </IconButton>
         ]}
         />
-        <Card id="LoginCard1" elevation={7}>
+        <Card id="LoginCard1" elevation={10}>
         <CardContent>
         <img src={LoginImage} className="LoginImage" alt="LoginImage" />
         </CardContent>
         </Card>
-        <Card id="LoginCard2" elevation={7}>
+        <Card id="LoginCard2" elevation={10}>
           <CardContent>
               <div id="Avatar">
               <img src={Avatar} className="Avatar" alt="Avatar" />
@@ -107,7 +107,7 @@ handleSubmit = event => {
               </div>
               </form>
               <FormControlLabel
-                control={<Checkbox value="remember" color="primary" />}
+                control={<Checkbox value="remember" color="secondary" />}
                 label="Remember me" id="Remember"
               />
               <Grid container id="ForgotPassword">
@@ -117,8 +117,12 @@ handleSubmit = event => {
                   </Link>
                 </Grid>
               </Grid>
+              
           </CardContent>
         </Card>
+        <Grid container id="Copyrights">
+                <p>Copyrights © 2019 All Rights Reserved On-Board Hub.</p>
+        </Grid>
         </div>
     )
   }

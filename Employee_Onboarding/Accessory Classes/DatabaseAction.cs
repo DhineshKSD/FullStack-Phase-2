@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Web;
 using Employee_Onboarding.Models;
 
@@ -15,10 +16,12 @@ namespace Employee_Onboarding.Accessory_Classes
                 using (EmployeeOnboardingEntities db = new EmployeeOnboardingEntities())
                 {
                     emp = db.Employees.Where(l => l.UserName == username).FirstOrDefault();
+                   
                     //password = PWHashing.Hash(password);
                     if (emp != null)
                     {
-                        if (String.Compare(password, emp.Password) == 0)
+                        bool isPasswordMatched = VerifyPassword(password, emp.HashedPassword, emp.Salt);
+                        if (isPasswordMatched)
                         {
                             return "Successfull";
                         }
@@ -91,6 +94,15 @@ namespace Employee_Onboarding.Accessory_Classes
                 return 0;
             }
 
+        }
+        public static bool VerifyPassword(string enteredPassword, string storedHash, string storedSalt)
+        {
+            var saltBytes = new byte[64];
+
+            var rfc2898DeriveBytes = new Rfc2898DeriveBytes(enteredPassword, saltBytes, 10000);
+            var x = Convert.ToBase64String(rfc2898DeriveBytes.GetBytes(256));
+
+            return string.Equals(x, storedHash);
         }
     }
 }

@@ -21,13 +21,54 @@ To:'',
 YearOfPassing:'', 
 isButtonDisabled: false,
 snackbaropen :false, snackbarmsg:'',
-isAvailable:false 
+isAvailable:false,
+FirstName:'',  
+LastName:'',  
+PersonalEmail:'',  
+Contact:'',  
+JobTitle:'',  
+Department:'',  
+Compensation:'450000',  
+DOJ:'',
+UserName:'',  
+Password:'',  
+ReportingTo:'',
+MailStatus:'',
+Salt:'',HashedPassword:'',
+SubmissionStatus:'' 
 }; 
 this.handleChange = this.handleChange.bind(this);   
 }
 snackbarClose = (e) =>{
     this.setState({snackbaropen:false});
 }
+componentDidMount() {  
+    var userId = localStorage.getItem("User"); 
+    axios.get('https://localhost:44319/api/GetEmployeeByUserId/'+userId)  
+        .then(response => {  
+            this.setState({   
+              FirstName: response.data.FirstName,   
+              LastName: response.data.LastName,  
+              PersonalEmail: response.data.PersonalEmail,  
+              Contact: response.data.Contact, 
+              JobTitle: response.data.JobTitle,   
+              Department: response.data.Department,  
+              Compensation: response.data.Compensation,  
+              DOJ: response.data.DOJ,
+              UserName: response.data.UserName,   
+              Password: response.data.Password,  
+              ReportingTo: response.data.ReportingTo, 
+              MailStatus:response.data.MailStatus,
+              Salt:response.data.Salt,
+              HashedPassword:response.data.HashedPassword, 
+              SubmissionStatus:response.data.SubmissionStatus,
+          });  
+          console.log(response.data);
+        })  
+        .catch(function (error) {  
+            console.log(error);  
+        })  
+}  
 AddEducation=()=>{
 var userId = localStorage.getItem("User");  
 axios.post('https://localhost:44319/api/AddEducation1/'+userId, {
@@ -52,7 +93,29 @@ this.setState({snackbaropen:true , snackbarmsg : "Data not Saved"})
 //alert('Data not Saved');  
 debugger;   
 }  
-})}
+})
+
+const obj = {  
+    FirstName: this.state.FirstName,   
+    LastName: this.state.LastName,  
+    PersonalEmail: this.state.PersonalEmail,  
+    Contact: this.state.Contact, 
+    JobTitle: this.state.JobTitle,   
+    Department: this.state.Department,  
+    Compensation: this.state.Compensation,  
+    DOJ: this.state.DOJ,
+    UserName: this.state.UserName,   
+    Password: this.state.Password,  
+    ReportingTo: this.state.ReportingTo, 
+    MailStatus:this.state.MailStatus,
+    Salt:this.state.Salt,
+    HashedPassword:this.state.HashedPassword, 
+    SubmissionStatus : true,
+}; 
+console.log(obj); 
+axios.put('https://localhost:44319/api/PutEmployeeByUserId/'+userId, obj)  
+.then(res => console.log(res.data))
+}
 handleChange= (e)=> {  
 this.setState({[e.target.name]:e.target.value});
 this.setState( {isAvailable: true });    

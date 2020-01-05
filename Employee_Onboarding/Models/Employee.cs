@@ -37,6 +37,9 @@ namespace Employee_Onboarding.Models
         public string ReportingTo { get; set; }
         public bool isAdmin { get; set; }
         public string MailStatus { get; set; }
+        public string Salt { get; set; }
+        public string HashedPassword { get; set; }
+        public Nullable<bool> SubmissionStatus { get; set; }
     
         public virtual ICollection<Education> Educations { get; set; }
         public virtual ICollection<PersonalInfo> PersonalInfoes { get; set; }

@@ -22,6 +22,7 @@ export class UserHome extends Component {
         super(props)  
         this.state = {  
         FirstName:'' ,
+        SubmissionStatus:'',
         disp:''  
         }
     }
@@ -31,9 +32,11 @@ export class UserHome extends Component {
             .then(response => {  
                 this.setState({   
                   FirstName: response.data.FirstName,
+                  SubmissionStatus :response.data.SubmissionStatus,
                   disp : localStorage.setItem('FirstName',response.data.FirstName)   
                    }); 
               localStorage.setItem('FirstName',response.data.FirstName);
+              console.log(this.state.SubmissionStatus);
             })  
             .catch(function (error) {  
                 console.log(error);  
@@ -45,20 +48,17 @@ export class UserHome extends Component {
             <div id="UserHomecard" >
                <PrimarySearchAppBar/>
                <Col sm={1} id="Instructions">  
-               <Instruction />
-                </Col>
-                <Col sm={1} id="StartFilling">  
-                <Link to={'/PersonalInfo'} style={{ textDecoration: 'none' }}><ButtonMat variant="contained" color="secondary">StartFilling</ButtonMat>{' '}  </Link>
+               <ButtonMat color="secondary" disabled={this.state.SubmissionStatus}><Instruction /></ButtonMat>
                 </Col> 
-                        <Card id="UserCardMessage">
+                        <Card id="UserCardMessage"elevation={-7}>
                            
-                                <Card id="card1" elevation={7}>
+                                <Card id="card1" elevation={10}>
                                 <CardContent>
                                 <img src={Employee} className="Employee-logo" alt="logo" />
                                 </CardContent>
                                 </Card>
                         
-                                <Card id="card2" elevation={7}>
+                                <Card id="card2" elevation={10}>
                                 <CardContent>
                                 <img src={ThanksAvatar} className="ThanksAvatarWelcome" alt="ThanksAvatar" />
 
