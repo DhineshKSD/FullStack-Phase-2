@@ -1,54 +1,54 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans|Roboto&display=swap');
 body{
-  overflow-x: hidden;
+overflow-x: hidden;
 }
 .App {    
-  text-align: center;   
-  color :black; 
+text-align: center;   
+color :black; 
 }   
 h4{
-  position: relative;
-  top:-0.8em;
+position: relative;
+top:-0.8em;
 } 
 h3{
-  position: relative;
-  bottom: 0.5em;
+position: relative;
+bottom: 0.5em;
 }
 .navheader{   
-  position: sticky;
-  margin-top: 10px;    
-  background-color: #d4d7da;
-  width:100%;  
-  font-weight: bold; 
+position: sticky;
+margin-top: 10px;    
+background-color: #d4d7da;
+width:100%;  
+font-weight: bold; 
 }
 label{
-  position: relative;
-  text-align: left;
+position: relative;
+text-align: left;
 }
 #button{
-  position: relative;
-  right: 0em;
-  bottom: 23.5em;
+position: relative;
+right: 0em;
+bottom: 23.5em;
 }
 h1{
-  position: relative;
-  top:4em;
-  left:2em;
+position: relative;
+top:4em;
+left:2em;
 }
 .App-logo{
-  position: relative;
-  widows: 40px;
-  height: 40px;
+position: relative;
+widows: 40px;
+height: 40px;
 }
 #Heading{
-  position: relative;
-  left:2%;
-  font-weight: bold;
-  font-size: 1.5em;
-  font-family: 'Open Sans', sans-serif;
-  color:whitesmoke;
+position: relative;
+left:2%;
+font-weight: bold;
+font-size: 1.5em;
+font-family: 'Open Sans', sans-serif;
+color:whitesmoke;
 }
 .container{
-  position: relative;
-  top:4em;
+position: relative;
+top:4em;
 }

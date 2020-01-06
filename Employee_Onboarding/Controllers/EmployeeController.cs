@@ -204,7 +204,7 @@ namespace Employee_Onboarding.Controllers
                 employee.Salt = Hash.GenerateSalt(64);
                 db.Employees.Add(employee);
                 db.SaveChanges();
-
+                LogFile.AddEmployeeLog(employee.FirstName, employee.Employee_id, employee.JobTitle, employee.Department, employee.DOJ);
                 return new Response
                 {
                     Status = "Success",

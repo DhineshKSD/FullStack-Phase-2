@@ -24,7 +24,7 @@
           <Property Name="Education_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Employee_id" Type="int" Nullable="false" />
           <Property Name="Course" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="CourseCode" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="CourseCode" Type="nvarchar(max)" Nullable="false" />
           <Property Name="Institute" Type="nvarchar(max)" Nullable="false" />
           <Property Name="GradePoint" Type="real" Nullable="false" />
           <Property Name="From" Type="date" Nullable="false" />
@@ -200,7 +200,7 @@
           <Property Name="To" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="YearOfPassing" Type="Int64" Nullable="false" />
           <NavigationProperty Name="Employee" Relationship="Self.Education_NewRecruit" FromRole="Education" ToRole="Employee" />
-          <Property Name="CourseCode" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="CourseCode" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="Employee">
           <Key>

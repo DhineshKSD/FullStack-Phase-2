@@ -39,6 +39,7 @@ namespace Employee_Onboarding.Controllers
                         List<Claim> claims = authService.GetTokenClaims(token).ToList();
 
                     }
+                    LogFile.LoginLog(user.FirstName,user.Employee_id);
                     return Ok(token);
                 }
                 else

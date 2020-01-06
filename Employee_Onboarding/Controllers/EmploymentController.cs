@@ -79,7 +79,7 @@ namespace Employee_Onboarding.Controllers
         [HttpPost]
         [Route("api/AddPreviousEmployment/{id=id}")]
         [ResponseType(typeof(PreviousEmployment))]
-        public IHttpActionResult AddPreviousEmployment(string id, PreviousEmployment previousemployment)
+        public object AddPreviousEmployment(string id, PreviousEmployment previousemployment)
         {
             try
             {
@@ -91,7 +91,11 @@ namespace Employee_Onboarding.Controllers
 
                 db.PreviousEmployments.Add(previousemployment);
                 db.SaveChanges();
-                return Ok("Employee PreviousEmployments Details Successfully Added");
+                return new Response
+                {
+                    Status = "Success",
+                    Message = "Employee PreviousEmployments Details Successfully Added"
+                };
             }
 
             catch (Exception ex)

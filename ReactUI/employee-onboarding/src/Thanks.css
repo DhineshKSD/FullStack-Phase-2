@@ -4,6 +4,7 @@
     width:50%;
     left:26%;
     top:6.1em;
+    overflow: hidden;
 }
 #Thanks{
     position: relative;

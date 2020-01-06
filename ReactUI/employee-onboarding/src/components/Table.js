@@ -8,6 +8,10 @@ import SendIcon from '@material-ui/icons/Send';
 import Avatar from '@material-ui/core/Avatar';
 import IconButton from '@material-ui/core/IconButton'
 import Snackbar from '@material-ui/core/Snackbar';
+import { green } from '@material-ui/core/colors';
+import FormGroup from '@material-ui/core/FormGroup';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import Checkbox from '@material-ui/core/Checkbox';
 
 class Table extends Component {  
   constructor(props) {  
@@ -26,7 +30,7 @@ class Table extends Component {
         ReportingTo:'',
         MailStatus:'',
         snackbaropen :false, snackbarmsg:'',Salt:'',HashedPassword:'',
-        SubmissionStatus:''
+        SubmissionStatus:'',
     }; 
     this.SendMail = this.SendMail.bind(this);   
     } 
@@ -69,7 +73,6 @@ class Table extends Component {
           console.log(error);  
         })    
 }  
-
     
   DeleteStudent= () =>{  
     axios.delete('https://localhost:44319/api/removeEmployee/'+this.props.obj.Employee_id)  
@@ -77,7 +80,8 @@ class Table extends Component {
     this.setState({snackbaropen:true , snackbarmsg : "Employee Record Deleted Successfully"}) 
     window.location.href='/Employeelist';
   })  
-  }  
+  } 
+
   render() {
     return (  
         <tr>  
@@ -95,6 +99,12 @@ class Table extends Component {
           </td>  
           <td>  
             {this.props.obj.Department}  
+          </td>
+          <td>
+          <Checkbox
+          checked={this.props.obj.SubmissionStatus===true}
+          inputProps={{ 'aria-label': 'primary checkbox' }} style={{ color: '#4caf50' }}
+          />  
           </td>  
           <td>  
           <Link to={"/edit/"+this.props.obj.Employee_id} style={{ textDecoration: 'none' }}><ButtonMat elevation={3} variant="contained" color="Primary" startIcon={<EditIcon />}>Edit</ButtonMat></Link>  
@@ -111,12 +121,12 @@ class Table extends Component {
             onClose={this.snackbarClose}
             message = {<span id="message-id">{this.state.snackbarmsg}</span>}
             action ={[
-              <IconButton 
-              key="close"
-              arial-label="close"
-              color="secondary"
-              onClick={this.snackbarClose}>
-              </IconButton>
+            <IconButton 
+            key="close"
+            arial-label="close"
+            color="secondary"
+            onClick={this.snackbarClose}>
+            </IconButton>
             ]}
             />
           </td>

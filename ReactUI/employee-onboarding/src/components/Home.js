@@ -42,6 +42,9 @@ export class Home extends Component {
           var DecodedToken = decode(Token);
           var time = (DecodedToken.exp < Date.now() / 1000); 
            localStorage.setItem('key',time)
+           if(time){
+            window.location.href='/Login';
+           }
       }*/
     render() {
         return (
@@ -49,20 +52,20 @@ export class Home extends Component {
                <PrimarySearchAppBar/>
                     <Navigation/>
                         <Card id="CardMessage" elevation={-7}>
-                           
+                            
                                 <Card id="card1" elevation={10}>
-                                <CardContent>
-                                <img src={Employee} className="Employee-logo" alt="logo" />
-                                </CardContent>
+                                    <CardContent>
+                                        <img src={Employee} className="Employee-logo" alt="logo" />
+                                    </CardContent>
                                 </Card>
                         
                                 <Card id="card2" elevation={10}>
-                                <CardContent>
-                                <img src={ThanksAvatar} className="ThanksAvatarWelcome" alt="ThanksAvatar" />
+                                    <CardContent>
+                                        <img src={ThanksAvatar} className="ThanksAvatarWelcome" alt="ThanksAvatar" />
 
-                                <p id="WelcomeUser"> "Hello {localStorage.getItem('FirstName')}"</p>
-                                <p id="Welcome">Welcome To Psiog's Employee On-Boarding Hub</p>
-                                </CardContent>
+                                        <p id="WelcomeUser"> "Hello {localStorage.getItem('FirstName')}"</p>
+                                        <p id="Welcome">Welcome To Psiog's Employee On-Boarding Hub</p>
+                                    </CardContent>
                                 </Card>
                         </Card>   
             </div>

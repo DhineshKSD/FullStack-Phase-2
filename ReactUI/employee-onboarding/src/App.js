@@ -10,14 +10,15 @@ import AddEmployee from '../src/components/AddEmployee';
 import Login from '../src/components/Login';
 import Education from '../src/components/Education'
 import Stepper from '../src/Stepper';
-import Instruction from '../src/components/Instruction'
+import Instruction from '../src/components/Instruction';
+import Employment from '../src/components/Employment';
+import Policy from '../src/components/Policy';
 function App() {  
   return (  
     <div>
-    
-    <Container id ="nav1">
-      <AppRouter/>
-    </Container>
+        <Container id ="nav1">
+          <AppRouter/>
+        </Container>
     </div>
   );  
 }  

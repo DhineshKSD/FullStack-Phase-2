@@ -50,23 +50,23 @@ export class UserHome extends Component {
                <Col sm={1} id="Instructions">  
                <ButtonMat color="secondary" disabled={this.state.SubmissionStatus}><Instruction /></ButtonMat>
                 </Col> 
-                        <Card id="UserCardMessage"elevation={-7}>
-                           
-                                <Card id="card1" elevation={10}>
-                                <CardContent>
-                                <img src={Employee} className="Employee-logo" alt="logo" />
-                                </CardContent>
-                                </Card>
-                        
-                                <Card id="card2" elevation={10}>
-                                <CardContent>
-                                <img src={ThanksAvatar} className="ThanksAvatarWelcome" alt="ThanksAvatar" />
+                <Card id="UserCardMessage"elevation={-7}>
+                    
+                        <Card id="card1" elevation={10}>
+                        <CardContent>
+                        <img src={Employee} className="Employee-logo" alt="logo" />
+                        </CardContent>
+                        </Card>
+                
+                        <Card id="card2" elevation={10}>
+                        <CardContent>
+                        <img src={ThanksAvatar} className="ThanksAvatarWelcome" alt="ThanksAvatar" />
 
-                                <p id="WelcomeUser"> "Hello {localStorage.getItem('FirstName')}"</p>
-                                <p id="Welcome">Welcome To Psiog's Employee On-Boarding Hub</p>
-                                </CardContent>
-                                </Card>
-                        </Card>   
+                        <p id="WelcomeUser"> "Hello {localStorage.getItem('FirstName')}"</p>
+                        <p id="Welcome">Welcome To Psiog's Employee On-Boarding Hub</p>
+                        </CardContent>
+                        </Card>
+                </Card>   
             </div>
         )
     }

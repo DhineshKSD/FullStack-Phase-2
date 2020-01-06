@@ -24,7 +24,7 @@ export class Navigation extends React.Component {
                                 <NavLink to={'/'} exact={true} activeClassName="active" onClick={event =>  window.location.href='/'} className="nav-link">Home</NavLink>  
                             </li> 
                             <li className="nav-item">  
-                                <NavLink to={'/AddEmployee'} activeClassName="active" onClick={event =>  window.location.href='/AddEmployee'}className="nav-link">AddEmployee</NavLink>  
+                                <NavLink to={'/AddEmployee'} activeClassName="active" onClick={event =>  window.location.href='/AddEmployee'}className="nav-link">Add Employee</NavLink>  
                             </li>  
                             <li className="nav-item">  
                                 <NavLink to={'/Employeelist'} activeClassName="active" onClick={event =>  window.location.href='/Employeelist'}className="nav-link">Employee List</NavLink>  
@@ -33,7 +33,7 @@ export class Navigation extends React.Component {
                         </div>  
                         </nav> 
                     </div>
-            </div>
+                 </div>
             </div>
             </Router>
         )

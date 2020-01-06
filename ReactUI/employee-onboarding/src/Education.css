@@ -1,9 +1,9 @@
 #EducationCard{
     position: relative;
-    width:50%;
-    top:5em;
-    left:26%;
-    height: 86vh;
+    width:70%;
+    top:6em;
+    left:15%;
+    height: 80vh;
 }
 #EduCard{
     position: relative;
@@ -13,8 +13,29 @@
     text-align: center;
     font-size: 1.5em;
 }
+#EduHeading{
+    position: relative;
+    font-size: 1.2em;
+}
+#EduCard1{
+    position: relative;
+    width:50%;
+    left:-5%;
+    top:1em;
+}
+#EduCard2{
+    position: relative;
+    width:50%;
+    left:55%;
+    bottom:11em;
+}
 #Educationsubmit{
     position: relative;
-    left:0%;
-    top:1em;
+    left:-2%;
+    bottom:9em;
+}
+#EducationFinish{
+    position: relative;
+    left:2%;
+    bottom:9em;
 }

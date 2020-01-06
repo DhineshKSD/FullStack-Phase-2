@@ -42,6 +42,7 @@ const Department = [
     name: 'Technology Advisory Council',
   },
 ];
+
 class AddEmployee extends React.Component{  
 constructor(props){  
 super(props)  
@@ -64,9 +65,11 @@ this.state = {
 }; 
 this.handleChange = this.handleChange.bind(this); 
 } 
+
 snackbarClose = (e) =>{
   this.setState({snackbaropen:false});
 }
+
 AddEmployee=()=>{  
   axios.post('https://localhost:44319/api/signup/addEmployee', {
     FirstName:this.state.FirstName,
@@ -99,10 +102,12 @@ window.location.href='/Employeelist';
 }  
 })  
 }  
+
 handleChange= (e)=> {  
 this.setState({[e.target.name]:e.target.value});
 this.setState( {isAvailable: true });   
 } 
+
 clearform = (e) =>{
   window.location.href="/AddEmployee";
 }
@@ -110,87 +115,87 @@ clearform = (e) =>{
 render() {  
 return (  
   <div id="card">
-    <Snackbar 
-        anchorOrigin={{vertical:'bottom',horizontal:'left'}}
-        open = {this.state.snackbaropen}
-        autoHideDuration = {500000}
-        onClose={this.snackbarClose}
-        message = {<span id="message-id">{this.state.snackbarmsg}</span>}
-        action ={[
-          <IconButton 
-          key="close"
-          arial-label="close"
-          color="secondary"
-          onClick={this.snackbarClose}>
-          </IconButton>
-        ]}
-    />
+      <Snackbar 
+      anchorOrigin={{vertical:'bottom',horizontal:'left'}}
+      open = {this.state.snackbaropen}
+      autoHideDuration = {500000}
+      onClose={this.snackbarClose}
+      message = {<span id="message-id">{this.state.snackbarmsg}</span>}
+      action ={[
+        <IconButton 
+        key="close"
+        arial-label="close"
+        color="secondary"
+        onClick={this.snackbarClose}>
+        </IconButton>
+      ]}
+      />
      <PrimarySearchAppBar/>
      <Navigation/>
 
-    <Card id="EmployeeCard" elevation={7}>
-      <CardContent elevation={7}> 
-      <h3 className="PageHeading">Enter New-Hires Details</h3> 
-      <Form className="form" required>  
-        <div id="formemp">
-          <Col>  
-                <TextField type="text" required id="standard-required" label="FirstName" autoComplete="off" placeholder="FirstName" fullWidth margin="normal" name="FirstName" value={this.state.FirstName} onChange={this.handleChange}/>
+      <Card id="EmployeeCard" elevation={7}>
+              <CardContent elevation={7}> 
+              <h3 className="PageHeading">Enter New-Hires Details</h3> 
+                    <Form className="form" required>  
+                          <div id="formemp">
+                            <Col>  
+                                  <TextField type="text" required id="standard-required" label="FirstName" autoComplete="off" placeholder="FirstName" fullWidth margin="normal" name="FirstName" value={this.state.FirstName} onChange={this.handleChange}/>
 
-                <TextField type="text" required id="standard-required" label="LastName"autoComplete="off" placeholder="LastName" fullWidth margin="normal" name="LastName" value={this.state.LastName} onChange={this.handleChange}/>
+                                  <TextField type="text" required id="standard-required" label="LastName"autoComplete="off" placeholder="LastName" fullWidth margin="normal" name="LastName" value={this.state.LastName} onChange={this.handleChange}/>
 
-                <TextField type="email" required id="standard-required" label="PersonalEmail"autoComplete="off" placeholder="PersonalEmail" fullWidth margin="normal" name="PersonalEmail" value={this.state.PersonalEmail} onChange={this.handleChange}/>
+                                  <TextField type="email" required id="standard-required" label="PersonalEmail"autoComplete="off" placeholder="PersonalEmail" fullWidth margin="normal" name="PersonalEmail" value={this.state.PersonalEmail} onChange={this.handleChange}/>
 
-                <TextField type="number" required id="standard-required" onInput={(e)=>{ e.target.value = Math.max(0, parseInt(e.target.value) ).toString().slice(0,10)}}  
-                 label="Contact"autoComplete="off" placeholder="Contact" fullWidth margin="normal" name="Contact" value={this.state.Contact} onChange={this.handleChange}/>
+                                  <TextField type="number" required id="standard-required" onInput={(e)=>{ e.target.value = Math.max(0, parseInt(e.target.value) ).toString().slice(0,10)}}  
+                                  label="Contact"autoComplete="off" placeholder="Contact" fullWidth margin="normal" name="Contact" value={this.state.Contact} onChange={this.handleChange}/>
 
-                <TextField type="text" required id="standard-required" label="JobTitle"autoComplete="off" placeholder="JobTitle" fullWidth margin="normal" name="JobTitle" value={this.state.JobTitle} onChange={this.handleChange}/>    
-          </Col>
-        </div>
+                                  <TextField type="text" required id="standard-required" label="JobTitle"autoComplete="off" placeholder="JobTitle" fullWidth margin="normal" name="JobTitle" value={this.state.JobTitle} onChange={this.handleChange}/>    
+                            </Col>
+                          </div>
 
-        <div id="formemp1">
-          <Col>
-          
-          <TextField id="standard-required"
-                select
-                label="Department" fullWidth margin="normal"
-                name="Department"
-                value={this.state.Department} onChange={this.handleChange}
-                >
-                {Department.map(option => (
-                  <MenuItem key={option.value} value={option.value}>
-                    {option.name}
-                  </MenuItem>
-                ))}
-          </TextField>
-          
-          <TextField id="date"label="Joining Date" type="date"defaultValue="2017-05-24" fullWidth margin="normal"name="DOJ" value={this.state.DOJ} onChange={this.handleChange}InputLabelProps={{shrink: true, }}/>
-          
-          <TextField type="text" required id="standard-required" label="UserName" autoComplete="off" placeholder="UserName" fullWidth margin="normal" name="UserName" inputProps={{ maxLength: 4 }} value={this.state.UserName} onChange={this.handleChange}/>
+                          <div id="formemp1">
+                            <Col>
+                                  <TextField id="standard-required"
+                                  select
+                                  label="Department" fullWidth margin="normal"
+                                  name="Department"
+                                  value={this.state.Department} onChange={this.handleChange}
+                                  >
+                                  {Department.map(option => (
+                                    <MenuItem key={option.value} value={option.value}>
+                                      {option.name}
+                                    </MenuItem>
+                                  ))}
+                                  </TextField>
+                            
+                                  <TextField id="date"label="Joining Date" type="date"defaultValue="2017-05-24" fullWidth margin="normal"name="DOJ" value={this.state.DOJ} onChange={this.handleChange}InputLabelProps={{shrink: true, }}/>
+                                  
+                                  <TextField type="text" required id="standard-required" label="UserName" autoComplete="off" placeholder="UserName" fullWidth margin="normal" name="UserName" inputProps={{ maxLength: 4 }} value={this.state.UserName} onChange={this.handleChange}/>
 
-          <TextField type="Password" required id="standard-required" label="Password" autoComplete="off" placeholder="Password" fullWidth margin="normal" name="Password" InputProps={{ readOnly: true, }} value={this.state.Password} />
+                                  <TextField type="Password" required id="standard-required" label="Password" autoComplete="off" placeholder="Password" fullWidth margin="normal" name="Password" InputProps={{ readOnly: true, }} value={this.state.Password} />
 
-          <TextField type="text" required id="standard-required" label="ReportingTo" autoComplete="off" placeholder="ReportingTo" fullWidth margin="normal" name="ReportingTo" value={this.state.ReportingTo} onChange={this.handleChange}/>
-        </Col>
-        </div>
-        <Col>  
-          <FormGroup row id="button">  
-            <Col sm={5} >  
-            </Col>  
-            <Col sm={1} id="AddEmpButton">  
-            <ButtonMat id="submit"type="button" disabled={!this.state.UserName||!this.state.Password||!this.state.PersonalEmail||!this.state.Contact||!this.state.JobTitle||
-            !this.state.Department||!this.state.DOJ||!this.state.UserName||!this.state.ReportingTo} onClick={this.AddEmployee} variant="contained" color="primary">
-            Submit
-            </ButtonMat> 
-            </Col>  
-            <Col sm={1} id="AddEmpButton">  
-            <ButtonMat variant="contained" color="secondary" onClick={this.clearform}>Cancel</ButtonMat>{' '} 
-            </Col>  
-            <Col sm={5}>  
-            </Col>  
-          </FormGroup>    
-        </Col>  
-    </Form>
-    </CardContent></Card> 
+                                  <TextField type="text" required id="standard-required" label="ReportingTo" autoComplete="off" placeholder="ReportingTo" fullWidth margin="normal" name="ReportingTo" value={this.state.ReportingTo} onChange={this.handleChange}/>
+                            </Col>
+                          </div>
+                          <Col>  
+                              <FormGroup row id="button">  
+                                <Col sm={5} >  
+                                </Col>  
+                                <Col sm={1} id="AddEmpButton">  
+                                <ButtonMat id="submit"type="button" disabled={!this.state.UserName||!this.state.Password||!this.state.PersonalEmail||!this.state.Contact||!this.state.JobTitle||
+                                !this.state.Department||!this.state.DOJ||!this.state.UserName||!this.state.ReportingTo} onClick={this.AddEmployee} variant="contained" color="primary">
+                                Submit
+                                </ButtonMat> 
+                                </Col>  
+                                <Col sm={1} id="AddEmpButton">  
+                                <ButtonMat variant="contained" color="secondary" onClick={this.clearform}>Cancel</ButtonMat>{' '} 
+                                </Col>  
+                                <Col sm={5}>  
+                                </Col>  
+                              </FormGroup>    
+                          </Col>  
+                  </Form>
+            </CardContent>
+      </Card> 
   </div>
 );  
 }  

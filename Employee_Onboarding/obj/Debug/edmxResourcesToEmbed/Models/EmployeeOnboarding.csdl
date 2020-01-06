@@ -13,7 +13,7 @@
     <Property Name="To" Type="DateTime" Nullable="false" Precision="0" />
     <Property Name="YearOfPassing" Type="Int64" Nullable="false" />
     <NavigationProperty Name="Employee" Relationship="Self.Education_NewRecruit" FromRole="Education" ToRole="Employee" />
-    <Property Name="CourseCode" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="CourseCode" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
   </EntityType>
   <EntityType Name="Employee">
     <Key>

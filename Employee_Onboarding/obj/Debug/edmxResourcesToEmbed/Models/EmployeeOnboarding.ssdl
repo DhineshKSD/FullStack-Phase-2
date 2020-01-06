@@ -19,7 +19,7 @@
     <Property Name="Education_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Employee_id" Type="int" Nullable="false" />
     <Property Name="Course" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="CourseCode" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="CourseCode" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Institute" Type="nvarchar(max)" Nullable="false" />
     <Property Name="GradePoint" Type="real" Nullable="false" />
     <Property Name="From" Type="date" Nullable="false" />
