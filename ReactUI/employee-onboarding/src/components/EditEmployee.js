@@ -204,7 +204,7 @@ onChangeSubmissionStatus(e){
     axios.put('https://localhost:44319/api/PutEmployee/'+this.props.match.params.id, obj)  
         .then(res => console.log(res.data));  
         debugger;  
-        this.props.history.push('/Employeelist');  
+        window.location.href='/Employeelist';  
     }  
     render() {  
         return (

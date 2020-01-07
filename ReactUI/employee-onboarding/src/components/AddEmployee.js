@@ -13,7 +13,7 @@ import MenuItem from '@material-ui/core/MenuItem';
 import PrimarySearchAppBar from '../components/Header';
 import Navigation from '../components/Navigation';
 import { Container, Col, Form, row, FormGroup, Label, Input, Button } from 'reactstrap';  
-import IconButton from '@material-ui/core/IconButton'
+import IconButton from '@material-ui/icons/Cancel';
 import Snackbar from '@material-ui/core/Snackbar';
 
 const Department = [
@@ -42,6 +42,8 @@ const Department = [
     name: 'Technology Advisory Council',
   },
 ];
+
+const regexp = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
 class AddEmployee extends React.Component{  
 constructor(props){  
@@ -108,6 +110,17 @@ this.setState({[e.target.name]:e.target.value});
 this.setState( {isAvailable: true });   
 } 
 
+handleSubmit=(e)=>{
+  if (regexp.test(this.state.PersonalEmail)) 
+  { 
+    this.AddEmployee();
+  }
+  else
+  {
+    this.setState({snackbaropen:true , snackbarmsg : 'Enter a Valid Email Id'});
+  }
+}
+
 clearform = (e) =>{
   window.location.href="/AddEmployee";
 }
@@ -125,7 +138,7 @@ return (
         <IconButton 
         key="close"
         arial-label="close"
-        color="secondary"
+        color="#FFFFFF"
         onClick={this.snackbarClose}>
         </IconButton>
       ]}
@@ -182,7 +195,7 @@ return (
                                 </Col>  
                                 <Col sm={1} id="AddEmpButton">  
                                 <ButtonMat id="submit"type="button" disabled={!this.state.UserName||!this.state.Password||!this.state.PersonalEmail||!this.state.Contact||!this.state.JobTitle||
-                                !this.state.Department||!this.state.DOJ||!this.state.UserName||!this.state.ReportingTo} onClick={this.AddEmployee} variant="contained" color="primary">
+                                !this.state.Department||!this.state.DOJ||!this.state.UserName||!this.state.ReportingTo} onClick={this.handleSubmit} variant="contained" color="primary">
                                 Submit
                                 </ButtonMat> 
                                 </Col>  

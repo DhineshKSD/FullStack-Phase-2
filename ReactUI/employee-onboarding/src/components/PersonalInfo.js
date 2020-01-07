@@ -10,7 +10,7 @@ import PrimarySearchAppBar from '../components/Header';
 import MenuItem from '@material-ui/core/MenuItem';
 import Paper from '@material-ui/core/Paper';
 import '../PersonalInfo.css';
-import IconButton from '@material-ui/core/IconButton'
+import IconButton from '@material-ui/icons/Cancel';
 import Snackbar from '@material-ui/core/Snackbar';
 var id = localStorage.getItem("User");
 console.log(id);
@@ -80,7 +80,10 @@ const BloodGroup = [
     name: 'AB-',
   },
 ];
-
+var tempDate = new Date();
+var date = tempDate.getFullYear() + '-' + (tempDate.getMonth()+1) + '-' + tempDate.getDate()
+var Year=(tempDate.getFullYear()-21);
+console.log(Year)
 class PersonalInfo extends React.Component{  
 constructor(props){  
 super(props)  
@@ -179,7 +182,7 @@ return (
           <IconButton 
           key="close"
           arial-label="close"
-          color="secondary"
+          color="#FFFFFF"
           onClick={this.snackbarClose}>
           </IconButton>
         ]}
@@ -227,7 +230,7 @@ return (
                                 <Col> 
                                     <TextField type="text" required id="standard-required" label="Place.of.Birth" autoComplete="off" placeholder="Place of Birth" fullWidth margin="normal" name="PlaceOfBirth" value={this.state.PlaceOfBirth} onChange={this.handleChange}/>
 
-                                    <TextField id="date" label="Date.of.Birth" type="date" fullWidth margin="normal"name="DateOfBirth" value={this.state.DateOfBirth} onChange={this.handleChange}InputLabelProps={{shrink: true, }}/>
+                                    <TextField id="date" inputProps={{max: Year+"-12-31"}} label="Date.of.Birth" type="date" fullWidth margin="normal"name="DateOfBirth" value={this.state.DateOfBirth} onChange={this.handleChange}InputLabelProps={{shrink: true, }}/>
 
                               
                                     <TextField id="standard-required"

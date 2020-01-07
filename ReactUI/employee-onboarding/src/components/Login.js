@@ -14,7 +14,7 @@ import Link from '@material-ui/core/Link';
 import AppRouter from '../AppRouter' 
 import axios from 'axios'; 
 import SnackBar from "@material-ui/core/Snackbar";
-import IconButton from '@material-ui/core/IconButton'
+import IconButton from '@material-ui/icons/Cancel';
 import Snackbar from '@material-ui/core/Snackbar';
 
 export class Login extends Component {
@@ -69,8 +69,15 @@ localStorage.removeItem('FirstName');
 }
 
 handleSubmit = event => {
-  event.preventDefault();
-  this.Login();
+  if (this.state.Password.length < 5) 
+  { 
+    this.setState({snackbaropen:true , snackbarmsg : 'Please length should be more then 5'});
+  }
+  else
+    {
+      event.preventDefault();
+      this.Login();
+    }
 };
 
   render() {
@@ -86,7 +93,7 @@ handleSubmit = event => {
             <IconButton 
             key="close"
             arial-label="close"
-            color="secondary"
+            color="#FFFFFF"
             onClick={this.snackbarClose}>
             </IconButton>
           ]}

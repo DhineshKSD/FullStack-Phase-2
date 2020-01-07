@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PrimarySearchAppBar from '../components/Header'; 
-import IconButton from '@material-ui/core/IconButton'
+import IconButton from '@material-ui/icons/Cancel';
 import Snackbar from '@material-ui/core/Snackbar';
 import TextField from '@material-ui/core/TextField';
 import axios from 'axios'; 
@@ -86,7 +86,7 @@ export class Employment extends Component {
                 <IconButton 
                 key="close"
                 arial-label="close"
-                color="secondary"
+                color="#FFFFFF"
                 onClick={this.snackbarClose}>
                 </IconButton>
                 ]}

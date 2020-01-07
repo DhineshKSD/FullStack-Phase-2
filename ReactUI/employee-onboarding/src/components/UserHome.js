@@ -13,7 +13,8 @@ import Navigation from '../components/Navigation';
 import '../Home.css';
 import axios from 'axios';
 import ThanksAvatar from '../Assets/ThanksAvatar.png'; 
-import Instruction from '../components/Instruction'
+import Instruction from '../components/Instruction';
+import decode from 'jwt-decode';
 
 
 var Name;
@@ -41,7 +42,27 @@ export class UserHome extends Component {
             .catch(function (error) {  
                 console.log(error);  
             })  
-      }  
+            this.IsTokenAvailable();
+      } 
+      
+      IsTokenAvailable(){
+        if (localStorage.getItem("Token") === null) {
+            return (window.location.href='/Login');
+          }
+          else{
+              this.IsTokenExpired();
+          }
+      }
+      IsTokenExpired(){
+            var Token = localStorage.getItem("Token");
+            var DecodedToken = decode(Token);
+            var time = (DecodedToken.exp < Date.now() / 1000);
+           
+           localStorage.setItem('key',time)
+           if(time){
+            window.location.href='/Login';
+           }
+      }
       
     render() {
         return (

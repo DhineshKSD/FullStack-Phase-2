@@ -42,10 +42,10 @@ render() {
         <Card id="EmpListCard" elevation={7}>
               <CardContent>
                   <h5 id="EmpListHeading" align="center">On-Boarding Queue</h5>  
-                    <table className="table table-striped" style={{ marginTop: '2em' ,textAlign:'center'}}>  
-                      <thead>  
+                    <table className="table table-hover" style={{ marginTop: '2em' ,textAlign:'center'}}>  
+                      <thead class="thead-light">  
                           <tr>  
-                              <th>Avatar</th>
+                              <th>      </th>
                               <th>Name</th>  
                               <th>Date.of.Joining</th>  
                               <th>Role</th>  

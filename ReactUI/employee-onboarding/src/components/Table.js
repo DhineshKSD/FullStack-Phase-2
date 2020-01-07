@@ -6,7 +6,7 @@ import EditIcon from '@material-ui/icons/Edit';
 import DeleteIcon from '@material-ui/icons/Delete';
 import SendIcon from '@material-ui/icons/Send';
 import Avatar from '@material-ui/core/Avatar';
-import IconButton from '@material-ui/core/IconButton'
+import IconButton from '@material-ui/icons/Cancel';
 import Snackbar from '@material-ui/core/Snackbar';
 import { green } from '@material-ui/core/colors';
 import FormGroup from '@material-ui/core/FormGroup';
@@ -124,7 +124,7 @@ class Table extends Component {
             <IconButton 
             key="close"
             arial-label="close"
-            color="secondary"
+            color="#FFFFFF"
             onClick={this.snackbarClose}>
             </IconButton>
             ]}

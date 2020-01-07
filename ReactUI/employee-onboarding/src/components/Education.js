@@ -6,9 +6,10 @@ import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import '../Education.css';
 import PrimarySearchAppBar from '../components/Header'; 
-import IconButton from '@material-ui/core/IconButton'
+import IconButton from '@material-ui/icons/Cancel';
 import Snackbar from '@material-ui/core/Snackbar';
 import MenuItem from '@material-ui/core/MenuItem';
+import { format } from "date-fns";
 
 const CourseCode = [
     {
@@ -56,7 +57,8 @@ Password:'',
 ReportingTo:'',
 MailStatus:'',
 Salt:'',HashedPassword:'',
-SubmissionStatus:'' 
+SubmissionStatus:'' ,
+DateOfBirth:''
 }; 
 this.handleChange = this.handleChange.bind(this);   
 }
@@ -90,7 +92,17 @@ componentDidMount() {
         })  
         .catch(function (error) {  
             console.log(error);  
-        })  
+        }) 
+        axios.get('https://localhost:44319/api/GetPersonalInfo/'+userId)
+            .then(response => {  
+                this.setState({ 
+                    DateOfBirth:response.data[0].DateOfBirth.split('T')[0]
+                });
+                console.log(this.state.DateOfBirth);
+        })
+        .catch(function (error) {  
+            console.log(error);  
+        }) 
 }  
 
 AddEducation=()=>{
@@ -164,7 +176,7 @@ render() {
                     <IconButton 
                     key="close"
                     arial-label="close"
-                    color="secondary"
+                    color="#FFFFFF"
                     onClick={this.snackbarClose}>
                     </IconButton>
                     ]}
@@ -193,9 +205,9 @@ render() {
                                 <TextField type="number" required id="standard-required" label="GradePoint"autoComplete="off" placeholder="GradePoint" fullWidth margin="normal" name="GradePoint" value={this.state.GradePoint} onChange={this.handleChange}/>
                             </div>
                             <div id="EduCard2">
-                                <TextField id="date" label="From" type="date"  fullWidth margin="normal" name="From" value={this.state.From} onChange={this.handleChange} InputLabelProps={{shrink: true, }}/>
+                                <TextField id="date" label="From" type="date" inputProps={{min: this.state.DateOfBirth}} fullWidth margin="normal" name="From" value={this.state.From} onChange={this.handleChange} InputLabelProps={{shrink: true, }}/>
 
-                                <TextField id="date" label="To" type="date"  fullWidth margin="normal" name="To" value={this.state.To} onChange={this.handleChange} InputLabelProps={{shrink: true, }}/>
+                                <TextField id="date" label="To" type="date" inputProps={{min: this.state.DateOfBirth}} fullWidth margin="normal" name="To" value={this.state.To} onChange={this.handleChange} InputLabelProps={{shrink: true, }}/>
 
                                 <TextField type="number" required id="standard-required" label="Year.of.Passing"autoComplete="off" placeholder="YearOfPassing" fullWidth margin="normal" name="YearOfPassing" value={this.state.YearOfPassing} onChange={this.handleChange}/> 
                             </div>

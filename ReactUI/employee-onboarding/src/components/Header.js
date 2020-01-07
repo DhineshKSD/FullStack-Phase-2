@@ -19,6 +19,7 @@ import logo from '../Assets/OnboardLogo.png';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom'; 
 import AppRouter from '../AppRouter';
 import Login from '../components/Login';
+import Avatar from '@material-ui/core/Avatar';
 
 const useStyles = makeStyles(theme => ({
 grow: {
@@ -164,7 +165,7 @@ const renderMenu = (
       </MenuItem>
     </Menu>
   );
-
+ 
   return (
     <div className={classes.grow}>
       <AppBar position="fixed" className="not-scrolled">
@@ -206,9 +207,9 @@ const renderMenu = (
               aria-controls={menuId}
               aria-haspopup="true"
               onClick={handleProfileMenuOpen}
-              color="inherit"
+              color="Primary"
             >
-              <AccountCircle />
+               <Avatar style={{color: '#3f51b5',backgroundColor:'#FFFFFF',width:'200%',height:'1.4em'}}>{localStorage.getItem('FirstName').charAt(0)}</Avatar>
             </IconButton>
           </div>
           <div className={classes.sectionMobile}>
