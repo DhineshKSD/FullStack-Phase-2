@@ -9,7 +9,6 @@ import PrimarySearchAppBar from '../components/Header';
 import IconButton from '@material-ui/icons/Cancel';
 import Snackbar from '@material-ui/core/Snackbar';
 import MenuItem from '@material-ui/core/MenuItem';
-import { format } from "date-fns";
 
 const CourseCode = [
     {
@@ -214,7 +213,7 @@ render() {
                             <ButtonMat id="Educationsubmit"type="button" onClick={this.AddEducation} disabled={!this.state.CourseCode||!this.state.Course||!this.state.Institute||!this.state.From||!this.state.To||!this.state.YearOfPassing} variant="contained" color="primary">
                                 Submit
                             </ButtonMat>
-                            <ButtonMat id="EducationFinish" type="button" disabled={!this.state.SubmissionStatus} onClick={this.Next} variant="contained" color="primary">
+                            <ButtonMat id="EducationFinish" type="button" disabled={!this.state.SubmissionStatus} onClick={this.Next} variant="contained" color="secondary">
                                 Finish
                             </ButtonMat>  
                         </CardContent>

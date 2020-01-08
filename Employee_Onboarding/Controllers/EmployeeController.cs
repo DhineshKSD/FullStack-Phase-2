@@ -193,11 +193,19 @@ namespace Employee_Onboarding.Controllers
                 }
                 if (DatabaseAction.IsUsernameExist(employee.UserName))
                 {
-                    return BadRequest("Username Already Exists");
+                    return new Response
+                    {
+                        Status = "UserNameCheck",
+                        Message = "Employee UserName Data Already Exist"
+                    };
                 }
                 if (DatabaseAction.IsEmailExist(employee.PersonalEmail))
                 {
-                    return BadRequest("Email ID Already Exists");
+                    return new Response
+                    {
+                        Status = "EmailCheck",
+                        Message = "Employee Email Data Already Exist"
+                    };
                 }
                // PasswordBeforeHash = employee.Password;
                 employee.HashedPassword= Hash.GenerateHash(employee.Password);

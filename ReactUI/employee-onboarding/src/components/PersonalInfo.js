@@ -5,15 +5,13 @@ import ButtonMat from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
-import { Container, Col, Form, row, FormGroup, Label, Input, Button } from 'reactstrap';
+import { Container, Col, Form, FormGroup } from 'reactstrap';
 import PrimarySearchAppBar from '../components/Header';  
 import MenuItem from '@material-ui/core/MenuItem';
-import Paper from '@material-ui/core/Paper';
 import '../PersonalInfo.css';
 import IconButton from '@material-ui/icons/Cancel';
 import Snackbar from '@material-ui/core/Snackbar';
 var id = localStorage.getItem("User");
-console.log(id);
 const Gender = [
   {
     value: 'Male',
@@ -81,9 +79,7 @@ const BloodGroup = [
   },
 ];
 var tempDate = new Date();
-var date = tempDate.getFullYear() + '-' + (tempDate.getMonth()+1) + '-' + tempDate.getDate()
 var Year=(tempDate.getFullYear()-21);
-console.log(Year)
 class PersonalInfo extends React.Component{  
 constructor(props){  
 super(props)  
@@ -189,7 +185,7 @@ return (
         />
         <Container className="PersonalInfoContainer"> 
               <Form className="form" autoComplete="off"> 
-                  <Card elevation={3} id="PersonalInfoCard">
+                  <Card elevation={10} id="PersonalInfoCard">
                       <CardContent>  
                         <h3 className="PersonalInfoPageHeading">Personal Information Section</h3>  
                         <div id="FormPersonalInfo">
@@ -252,7 +248,7 @@ return (
                   </Card>   
                   
                     
-                  <Card elevation={3} id="AddressInfoCard">
+                  <Card elevation={10} id="AddressInfoCard">
                         <CardContent> 
                             <h3 className="AddressInfoPageHeading">Address Information Section</h3>  
                             <div id="FormAddressInfo">

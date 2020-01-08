@@ -32,7 +32,7 @@ export default function AlertDialogSlide() {
 
   return (
     <div>
-      <Button variant="contained" color="Secondary" onClick={handleClickOpen} style={{ width:'100px' }}>
+      <Button variant="contained" color="secondary" onClick={handleClickOpen} style={{ width:'100px' }}>
           Kick-off
       </Button>
       <Dialog
@@ -50,7 +50,6 @@ export default function AlertDialogSlide() {
                     To facilitate a smooth integration into Psiog's Work Environment, we request you to follow the instructions given below 
                     to access our onboarding portal. The portal will allow you to complete all the pre-joining formalities like 
                     accepting the offer and submitting all new-hire paperwork, online! <br/><br/>
-
                     <b>Note: </b>
                     Please complete all the forms, within seven days upon after 
                     receipt of this email.
@@ -64,7 +63,7 @@ export default function AlertDialogSlide() {
             inputProps={{ 'aria-label': 'primary checkbox' }} style= {{position:'relative',right:'12em',bottom:'0.275em'}}
             /> <p style= {{position:'relative',right:'18em'}}>I agree the terms and conditions.</p>
             </DialogActions>
-            <Link to={'/PersonalInfo'} style={{ textDecoration: 'none' }}><ButtonMat variant="contained" disabled={!checked} color="Primary" style= {{position:'relative',width:'30%',left:'34%',top:'1em'}}>Start Filling</ButtonMat>{' '}</Link>
+            <Link to={'/PersonalInfo'} style={{ textDecoration: 'none' }}><ButtonMat variant="contained" disabled={!checked} color="primary" style= {{position:'relative',width:'30%',left:'34%',top:'1em'}}>Start Filling</ButtonMat>{' '}</Link>
             <br/><br/>
       </Dialog>
     </div>

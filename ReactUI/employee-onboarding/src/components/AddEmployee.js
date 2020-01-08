@@ -7,12 +7,10 @@ import ButtonMat from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
-import Employeelist from './EmployeeList';
-import Paper from '@material-ui/core/Paper';
 import MenuItem from '@material-ui/core/MenuItem';
 import PrimarySearchAppBar from '../components/Header';
 import Navigation from '../components/Navigation';
-import { Container, Col, Form, row, FormGroup, Label, Input, Button } from 'reactstrap';  
+import { Col, Form, FormGroup} from 'reactstrap';  
 import IconButton from '@material-ui/icons/Cancel';
 import Snackbar from '@material-ui/core/Snackbar';
 
@@ -94,6 +92,20 @@ if(json.data.Status==='Success')
   //alert("New Hires Detail's Saved Successfully"); 
   console.log(json.data.Status);  
   window.location.href='/Employeelist'; 
+}
+else if(json.data.Status==='UserNameCheck')
+{  
+this.setState({snackbaropen:true , snackbarmsg : "Employee UserName Data Already Exist"})    
+//alert('Data not Saved');  
+debugger;  
+//window.location.href='/Employeelist'; 
+}  
+else if(json.data.Status==='EmailCheck')
+{  
+this.setState({snackbaropen:true , snackbarmsg : "Employee Email Data Already Exist"})    
+//alert('Data not Saved');  
+debugger;  
+//window.location.href='/Employeelist'; 
 }  
 else
 {  
@@ -101,7 +113,7 @@ this.setState({snackbaropen:true , snackbarmsg : "Data not Saved"})
 //alert('Data not Saved');  
 debugger;  
 window.location.href='/Employeelist'; 
-}  
+}
 })  
 }  
 
@@ -180,7 +192,7 @@ return (
                                   ))}
                                   </TextField>
                             
-                                  <TextField id="date"label="Joining Date" type="date"defaultValue="2017-05-24" fullWidth margin="normal"name="DOJ" value={this.state.DOJ} onChange={this.handleChange}InputLabelProps={{shrink: true, }}/>
+                                  <TextField id="date" label="Joining Date" type="date" fullWidth margin="normal" name="DOJ" value={this.state.DOJ} onChange={this.handleChange} InputLabelProps={{shrink: true, }}/>
                                   
                                   <TextField type="text" required id="standard-required" label="UserName" autoComplete="off" placeholder="UserName" fullWidth margin="normal" name="UserName" inputProps={{ maxLength: 4 }} value={this.state.UserName} onChange={this.handleChange}/>
 

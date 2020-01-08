@@ -1,6 +1,6 @@
 import React, { Component } from 'react';  
 import axios from 'axios';  
-import { Link } from 'react-router-dom';  
+import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';  
 import ButtonMat from '@material-ui/core/Button';
 import EditIcon from '@material-ui/icons/Edit';
 import DeleteIcon from '@material-ui/icons/Delete';
@@ -8,10 +8,8 @@ import SendIcon from '@material-ui/icons/Send';
 import Avatar from '@material-ui/core/Avatar';
 import IconButton from '@material-ui/icons/Cancel';
 import Snackbar from '@material-ui/core/Snackbar';
-import { green } from '@material-ui/core/colors';
-import FormGroup from '@material-ui/core/FormGroup';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
+import VisibilityIcon from '@material-ui/icons/Visibility';
 
 class Table extends Component {  
   constructor(props) {  
@@ -107,7 +105,7 @@ class Table extends Component {
           />  
           </td>  
           <td>  
-          <Link to={"/edit/"+this.props.obj.Employee_id} style={{ textDecoration: 'none' }}><ButtonMat elevation={3} variant="contained" color="Primary" startIcon={<EditIcon />}>Edit</ButtonMat></Link>  
+          <Link to={"/edit/"+this.props.obj.Employee_id} style={{ textDecoration: 'none' }}><ButtonMat elevation={3} variant="contained" color="primary" startIcon={<EditIcon />}>Edit</ButtonMat></Link>  
           </td>  
           <td>  
           <ButtonMat elevation={3} type="button" onClick={this.DeleteStudent} variant="contained" color="secondary" startIcon={<DeleteIcon />}>Delete</ButtonMat>  
@@ -130,6 +128,9 @@ class Table extends Component {
             ]}
             />
           </td>
+          <td>  
+          <Link to={"/view/"+this.props.obj.Employee_id} style={{ textDecoration: 'none' }}><ButtonMat elevation={3} type="button" variant="contained" disabled={this.props.obj.SubmissionStatus===true} style={{backgroundColor: '#494c4c',color: '#FFFFFF'}} startIcon={<VisibilityIcon />}>View</ButtonMat></Link>
+          </td> 
         </tr>  
     );  
   }  

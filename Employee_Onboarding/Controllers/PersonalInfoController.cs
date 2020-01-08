@@ -32,10 +32,10 @@ namespace Employee_Onboarding.Controllers
                     PlaceOfBirth = emp.PlaceOfBirth,
                     MaritalStatus = emp.MaritalStatus,
                     BloodGroup = emp.BloodGroup,
-                    Address1=emp.Address1,
-                    City1=emp.City1,
-                    State1=emp.State1,
-                    Country1=emp.Country1,
+                    Address1 = emp.Address1,
+                    City1 = emp.City1,
+                    State1 = emp.State1,
+                    Country1 = emp.Country1,
                     Address2 = emp.Address2,
                     City2 = emp.City2,
                     State2 = emp.State2,
@@ -50,6 +50,49 @@ namespace Employee_Onboarding.Controllers
                 return BadRequest();
             }
         }
+
+        [HttpGet]
+        [Route("api/GetPersonalInfoByEmpId/{id=id}")]
+        [ResponseType(typeof(PersonalInfo))]
+        public IHttpActionResult GetPersonalInfoByEmpId(long id)
+        {
+            try
+            {
+                var empId = id;
+                if (empId != null)
+                {
+                    var listOfPersonalInfo = db.PersonalInfoes.Where(x => x.Employee_id == empId).Select(emp => new
+                    {
+                        PersonalInfo_id = emp.PersonalInfo_id,
+                        Employee_id = emp.Employee_id,
+                        Gender = emp.Gender,
+                        DateOfBirth = emp.DateOfBirth,
+                        PlaceOfBirth = emp.PlaceOfBirth,
+                        MaritalStatus = emp.MaritalStatus,
+                        BloodGroup = emp.BloodGroup,
+                        Address1 = emp.Address1,
+                        City1 = emp.City1,
+                        State1 = emp.State1,
+                        Country1 = emp.Country1,
+                        Address2 = emp.Address2,
+                        City2 = emp.City2,
+                        State2 = emp.State2,
+                        Country2 = emp.Country2,
+                    });
+                    return Ok(listOfPersonalInfo.ToList());
+                }
+                else
+                {
+                    return BadRequest("Not Found");
+                }
+            }
+            catch (Exception ex)
+            {
+                LogFile.WriteLog(ex);
+                return BadRequest();
+            }
+        }
+    
 
         [HttpGet]
         [Route("api/GetPersonalInfo/{id=id}")]

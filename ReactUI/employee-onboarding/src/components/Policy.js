@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import Card from '@material-ui/core/Card';
-import ThanksAvatar from '../Assets/ThanksAvatar.png';
 import PrimarySearchAppBar from '../components/Header';
 import '../Policy.css'
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router} from 'react-router-dom';
 
 export class Policy extends Component {
     render() {

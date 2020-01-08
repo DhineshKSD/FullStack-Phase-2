@@ -2,28 +2,23 @@ import React, { Component } from 'react'
 import '../App.css';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
-import Paper from '@material-ui/core/Paper';
 import Employee from '../Assets/EmployeeEntry.png';
 import PrimarySearchAppBar from '../components/Header';
-import ButtonMat from '@material-ui/core/Button';
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom'; 
-import { Container, Col, Form, row, FormGroup, Label, Input, Button } from 'reactstrap';
+import ButtonMat from '@material-ui/core/Button'; 
+import { Col } from 'reactstrap';
 import '../Navigation.css';
-import Navigation from '../components/Navigation';
 import '../Home.css';
 import axios from 'axios';
 import ThanksAvatar from '../Assets/ThanksAvatar.png'; 
 import Instruction from '../components/Instruction';
 import decode from 'jwt-decode';
 
-
-var Name;
 export class UserHome extends Component {
     constructor(props){  
         super(props)  
         this.state = {  
         FirstName:'' ,
-        SubmissionStatus:'',
+        SubmissionStatus:true,
         disp:''  
         }
     }
@@ -71,7 +66,7 @@ export class UserHome extends Component {
                <Col sm={1} id="Instructions">  
                <ButtonMat color="secondary" disabled={this.state.SubmissionStatus}><Instruction /></ButtonMat>
                 </Col> 
-                <Card id="UserCardMessage"elevation={-7}>
+                <Card id="UserCardMessage"elevation={0}>
                     
                         <Card id="card1" elevation={10}>
                         <CardContent>

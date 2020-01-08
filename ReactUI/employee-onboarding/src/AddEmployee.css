@@ -8,6 +8,8 @@ color :black !important;
 #card{
   position: relative;
   height: 118vh;
+  width:90%;
+  left:5%;
 }
 body{
 overflow: auto;
@@ -28,6 +30,7 @@ top:0.5em;
 position: relative;
 height: 35em;
 top:10.6em;
+background-color:#f7f8f7;
 }
 #formemp{
 position: relative;
@@ -44,5 +47,5 @@ bottom: 22em;
 #AddEmpButton{
 position: relative;
 top:5em; 
-right: 0.4em;
+right: 0.8em;
 }

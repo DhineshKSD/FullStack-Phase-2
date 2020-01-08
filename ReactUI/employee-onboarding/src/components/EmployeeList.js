@@ -7,7 +7,6 @@ import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import PrimarySearchAppBar from '../components/Header';
 import Navigation from '../components/Navigation';
-import Avatar from '@material-ui/core/Avatar';
 
 export default class Employeelist extends Component {  
 constructor(props) {  
@@ -43,7 +42,7 @@ render() {
               <CardContent>
                   <h5 id="EmpListHeading" align="center">On-Boarding Queue</h5>  
                     <table className="table table-hover" style={{ marginTop: '2em' ,textAlign:'center'}}>  
-                      <thead class="thead-light">  
+                      <thead style={{backgroundColor:'#c3c5c4'}}>  
                           <tr>  
                               <th>      </th>
                               <th>Name</th>  

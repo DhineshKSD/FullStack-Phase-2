@@ -71,12 +71,13 @@ localStorage.removeItem('FirstName');
 handleSubmit = event => {
   if (this.state.Password.length < 5) 
   { 
-    this.setState({snackbaropen:true , snackbarmsg : 'Please length should be more then 5'});
+    event.preventDefault();
+    this.setState({snackbaropen:true , snackbarmsg : 'Length should be more than 5 letters'});
   }
   else
     {
-      event.preventDefault();
-      this.Login();
+    event.preventDefault();
+    this.Login();
     }
 };
 

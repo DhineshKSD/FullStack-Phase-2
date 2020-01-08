@@ -26,6 +26,7 @@
     height:70vh;
     width:90%;
     left:3em;
+    background-color:#f7f8f7;
 }
 #AddressInfoCard{
     position: relative;
@@ -33,6 +34,7 @@
     height:70vh;
     left:3em;
     width:90%;
+    background-color:#f7f8f7;
 }
 .AddressInfoPageHeading{
     position: relative;
@@ -54,6 +56,7 @@
 #PersonalButton{
     position: relative;
     top:26em;
+    right:1.5em;
 }
 #PermanentAddress{
     position: relative;

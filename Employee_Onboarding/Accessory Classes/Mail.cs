@@ -20,20 +20,25 @@ namespace Employee_Onboarding.Accessory_Classes
             string body = "";
 
 
-                subject = "Psiog Digital (P) Ltd - Pre Joining formalities ";
+            subject = "Psiog Digital (P) Ltd - Pre Joining formalities ";
             body = "<br/><br/>" +
                  "<img src=https://media.licdn.com/dms/image/C511BAQGHEv_vDRHNHg/company-background_10000/0?e=2159024400&v=beta&t=ukaxpdYFnbl9grLY-eSt0LrGyCD4J-G3yUXYFxMJ9Wg />" + "<br/><br/>" +
                 "<b> Dear  " + name + ";</b>" + "<br/><br/>" +
-                "Welcome to Psiog, the fastest growing IT services organisation! We are delighted that you have accepted our offer of employment and we look forward to welcoming you onboard." +
-                "To facilitate a smooth integration into Psiog's Environment, we request you to follow the instructions given below to access our onboarding portal to complete all the pre-joining formalities before day one of joining...Please use the following credentials to login to your Account" +
-                "<br/><br/><b> * UserName = " + username + " <br/><br/>" + "* Password = " + password + "<br/><br/></b>" +
-                "<b>Instruction: </b>" + "<br/><br/>" +
-                "1.) Kindly Login to 'Psiog On-Board Hub' using " + "<br/>" +
-                "2.) Section-1 . Fill your personal information and Address Details and click submit" + "<br/>" +
-                "3.) Section-2 . Fill your Education Details and click submit" + "<br/><br/>" +
+                "                       "+" Welcome to Psiog's Family, the fastest growing IT services organisation! We are delighted that you have accepted our offer of employment and we look forward to welcoming you onboard." +
+                "To facilitate a smooth integration into Psiog's Environment, we request you to follow the instructions given below to access our onboarding portal to complete all the pre-joining formalities before day one of joining.Please use the following credentials to login to your Account" +
+                "<br/><br/>"+"<b>Login Credentials: </b>"+ "<br/><br/>" + " <b>* UserName</b> = " + username + " <br/>" + "<b>* Password</b> = " + password + "<br/><br/></b>" +
+                "<b>Instruction: </b>" + "<br/>" +
+                "1.) <b>Step-1</b> : Click on ----- to go to the Psiog On-Board Hub portal login page." + "<br/>" +
+                "2.) <b>Step-2</b> : Login in to the portal using the above credentials." + "<br/>" +
+                "3.) <b>Step-3</b> : To Start filling all the pre-joining forms, Click the Kick-Off button on the right top of the HomePage." + "<br/>" +
+                "4.) <b>Step-4</b> : Read the instructions on the appearing dialogue box and Click the checkbox to Start Filling." + "<br/>" +
+                "5.) <b>Step-5</b> : Please Read and Fill the Form at each section carefully. Once the Section is submitted it can,t be edited. " + "<br/>" +
+                "6.) <b>Step-6</b> : Section - 1 (Personal Information & Address Details) Fill and Click <b>Submit</b> button to access next section." + "<br/>" +
+                "7.) <b>Step-7</b> : Section - 2 (Education Details) Fill and Click <b>Submit</b> button to save education details. Click <b>Finish</b> button to proceed access next section." + "<br/>" +
+                "8.) <b>Step-8</b> : Section - 3 (Employment Details) Fill and Click <b>Save</b> button to Employment details. Click <b>Submit</b> to Complete the process." + "<br/><br/>" +
                 "<b> Note <b/>: Details can't be edited once the form is submitted." + "<br/><br/>" +
-                "<img src=https://media.glassdoor.com/sqll/945068/psiog-digital-squarelogo-1468915701259.png />" + "<br/><br/>" +
-                "<b>Warm Regards</b>" + "<br/>" + "<b>Hr Desk </b>";
+                "<img src=https://media.glassdoor.com/sqll/945068/psiog-digital-squarelogo-1468915701259.png />" + "<br/>" +
+                "<b>Warm Regards</b>" + "<br/>" + "<b>HR Desk </b>";
 
 
 

@@ -7,7 +7,6 @@ import Typography from '@material-ui/core/Typography';
 import Badge from '@material-ui/core/Badge';
 import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
-import MenuIcon from '@material-ui/icons/Menu';
 import AccountCircle from '@material-ui/icons/AccountCircle';
 import MailIcon from '@material-ui/icons/Mail';
 import NotificationsIcon from '@material-ui/icons/Notifications';
@@ -16,10 +15,7 @@ import InputBase from '@material-ui/core/InputBase';
 import MoreIcon from '@material-ui/icons/MoreVert';
 import '../App.css';  
 import logo from '../Assets/OnboardLogo.png';
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom'; 
-import AppRouter from '../AppRouter';
-import Login from '../components/Login';
-import Avatar from '@material-ui/core/Avatar';
+import { BrowserRouter as Router, Link } from 'react-router-dom'; 
 
 const useStyles = makeStyles(theme => ({
 grow: {
@@ -207,9 +203,9 @@ const renderMenu = (
               aria-controls={menuId}
               aria-haspopup="true"
               onClick={handleProfileMenuOpen}
-              color="Primary"
+              color="inherit"
             >
-               <Avatar style={{color: '#3f51b5',backgroundColor:'#FFFFFF',width:'200%',height:'1.4em'}}>{localStorage.getItem('FirstName').charAt(0)}</Avatar>
+              <AccountCircle />
             </IconButton>
           </div>
           <div className={classes.sectionMobile}>

@@ -1,5 +1,5 @@
 import React from 'react'; 
-import { BrowserRouter as Router, Switch, Route, Link ,Redirect} from 'react-router-dom';  
+import { BrowserRouter as Router, Switch, Route} from 'react-router-dom';  
 import AddEmployee from '../src/components/AddEmployee';  
 import Employeelist from '../src/components/EmployeeList';  
 import EditEmployee from '../src/components/EditEmployee'; 
@@ -13,6 +13,7 @@ import '../src/Navigation.css';
 import '../src/Login.css';
 import Education from '../src/components/Education';
 import Employment from '../src/components/Employment';
+import View from '../src/components/View'
 
 const AppRouter = () => {
     return(
@@ -28,6 +29,7 @@ const AppRouter = () => {
                         <Route path='/Education' component={Education} /> 
                         <Route path='/UserHome' component={UserHome} /> 
                         <Route path='/Employment' component={Employment} /> 
+                        <Route path='/view/:id' component={View}/>
                 </Switch>  
         </Router>  
     )

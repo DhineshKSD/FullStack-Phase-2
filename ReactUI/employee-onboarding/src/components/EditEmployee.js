@@ -1,11 +1,10 @@
 import React from 'react';   
-import { Container, Col, Form, row, FormGroup, Label, Input, Button } from 'reactstrap';  
+import { Container, Col, Form, FormGroup } from 'reactstrap';  
 import axios from 'axios'  
 import '../AddEmployee.css'; 
 import ButtonMat from '@material-ui/core/Button';
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom'; 
+import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';  
 import TextField from '@material-ui/core/TextField';
-import Employeelist from '../components/EmployeeList'; 
 import '../EditEmployee.css';
 import Card from '@material-ui/core/Card';
 import MenuItem from '@material-ui/core/MenuItem';
@@ -244,7 +243,7 @@ onChangeSubmissionStatus(e){
                                   ))}
                                   </TextField>
 
-                                  <TextField id="date"label="Joining Date" type="text" defaultValue="2017-05-24" fullWidth margin="normal"name="DOJ" value={this.state.DOJ.split('T')[0]} onChange={this.onChangeDOJ} InputLabelProps={{shrink: true, }}/>
+                                  <TextField id="date"label="Joining Date" type="text" fullWidth margin="normal"name="DOJ" value={this.state.DOJ.split('T')[0]} onChange={this.onChangeDOJ} InputLabelProps={{shrink: true, }}/>
                                   
                                   <TextField type="text" required id="standard-required" label="UserName" autoComplete="off" placeholder="UserName" InputProps={{ readOnly: true, }} fullWidth margin="normal" name="UserName" value={this.state.UserName} onChange={this.onChangeUserName}/>
 

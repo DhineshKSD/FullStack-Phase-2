@@ -7,7 +7,7 @@ import axios from 'axios';
 import ButtonMat from '@material-ui/core/Button';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router} from 'react-router-dom';
 import MenuItem from '@material-ui/core/MenuItem';
 import '../Employment.css'
 
@@ -55,7 +55,7 @@ export class Employment extends Component {
         .then(json => {  
         if(json.data.Status==='Success')
         {  
-        this.setState({snackbaropen:true , snackbarmsg : "Education Detail's Saved Successfully"}) 
+        this.setState({snackbaropen:true , snackbarmsg : "Employee PreviousEmployments Details Successfully Saved"}) 
         //alert("Education Detail's Saved Successfully"); 
         window.location.href='/Employment';   
         }  
@@ -121,7 +121,7 @@ export class Employment extends Component {
                             <ButtonMat id="Empsubmit"type="button" onClick={this.AddEmployment} disabled={this.state.ExperienceType===''} variant="contained" color="primary">
                                 Save
                             </ButtonMat>
-                            <ButtonMat id="EmpFinish" type="button" onClick={this.Next} variant="contained" color="primary">
+                            <ButtonMat id="EmpFinish" type="button" onClick={this.Next} variant="contained" color="secondary">
                                 Submit
                             </ButtonMat>  
                     </CardContent>

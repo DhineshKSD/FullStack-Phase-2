@@ -1,11 +1,5 @@
 import React from 'react';  
-import AddEmployee from '../components/AddEmployee';  
-import Employeelist from '../components/EmployeeList';  
-import EditEmployee from '../components/EditEmployee'; 
-import PersonalInfo from '../components/PersonalInfo'; 
-import { BrowserRouter as Router, Switch, Route, NavLink } from 'react-router-dom'; 
-import Home from '../components/Home';
-import Login from '../components/Login'
+import { BrowserRouter as Router, NavLink } from 'react-router-dom'; 
 import '../App.css'; 
 import '../Navigation.css'
 import '../Login.css'
@@ -16,7 +10,7 @@ export class Navigation extends React.Component {
             <Router>  
             <div>
                 <div className="container1"> 
-                    <div class="position-fixed">
+                    <div className="position-fixed">
                         <nav className="navbar navbar-expand-lg navheader">  
                         <div className="collapse navbar-collapse" >  
                             <ul className="navbar-nav mr-auto"> 
