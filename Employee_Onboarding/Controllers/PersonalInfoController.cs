@@ -147,6 +147,14 @@ namespace Employee_Onboarding.Controllers
                 {
                     return BadRequest(ModelState);
                 }
+                if (DatabaseAction.IsPersonalInfoExist(personalinfo.Employee_id))
+                {
+                    return new Response
+                    {
+                        Status = "PersonalInfoCheck",
+                        Message = "Data Already Exist"
+                    };
+                }
 
                 db.PersonalInfoes.Add(personalinfo);
                 db.SaveChanges();

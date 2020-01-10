@@ -11,6 +11,9 @@ import Snackbar from '@material-ui/core/Snackbar';
 import Checkbox from '@material-ui/core/Checkbox';
 import VisibilityIcon from '@material-ui/icons/Visibility';
 
+var tempDate = new Date();
+var date = tempDate.getFullYear() + '-' + ("0"+tempDate.getMonth()+1).slice(-2) + '-' + tempDate.getDate() 
+console.log(date);
 class Table extends Component {  
   constructor(props) {  
     super(props)
@@ -69,9 +72,8 @@ class Table extends Component {
         })  
         .catch(function (error) {  
           console.log(error);  
-        })    
+        })   
 }  
-    
   DeleteStudent= () =>{  
     axios.delete('https://localhost:44319/api/removeEmployee/'+this.props.obj.Employee_id)  
   .then(json => {  
@@ -79,12 +81,11 @@ class Table extends Component {
     window.location.href='/Employeelist';
   })  
   } 
-
   render() {
     return (  
         <tr>  
           <td>  
-           <Avatar style={{backgroundColor: '#3f51b5'}}>{this.props.obj.FirstName.charAt(0)}</Avatar>  
+           <Avatar style={this.props.obj.DOJ.split('T')[0]===date ?{backgroundColor: '#388e3c',color: '#f3e5f5'}:{backgroundColor: '#3f51b5',color: '#f3e5f5'}}>{this.props.obj.FirstName.charAt(0)}</Avatar>  
           </td>
           <td>  
             {this.props.obj.FirstName}  
@@ -108,10 +109,10 @@ class Table extends Component {
           <Link to={"/edit/"+this.props.obj.Employee_id} style={{ textDecoration: 'none' }}><ButtonMat elevation={3} variant="contained" color="primary" startIcon={<EditIcon />}>Edit</ButtonMat></Link>  
           </td>  
           <td>  
-          <ButtonMat elevation={3} type="button" onClick={this.DeleteStudent} variant="contained" color="secondary" startIcon={<DeleteIcon />}>Delete</ButtonMat>  
+          <ButtonMat elevation={3} type="button" onClick={this.DeleteStudent} disabled={this.props.obj.MailStatus==="Initiated"} variant="contained" style={{backgroundColor: '#e91e63',color: '#f3e5f5'}} startIcon={<DeleteIcon />}>Delete</ButtonMat> 
           </td>  
           <td>  
-          <ButtonMat elevation={3} type="button" variant="contained" disabled={this.props.obj.MailStatus==="Initiated"} onClick={this.SendMail} style={{backgroundColor: '#1565c0',color: '#f3e5f5'}} startIcon={<SendIcon />}>{this.props.obj.MailStatus}</ButtonMat>
+          <ButtonMat elevation={3} type="button" variant="contained" disabled={this.props.obj.MailStatus==="Initiated"} onClick={this.SendMail} style={this.props.obj.MailStatus==="Initiated"?{backgroundColor: '#3f51b5',color: '#f3e5f5'}:{backgroundColor: '#969696',color: '#f3e5f5'}} startIcon={<SendIcon />}>{this.props.obj.MailStatus}</ButtonMat>
           <Snackbar 
             anchorOrigin={{vertical:'bottom',horizontal:'left'}}
             open = {this.state.snackbaropen}
@@ -129,7 +130,7 @@ class Table extends Component {
             />
           </td>
           <td>  
-          <Link to={"/view/"+this.props.obj.Employee_id} style={{ textDecoration: 'none' }}><ButtonMat elevation={3} type="button" variant="contained" disabled={this.props.obj.SubmissionStatus===true} style={{backgroundColor: '#494c4c',color: '#FFFFFF'}} startIcon={<VisibilityIcon />}>View</ButtonMat></Link>
+          <Link to={"/view/"+this.props.obj.Employee_id} style={{ textDecoration: 'none' }}><ButtonMat elevation={3} type="button" variant="contained" style={this.props.obj.SubmissionStatus?{backgroundColor: '#e91e63',color: '#f3e5f5'}:{backgroundColor: '#969696',color: '#f3e5f5'}} startIcon={<VisibilityIcon />}>View</ButtonMat></Link>
           </td> 
         </tr>  
     );  

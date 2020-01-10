@@ -257,7 +257,33 @@ namespace Employee_Onboarding.Controllers
                 var userName = employee.UserName;
                 var pass = employee.Password;
                 Mail.EmailGeneration(employee.PersonalEmail, employee.FirstName, userName, pass);
+                LogFile.OnboardInitiateLog(employee.FirstName, employee.JobTitle, employee.Department, employee.DOJ,employee.PersonalEmail);
+                return new Response
+                {
+                    Status = "Success",
+                    Message = "Mail Sent Successfully"
+                };
+            }
 
+            catch (Exception ex)
+            {
+                LogFile.WriteLog(ex);
+                return BadRequest();
+            }
+        }
+
+        [HttpGet]
+        [Route("api/SubmissionMail/{id=id}")]
+        [ResponseType(typeof(Employee))]
+        public object SubmissionMail(string id)
+        {
+            var empId = DatabaseAction.GetEmployeeID(id);
+            try
+            {
+                Employee employee = db.Employees.Find(empId);
+
+                var userName = employee.UserName;
+                Mail.SubmissionEmailGeneration(employee.FirstName, userName,employee.PersonalEmail);
                 return new Response
                 {
                     Status = "Success",

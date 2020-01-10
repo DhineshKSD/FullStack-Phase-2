@@ -68,5 +68,41 @@ namespace Employee_Onboarding.Accessory_Classes
                 writer.WriteLine("* Employee Name - " + Name + "\n"+"* Employee Id - " + id + "\n" + "* Designation - " +Job + "\n" + "* Department - " +Dept + "\n" + "* DOJ - " +DateOfJoining);
             }
         }
+        public static void OnboardInitiateLog(string Name,string Job, string Dept, DateTime DateOfJoining,string Email)
+        {
+            string filePath;
+            filePath = System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "OnboardInitiateLog");
+            if (!File.Exists(filePath))
+            {
+                File.Create(filePath).Dispose();
+            }
+            using (StreamWriter writer = new StreamWriter(filePath, true))
+            {
+                writer.WriteLine("-----------------------------------------------------------------------------");
+                writer.WriteLine("Date : " + DateTime.Now.ToString());
+                writer.WriteLine();
+
+
+                writer.WriteLine("Onboarding Initiated for" + "\n" +"* Employee Name - " + Name + "\n" + "* Designation - " + Job + "\n" + "* Department - " + Dept + "\n" + "* DOJ - " + DateOfJoining + "\n" + "* Email - " + Email);
+            }
+        }
+        public static void SubmissionLog(long id)
+        {
+            string filePath;
+            filePath = System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "OnboardInitiateLog");
+            if (!File.Exists(filePath))
+            {
+                File.Create(filePath).Dispose();
+            }
+            using (StreamWriter writer = new StreamWriter(filePath, true))
+            {
+                writer.WriteLine("-----------------------------------------------------------------------------");
+                writer.WriteLine("Date : " + DateTime.Now.ToString());
+                writer.WriteLine();
+
+
+                writer.WriteLine("Pre-Joining Forms Submitted by an Employee With Employee id -" +id+ "\n");
+            }
+        }
     }
 }

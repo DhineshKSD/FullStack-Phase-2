@@ -118,9 +118,18 @@ namespace Employee_Onboarding.Controllers
                 {
                     return BadRequest(ModelState);
                 }
+                if (DatabaseAction.IsCourseExist(education.Employee_id, education.CourseCode))
+                {
+                    return new Response
+                    {
+                        Status = "Coursecheck",
+                        Message = "Course Data Already Exist"
+                    };
+                }
 
                 db.Educations.Add(education);
                 db.SaveChanges();
+                //LogFile.SubmissionLog(education.Employee_id);
                 return new Response
                 {
                     Status = "Success",

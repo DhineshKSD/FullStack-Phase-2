@@ -48,11 +48,12 @@ export default function AlertDialogSlide() {
                   <DialogContentText id="alert-dialog-slide-description">
                   
                     To facilitate a smooth integration into Psiog's Work Environment, we request you to follow the instructions given below 
-                    to access our onboarding portal. The portal will allow you to complete all the pre-joining formalities like 
-                    accepting the offer and submitting all new-hire paperwork, online! <br/><br/>
-                    <b>Note: </b>
-                    Please complete all the forms, within seven days upon after 
-                    receipt of this email.
+                    to access our onboarding portal. The portal will allow you to complete all the pre-joining formalities  
+                    and submitting all new-hire paperwork, online! <br/><br/>
+                    <b>Note: </b><br/><br/>
+                    1.) Please complete all the forms, within seven days upon after 
+                    receipt of this email.<br/>
+                    2.) Once started to fill the form, complete the entire process and submit the form.
                   </DialogContentText>
             </DialogContent>
             <DialogActions>

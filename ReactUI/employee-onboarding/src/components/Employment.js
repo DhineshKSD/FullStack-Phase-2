@@ -69,7 +69,18 @@ export class Employment extends Component {
     }
 
     Next=()=>{
-        window.location.href='/Thanks';  
+        var id = localStorage.getItem('User');
+        axios.get('https://localhost:44319/api/SubmissionMail/'+id)  
+        .then(json => {  
+          if(json.data.Status==='Success')
+          {
+          window.location.href='/Thanks';  
+          }
+        })  
+        .catch(function (error) {  
+          console.log(error);  
+        })  
+         
     }
     
     render() {

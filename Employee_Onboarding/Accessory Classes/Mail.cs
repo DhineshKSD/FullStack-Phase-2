@@ -24,9 +24,9 @@ namespace Employee_Onboarding.Accessory_Classes
             body = "<br/><br/>" +
                  "<img src=https://media.licdn.com/dms/image/C511BAQGHEv_vDRHNHg/company-background_10000/0?e=2159024400&v=beta&t=ukaxpdYFnbl9grLY-eSt0LrGyCD4J-G3yUXYFxMJ9Wg />" + "<br/><br/>" +
                 "<b> Dear  " + name + ";</b>" + "<br/><br/>" +
-                "                       "+" Welcome to Psiog's Family, the fastest growing IT services organisation! We are delighted that you have accepted our offer of employment and we look forward to welcoming you onboard." +
+                "                       " + " Welcome to Psiog's Family, the fastest growing IT services organisation! We are delighted that you have accepted our offer of employment and we look forward to welcoming you onboard." +
                 "To facilitate a smooth integration into Psiog's Environment, we request you to follow the instructions given below to access our onboarding portal to complete all the pre-joining formalities before day one of joining.Please use the following credentials to login to your Account" +
-                "<br/><br/>"+"<b>Login Credentials: </b>"+ "<br/><br/>" + " <b>* UserName</b> = " + username + " <br/>" + "<b>* Password</b> = " + password + "<br/><br/></b>" +
+                "<br/><br/>" + "<b>Login Credentials: </b>" + "<br/><br/>" + " <b>* UserName</b> = " + username + " <br/>" + "<b>* Password</b> = " + password + "<br/><br/></b>" +
                 "<b>Instruction: </b>" + "<br/>" +
                 "1.) <b>Step-1</b> : Click on ----- to go to the Psiog On-Board Hub portal login page." + "<br/>" +
                 "2.) <b>Step-2</b> : Login in to the portal using the above credentials." + "<br/>" +
@@ -38,11 +38,53 @@ namespace Employee_Onboarding.Accessory_Classes
                 "8.) <b>Step-8</b> : Section - 3 (Employment Details) Fill and Click <b>Save</b> button to Employment details. Click <b>Submit</b> to Complete the process." + "<br/><br/>" +
                 "<b> Note <b/>: Details can't be edited once the form is submitted." + "<br/><br/>" +
                 "<img src=https://media.glassdoor.com/sqll/945068/psiog-digital-squarelogo-1468915701259.png />" + "<br/>" +
-                "<b>Warm Regards</b>" + "<br/>" + "<b>HR Desk </b>";
-
+                "<b>Warm Regards</b>" + "<br/>" + "<b>HR Desk </b>" + "<br/><br/>" +
+                "<b>Notice:</b> The information contained in this e-mail message and/ or attachments"+
+                "to it may contain confidential or privileged information.If you are not the intended recipient, any dissemination, use review, distribution, printing or copying of the" +
+                "information contained in this e - mail message and / or attachments to it are strictly prohibited. If you have received this communication in error, please notify us by reply e-mail or telephone and" +
+                "immediately and permanently delete the message and any attachments. Thank you";
 
 
            var smtp = new SmtpClient
+            {
+                Host = "smtp.gmail.com",
+                Port = 587,
+                EnableSsl = true,
+                DeliveryMethod = SmtpDeliveryMethod.Network,
+                UseDefaultCredentials = false,
+                Credentials = new NetworkCredential(fromEmail.Address, fromEmailPassword)
+            };
+
+            using (var message = new MailMessage(fromEmail, toEmail)
+            {
+                Subject = subject,
+                Body = body,
+                IsBodyHtml = true
+            })
+                smtp.Send(message);
+        }
+
+        public static void SubmissionEmailGeneration(string name, string username,string emailID)
+        {
+
+            var fromEmail = new MailAddress("psioghrdesk@gmail.com", "On-Board Hub");
+            var toEmail = new MailAddress(emailID);
+            var fromEmailPassword = "Psiog@123"; // Replace with actual password
+
+            string subject = "";
+            string body = "";
+
+
+            subject = "Psiog Digital (P) Ltd";
+            body = "<br/><br/>" +
+                "<b> Dear  " + name + ";</b>" + "<br/><br/>" +
+                "<b>UserName:</b>"+username+ "<br/>"+
+                "Your form has been successfully submitted." +
+                "<br/><br/>" +
+                "<img src=https://media.glassdoor.com/sqll/945068/psiog-digital-squarelogo-1468915701259.png />" + "<br/>" +
+                "<b>Warm Regards</b>" + "<br/>" + "<b>HR Desk </b>";
+
+            var smtp = new SmtpClient
             {
                 Host = "smtp.gmail.com",
                 Port = 587,

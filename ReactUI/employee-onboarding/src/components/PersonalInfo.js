@@ -145,6 +145,12 @@ if(json.data.Status==='Success')
   this.setState({snackbaropen:true , snackbarmsg : "Personal Details Saved Successfully"}) 
   //alert("Personal Details Saved Successfully"); 
   window.location.href='/Education';      
+} 
+else if(json.data.Status==='PersonalInfoCheck')
+{  
+this.setState({snackbaropen:true , snackbarmsg : "Personalinfo Detail's Already Exist"}) 
+//alert("Education Detail's Saved Successfully"); 
+window.location.href='/Education';   
 }  
 else
 {

@@ -61,6 +61,40 @@ namespace Employee_Onboarding.Accessory_Classes
                 return false;
             }
         }
+        public static bool IsCourseExist(int id, string course)
+        {
+            try
+            {
+                using (EmployeeOnboardingEntities db = new EmployeeOnboardingEntities())
+                {
+                    var res = db.Educations.Where(u => u.Employee_id == id && course == u.CourseCode).FirstOrDefault();
+
+                    return res == null ? false : true;
+                }
+            }
+            catch (Exception ex)
+            {
+                LogFile.WriteLog(ex);
+                return false;
+            }
+        }
+        public static bool IsPersonalInfoExist(int id)
+        {
+            try
+            {
+                using (EmployeeOnboardingEntities db = new EmployeeOnboardingEntities())
+                {
+                    var res = db.PersonalInfoes.Where(u => u.Employee_id == id).FirstOrDefault();
+
+                    return res == null ? false : true;
+                }
+            }
+            catch (Exception ex)
+            {
+                LogFile.WriteLog(ex);
+                return false;
+            }
+        }
         public static bool IsEmailExist(string EmailID) //Check Email ID exists in the DB
         {
             try

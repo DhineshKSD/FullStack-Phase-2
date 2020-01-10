@@ -122,6 +122,12 @@ this.setState({snackbaropen:true , snackbarmsg : "Education Detail's Saved Succe
 //alert("Education Detail's Saved Successfully"); 
 window.location.href='/Education';   
 }  
+else if(json.data.Status==='Coursecheck')
+{  
+this.setState({snackbaropen:true , snackbarmsg : "Education Detail's Already Exist"}) 
+//alert("Education Detail's Saved Successfully"); 
+window.location.href='/Education';   
+}  
 else
 { 
 this.setState({snackbaropen:true , snackbarmsg : "Data not Saved"})  
@@ -189,7 +195,6 @@ render() {
                                     label="Course Type" fullWidth margin="normal"
                                     name="CourseCode"
                                     value={this.state.CourseCode} onChange={this.handleChange}
-                                    
                                     >
                                     {CourseCode.map(option => (
                                         <MenuItem key={option.value} value={option.value}>
@@ -199,16 +204,16 @@ render() {
                                 </TextField>    
                                 <TextField type="text" required id="standard-required" label="Course" autoComplete="off" placeholder="Course" fullWidth margin="normal" name="Course" value={this.state.Course} onChange={this.handleChange}/>
 
-                                <TextField type="text" required id="standard-required" label="Institute"autoComplete="off" placeholder="Institute1" fullWidth margin="normal" name="Institute" value={this.state.Institute} onChange={this.handleChange}/>
+                                <TextField type="text" required id="standard-required" label="Institute"autoComplete="off" placeholder="Institute" fullWidth margin="normal" name="Institute" value={this.state.Institute} onChange={this.handleChange}/>
 
                                 <TextField type="number" required id="standard-required" label="GradePoint"autoComplete="off" placeholder="GradePoint" fullWidth margin="normal" name="GradePoint" value={this.state.GradePoint} onChange={this.handleChange}/>
                             </div>
                             <div id="EduCard2">
                                 <TextField id="date" label="From" type="date" inputProps={{min: this.state.DateOfBirth}} fullWidth margin="normal" name="From" value={this.state.From} onChange={this.handleChange} InputLabelProps={{shrink: true, }}/>
 
-                                <TextField id="date" label="To" type="date" inputProps={{min: this.state.DateOfBirth}} fullWidth margin="normal" name="To" value={this.state.To} onChange={this.handleChange} InputLabelProps={{shrink: true, }}/>
+                                <TextField id="date" label="To" type="date" inputProps={{min: this.state.From}} fullWidth margin="normal" name="To" value={this.state.To} onChange={this.handleChange} InputLabelProps={{shrink: true, }}/>
 
-                                <TextField type="number" required id="standard-required" label="Year.of.Passing"autoComplete="off" placeholder="YearOfPassing" fullWidth margin="normal" name="YearOfPassing" value={this.state.YearOfPassing} onChange={this.handleChange}/> 
+                                <TextField type="number" required id="standard-required" label="Year.of.Passing" autoComplete="off" placeholder="Year.of.Passing" fullWidth margin="normal" name="YearOfPassing" value={this.state.YearOfPassing} onInput={(e)=>{ e.target.value = Math.max(0, parseInt(e.target.value) ).toString().slice(0,4)}} onChange={this.handleChange}/> 
                             </div>
                             <ButtonMat id="Educationsubmit"type="button" onClick={this.AddEducation} disabled={!this.state.CourseCode||!this.state.Course||!this.state.Institute||!this.state.From||!this.state.To||!this.state.YearOfPassing} variant="contained" color="primary">
                                 Submit

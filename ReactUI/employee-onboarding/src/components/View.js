@@ -97,26 +97,26 @@ componentDidMount() {
                           <Form className="form">  
                               <div id="ViewForm1">
                                     <Col>  
-                                    <TextField type="text" required id="standard-required" label="FirstName" autoComplete="off" placeholder="FirstName"  InputProps={{ readOnly: true, }} fullWidth margin="normal" name="FirstName" value={this.state.FirstName} />
+                                    <TextField type="text" color="secondary" variant="outlined" required id="standard-required" label="FirstName" autoComplete="off" placeholder="FirstName"  InputProps={{ readOnly: true, }} fullWidth margin="normal" name="FirstName" value={this.state.FirstName} />
 
-                                    <TextField type="text" required id="standard-required" label="LastName"autoComplete="off" placeholder="LastName"  InputProps={{ readOnly: true, }} fullWidth margin="normal" name="LastName" value={this.state.LastName}/>
+                                    <TextField type="text" color="secondary" variant="outlined"required id="standard-required" label="LastName"autoComplete="off" placeholder="LastName"  InputProps={{ readOnly: true, }} fullWidth margin="normal" name="LastName" value={this.state.LastName}/>
 
-                                    <TextField type="email" required id="standard-required" label="PersonalEmail"autoComplete="off" placeholder="PersonalEmail"  InputProps={{ readOnly: true, }} fullWidth margin="normal" name="PersonalEmail" value={this.state.PersonalEmail}/>
+                                    <TextField type="email" color="secondary" variant="outlined"required id="standard-required" label="PersonalEmail"autoComplete="off" placeholder="PersonalEmail"  InputProps={{ readOnly: true, }} fullWidth margin="normal" name="PersonalEmail" value={this.state.PersonalEmail}/>
 
-                                    <TextField type="number" required id="standard-required" label="Contact"autoComplete="off" placeholder="Contact"  InputProps={{ readOnly: true, }} fullWidth margin="normal" name="Contact" value={this.state.Contact}/>
+                                    <TextField type="number" color="secondary" variant="outlined"required id="standard-required" label="Contact"autoComplete="off" placeholder="Contact"  InputProps={{ readOnly: true, }} fullWidth margin="normal" name="Contact" value={this.state.Contact}/>
 
-                                    <TextField type="text" required id="standard-required" label="JobTitle"autoComplete="off" placeholder="JobTitle"  InputProps={{ readOnly: true, }} fullWidth margin="normal" name="JobTitle" value={this.state.JobTitle} />
+                                    <TextField type="text" color="secondary" variant="outlined"required id="standard-required" label="JobTitle"autoComplete="off" placeholder="JobTitle"  InputProps={{ readOnly: true, }} fullWidth margin="normal" name="JobTitle" value={this.state.JobTitle} />
                                     </Col>
                               </div>
                               <div id="ViewForm2">
                               <Col>
-                              <TextField type="text" required id="standard-required" label="Department" autoComplete="off" placeholder="Department" InputProps={{ readOnly: true, }} fullWidth margin="normal" name="Department" value={this.state.Department} />
+                              <TextField type="text" color="secondary" variant="outlined" required id="standard-required" label="Department" autoComplete="off" placeholder="Department" InputProps={{ readOnly: true, }} fullWidth margin="normal" name="Department" value={this.state.Department} />
 
-                                <TextField id="date" label="Joining Date" type="text" fullWidth margin="normal"name="DOJ" value={this.state.DOJ.split('T')[0]} InputProps={{ readOnly: true, }} InputLabelProps={{shrink: true, }}/>
+                                <TextField id="date" color="secondary" variant="outlined" label="Joining Date" type="text" fullWidth margin="normal"name="DOJ" value={this.state.DOJ.split('T')[0]} InputProps={{ readOnly: true, }} InputLabelProps={{shrink: true, }}/>
                                 
-                                <TextField type="text" required id="standard-required" label="UserName" autoComplete="off" placeholder="UserName" InputProps={{ readOnly: true, }} fullWidth margin="normal" name="UserName" value={this.state.UserName} />
+                                <TextField type="text" color="secondary" variant="outlined"required id="standard-required" label="UserName" autoComplete="off" placeholder="UserName" InputProps={{ readOnly: true, }} fullWidth margin="normal" name="UserName" value={this.state.UserName} />
 
-                                <TextField type="text" required id="standard-required" label="ReportingTo" autoComplete="off" placeholder="ReportingTo" fullWidth margin="normal" name="ReportingTo" value={this.state.ReportingTo}  InputProps={{ readOnly: true, }}/>
+                                <TextField type="text" color="secondary" variant="outlined" required id="standard-required" label="ReportingTo" autoComplete="off" placeholder="ReportingTo" fullWidth margin="normal" name="ReportingTo" value={this.state.ReportingTo}  InputProps={{ readOnly: true, }}/>
                               </Col>
                             </div>
                           </Form>  
@@ -129,23 +129,23 @@ componentDidMount() {
                           <Form className="form">  
                               <div id="ViewForm3">
                                     <Col>  
-                                    <TextField type="text" required id="standard-required" InputProps={{ readOnly: true, }} label="FirstName" autoComplete="off" placeholder="FirstName" fullWidth margin="normal" name="FirstName" value={this.state.FirstName} />
+                                    <TextField type="text" color="secondary" variant="outlined" required id="standard-required" InputProps={{ readOnly: true, }} label="FirstName" autoComplete="off" placeholder="FirstName" fullWidth margin="normal" name="FirstName" value={this.state.FirstName} />
 
-                                    <TextField type="text" required id="standard-required" InputProps={{ readOnly: true, }} label="LastName"autoComplete="off" placeholder="LastName" fullWidth margin="normal" name="LastName" value={this.state.LastName}/>
+                                    <TextField type="text" color="secondary" variant="outlined" required id="standard-required" InputProps={{ readOnly: true, }} label="LastName"autoComplete="off" placeholder="LastName" fullWidth margin="normal" name="LastName" value={this.state.LastName}/>
 
-                                    <TextField type="text" required id="standard-required"  InputProps={{ readOnly: true, }} label="Gender" autoComplete="off" placeholder="Gender" fullWidth margin="normal" name="Gender" value={this.state.Gender}/>
+                                    <TextField type="text" color="secondary" variant="outlined" required id="standard-required"  InputProps={{ readOnly: true, }} label="Gender" autoComplete="off" placeholder="Gender" fullWidth margin="normal" name="Gender" value={this.state.Gender}/>
 
-                                    <TextField type="text" required id="standard-required" InputProps={{ readOnly: true, }} label="DateOfBirth" autoComplete="off" placeholder="DateOfBirth" fullWidth margin="normal" name="DateOfBirth" value={this.state.DateOfBirth.split('T')[0]}/>
+                                    <TextField type="text" color="secondary" variant="outlined" required id="standard-required" InputProps={{ readOnly: true, }} label="DateOfBirth" autoComplete="off" placeholder="DateOfBirth" fullWidth margin="normal" name="DateOfBirth" value={this.state.DateOfBirth.split('T')[0]}/>
 
                                     </Col>
                               </div>
                               <div id="ViewForm4">
                               <Col>
-                              <TextField type="text"  InputProps={{ readOnly: true, }} label="PlaceOfBirth"autoComplete="off" placeholder="PlaceOfBirth" fullWidth margin="normal" name="PlaceOfBirth" value={this.state.PlaceOfBirth} />
+                              <TextField type="text"  color="secondary" variant="outlined" InputProps={{ readOnly: true, }} label="PlaceOfBirth"autoComplete="off" placeholder="PlaceOfBirth" fullWidth margin="normal" name="PlaceOfBirth" value={this.state.PlaceOfBirth} />
                                 
-                                <TextField type="text"  InputProps={{ readOnly: true, }} label="MaritalStatus" autoComplete="off" placeholder="MaritalStatus" fullWidth margin="normal" name="MaritalStatus" value={this.state.MaritalStatus} />
+                                <TextField type="text" color="secondary" variant="outlined" InputProps={{ readOnly: true, }} label="MaritalStatus" autoComplete="off" placeholder="MaritalStatus" fullWidth margin="normal" name="MaritalStatus" value={this.state.MaritalStatus} />
 
-                                <TextField type="text"  InputProps={{ readOnly: true, }} label="BloodGroup" autoComplete="off" placeholder="BloodGroup" fullWidth margin="normal" name="BloodGroup" value={this.state.BloodGroup} />
+                                <TextField type="text" color="secondary" variant="outlined" InputProps={{ readOnly: true, }} label="BloodGroup" autoComplete="off" placeholder="BloodGroup" fullWidth margin="normal" name="BloodGroup" value={this.state.BloodGroup} />
                               </Col>
                             </div>
                           </Form>  
@@ -158,19 +158,19 @@ componentDidMount() {
                           <div id="ViewFormAddressInfo">
                               <p id="PermanentAddress">Permanent Address</p>
                               <Col>                   
-                                  <TextField type="text"  InputProps={{ readOnly: true, }} label="Permanent Address" autoComplete="off" placeholder="Permanent Address" fullWidth margin="normal" name="Address1" value={this.state.Address1} />
-                                  <TextField type="text"  InputProps={{ readOnly: true, }} label="City" autoComplete="off" placeholder="City" fullWidth margin="normal" name="City1" value={this.state.City1} /> 
-                                  <TextField type="text" InputProps={{ readOnly: true, }} label="State" autoComplete="off" placeholder="State" fullWidth margin="normal" name="State1" value={this.state.State1} />
-                                  <TextField type="text"  InputProps={{ readOnly: true, }} label="Country" autoComplete="off" placeholder="Country" fullWidth margin="normal" name="Country1" value={this.state.Country1} />   
+                                  <TextField type="text" color="secondary" variant="outlined" InputProps={{ readOnly: true, }} label="Permanent Address" autoComplete="off" placeholder="Permanent Address" fullWidth margin="normal" name="Address1" value={this.state.Address1} />
+                                  <TextField type="text" color="secondary" variant="outlined" InputProps={{ readOnly: true, }} label="City" autoComplete="off" placeholder="City" fullWidth margin="normal" name="City1" value={this.state.City1} /> 
+                                  <TextField type="text" color="secondary" variant="outlined" InputProps={{ readOnly: true, }} label="State" autoComplete="off" placeholder="State" fullWidth margin="normal" name="State1" value={this.state.State1} />
+                                  <TextField type="text" color="secondary" variant="outlined" InputProps={{ readOnly: true, }} label="Country" autoComplete="off" placeholder="Country" fullWidth margin="normal" name="Country1" value={this.state.Country1} />   
                               </Col>
                               </div>
                               <div id="ViewFormAddressInfo1">
                             <p id="PresentAddress">Present Address</p>
                               <Col>                   
-                                  <TextField type="text"  InputProps={{ readOnly: true, }} label="Present Address" autoComplete="off" placeholder="Present Address" fullWidth margin="normal" name="Address2" value={this.state.Address2}/>
-                                  <TextField type="text"  InputProps={{ readOnly: true, }} label="City" autoComplete="off" placeholder="City" fullWidth margin="normal" name="City2" value={this.state.City2}/> 
-                                  <TextField type="text"  InputProps={{ readOnly: true, }} label="State" autoComplete="off" placeholder="State" fullWidth margin="normal" name="State2" value={this.state.State2}/>
-                                  <TextField type="text"  InputProps={{ readOnly: true, }} label="Country" autoComplete="off" placeholder="Country" fullWidth margin="normal" name="Country2" value={this.state.Country2}/>   
+                                  <TextField type="text" color="secondary" variant="outlined" InputProps={{ readOnly: true, }} label="Present Address" autoComplete="off" placeholder="Present Address" fullWidth margin="normal" name="Address2" value={this.state.Address2}/>
+                                  <TextField type="text" color="secondary" variant="outlined" InputProps={{ readOnly: true, }} label="City" autoComplete="off" placeholder="City" fullWidth margin="normal" name="City2" value={this.state.City2}/> 
+                                  <TextField type="text" color="secondary" variant="outlined" InputProps={{ readOnly: true, }} label="State" autoComplete="off" placeholder="State" fullWidth margin="normal" name="State2" value={this.state.State2}/>
+                                  <TextField type="text" color="secondary" variant="outlined" InputProps={{ readOnly: true, }} label="Country" autoComplete="off" placeholder="Country" fullWidth margin="normal" name="Country2" value={this.state.Country2}/>   
                               </Col>
                             </div>
                           </Form>  
