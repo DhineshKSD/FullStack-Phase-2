@@ -82,7 +82,7 @@ class Table extends Component {
   })  
   } 
   render() {
-    return (  
+    return (
         <tr>  
           <td>  
            <Avatar style={this.props.obj.DOJ.split('T')[0]===date ?{backgroundColor: '#388e3c',color: '#f3e5f5'}:{backgroundColor: '#3f51b5',color: '#f3e5f5'}}>{this.props.obj.FirstName.charAt(0)}</Avatar>  

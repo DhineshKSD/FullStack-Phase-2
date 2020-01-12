@@ -7,6 +7,21 @@ import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import PrimarySearchAppBar from '../components/Header';
 import Navigation from '../components/Navigation';
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
+import DarkTheme, { createTheme } from 'react-dark-theme'
+
+const lightTheme = {
+  background: '#f7f8f7',
+  text:'black'
+}
+ 
+const darkTheme = {
+  background: '#a9aaa9',
+  text: '#FFFFFF',
+}
+
+const myTheme = createTheme(darkTheme, lightTheme)
+
 
 export default class Employeelist extends Component {  
 constructor(props) {  
@@ -19,7 +34,7 @@ componentDidMount(){
   axios.get('https://localhost:44319/api/GetEmployees')  
     .then(response => {  
       this.setState({ business: response.data }); 
-      console.log(response.data ); 
+      console.log(this.state.business); 
       debugger;  
     })  
     .catch(function (error) {  
@@ -28,17 +43,17 @@ componentDidMount(){
 } 
 
 tabRow(){  
-  return this.state.business.map(function(object, i){  
-      return <Table obj={object} key={i} />;  
+  return this.state.business.map(function(object, i){
+      return <Table obj={object} key={i} />; 
   });  
 }  
 
-render() {  
+render() {
     return (  
       <div> 
         <PrimarySearchAppBar/>
         <Navigation/> 
-        <Card id="EmpListCard" elevation={7}>
+        <Card id="EmpListCard" elevation={7} style={{ backgroundColor: myTheme.background, color: myTheme.text }}>
               <CardContent>
                   <h5 id="EmpListHeading" align="center">On-Boarding Queue</h5>  
                     <table className="table table-hover" style={{ marginTop: '2em' ,textAlign:'center'}}>  

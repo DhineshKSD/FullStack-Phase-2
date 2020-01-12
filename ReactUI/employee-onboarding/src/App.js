@@ -12,8 +12,8 @@ import Stepper from '../src/Stepper';
 import Instruction from '../src/components/Instruction';
 import PrimarySearchAppBar from '../src/components/Header';
 import Employment from '../src/components/Employment';
-import Policy from '../src/components/Policy';*/
-import View from '../src/components/View'
+import Policy from '../src/components/Policy';
+import FileUpload from '../src/components/FileUpload';*/
 function App() {  
   return (  
     <div>

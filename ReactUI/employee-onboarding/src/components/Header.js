@@ -16,7 +16,18 @@ import MoreIcon from '@material-ui/icons/MoreVert';
 import '../App.css';  
 import logo from '../Assets/OnboardLogo.png';
 import { BrowserRouter as Router, Link } from 'react-router-dom'; 
+import DarkTheme, { createTheme } from 'react-dark-theme'
 
+const lightTheme = {
+  background: '#f7f8f7',
+  text:'black',
+}
+ 
+const darkTheme = {
+  background: '#a9aaa9',
+  text: '#FFFFFF',
+}
+const myTheme = createTheme(darkTheme, lightTheme)
 const useStyles = makeStyles(theme => ({
 grow: {
   flexGrow: 1,
@@ -172,7 +183,10 @@ const renderMenu = (
           <Typography id="Heading" className={classes.title} variant="h6" noWrap>
             On-Board Hub
           </Typography>
-          <div className={classes.search} style={{ position: 'relative',left:'40em' }}>
+          <div style={{ position: 'relative',left:'37em',top:'0.25em' }}>
+          <DarkTheme light={lightTheme} dark={darkTheme}/>
+          </div>
+          <div className={classes.search} style={{ position: 'relative',left:'37em' }}>
             <div className={classes.searchIcon}>
               <SearchIcon />
             </div>

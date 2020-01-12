@@ -61,8 +61,8 @@ export default function AlertDialogSlide() {
             checked={checked}
             onChange={handleChange}
             value="primary"
-            inputProps={{ 'aria-label': 'primary checkbox' }} style= {{position:'relative',right:'12em',bottom:'0.275em'}}
-            /> <p style= {{position:'relative',right:'18em'}}>I agree the terms and conditions.</p>
+            inputProps={{ 'aria-label': 'primary checkbox' }} style= {{position:'relative',right:'12.4em',bottom:'0.275em'}}
+            /> <p style= {{position:'relative',right:'19em'}}>I agree the terms and conditions.</p>
             </DialogActions>
             <Link to={'/PersonalInfo'} style={{ textDecoration: 'none' }}><ButtonMat variant="contained" disabled={!checked} color="primary" style= {{position:'relative',width:'30%',left:'34%',top:'1em'}}>Start Filling</ButtonMat>{' '}</Link>
             <br/><br/>

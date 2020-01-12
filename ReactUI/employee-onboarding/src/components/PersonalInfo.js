@@ -11,6 +11,8 @@ import MenuItem from '@material-ui/core/MenuItem';
 import '../PersonalInfo.css';
 import IconButton from '@material-ui/icons/Cancel';
 import Snackbar from '@material-ui/core/Snackbar';
+import State1 from '../components/State';
+import Avatar from '@material-ui/core/Avatar';
 var id = localStorage.getItem("User");
 const Gender = [
   {
@@ -94,11 +96,11 @@ this.state = {
   Address1:'',  
   City1:'',  
   State1:'',
-  Country1:'',    
+  Country1:'India',    
   Address2:'',  
   City2:'',  
   State2:'',
-  Country2:'', 
+  Country2:'India', 
   snackbaropen :false, snackbarmsg:'',
   isAvailable:false    
 }; 
@@ -189,7 +191,8 @@ return (
           </IconButton>
         ]}
         />
-        <Container className="PersonalInfoContainer"> 
+        <Container className="PersonalInfoContainer">
+        <Avatar id="line1" style={{backgroundColor: '#969696',color: '#f3e5f5'}}>1</Avatar><div class="hr-line"></div><Avatar id="line2" style={{backgroundColor: '#969696',color: '#f3e5f5'}}>2</Avatar><div class="hr-line1"></div><Avatar id="line3" style={{backgroundColor: '#969696',color: '#f3e5f5'}}>3</Avatar>
               <Form className="form" autoComplete="off"> 
                   <Card elevation={10} id="PersonalInfoCard">
                       <CardContent>  
@@ -262,8 +265,20 @@ return (
                                   <Col>                   
                                   <TextField type="text" required id="standard-required" label="Permanent Address" autoComplete="off" placeholder="Permanent Address" fullWidth margin="normal" name="Address1" value={this.state.Address1} onChange={this.handleChange}/>
                                   <TextField type="text" required id="standard-required" label="City" autoComplete="off" placeholder="City" fullWidth margin="normal" name="City1" value={this.state.City1} onChange={this.handleChange}/> 
-                                  <TextField type="text" required id="standard-required" label="State" autoComplete="off" placeholder="State" fullWidth margin="normal" name="State1" value={this.state.State1} onChange={this.handleChange}/>
-                                  <TextField type="text" required id="standard-required" label="Country" autoComplete="off" placeholder="Country" fullWidth margin="normal" name="Country1" value={this.state.Country1} onChange={this.handleChange}/>   
+                                  <TextField id="standard-required"
+                                  select
+                                  label="State" fullWidth margin="normal"
+                                  name="State1"
+                                  value={this.state.State1} onChange={this.handleChange}
+                                    helperText="Please select your State"
+                                  >
+                                  {State1.map(option => (
+                                    <MenuItem key={option.value} value={option.value}>
+                                      {option.name}
+                                    </MenuItem>
+                                  ))}
+                                  </TextField>
+                                  <TextField type="text" InputProps={{ readOnly: true, }} required id="standard-required" label="Country" autoComplete="off" placeholder="Country" fullWidth margin="normal" name="Country1" value={this.state.Country1} onChange={this.handleChange}/>   
                                   </Col>
                             </div>
                             <div id="FormAddressInfo1">
@@ -271,8 +286,20 @@ return (
                                   <Col>                   
                                   <TextField type="text" required id="standard-required" label="Present Address" autoComplete="off" placeholder="Present Address" fullWidth margin="normal" name="Address2" value={this.state.Address2} onChange={this.handleChange}/>
                                   <TextField type="text" required id="standard-required" label="City" autoComplete="off" placeholder="City" fullWidth margin="normal" name="City2" value={this.state.City2} onChange={this.handleChange}/> 
-                                  <TextField type="text" required id="standard-required" label="State" autoComplete="off" placeholder="State" fullWidth margin="normal" name="State2" value={this.state.State2} onChange={this.handleChange}/>
-                                  <TextField type="text" required id="standard-required" label="Country" autoComplete="off" placeholder="Country" fullWidth margin="normal" name="Country2" value={this.state.Country2} onChange={this.handleChange}/>   
+                                  <TextField id="standard-required"
+                                  select
+                                  label="State" fullWidth margin="normal"
+                                  name="State2"
+                                  value={this.state.State2} onChange={this.handleChange}
+                                    helperText="Please select your State"
+                                  >
+                                  {State1.map(option => (
+                                    <MenuItem key={option.value} value={option.value}>
+                                      {option.name}
+                                    </MenuItem>
+                                  ))}
+                                  </TextField>
+                                  <TextField type="text" InputProps={{ readOnly: true, }} required id="standard-required" label="Country" autoComplete="off" placeholder="Country" fullWidth margin="normal" name="Country2" value={this.state.Country2} onChange={this.handleChange}/>   
                                   </Col>
                             </div>
                       </CardContent>

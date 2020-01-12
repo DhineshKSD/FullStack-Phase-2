@@ -1,9 +1,9 @@
 #EmploymentCard{
     position: relative;
-    width:60%;
-    top:5.5em;
-    left:20%;
-    height: 83vh;
+    width:68%;
+    top:3.5em;
+    left:15%;
+    height: 68vh;
     background-color:#f7f8f7;
 }
 #EmpCard{
@@ -17,21 +17,60 @@
 #EmpHeading{
     position: relative;
     font-size: 1.2em;
-    top:-0.5em;
+    top:0em;
 }
 #EmpCard1{
     position: relative;
     width: 70%;
-    left:14%;
-    top:-1.2em;
+    top:0em;
+    left:-5%;
 }
 #Empsubmit{
     position: relative;
-    left:-2%;
-    bottom:1em;
+    left:0%;
+    bottom:9em;
 }
 #EmpFinish{
     position: relative;
     left:2%;
-    bottom:1em;
+    bottom:9em;
 }
+#EmpSection1{
+    position: relative;
+    width:70%;top:1em;
+}
+#EmpSection2{
+    position: relative;
+    width:70%;
+    left:85%;
+    bottom:8em;
+}
+.Emphr-line {
+    width: 27%;
+    position: relative;
+    top:5em;
+    left:15.5em;
+    border-bottom: 2px solid #e91e63;
+  }
+  #Empline1{
+    position: relative;
+    left:10.6em;
+    top:5em;
+}
+  #Empline2{
+      position: relative;
+      left:28.5em;
+      top:2.9em;
+  }
+  #Empline3{
+    position: relative;
+    left:47em;
+    top:0.8em;
+}
+  .Emphr-line1 {
+    width: 28%;
+    position: relative;
+    Top:2.4em;
+    left:38em;
+    border-bottom: 2px solid #e91e63;
+  }

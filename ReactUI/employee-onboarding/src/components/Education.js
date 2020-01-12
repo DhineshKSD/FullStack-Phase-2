@@ -9,6 +9,7 @@ import PrimarySearchAppBar from '../components/Header';
 import IconButton from '@material-ui/icons/Cancel';
 import Snackbar from '@material-ui/core/Snackbar';
 import MenuItem from '@material-ui/core/MenuItem';
+import Avatar from '@material-ui/core/Avatar';
 
 const CourseCode = [
     {
@@ -186,6 +187,7 @@ render() {
                     </IconButton>
                     ]}
                     />
+                     <Avatar id="Eduline1" style={{backgroundColor: '#e91e63',color: '#f3e5f5'}}>1</Avatar><div class="Eduhr-line"></div><Avatar id="Eduline2" style={{backgroundColor: '#969696',color: '#f3e5f5'}}>2</Avatar><div class="Eduhr-line1"></div><Avatar id="Eduline3" style={{backgroundColor: '#969696',color: '#f3e5f5'}}>3</Avatar>
                 <Card id="EducationCard" elevation={10}>
                         <CardContent id="EduCard">
                             <h6 id="EduHeading">Education Details</h6>
@@ -216,10 +218,10 @@ render() {
                                 <TextField type="number" required id="standard-required" label="Year.of.Passing" autoComplete="off" placeholder="Year.of.Passing" fullWidth margin="normal" name="YearOfPassing" value={this.state.YearOfPassing} onInput={(e)=>{ e.target.value = Math.max(0, parseInt(e.target.value) ).toString().slice(0,4)}} onChange={this.handleChange}/> 
                             </div>
                             <ButtonMat id="Educationsubmit"type="button" onClick={this.AddEducation} disabled={!this.state.CourseCode||!this.state.Course||!this.state.Institute||!this.state.From||!this.state.To||!this.state.YearOfPassing} variant="contained" color="primary">
-                                Submit
+                                Save
                             </ButtonMat>
                             <ButtonMat id="EducationFinish" type="button" disabled={!this.state.SubmissionStatus} onClick={this.Next} variant="contained" color="secondary">
-                                Finish
+                                Submit
                             </ButtonMat>  
                         </CardContent>
                 </Card>

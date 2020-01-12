@@ -13,6 +13,19 @@ import Navigation from '../components/Navigation';
 import { Col, Form, FormGroup} from 'reactstrap';  
 import IconButton from '@material-ui/icons/Cancel';
 import Snackbar from '@material-ui/core/Snackbar';
+import DarkTheme, { createTheme } from 'react-dark-theme'
+
+const lightTheme = {
+  background: '#f7f8f7',
+  text:'black'
+}
+ 
+const darkTheme = {
+  background: '#a9aaa9',
+  text: '#FFFFFF',
+}
+
+const myTheme = createTheme(darkTheme, lightTheme)
 
 const Department = [
   {
@@ -158,7 +171,7 @@ return (
      <PrimarySearchAppBar/>
      <Navigation/>
 
-      <Card id="EmployeeCard" elevation={7}>
+      <Card id="EmployeeCard" elevation={7} style={{ backgroundColor: myTheme.background, color: myTheme.text }}>
               <CardContent elevation={7}> 
               <h3 className="PageHeading">Enter New-Hires Details</h3> 
                     <Form className="form" required>  

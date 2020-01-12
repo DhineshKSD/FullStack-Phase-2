@@ -9,7 +9,8 @@ import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import { BrowserRouter as Router} from 'react-router-dom';
 import MenuItem from '@material-ui/core/MenuItem';
-import '../Employment.css'
+import '../Employment.css';
+import Avatar from '@material-ui/core/Avatar';
 
 const ExperienceType=[
     {
@@ -102,10 +103,12 @@ export class Employment extends Component {
                 </IconButton>
                 ]}
                 />
+                <Avatar id="Empline1" style={{backgroundColor: '#e91e63',color: '#f3e5f5'}}>1</Avatar><div class="Emphr-line"></div><Avatar id="Empline2" style={{backgroundColor: '#e91e63',color: '#f3e5f5'}}>2</Avatar><div class="Emphr-line1"></div><Avatar id="Empline3" style={{backgroundColor: '#969696',color: '#f3e5f5'}}>3</Avatar>
                 <Card id="EmploymentCard" elevation={10}>
                         <CardContent id="EmpCard">
                             <h6 id="EmpHeading">Employment Details</h6>
                             <div id="EmpCard1">
+                                <div id="EmpSection1">
                             <TextField id="standard-required" style={{textAlign: 'left'}}
                             select
                             label="Experience Type" fullWidth margin="normal"
@@ -121,13 +124,16 @@ export class Employment extends Component {
                         
                             <TextField type="text" InputProps={!this.state.ExperienceType?{ readOnly: true, }:{ readOnly: false, }} required id="standard-required" label="EmployerName" autoComplete="off" placeholder="EmployerName" fullWidth margin="normal" name="EmployerName" value={this.state.EmployerName} onChange={this.handleChange}/>
 
+                            <TextField type="text" InputProps={!this.state.ExperienceType?{ readOnly: true, }:{ readOnly: false, }} required id="standard-required" label="Designation"autoComplete="off" placeholder="Designation" fullWidth margin="normal" name="Designation" value={this.state.Designation} onChange={this.handleChange}/>
+                            
+                            </div>
+                            <div id="EmpSection2">
                             <TextField id="date" InputProps={!this.state.ExperienceType?{ readOnly: true, }:{ readOnly: false, }} label="StartDate" type="date"  fullWidth margin="normal" name="StartDate" value={this.state.StartDate} onChange={this.handleChange} InputLabelProps={{shrink: true, }}/>
 
                             <TextField id="date" InputProps={!this.state.ExperienceType?{ readOnly: true, }:{ readOnly: false, }} label="EndDate" type="date"  fullWidth margin="normal" name="EndDate" value={this.state.EndDate} onChange={this.handleChange} InputLabelProps={{shrink: true, }}/>
-                            
-                            <TextField type="text" InputProps={!this.state.ExperienceType?{ readOnly: true, }:{ readOnly: false, }} required id="standard-required" label="Designation"autoComplete="off" placeholder="Designation" fullWidth margin="normal" name="Designation" value={this.state.Designation} onChange={this.handleChange}/>
 
                             <TextField type="number" InputProps={!this.state.ExperienceType?{ readOnly: true, }:{ readOnly: false, }} required id="standard-required" label="Compensation"autoComplete="off" placeholder="Compensation" fullWidth margin="normal" name="Compensation" value={this.state.Compensation} onChange={this.handleChange}/>
+                            </div>
                             </div>
                             <ButtonMat id="Empsubmit"type="button" onClick={this.AddEmployment} disabled={this.state.ExperienceType===''} variant="contained" color="primary">
                                 Save

@@ -10,16 +10,23 @@ import '../Home.css';
 import axios from 'axios';
 import ThanksAvatar from '../Assets/ThanksAvatar.png'; 
 import decode from 'jwt-decode';
+import Delayed from '../components/Delayed';
+import Loader from 'react-loader-spinner';
 
 export class Home extends Component {
     constructor(props){  
         super(props)  
         this.state = {  
         FirstName:'' ,
-        disp:''  
+        disp:'',
+        spin:true  
         }
     }
     componentDidMount() {  
+        this.setState({spin:true})
+        setTimeout(() => { 
+            this.setState({spin:false})
+        }, 2000);
         var userId = localStorage.getItem("User");
         axios.get('https://localhost:44319/api/GetEmployeeById/'+userId)  
             .then(response => {  
@@ -55,12 +62,21 @@ export class Home extends Component {
       }
     
     render() {
-        return (
-            <div id="Homecard" >
-               <PrimarySearchAppBar/>
+        return ( 
+            <div id="Homecard">
+                <Loader 
+                    type="Circles"
+                    color="#e91e63"
+                    height={100}
+                    width={100}
+                    //timeout={3000} //3 secs
+                    visible = {this.state.spin}
+                    style={{position:'relative',height:'55vh',top:'15em',left:'45%',zIndex: '2'}}
+                />
+                <Delayed waitBeforeShow={2000}>
+                <PrimarySearchAppBar/>
                 <Navigation/>
                 <Card id="CardMessage" elevation={0}>
-                    
                         <Card id="card1" elevation={10}>
                             <CardContent>
                                 <img src={Employee} className="Employee-logo" alt="logo" />
@@ -75,7 +91,8 @@ export class Home extends Component {
                                 <p id="Welcome">Welcome To Psiog's Employee On-Boarding Hub</p>
                             </CardContent>
                         </Card>
-                </Card>   
+                </Card> 
+                </Delayed>  
             </div>
         )
     }
