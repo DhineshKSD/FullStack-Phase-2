@@ -1,71 +1,71 @@
 #EducationCard{
-    position: relative;
-    width:68%;
-    top:3em;
-    left:15%;
-    height: 70vh;
-    background-color:#f7f8f7;
+position: relative;
+width:68%;
+top:3em;
+left:15%;
+height: 70vh;
+background-color:#f7f8f7;
 }
 #EduCard{
-    position: relative;
-    width:80%;
-    left:10%;
-    top:0.5em;
-    text-align: center;
-    font-size: 1.5em;
+position: relative;
+width:80%;
+left:10%;
+top:0.5em;
+text-align: center;
+font-size: 1.5em;
 }
 #EduHeading{
-    position: relative;
-    font-size: 1.2em;
+position: relative;
+font-size: 1.2em;
 }
 #EduCard1{
-    position: relative;
-    width:50%;
-    left:-5%;
-    top:0em;
+position: relative;
+width:50%;
+left:-5%;
+top:0em;
 }
 #EduCard2{
-    position: relative;
-    width:50%;
-    left:55%;
-    bottom:12em;
+position: relative;
+width:50%;
+left:55%;
+bottom:12em;
 }
 #Educationsubmit{
-    position: relative;
-    left:0%;
-    bottom:13em;
+position: relative;
+left:-1%;
+bottom:13em;
 }
 #EducationFinish{
-    position: relative;
-    left:2%;
-    bottom:13em;
+position: relative;
+left:1%;
+bottom:13em;
 }
 .Eduhr-line {
-    width: 27%;
-    position: relative;
-    top:5em;
-    left:15.5em;
-    border-bottom: 2px solid #e91e63;
-  }
-  #Eduline1{
-    position: relative;
-    left:10.6em;
-    top:5em;
+width: 27%;
+position: relative;
+top:5em;
+left:15.5em;
+border-bottom: 2px solid #e91e63;
 }
-  #Eduline2{
-      position: relative;
-      left:28.5em;
-      top:2.9em;
-  }
-  #Eduline3{
-    position: relative;
-    left:47em;
-    top:0.8em;
+#Eduline1{
+position: relative;
+left:10.6em;
+top:5em;
 }
-  .Eduhr-line1 {
-    width: 28%;
-    position: relative;
-    Top:2.4em;
-    left:38em;
-    border-bottom: 2px solid #969696;
-  }
+#Eduline2{
+position: relative;
+left:28.5em;
+top:2.9em;
+}
+#Eduline3{
+position: relative;
+left:47em;
+top:0.8em;
+}
+.Eduhr-line1 {
+width: 28%;
+position: relative;
+Top:2.4em;
+left:38em;
+border-bottom: 2px solid #969696;
+}

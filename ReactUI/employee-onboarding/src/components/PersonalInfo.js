@@ -95,6 +95,7 @@ const BloodGroup = [
 ];
 var tempDate = new Date();
 var Year=(tempDate.getFullYear()-21);
+
 class PersonalInfo extends React.Component{  
 constructor(props){  
 super(props)  
@@ -190,7 +191,7 @@ return (
   <div>
      <PrimarySearchAppBar/>
       <Snackbar 
-        anchorOrigin={{vertical:'bottom',horizontal:'left'}}
+        anchorOrigin={{vertical:'bottom',horizontal:'right'}}
         open = {this.state.snackbaropen}
         autoHideDuration = {100000}
         onClose={this.snackbarClose}

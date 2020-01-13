@@ -1,101 +1,101 @@
 .PersonalInfoContainer{
-    position: relative;
-    top: 6em;
-    height:170vh;
+position: relative;
+top: 6em;
+height:170vh;
 }
 .PersonalInfoPageHeading
 {
-    position: relative;
-    top: 0em;
-    text-align: center;
+position: relative;
+top: 0em;
+text-align: center;
 }
 #FormPersonalInfo{
-    position: relative;
-    width:45%;
-    top:1em;
-    left:1.5em;
+position: relative;
+width:45%;
+top:1em;
+left:1.5em;
 }
 #FormPersonalInfo1{
-    position: relative;
-    width:45%;
-    bottom:19.5em;
-    left:31em;
+position: relative;
+width:45%;
+bottom:19.5em;
+left:31em;
 }
 #PersonalInfoCard{
-    position: relative;
-    height:70vh;
-    bottom:3em;
-    width:90%;
-    left:3em;
-    background-color:#f7f8f7;
+position: relative;
+height:70vh;
+bottom:3em;
+width:90%;
+left:3em;
+background-color:#f7f8f7;
 }
 #AddressInfoCard{
-    position: relative;
-    top:0em;
-    height:70vh;
-    left:3em;
-    width:90%;
-    background-color:#f7f8f7;
+position: relative;
+top:0em;
+height:70vh;
+left:3em;
+width:90%;
+background-color:#f7f8f7;
 }
 .AddressInfoPageHeading{
-    position: relative;
-    top: 0em;
-    text-align: center;
+position: relative;
+top: 0em;
+text-align: center;
 }
 #FormAddressInfo{
-    position: relative;
-    width:45%;
-    top:0em;
-    left:1.5em; 
+position: relative;
+width:45%;
+top:0em;
+left:1.5em; 
 }
 #FormAddressInfo1{
-    position: relative;
-    width:45%;
-    bottom:21.8em;
-    left:31em; 
+position: relative;
+width:45%;
+bottom:21.8em;
+left:31em; 
 }
 #PersonalButton{
-    position: relative;
-    top:24.5em;
-    right:1.5em;
+position: relative;
+top:24.5em;
+right:1.5em;
 }
 #PermanentAddress{
-    position: relative;
-    text-align: center;
-    top:1em;
+position: relative;
+text-align: center;
+top:1em;
 
 }
 #PresentAddress{
-    position: relative;
-    text-align: center;
-    top:1em;
+position: relative;
+text-align: center;
+top:1em;
 
 }
 .hr-line {
-    width: 30%;
-    position: relative;
-    bottom:1.25em;
-    left:12em;
-    border-bottom: 2px solid #969696;
-  }
-  #line1{
-    position: relative;
-    left:7.6em;
+width: 30%;
+position: relative;
+bottom:1.25em;
+left:12em;
+border-bottom: 2px solid #969696;
 }
-  #line2{
-      position: relative;
-      left:26em;
-      bottom:2em;
-  }
-  #line3{
-    position: relative;
-    left:44.5em;
-    bottom:4em;
+#line1{
+position: relative;
+left:7.6em;
 }
-  .hr-line1 {
-    width: 30%;
-    position: relative;
-    bottom:3.8em;
-    left:35em;
-    border-bottom: 2px solid #969696;
-  }
+#line2{
+position: relative;
+left:26em;
+bottom:2em;
+}
+#line3{
+position: relative;
+left:44.5em;
+bottom:4em;
+}
+.hr-line1 {
+width: 30%;
+position: relative;
+bottom:3.8em;
+left:35em;
+border-bottom: 2px solid #969696;
+}

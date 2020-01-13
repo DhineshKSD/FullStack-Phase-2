@@ -12,8 +12,11 @@ import Checkbox from '@material-ui/core/Checkbox';
 import VisibilityIcon from '@material-ui/icons/Visibility';
 
 var tempDate = new Date();
-var date = tempDate.getFullYear() + '-' + ("0"+tempDate.getMonth()+1).slice(-2) + '-' + tempDate.getDate() 
-console.log(date);
+var date = tempDate.getFullYear() + '-' + ("0"+tempDate.getMonth()+1).slice(-2);
+var date1 = tempDate.getDate()+7;
+console.log(date+'-'+date1);
+var dateCheck = date+'-'+date1;
+
 class Table extends Component {  
   constructor(props) {  
     super(props)
@@ -35,10 +38,12 @@ class Table extends Component {
     }; 
     this.SendMail = this.SendMail.bind(this);   
     } 
-    snackbarClose = (e) =>{
-      this.setState({snackbaropen:false});
-    } 
-    SendMail=(e)=>{
+
+snackbarClose = (e) =>{
+  this.setState({snackbaropen:false});
+} 
+    
+SendMail=(e)=>{
           const obj = {  
             Employee_id:this.props.obj.Employee_id,
             FirstName:this.props.obj.FirstName,
@@ -74,18 +79,20 @@ class Table extends Component {
           console.log(error);  
         })   
 }  
-  DeleteStudent= () =>{  
+
+DeleteStudent= () =>{  
     axios.delete('https://localhost:44319/api/removeEmployee/'+this.props.obj.Employee_id)  
   .then(json => {  
     this.setState({snackbaropen:true , snackbarmsg : "Employee Record Deleted Successfully"}) 
     window.location.href='/Employeelist';
   })  
-  } 
-  render() {
+} 
+
+render() {
     return (
         <tr>  
           <td>  
-           <Avatar style={this.props.obj.DOJ.split('T')[0]===date ?{backgroundColor: '#388e3c',color: '#f3e5f5'}:{backgroundColor: '#3f51b5',color: '#f3e5f5'}}>{this.props.obj.FirstName.charAt(0)}</Avatar>  
+           <Avatar style={this.props.obj.DOJ.split('T')[0]===dateCheck ?{backgroundColor: '#388e3c',color: '#f3e5f5'}:{backgroundColor: '#3f51b5',color: '#f3e5f5'}}>{this.props.obj.FirstName.charAt(0)}</Avatar>  
           </td>
           <td>  
             {this.props.obj.FirstName}  
@@ -114,7 +121,7 @@ class Table extends Component {
           <td>  
           <ButtonMat elevation={3} type="button" variant="contained" disabled={this.props.obj.MailStatus==="Initiated"} onClick={this.SendMail} style={this.props.obj.MailStatus==="Initiated"?{backgroundColor: '#3f51b5',color: '#f3e5f5'}:{backgroundColor: '#969696',color: '#f3e5f5'}} startIcon={<SendIcon />}>{this.props.obj.MailStatus}</ButtonMat>
           <Snackbar 
-            anchorOrigin={{vertical:'bottom',horizontal:'left'}}
+            anchorOrigin={{vertical:'bottom',horizontal:'right'}}
             open = {this.state.snackbaropen}
             autoHideDuration = {500000}
             onClose={this.snackbarClose}

@@ -1,6 +1,6 @@
 #Homecard{
-    position: relative;
-    overflow: hidden;
+position: relative;
+overflow: hidden;
 }
 #CardMessage{
 position: relative;
@@ -24,17 +24,17 @@ top:0.3em;
 height:20em;
 }
 .WelcomeOnboard{
-    position: relative;
-    width:110%;
-    top:0.3em;
-    right:1.5em;
-    height:20em;  
+position: relative;
+width:110%;
+top:0.3em;
+right:1.5em;
+height:20em;  
 }
 .Psiog{
-    position: relative;
-    width:100%;
-    top:0.3em;
-    height:20em;  
+position: relative;
+width:100%;
+top:0.3em;
+height:20em;  
 }
 #card2{
 position: relative;
@@ -46,45 +46,45 @@ bottom:20.5em;
 background-color:#f7f8f7;
 }
 #WelcomeUser{
-    position: relative;
-    text-align: center;
-    font-size: 1.6em;
-    top:1.2em;
-    font-family: 'Open Sans', sans-serif;
-    font-weight: bold;
+position: relative;
+text-align: center;
+font-size: 1.6em;
+top:1.2em;
+font-family: 'Open Sans', sans-serif;
+font-weight: bold;
 }
 #Welcome{
-    position: relative;
-    top:0.5em;
-    text-align: center;
-    padding:20px;
-    font-size: 2em;
-    font-weight: bold;
-    font-family: 'Open Sans', sans-serif;
+position: relative;
+top:0.5em;
+text-align: center;
+padding:20px;
+font-size: 2em;
+font-weight: bold;
+font-family: 'Open Sans', sans-serif;
 }
-.ThanksAvatarWelcome{
-    position: relative;
-    width:25%;
-    left:38%;
-    top:0.8em;
+.WelcomeAvatar{
+position: relative;
+width:25%;
+left:38%;
+top:0.8em;
 }
 #StartFilling{
-    position: relative;
-    top:6em;
-    left:62%;
+position: relative;
+top:6em;
+left:62%;
 }
 #Instructions{
-    position: relative;
-    top:5em;
-    left:86.9%;
+position: relative;
+top:5em;
+left:86.9%;
 }
 #UserCardMessage{
-    position: relative;
-    height:89vh;
-    top:8em;
-    overflow-y: hidden;
+position: relative;
+height:89vh;
+top:8em;
+overflow-y: hidden;
 }
 #UserHomecard{
-    position: relative;
-    overflow: hidden;
+position: relative;
+overflow: hidden;
 }

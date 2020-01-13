@@ -1,76 +1,76 @@
 #EmploymentCard{
-    position: relative;
-    width:68%;
-    top:3.5em;
-    left:15%;
-    height: 68vh;
-    background-color:#f7f8f7;
+position: relative;
+width:68%;
+top:3.5em;
+left:15%;
+height: 68vh;
+background-color:#f7f8f7;
 }
 #EmpCard{
-    position: relative;
-    width:80%;
-    left:10%;
-    top:0.5em;
-    text-align: center;
-    font-size: 1.5em;
+position: relative;
+width:80%;
+left:10%;
+top:0.5em;
+text-align: center;
+font-size: 1.5em;
 }
 #EmpHeading{
-    position: relative;
-    font-size: 1.2em;
-    top:0em;
+position: relative;
+font-size: 1.2em;
+top:0em;
 }
 #EmpCard1{
-    position: relative;
-    width: 70%;
-    top:0em;
-    left:-5%;
+position: relative;
+width: 70%;
+top:0em;
+left:-5%;
 }
 #Empsubmit{
-    position: relative;
-    left:0%;
-    bottom:9em;
+position: relative;
+left:0%;
+bottom:9em;
 }
 #EmpFinish{
-    position: relative;
-    left:2%;
-    bottom:9em;
+position: relative;
+left:2%;
+bottom:9em;
 }
 #EmpSection1{
-    position: relative;
-    width:70%;top:1em;
+position: relative;
+width:70%;top:1em;
 }
 #EmpSection2{
-    position: relative;
-    width:70%;
-    left:85%;
-    bottom:8em;
+position: relative;
+width:70%;
+left:85%;
+bottom:8em;
 }
 .Emphr-line {
-    width: 27%;
-    position: relative;
-    top:5em;
-    left:15.5em;
-    border-bottom: 2px solid #e91e63;
-  }
-  #Empline1{
-    position: relative;
-    left:10.6em;
-    top:5em;
+width: 27%;
+position: relative;
+top:5em;
+left:15.5em;
+border-bottom: 2px solid #e91e63;
 }
-  #Empline2{
-      position: relative;
-      left:28.5em;
-      top:2.9em;
-  }
-  #Empline3{
-    position: relative;
-    left:47em;
-    top:0.8em;
+#Empline1{
+position: relative;
+left:10.6em;
+top:5em;
 }
-  .Emphr-line1 {
-    width: 28%;
-    position: relative;
-    Top:2.4em;
-    left:38em;
-    border-bottom: 2px solid #e91e63;
-  }
+#Empline2{
+position: relative;
+left:28.5em;
+top:2.9em;
+}
+#Empline3{
+position: relative;
+left:47em;
+top:0.8em;
+}
+.Emphr-line1 {
+width: 28%;
+position: relative;
+Top:2.4em;
+left:38em;
+border-bottom: 2px solid #e91e63;
+}

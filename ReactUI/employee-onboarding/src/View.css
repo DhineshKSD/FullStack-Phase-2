@@ -19,20 +19,20 @@ left:5%;
 background-color:#f7f8f7;
 }
 #EmployeePersonalView{
-    position: relative;
-    top:7em;
-    width:90%;
-    height:28em;
-    left:5%;
-    background-color:#f7f8f7;
+position: relative;
+top:7em;
+width:90%;
+height:28em;
+left:5%;
+background-color:#f7f8f7;
 }
 #EmployeeAddressView{
-    position: relative;
-    top:10em;
-    width:90%;
-    height:30em;
-    left:5%;
-    background-color:#f7f8f7;
+position: relative;
+top:10em;
+width:90%;
+height:30em;
+left:5%;
+background-color:#f7f8f7;
 }
 #ViewForm1{
 position: relative;
@@ -76,9 +76,9 @@ left:46.5%;
 bottom:2.5em;
 }
 #EmpAvatar{
-    position: relative;
-    left:44%;
-    top:0.5em;
-    width:2em;
-    height: 2em;
+position: relative;
+left:44%;
+top:0.5em;
+width:2em;
+height: 2em;
 }

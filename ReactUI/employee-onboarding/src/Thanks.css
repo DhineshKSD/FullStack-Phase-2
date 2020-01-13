@@ -1,22 +1,22 @@
 #ThanksCardMessage{
-    position: relative;
-    height:80vh;
-    width:50%;
-    left:26%;
-    top:6.1em;
-    overflow: hidden;
+position: relative;
+height:80vh;
+width:50%;
+left:26%;
+top:6.1em;
+overflow: hidden;
 }
 #Thanks{
-    position: relative;
-    text-align: center;
-    font-size: 2em;
-    left:-5%;
-    top:9em;
+position: relative;
+text-align: center;
+font-size: 2em;
+left:-5%;
+top:9em;
 }
 .ThanksAvatar{
-    position: relative;
-    width:30%;
-    height: auto;
-    left:35%;
-    top:6em;
+position: relative;
+width:30%;
+height: auto;
+left:35%;
+top:6em;
 }

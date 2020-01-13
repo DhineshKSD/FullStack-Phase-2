@@ -1,19 +1,19 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans|Roboto&display=swap');
 #PolicyCardMessage{
-    position: relative;
-    width:70%;
-    left:16%;
-    text-align: justify;
-    font-size: 0.9em;
-    padding:3em;
-    overflow-y: scroll;
-    font-family: 'Open Sans', sans-serif;
+position: relative;
+width:70%;
+left:16%;
+text-align: justify;
+font-size: 0.9em;
+padding:3em;
+overflow-y: scroll;
+font-family: 'Open Sans', sans-serif;
 }
 #policy{
-    position: relative;
-    text-align: center;
-    font-family: 'Open Sans', sans-serif;
-    font-size: 1.5em;
-    font-weight: bold;
-    left:45%;
+position: relative;
+text-align: center;
+font-family: 'Open Sans', sans-serif;
+font-size: 1.5em;
+font-weight: bold;
+left:45%;
 }

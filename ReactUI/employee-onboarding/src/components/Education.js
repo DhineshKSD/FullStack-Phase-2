@@ -185,7 +185,7 @@ render() {
             <div>
                  <PrimarySearchAppBar/>
                     <Snackbar 
-                    anchorOrigin={{vertical:'bottom',horizontal:'left'}}
+                    anchorOrigin={{vertical:'bottom',horizontal:'right'}}
                     open = {this.state.snackbaropen}
                     autoHideDuration = {100000}
                     onClose={this.snackbarClose}
@@ -199,44 +199,44 @@ render() {
                     </IconButton>
                     ]}
                     />
-                     <Avatar id="Eduline1" style={{backgroundColor: '#e91e63',color: '#f3e5f5'}}>1</Avatar><div class="Eduhr-line"></div><Avatar id="Eduline2" style={{backgroundColor: '#969696',color: '#f3e5f5'}}>2</Avatar><div class="Eduhr-line1"></div><Avatar id="Eduline3" style={{backgroundColor: '#969696',color: '#f3e5f5'}}>3</Avatar>
-                <Card id="EducationCard" elevation={10} style={{ backgroundColor: myTheme.background, color: myTheme.text }}>
-                        <CardContent id="EduCard">
-                            <h6 id="EduHeading">Education Details</h6>
-                            <div id="EduCard1">
-                                <TextField id="standard-required" style={{textAlign: 'left'}}
-                                    select
-                                    label="Course Type" fullWidth margin="normal"
-                                    name="CourseCode"
-                                    value={this.state.CourseCode} onChange={this.handleChange}
-                                    >
-                                    {CourseCode.map(option => (
-                                        <MenuItem key={option.value} value={option.value}>
-                                        {option.name}
-                                        </MenuItem>
-                                    ))}
-                                </TextField>    
-                                <TextField type="text" required id="standard-required" label="Course" autoComplete="off" placeholder="Course" fullWidth margin="normal" name="Course" value={this.state.Course} onChange={this.handleChange}/>
+                    <Avatar id="Eduline1" style={{backgroundColor: '#e91e63',color: '#f3e5f5'}}>1</Avatar><div class="Eduhr-line"></div><Avatar id="Eduline2" style={{backgroundColor: '#969696',color: '#f3e5f5'}}>2</Avatar><div class="Eduhr-line1"></div><Avatar id="Eduline3" style={{backgroundColor: '#969696',color: '#f3e5f5'}}>3</Avatar>
+                    <Card id="EducationCard" elevation={10} style={{ backgroundColor: myTheme.background, color: myTheme.text }}>
+                            <CardContent id="EduCard">
+                                <h6 id="EduHeading">Education Details</h6>
+                                <div id="EduCard1">
+                                    <TextField id="standard-required" style={{textAlign: 'left'}}
+                                        select
+                                        label="Course Type" fullWidth margin="normal"
+                                        name="CourseCode"
+                                        value={this.state.CourseCode} onChange={this.handleChange}
+                                        >
+                                        {CourseCode.map(option => (
+                                            <MenuItem key={option.value} value={option.value}>
+                                            {option.name}
+                                            </MenuItem>
+                                        ))}
+                                    </TextField>    
+                                    <TextField type="text" required id="standard-required" label="Course" autoComplete="off" placeholder="Course" fullWidth margin="normal" name="Course" value={this.state.Course} onChange={this.handleChange}/>
 
-                                <TextField type="text" required id="standard-required" label="Institute"autoComplete="off" placeholder="Institute" fullWidth margin="normal" name="Institute" value={this.state.Institute} onChange={this.handleChange}/>
+                                    <TextField type="text" required id="standard-required" label="Institute"autoComplete="off" placeholder="Institute" fullWidth margin="normal" name="Institute" value={this.state.Institute} onChange={this.handleChange}/>
 
-                                <TextField type="number" required id="standard-required" label="GradePoint"autoComplete="off" placeholder="GradePoint" fullWidth margin="normal" name="GradePoint" value={this.state.GradePoint} onChange={this.handleChange}/>
-                            </div>
-                            <div id="EduCard2">
-                                <TextField id="date" label="From" type="date" inputProps={{min: this.state.DateOfBirth}} fullWidth margin="normal" name="From" value={this.state.From} onChange={this.handleChange} InputLabelProps={{shrink: true, }}/>
+                                    <TextField type="number" required id="standard-required" label="GradePoint"autoComplete="off" placeholder="GradePoint" fullWidth margin="normal" name="GradePoint" value={this.state.GradePoint} onChange={this.handleChange}/>
+                                </div>
+                                <div id="EduCard2">
+                                    <TextField id="date" label="From" type="date" inputProps={{min: this.state.DateOfBirth}} fullWidth margin="normal" name="From" value={this.state.From} onChange={this.handleChange} InputLabelProps={{shrink: true, }}/>
 
-                                <TextField id="date" label="To" type="date" inputProps={{min: this.state.From}} fullWidth margin="normal" name="To" value={this.state.To} onChange={this.handleChange} InputLabelProps={{shrink: true, }}/>
+                                    <TextField id="date" label="To" type="date" inputProps={{min: this.state.From}} fullWidth margin="normal" name="To" value={this.state.To} onChange={this.handleChange} InputLabelProps={{shrink: true, }}/>
 
-                                <TextField type="number" required id="standard-required" label="Year.of.Passing" autoComplete="off" placeholder="Year.of.Passing" fullWidth margin="normal" name="YearOfPassing" value={this.state.YearOfPassing} onInput={(e)=>{ e.target.value = Math.max(0, parseInt(e.target.value) ).toString().slice(0,4)}} onChange={this.handleChange}/> 
-                            </div>
-                            <ButtonMat id="Educationsubmit"type="button" onClick={this.AddEducation} disabled={!this.state.CourseCode||!this.state.Course||!this.state.Institute||!this.state.From||!this.state.To||!this.state.YearOfPassing} variant="contained" color="primary">
-                                Save
-                            </ButtonMat>
-                            <ButtonMat id="EducationFinish" type="button" disabled={!this.state.SubmissionStatus} onClick={this.Next} variant="contained" color="secondary">
-                                Submit
-                            </ButtonMat>  
-                        </CardContent>
-                </Card>
+                                    <TextField type="number" required id="standard-required" label="Year.of.Passing" autoComplete="off" placeholder="Year.of.Passing" fullWidth margin="normal" name="YearOfPassing" value={this.state.YearOfPassing} onInput={(e)=>{ e.target.value = Math.max(0, parseInt(e.target.value) ).toString().slice(0,4)}} onChange={this.handleChange}/> 
+                                </div>
+                                <ButtonMat id="Educationsubmit"type="button" onClick={this.AddEducation} disabled={!this.state.CourseCode||!this.state.Course||!this.state.Institute||!this.state.From||!this.state.To||!this.state.YearOfPassing} variant="contained" color="primary">
+                                    Save
+                                </ButtonMat>
+                                <ButtonMat id="EducationFinish" type="button" disabled={!this.state.SubmissionStatus} onClick={this.Next} variant="contained" color="secondary">
+                                    Next
+                                </ButtonMat>  
+                            </CardContent>
+                    </Card>
             </div>
         )
     }

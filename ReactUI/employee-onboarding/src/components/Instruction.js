@@ -51,8 +51,8 @@ export default function AlertDialogSlide() {
                     to access our onboarding portal. The portal will allow you to complete all the pre-joining formalities  
                     and submitting all new-hire paperwork, online! <br/><br/>
                     <b>Note: </b><br/><br/>
-                    1.) Please complete all the forms, within seven days upon after 
-                    receipt of this email.<br/>
+                    1.) Please complete all the pre-joining forms and submit before the Date of Joining. 
+                    <br/>
                     2.) Once started to fill the form, complete the entire process and submit the form.
                   </DialogContentText>
             </DialogContent>

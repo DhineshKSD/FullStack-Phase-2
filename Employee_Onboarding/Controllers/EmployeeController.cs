@@ -256,7 +256,7 @@ namespace Employee_Onboarding.Controllers
 
                 var userName = employee.UserName;
                 var pass = employee.Password;
-                Mail.EmailGeneration(employee.PersonalEmail, employee.FirstName, userName, pass);
+                Mail.EmailGeneration(employee.PersonalEmail, employee.FirstName, userName, pass,employee.DOJ);
                 LogFile.OnboardInitiateLog(employee.FirstName, employee.JobTitle, employee.Department, employee.DOJ,employee.PersonalEmail);
                 return new Response
                 {

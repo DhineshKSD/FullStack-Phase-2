@@ -151,8 +151,7 @@ onChangeCompensation(e) {
 }  
 onChangeDOJ(e) {  
     this.setState({  
-        DOJ: e.target.value 
-        
+        DOJ: e.target.value  
     });   
 } 
 onChangeUserName(e) {  

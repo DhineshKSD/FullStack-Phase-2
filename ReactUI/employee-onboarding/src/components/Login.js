@@ -85,7 +85,7 @@ handleSubmit = event => {
     return (
       <div id="LoginCard">
           <Snackbar 
-          anchorOrigin={{vertical:'bottom',horizontal:'left'}}
+          anchorOrigin={{vertical:'bottom',horizontal:'right'}}
           open = {this.state.snackbaropen}
           autoHideDuration = {500000}
           onClose={this.snackbarClose}

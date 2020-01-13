@@ -154,18 +154,18 @@ render() {
 return (  
   <div id="card">
       <Snackbar 
-      anchorOrigin={{vertical:'bottom',horizontal:'left'}}
+      anchorOrigin={{vertical:'bottom',horizontal:'right'}}
       open = {this.state.snackbaropen}
       autoHideDuration = {500000}
       onClose={this.snackbarClose}
       message = {<span id="message-id">{this.state.snackbarmsg}</span>}
       action ={[
-        <IconButton 
-        key="close"
-        arial-label="close"
-        color="#FFFFFF"
-        onClick={this.snackbarClose}>
-        </IconButton>
+      <IconButton 
+      key="close"
+      arial-label="close"
+      color="#FFFFFF"
+      onClick={this.snackbarClose}>
+      </IconButton>
       ]}
       />
      <PrimarySearchAppBar/>
