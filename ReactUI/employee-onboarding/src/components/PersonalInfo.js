@@ -13,6 +13,19 @@ import IconButton from '@material-ui/icons/Cancel';
 import Snackbar from '@material-ui/core/Snackbar';
 import State1 from '../components/State';
 import Avatar from '@material-ui/core/Avatar';
+import DarkTheme, { createTheme } from 'react-dark-theme'
+
+const lightTheme = {
+  background: '#f7f8f7',
+  text:'black'
+}
+ 
+const darkTheme = {
+  background: '#a9aaa9',
+  text: 'black',
+}
+const myTheme = createTheme(darkTheme, lightTheme)
+
 var id = localStorage.getItem("User");
 const Gender = [
   {
@@ -194,7 +207,7 @@ return (
         <Container className="PersonalInfoContainer">
         <Avatar id="line1" style={{backgroundColor: '#969696',color: '#f3e5f5'}}>1</Avatar><div class="hr-line"></div><Avatar id="line2" style={{backgroundColor: '#969696',color: '#f3e5f5'}}>2</Avatar><div class="hr-line1"></div><Avatar id="line3" style={{backgroundColor: '#969696',color: '#f3e5f5'}}>3</Avatar>
               <Form className="form" autoComplete="off"> 
-                  <Card elevation={10} id="PersonalInfoCard">
+                  <Card elevation={10} id="PersonalInfoCard" style={{ backgroundColor: myTheme.background, color: myTheme.text }}>
                       <CardContent>  
                         <h3 className="PersonalInfoPageHeading">Personal Information Section</h3>  
                         <div id="FormPersonalInfo">
@@ -257,7 +270,7 @@ return (
                   </Card>   
                   
                     
-                  <Card elevation={10} id="AddressInfoCard">
+                  <Card elevation={10} id="AddressInfoCard" style={{ backgroundColor: myTheme.background, color: myTheme.text }}>
                         <CardContent> 
                             <h3 className="AddressInfoPageHeading">Address Information Section</h3>  
                             <div id="FormAddressInfo">

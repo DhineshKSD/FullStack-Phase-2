@@ -10,6 +10,19 @@ import Card from '@material-ui/core/Card';
 import MenuItem from '@material-ui/core/MenuItem';
 import CardContent from '@material-ui/core/CardContent';
 import PrimarySearchAppBar from '../components/Header';
+import DarkTheme, { createTheme } from 'react-dark-theme'
+
+const lightTheme = {
+  background: '#f7f8f7',
+  text:'black'
+}
+ 
+const darkTheme = {
+  background: '#a9aaa9',
+  text: 'black',
+}
+
+const myTheme = createTheme(darkTheme, lightTheme)
 
 const Department = [
     {
@@ -210,7 +223,7 @@ onChangeSubmissionStatus(e){
           <div>
             <PrimarySearchAppBar/> 
             <Container className="EmployeeEditCard">  
-                  <Card elevation={3} id="EmployeeEdit">
+                  <Card elevation={3} id="EmployeeEdit" style={{ backgroundColor: myTheme.background, color: myTheme.text }}>
                       <CardContent>
                       <h4 className="EmployeeEditPageHeading">Update Employee Informations</h4>  
                           <Form className="form" onSubmit={this.onSubmit}>  

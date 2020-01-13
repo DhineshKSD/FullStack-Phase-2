@@ -25,7 +25,7 @@ const lightTheme = {
  
 const darkTheme = {
   background: '#a9aaa9',
-  text: '#FFFFFF',
+  text: 'black',
 }
 const myTheme = createTheme(darkTheme, lightTheme)
 const useStyles = makeStyles(theme => ({
@@ -203,7 +203,9 @@ const renderMenu = (
           <div className={classes.sectionDesktop}>
             <IconButton aria-label="show 4 new mails" color="inherit">
               <Badge badgeContent={0} color="secondary">
+              <a style={{display: "table-cell",color:'white',position:'relative',bottom:'0.13em'}} href="https://mail.google.com/mail/u/0/" target="_blank">
                 <MailIcon />
+              </a>
               </Badge>
             </IconButton>
             <IconButton aria-label="show 17 new notifications" color="inherit">

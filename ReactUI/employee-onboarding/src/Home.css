@@ -23,6 +23,19 @@ width:100%;
 top:0.3em;
 height:20em;
 }
+.WelcomeOnboard{
+    position: relative;
+    width:110%;
+    top:0.3em;
+    right:1.5em;
+    height:20em;  
+}
+.Psiog{
+    position: relative;
+    width:100%;
+    top:0.3em;
+    height:20em;  
+}
 #card2{
 position: relative;
 text-align: justify;

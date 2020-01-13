@@ -17,7 +17,7 @@ const lightTheme = {
  
 const darkTheme = {
   background: '#a9aaa9',
-  text: '#FFFFFF',
+  text: 'black',
 }
 
 const myTheme = createTheme(darkTheme, lightTheme)
@@ -55,7 +55,7 @@ render() {
         <Navigation/> 
         <Card id="EmpListCard" elevation={7} style={{ backgroundColor: myTheme.background, color: myTheme.text }}>
               <CardContent>
-                  <h5 id="EmpListHeading" align="center">On-Boarding Queue</h5>  
+                  <h5 className="EmpListHeading" align="center">On-Boarding Queue</h5>  
                     <table className="table table-hover" style={{ marginTop: '2em' ,textAlign:'center'}}>  
                       <thead style={{backgroundColor:'#c3c5c4'}}>  
                           <tr>  

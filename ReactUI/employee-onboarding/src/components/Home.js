@@ -9,9 +9,13 @@ import Navigation from '../components/Navigation';
 import '../Home.css';
 import axios from 'axios';
 import ThanksAvatar from '../Assets/ThanksAvatar.png'; 
+import Psiog from '../Assets/Digital.jpg'; 
+import WelcomeOnboard from '../Assets/WelcomeOnboard.jpg';
 import decode from 'jwt-decode';
 import Delayed from '../components/Delayed';
 import Loader from 'react-loader-spinner';
+import Carousel from 'react-bootstrap/Carousel';
+import Onboarding from '../Assets/LoginImage.png'; 
 
 export class Home extends Component {
     constructor(props){  
@@ -26,7 +30,7 @@ export class Home extends Component {
         this.setState({spin:true})
         setTimeout(() => { 
             this.setState({spin:false})
-        }, 2000);
+        }, 1000);
         var userId = localStorage.getItem("User");
         axios.get('https://localhost:44319/api/GetEmployeeById/'+userId)  
             .then(response => {  
@@ -73,16 +77,38 @@ export class Home extends Component {
                     visible = {this.state.spin}
                     style={{position:'relative',height:'55vh',top:'15em',left:'45%',zIndex: '2'}}
                 />
-                <Delayed waitBeforeShow={2000}>
+                <Delayed waitBeforeShow={1000}>
                 <PrimarySearchAppBar/>
                 <Navigation/>
                 <Card id="CardMessage" elevation={0}>
                         <Card id="card1" elevation={10}>
                             <CardContent>
-                                <img src={Employee} className="Employee-logo" alt="logo" />
+                            <Carousel>
+                            <Carousel.Item>
+                                <img
+                                className="WelcomeOnboard"
+                                src={Onboarding} 
+                                alt="First slide"
+                                />
+                            </Carousel.Item>
+                            <Carousel.Item>
+                                <img
+                                className="Employee-logo"
+                                src={Employee}
+                                alt="Third slide"
+                                />
+                            </Carousel.Item>
+                            <Carousel.Item>
+                                <img
+                                className="Psiog"
+                                src={Psiog}
+                                alt="Third slide"
+                                />
+                            </Carousel.Item>
+                            </Carousel>
                             </CardContent>
                         </Card>
-                
+
                         <Card id="card2" elevation={10}>
                             <CardContent>
                                 <img src={ThanksAvatar} className="ThanksAvatarWelcome" alt="ThanksAvatar" />

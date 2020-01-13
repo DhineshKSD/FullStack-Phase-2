@@ -10,10 +10,13 @@ import '../Navigation.css';
 import '../Home.css';
 import axios from 'axios';
 import ThanksAvatar from '../Assets/ThanksAvatar.png'; 
+import Psiog from '../Assets/Digital.jpg'; 
+import WelcomeOnboard from '../Assets/WelcomeOnboard.jpg';
 import Instruction from '../components/Instruction';
 import decode from 'jwt-decode';
 import Delayed from '../components/Delayed';
-import Loader from 'react-loader-spinner'
+import Loader from 'react-loader-spinner';
+import Carousel from 'react-bootstrap/Carousel'
 
 export class UserHome extends Component {
     constructor(props){  
@@ -87,7 +90,29 @@ export class UserHome extends Component {
                     
                         <Card id="card1" elevation={10}>
                         <CardContent>
-                        <img src={Employee} className="Employee-logo" alt="logo" />
+                        <Carousel>
+                            <Carousel.Item>
+                                <img
+                                className="WelcomeOnboard"
+                                src={WelcomeOnboard} 
+                                alt="First slide"
+                                />
+                            </Carousel.Item>
+                            <Carousel.Item>
+                                <img
+                                className="Employee-logo"
+                                src={Employee}
+                                alt="Third slide"
+                                />
+                            </Carousel.Item>
+                            <Carousel.Item>
+                                <img
+                                className="Psiog"
+                                src={Psiog}
+                                alt="Third slide"
+                                />
+                            </Carousel.Item>
+                            </Carousel>
                         </CardContent>
                         </Card>
                 

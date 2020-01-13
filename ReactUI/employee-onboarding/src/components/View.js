@@ -11,7 +11,20 @@ import Card from '@material-ui/core/Card';
 import MenuItem from '@material-ui/core/MenuItem';
 import CardContent from '@material-ui/core/CardContent';
 import PrimarySearchAppBar from '../components/Header';
-import '../View.css'
+import '../View.css';
+import DarkTheme, { createTheme } from 'react-dark-theme'
+
+const lightTheme = {
+  background: '#f7f8f7',
+  text:'black'
+}
+ 
+const darkTheme = {
+  background: '#a9aaa9',
+  text: 'black',
+}
+
+const myTheme = createTheme(darkTheme, lightTheme)
 
 
 class View extends React.Component {  
@@ -89,7 +102,7 @@ componentDidMount() {
               <Router><PrimarySearchAppBar/> </Router>
             
             <Container className="ViewCard"> 
-            <Card elevation={5} id="EmployeeTotalView">
+            <Card elevation={5} id="EmployeeTotalView" style={{ backgroundColor: myTheme.background, color: myTheme.text }}>
             <Avatar id="EmpAvatar" style={{backgroundColor: '#333333',color: '#2DB7BC',fontSize:'4em'}}>{this.state.FirstName.charAt(0)}</Avatar> 
                   <Card elevation={10} id="EmployeeView">
                       <CardContent>

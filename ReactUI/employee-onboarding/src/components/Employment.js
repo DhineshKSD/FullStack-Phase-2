@@ -11,6 +11,18 @@ import { BrowserRouter as Router} from 'react-router-dom';
 import MenuItem from '@material-ui/core/MenuItem';
 import '../Employment.css';
 import Avatar from '@material-ui/core/Avatar';
+import DarkTheme, { createTheme } from 'react-dark-theme'
+
+const lightTheme = {
+  background: '#f7f8f7',
+  text:'black'
+}
+ 
+const darkTheme = {
+  background: '#a9aaa9',
+  text: 'black',
+}
+const myTheme = createTheme(darkTheme, lightTheme)
 
 const ExperienceType=[
     {
@@ -104,7 +116,7 @@ export class Employment extends Component {
                 ]}
                 />
                 <Avatar id="Empline1" style={{backgroundColor: '#e91e63',color: '#f3e5f5'}}>1</Avatar><div class="Emphr-line"></div><Avatar id="Empline2" style={{backgroundColor: '#e91e63',color: '#f3e5f5'}}>2</Avatar><div class="Emphr-line1"></div><Avatar id="Empline3" style={{backgroundColor: '#969696',color: '#f3e5f5'}}>3</Avatar>
-                <Card id="EmploymentCard" elevation={10}>
+                <Card id="EmploymentCard" elevation={10} style={{ backgroundColor: myTheme.background, color: myTheme.text }}>
                         <CardContent id="EmpCard">
                             <h6 id="EmpHeading">Employment Details</h6>
                             <div id="EmpCard1">

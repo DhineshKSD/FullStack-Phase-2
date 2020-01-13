@@ -173,7 +173,7 @@ return (
 
       <Card id="EmployeeCard" elevation={7} style={{ backgroundColor: myTheme.background, color: myTheme.text }}>
               <CardContent elevation={7}> 
-              <h3 className="PageHeading">Enter New-Hires Details</h3> 
+              <h3 className="PageHeading">Enter New-Hire's Details</h3> 
                     <Form className="form" required>  
                           <div id="formemp">
                             <Col>  

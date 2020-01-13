@@ -10,6 +10,18 @@ import IconButton from '@material-ui/icons/Cancel';
 import Snackbar from '@material-ui/core/Snackbar';
 import MenuItem from '@material-ui/core/MenuItem';
 import Avatar from '@material-ui/core/Avatar';
+import DarkTheme, { createTheme } from 'react-dark-theme'
+
+const lightTheme = {
+  background: '#f7f8f7',
+  text:'black'
+}
+ 
+const darkTheme = {
+  background: '#a9aaa9',
+  text: 'black',
+}
+const myTheme = createTheme(darkTheme, lightTheme)
 
 const CourseCode = [
     {
@@ -188,7 +200,7 @@ render() {
                     ]}
                     />
                      <Avatar id="Eduline1" style={{backgroundColor: '#e91e63',color: '#f3e5f5'}}>1</Avatar><div class="Eduhr-line"></div><Avatar id="Eduline2" style={{backgroundColor: '#969696',color: '#f3e5f5'}}>2</Avatar><div class="Eduhr-line1"></div><Avatar id="Eduline3" style={{backgroundColor: '#969696',color: '#f3e5f5'}}>3</Avatar>
-                <Card id="EducationCard" elevation={10}>
+                <Card id="EducationCard" elevation={10} style={{ backgroundColor: myTheme.background, color: myTheme.text }}>
                         <CardContent id="EduCard">
                             <h6 id="EduHeading">Education Details</h6>
                             <div id="EduCard1">
