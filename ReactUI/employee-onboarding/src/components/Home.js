@@ -30,7 +30,7 @@ componentDidMount() {
     this.setState({spin:true})
     setTimeout(() => { 
         this.setState({spin:false})
-    }, 1000);
+    }, 1500);
     var userId = localStorage.getItem("User");
     axios.get('https://localhost:44319/api/GetEmployeeById/'+userId)  
         .then(response => {  
@@ -78,7 +78,7 @@ render() {
                 visible = {this.state.spin}
                 style={{position:'relative',height:'55vh',top:'15em',left:'45%',zIndex: '2'}}
             />
-            <Delayed waitBeforeShow={1000}>
+            <Delayed waitBeforeShow={1500}>
             <PrimarySearchAppBar/>
             <Navigation/>
             <Card id="CardMessage" elevation={0}>
