@@ -16,9 +16,7 @@ namespace Employee_Onboarding.Controllers
     public class EmployeeController : ApiController
     {
         private EmployeeOnboardingEntities db = new EmployeeOnboardingEntities();
-       // public string PasswordBeforeHash;
-
-        // GET: api/Employees
+       
         [HttpGet]
         [Route("api/GetEmployees")]
         public object GetEmployees()
@@ -57,7 +55,6 @@ namespace Employee_Onboarding.Controllers
 
         }
 
-        // GET: api/Employees/5
         [ResponseType(typeof(Employee))]
         [Route("api/GetEmployee/{id=id}")]
         public IHttpActionResult GetEmployee(long id)
@@ -178,7 +175,6 @@ namespace Employee_Onboarding.Controllers
             }
         }
 
-        // POST: api/Employees
 
         [HttpPost]
         [Route("api/signup/addEmployee")]
@@ -227,7 +223,6 @@ namespace Employee_Onboarding.Controllers
             }
         }
 
-        // DELETE: api/Employees/5
         [HttpDelete]
         [Route("api/removeEmployee/{id=id}")]
         [ResponseType(typeof(Employee))]

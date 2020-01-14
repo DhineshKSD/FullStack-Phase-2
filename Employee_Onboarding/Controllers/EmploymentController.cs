@@ -76,6 +76,7 @@ namespace Employee_Onboarding.Controllers
                 return BadRequest();
             }
         }
+
         [HttpPost]
         [Route("api/AddPreviousEmployment/{id=id}")]
         [ResponseType(typeof(PreviousEmployment))]

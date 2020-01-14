@@ -8,7 +8,7 @@ namespace Employee_Onboarding.Accessory_Classes
 {
     public class LogFile
     {
-        public static void WriteLog(Exception ex)
+        public static void WriteLog(Exception ex) //To keep track of Exceptions
         {
             string filePath;
             filePath = System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "LogFile");
@@ -32,7 +32,7 @@ namespace Employee_Onboarding.Accessory_Classes
                 }
             }
         }
-        public static void LoginLog(string Name,int id)
+        public static void LoginLog(string Name,int id) //To keep track of Login activities
         {
             string filePath;
             filePath = System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "LoginFile");
@@ -50,7 +50,7 @@ namespace Employee_Onboarding.Accessory_Classes
                 writer.WriteLine("Login Attempt Made By the User - " + Name + " with an Employee Id - " + id);
             }
         }
-        public static void AddEmployeeLog(string Name, int id,string Job,string Dept,DateTime DateOfJoining)
+        public static void AddEmployeeLog(string Name, int id,string Job,string Dept,DateTime DateOfJoining) //To keep track of when new employee is Added
         {
             string filePath;
             filePath = System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "AddEmpLogFile");
@@ -68,7 +68,7 @@ namespace Employee_Onboarding.Accessory_Classes
                 writer.WriteLine("* Employee Name - " + Name + "\n"+"* Employee Id - " + id + "\n" + "* Designation - " +Job + "\n" + "* Department - " +Dept + "\n" + "* DOJ - " +DateOfJoining);
             }
         }
-        public static void OnboardInitiateLog(string Name,string Job, string Dept, DateTime DateOfJoining,string Email)
+        public static void OnboardInitiateLog(string Name,string Job, string Dept, DateTime DateOfJoining,string Email) //To keep track of Onboarding Initiation Details
         {
             string filePath;
             filePath = System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "OnboardInitiateLog");

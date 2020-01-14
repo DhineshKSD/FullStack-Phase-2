@@ -61,7 +61,7 @@ namespace Employee_Onboarding.Accessory_Classes
                 return false;
             }
         }
-        public static bool IsCourseExist(int id, string course)
+        public static bool IsCourseExist(int id, string course) //Check for the existence of same course details in the DB for an employee
         {
             try
             {
@@ -78,7 +78,8 @@ namespace Employee_Onboarding.Accessory_Classes
                 return false;
             }
         }
-        public static bool IsPersonalInfoExist(int id)
+
+        public static bool IsPersonalInfoExist(int id) //Check for the existence of same personalInfo details in the DB for an employee
         {
             try
             {
@@ -129,7 +130,7 @@ namespace Employee_Onboarding.Accessory_Classes
             }
 
         }
-        public static bool VerifyPassword(string enteredPassword, string storedHash, string storedSalt)
+        public static bool VerifyPassword(string enteredPassword, string storedHash, string storedSalt) //Comparing Password with stored Hash and Salt during login
         {
             var saltBytes = new byte[64];
 

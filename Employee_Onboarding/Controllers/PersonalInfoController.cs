@@ -135,6 +135,7 @@ namespace Employee_Onboarding.Controllers
                 return BadRequest();
             }
         }
+
         [HttpPost]
         [Route("api/AddPersonalInfo/{id=id}")]
         [ResponseType(typeof(PreviousEmployment))]

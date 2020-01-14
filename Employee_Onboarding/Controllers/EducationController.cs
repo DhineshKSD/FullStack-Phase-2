@@ -80,6 +80,7 @@ namespace Employee_Onboarding.Controllers
                 return BadRequest();
             }
         }
+
         [HttpPost]                                                        //All three Education as a single entry
         [Route("api/AddEducation/{id=id}")]
         [ResponseType(typeof(Education))]
@@ -171,7 +172,7 @@ namespace Employee_Onboarding.Controllers
             }
         }
 
-        [HttpPut]                                                        //All three Proof in a single entry
+        [HttpPut]                                                        //All three in a single entry
         [Route("api/PutAllEducation/{id=id}")]
         [ResponseType(typeof(Proof))]
         public IHttpActionResult PutAllEducation(string id, List<Education> education)

@@ -19,15 +19,6 @@ namespace Employee_Onboarding.Accessory_Classes
         }
         public static string GenerateHash(string password)
         {
-            /*string returnStr = "";
-
-            using (SHA256 sha256Hash = SHA256.Create())
-            {
-                // ComputeHash - returns byte array  
-                byte[] bytes = sha256Hash.ComputeHash(Encoding.UTF8.GetBytes(password));
-                returnStr = System.Convert.ToBase64String(bytes);
-            }
-            return returnStr;*/
             var saltBytes = new byte[64];
            
             var rfc2898DeriveBytes = new Rfc2898DeriveBytes(password, saltBytes, 10000);

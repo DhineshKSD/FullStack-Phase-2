@@ -72,6 +72,7 @@ namespace Employee_Onboarding.Controllers
                 return BadRequest();
             }
         }
+
         [HttpPost]
         [Route("api/AddProof/{id=id}")]
         [ResponseType(typeof(Proof))]

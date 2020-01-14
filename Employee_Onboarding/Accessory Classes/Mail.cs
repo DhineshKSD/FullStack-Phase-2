@@ -9,7 +9,7 @@ namespace Employee_Onboarding.Accessory_Classes
 {
     public class Mail
     {
-        public static void EmailGeneration(string emailID,string name, string username,string password, DateTime DOJ)
+        public static void EmailGeneration(string emailID,string name, string username,string password, DateTime DOJ) //To Generate Mail When Onboarding is Initiated
         {
 
             var fromEmail = new MailAddress("psioghrdesk@gmail.com", "On-Board Hub");
@@ -64,7 +64,7 @@ namespace Employee_Onboarding.Accessory_Classes
                 smtp.Send(message);
         }
 
-        public static void SubmissionEmailGeneration(string name, string username,string emailID)
+        public static void SubmissionEmailGeneration(string name, string username,string emailID) //To Generate Mail When Employee submits Pre-Joining Forms
         {
 
             var fromEmail = new MailAddress("psioghrdesk@gmail.com", "On-Board Hub");
