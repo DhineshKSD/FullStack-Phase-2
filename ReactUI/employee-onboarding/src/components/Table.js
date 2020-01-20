@@ -71,8 +71,10 @@ SendMail=(e)=>{
         .then(json => {  
           if(json.data.Status==='Success')
           {
-          this.setState({snackbaropen:true , snackbarmsg : "Mail Sent Successfully"}) 
+          this.setState({snackbaropen:true , snackbarmsg : "On-Boarding Mail Sent Successfully"}) 
+          window.setTimeout(function(){
           window.location.href='/Employeelist'; 
+          },2000);
           }
         })  
         .catch(function (error) {  
@@ -83,8 +85,10 @@ SendMail=(e)=>{
 DeleteStudent= () =>{  
     axios.delete('https://localhost:44319/api/removeEmployee/'+this.props.obj.Employee_id)  
   .then(json => {  
-    this.setState({snackbaropen:true , snackbarmsg : "Employee Record Deleted Successfully"}) 
+    this.setState({snackbaropen:true , snackbarmsg : "Employee Record Deleted Successfully"})
+    window.setTimeout(function(){ 
     window.location.href='/Employeelist';
+    },2000);
   })  
 } 
 
@@ -123,7 +127,7 @@ render() {
           <Snackbar 
             anchorOrigin={{vertical:'bottom',horizontal:'right'}}
             open = {this.state.snackbaropen}
-            autoHideDuration = {500000}
+            autoHideDuration = {2000}
             onClose={this.snackbarClose}
             message = {<span id="message-id">{this.state.snackbarmsg}</span>}
             action ={[

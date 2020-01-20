@@ -43,17 +43,23 @@ if(this.state.UserName==="P100")
 {
   //alert("Logging In");
   this.setState({snackbaropen:true , snackbarmsg : "Logging in"});
-  window.location.href='/';  
+  window.setTimeout(function(){
+  window.location.href='/';
+  },2000);  
 }
 else
 {
   this.setState({snackbaropen:true , snackbarmsg : "Logging in"});
+  window.setTimeout(function(){
   window.location.href='/UserHome';  
+  },2000);  
 }
 }).catch(error => { 
   console.log(error);
   this.setState({snackbaropen:true , snackbarmsg : "Login Failed... Invalid Credential."});
+  window.setTimeout(function(){
   window.location.href='/Login';
+  },2000);
 })
 }  
 
@@ -72,7 +78,7 @@ handleSubmit = event => {
   if (this.state.Password.length < 5) 
   { 
     event.preventDefault();
-    this.setState({snackbaropen:true , snackbarmsg : 'Length should be more than 5 letters'});
+    this.setState({snackbaropen:true , snackbarmsg : 'Password length should be more than 5 letters'});
   }
   else
     {
@@ -87,7 +93,7 @@ handleSubmit = event => {
           <Snackbar 
           anchorOrigin={{vertical:'bottom',horizontal:'right'}}
           open = {this.state.snackbaropen}
-          autoHideDuration = {500000}
+          autoHideDuration = {2000}
           onClose={this.snackbarClose}
           message = {<span id="message-id">{this.state.snackbarmsg}</span>}
           action ={[

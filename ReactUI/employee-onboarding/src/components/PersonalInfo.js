@@ -160,13 +160,17 @@ if(json.data.Status==='Success')
 {  
   this.setState({snackbaropen:true , snackbarmsg : "Personal Details Saved Successfully"}) 
   //alert("Personal Details Saved Successfully"); 
-  window.location.href='/Education';      
+  window.setTimeout(function(){
+  window.location.href='/Education';
+  },2000);      
 } 
 else if(json.data.Status==='PersonalInfoCheck')
 {  
 this.setState({snackbaropen:true , snackbarmsg : "Personalinfo Detail's Already Exist"}) 
 //alert("Education Detail's Saved Successfully"); 
-window.location.href='/Education';   
+window.setTimeout(function(){
+window.location.href='/Education';  
+},2000); 
 }  
 else
 {
@@ -193,7 +197,7 @@ return (
       <Snackbar 
         anchorOrigin={{vertical:'bottom',horizontal:'right'}}
         open = {this.state.snackbaropen}
-        autoHideDuration = {100000}
+        autoHideDuration = {2000}
         onClose={this.snackbarClose}
         message = {<span id="message-id">{this.state.snackbarmsg}</span>}
         action ={[

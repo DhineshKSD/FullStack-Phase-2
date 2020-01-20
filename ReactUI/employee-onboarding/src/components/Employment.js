@@ -69,9 +69,11 @@ AddEmployment=()=>{
     .then(json => {  
     if(json.data.Status==='Success')
     {  
-    this.setState({snackbaropen:true , snackbarmsg : "Employee PreviousEmployments Details Successfully Saved"}) 
+    this.setState({snackbaropen:true , snackbarmsg : "Employment Details Successfully Saved"}) 
     //alert("Education Detail's Saved Successfully"); 
-    window.location.href='/Employment';   
+    window.setTimeout(function(){
+    window.location.href='/Employment'; 
+    },2000);   
     }  
     else
     { 
@@ -88,13 +90,14 @@ Next=()=>{
     .then(json => {  
         if(json.data.Status==='Success')
         {
-        window.location.href='/Thanks';  
+        window.setTimeout(function(){
+        window.location.href='/Thanks'; 
+        },1000); 
         }
     })  
     .catch(function (error) {  
         console.log(error);  
-    })  
-        
+    })       
 }
     
 render() {
@@ -104,7 +107,7 @@ render() {
             <Snackbar 
             anchorOrigin={{vertical:'bottom',horizontal:'right'}}
             open = {this.state.snackbaropen}
-            autoHideDuration = {100000}
+            autoHideDuration = {2000}
             onClose={this.snackbarClose}
             message = {<span id="message-id">{this.state.snackbarmsg}</span>}
             action ={[
@@ -143,7 +146,7 @@ render() {
                             <div id="EmpSection2">
                             <TextField id="date" InputProps={this.state.ExperienceType==='Fresher'?{ readOnly: true, }:{ readOnly: false, }} label="StartDate" type="date"  fullWidth margin="normal" name="StartDate" value={this.state.StartDate} onChange={this.handleChange} InputLabelProps={{shrink: true, }}/>
 
-                            <TextField id="date" InputProps={this.state.ExperienceType==='Fresher'?{ readOnly: true, }:{ readOnly: false, }} label="EndDate" type="date"  fullWidth margin="normal" name="EndDate" value={this.state.EndDate} onChange={this.handleChange} InputLabelProps={{shrink: true, }}/>
+                            <TextField id="date" inputProps={{min: this.state.StartDate}} InputProps={this.state.ExperienceType==='Fresher'?{ readOnly: true, }:{ readOnly: false, }} label="EndDate" type="date"  fullWidth margin="normal" name="EndDate" value={this.state.EndDate} onChange={this.handleChange} InputLabelProps={{shrink: true, }}/>
 
                             <TextField type="number" InputProps={this.state.ExperienceType==='Fresher'?{ readOnly: true, }:{ readOnly: false, }} required id="standard-required" label="Compensation"autoComplete="off" placeholder="Compensation" fullWidth margin="normal" name="Compensation" value={this.state.Compensation} onChange={this.handleChange}/>
                             </div>

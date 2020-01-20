@@ -56,6 +56,9 @@ const Department = [
 
 const regexp = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
+var tempDate = new Date();
+var currentdate = tempDate.getFullYear() + '-' + ("0"+tempDate.getMonth()+1).slice(-2) + '-' + tempDate.getDate();
+console.log(currentdate)
 class AddEmployee extends React.Component{  
 constructor(props){  
 super(props)  
@@ -104,18 +107,20 @@ if(json.data.Status==='Success')
   this.setState({snackbaropen:true , snackbarmsg : "New Hires Detail's Saved Successfully"})  
   //alert("New Hires Detail's Saved Successfully"); 
   console.log(json.data.Status);  
+  window.setTimeout(function(){
   window.location.href='/Employeelist'; 
+  },2000);
 }
 else if(json.data.Status==='UserNameCheck')
 {  
-this.setState({snackbaropen:true , snackbarmsg : "Employee UserName Data Already Exist"})    
+this.setState({snackbaropen:true , snackbarmsg : "Employee UserName Already Exist"})    
 //alert('Data not Saved');  
 debugger;  
 //window.location.href='/Employeelist'; 
 }  
 else if(json.data.Status==='EmailCheck')
 {  
-this.setState({snackbaropen:true , snackbarmsg : "Employee Email Data Already Exist"})    
+this.setState({snackbaropen:true , snackbarmsg : "Employee Email Already Exist"})    
 //alert('Data not Saved');  
 debugger;  
 //window.location.href='/Employeelist'; 
@@ -156,7 +161,7 @@ return (
       <Snackbar 
       anchorOrigin={{vertical:'bottom',horizontal:'right'}}
       open = {this.state.snackbaropen}
-      autoHideDuration = {500000}
+      autoHideDuration = {2000}
       onClose={this.snackbarClose}
       message = {<span id="message-id">{this.state.snackbarmsg}</span>}
       action ={[
@@ -205,7 +210,7 @@ return (
                                   ))}
                                   </TextField>
                             
-                                  <TextField id="date" label="Joining Date" type="date" fullWidth margin="normal" name="DOJ" value={this.state.DOJ} onChange={this.handleChange} InputLabelProps={{shrink: true, }}/>
+                                  <TextField id="date" inputProps={{min: currentdate}} label="Joining Date" type="date" fullWidth margin="normal" name="DOJ" value={this.state.DOJ} onChange={this.handleChange} InputLabelProps={{shrink: true, }}/>
                                   
                                   <TextField type="text" required id="standard-required" label="UserName" autoComplete="off" placeholder="UserName" fullWidth margin="normal" name="UserName" inputProps={{ maxLength: 4 }} value={this.state.UserName} onChange={this.handleChange}/>
 
