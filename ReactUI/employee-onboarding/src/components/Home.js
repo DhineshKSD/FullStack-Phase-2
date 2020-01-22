@@ -63,6 +63,9 @@ IsTokenExpired(){
     //localStorage.setItem('key',time)
     if(time){
     window.location.href='/Login';
+    localStorage.removeItem('Token');
+    localStorage.removeItem('User');
+    localStorage.removeItem('FirstName');
     }
 }
     

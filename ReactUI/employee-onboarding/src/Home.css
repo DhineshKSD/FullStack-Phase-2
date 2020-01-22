@@ -12,8 +12,8 @@ overflow-y: hidden;
 position: relative;
 text-align: justify;
 height:55vh;
-width:46%;
-left:2em;
+width:42%;
+left:5em;
 top:2em;
 background-color:#f7f8f7;
 }
@@ -40,8 +40,8 @@ height:20em;
 position: relative;
 text-align: justify;
 height:55vh;
-width:46%;
-left:39em;
+width:42%;
+left:43em;
 bottom:20.5em;
 background-color:#f7f8f7;
 }
@@ -76,7 +76,7 @@ left:62%;
 #Instructions{
 position: relative;
 top:5em;
-left:86.9%;
+left:83.4%;
 }
 #UserCardMessage{
 position: relative;

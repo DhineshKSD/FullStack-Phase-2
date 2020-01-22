@@ -268,12 +268,12 @@ onChangeSubmissionStatus(e){
                                 <FormGroup id="button" row>  
                                     <Col sm={5}>  
                                     </Col>  
-                                    <Col sm={1} id="EditEmpButton">  
+                                    <Col sm={1} id="EditEmpButton1">  
                                     <ButtonMat id="submit" type="submit" variant="contained" color="primary">
                                     Submit
                                     </ButtonMat> {' '}  
                                     </Col>   
-                                    <Col sm={1} id="EditEmpButton">  
+                                    <Col sm={1} id="EditEmpButton2">  
                                     <Link to={'/Employeelist'} style={{ textDecoration: 'none' }}><ButtonMat variant="contained" color="secondary">Cancel</ButtonMat>{' '}  </Link>
                                     </Col>  
                                     <Col sm={5}>  

@@ -90,6 +90,13 @@ sectionMobile: {
 },
 }));
 
+function RemoveToken()
+{
+localStorage.removeItem('Token');
+localStorage.removeItem('User');
+localStorage.removeItem('FirstName');
+}
+
 export default function PrimarySearchAppBar() {
 const classes = useStyles();
 const [anchorEl, setAnchorEl] = React.useState(null);
@@ -128,9 +135,8 @@ const renderMenu = (
   >
     <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
     <MenuItem onClick={handleMenuClose}>My account</MenuItem>
-    <Link to={'/Login'} style={{ textDecoration: 'none' }} onClick={event =>  window.location.href='/Login'}><MenuItem>Logout</MenuItem></Link>
-  </Menu>
-);
+    <Link to='/Login' style={{ textDecoration: 'none' }} onClick={event =>window.location.href='/Login'}><MenuItem onClick={event=>RemoveToken()}>Logout</MenuItem></Link></Menu>
+); 
 
   const mobileMenuId = 'primary-search-account-menu-mobile';
   const renderMobileMenu = (

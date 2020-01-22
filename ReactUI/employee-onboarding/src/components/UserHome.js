@@ -65,9 +65,12 @@ IsTokenExpired(){
     var DecodedToken = decode(Token);
     var time = (DecodedToken.exp < Date.now() / 1000);
     
-    localStorage.setItem('key',time)
+    //localStorage.setItem('key',time)
     if(time){
     window.location.href='/Login';
+    localStorage.removeItem('Token');
+    localStorage.removeItem('User');
+    localStorage.removeItem('FirstName');
     }
 }
       

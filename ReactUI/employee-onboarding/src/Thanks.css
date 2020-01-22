@@ -1,9 +1,9 @@
 #ThanksCardMessage{
 position: relative;
-height:80vh;
-width:50%;
-left:26%;
-top:6.1em;
+height:75vh;
+width:45%;
+left:27.5%;
+top:7em;
 overflow: hidden;
 }
 #Thanks{
@@ -18,5 +18,5 @@ position: relative;
 width:30%;
 height: auto;
 left:35%;
-top:6em;
+top:5.5em;
 }

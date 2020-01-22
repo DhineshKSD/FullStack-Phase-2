@@ -69,9 +69,10 @@ this.setState( {isAvailable: true });
 }  
 
 componentDidMount() { 
-localStorage.removeItem('Token');
-localStorage.removeItem('User');
-localStorage.removeItem('FirstName');
+  if (localStorage.getItem("Token")) 
+  {
+    return (window.location.href='/');  
+}
 }
 
 handleSubmit = event => {

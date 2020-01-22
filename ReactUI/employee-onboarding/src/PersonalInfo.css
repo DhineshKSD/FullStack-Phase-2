@@ -1,7 +1,7 @@
 .PersonalInfoContainer{
 position: relative;
 top: 6em;
-height:170vh;
+height:175vh;
 }
 .PersonalInfoPageHeading
 {
@@ -32,7 +32,7 @@ background-color:#f7f8f7;
 #AddressInfoCard{
 position: relative;
 top:0em;
-height:70vh;
+height:75vh;
 left:3em;
 width:90%;
 background-color:#f7f8f7;
@@ -51,7 +51,7 @@ left:1.5em;
 #FormAddressInfo1{
 position: relative;
 width:45%;
-bottom:21.8em;
+bottom:26.8em;
 left:31em; 
 }
 #PersonalButton{
@@ -98,4 +98,10 @@ position: relative;
 bottom:3.8em;
 left:35em;
 border-bottom: 2px solid #969696;
+}
+#AddressText{
+position: relative;
+left:1.8em;
+bottom:1.4em;
+font-style: italic;
 }

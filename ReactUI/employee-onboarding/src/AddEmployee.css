@@ -8,8 +8,8 @@ color :black !important;
 #card{
   position: relative;
   height: 118vh;
-  width:90%;
-  left:5%;
+  width:80%;
+  left:9%;
 }
 body{
 overflow: auto;
@@ -46,6 +46,6 @@ bottom: 22em;
 }
 #AddEmpButton{
 position: relative;
-top:5em; 
+top:4.7em; 
 right: 0.8em;
 }

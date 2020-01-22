@@ -17,9 +17,7 @@ import FileUpload from '../src/components/FileUpload';*/
 function App() {  
   return (  
     <div>
-        <Container id ="nav1">
           <AppRouter/>
-        </Container>
     </div>
   );  
 }  

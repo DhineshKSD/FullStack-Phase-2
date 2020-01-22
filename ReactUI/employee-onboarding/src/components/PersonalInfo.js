@@ -11,9 +11,10 @@ import MenuItem from '@material-ui/core/MenuItem';
 import '../PersonalInfo.css';
 import IconButton from '@material-ui/icons/Cancel';
 import Snackbar from '@material-ui/core/Snackbar';
-import State1 from '../components/State';
+import State1 from '../components/StateList';
 import Avatar from '@material-ui/core/Avatar';
-import DarkTheme, { createTheme } from 'react-dark-theme'
+import DarkTheme, { createTheme } from 'react-dark-theme';
+import Checkbox from '@material-ui/core/Checkbox';
 
 const lightTheme = {
   background: '#f7f8f7',
@@ -95,6 +96,8 @@ const BloodGroup = [
 ];
 var tempDate = new Date();
 var Year=(tempDate.getFullYear()-21);
+var Year1=(Year-39);
+
 
 class PersonalInfo extends React.Component{  
 constructor(props){  
@@ -116,7 +119,8 @@ this.state = {
   State2:'',
   Country2:'India', 
   snackbaropen :false, snackbarmsg:'',
-  isAvailable:false    
+  isAvailable:false,
+  check: false    
 }; 
 this.handleChange = this.handleChange.bind(this);   
 } 
@@ -185,6 +189,10 @@ handleChange= (e)=> {
 this.setState({[e.target.name]:e.target.value});
 this.setState( {isAvailable: true });    
 } 
+handleCheckClick = () => {
+  this.setState({ checked: !this.state.checked });
+  this.setState({ check: !this.state.check});
+}
 
 clearform = (e) =>{
   window.location.href="/PersonalInfo";
@@ -210,7 +218,7 @@ return (
         ]}
         />
         <Container className="PersonalInfoContainer">
-        <Avatar id="line1" style={{backgroundColor: '#969696',color: '#f3e5f5'}}>1</Avatar><div class="hr-line"></div><Avatar id="line2" style={{backgroundColor: '#969696',color: '#f3e5f5'}}>2</Avatar><div class="hr-line1"></div><Avatar id="line3" style={{backgroundColor: '#969696',color: '#f3e5f5'}}>3</Avatar>
+        <Avatar id="line1" style={{backgroundColor: '#e91e63',color: '#f3e5f5'}}>1</Avatar><div class="hr-line"></div><Avatar id="line2" style={{backgroundColor: '#969696',color: '#f3e5f5'}}>2</Avatar><div class="hr-line1"></div><Avatar id="line3" style={{backgroundColor: '#969696',color: '#f3e5f5'}}>3</Avatar>
               <Form className="form" autoComplete="off"> 
                   <Card elevation={10} id="PersonalInfoCard" style={{ backgroundColor: myTheme.background, color: myTheme.text }}>
                       <CardContent>  
@@ -253,7 +261,7 @@ return (
                                 <Col> 
                                     <TextField type="text" required id="standard-required" label="Place.of.Birth" autoComplete="off" placeholder="Place of Birth" fullWidth margin="normal" name="PlaceOfBirth" value={this.state.PlaceOfBirth} onChange={this.handleChange}/>
 
-                                    <TextField id="date" inputProps={{max: Year+"-12-31"}} label="Date.of.Birth" type="date" fullWidth margin="normal"name="DateOfBirth" value={this.state.DateOfBirth} onChange={this.handleChange}InputLabelProps={{shrink: true, }}/>
+                                    <TextField id="date" inputProps={{max: Year+"-12-31",min: Year1+'-01-01'}} label="Date.of.Birth" type="date" fullWidth margin="normal"name="DateOfBirth" value={this.state.DateOfBirth} onChange={this.handleChange}InputLabelProps={{shrink: true, }}/>
 
                               
                                     <TextField id="standard-required"
@@ -297,18 +305,23 @@ return (
                                   ))}
                                   </TextField>
                                   <TextField type="text" InputProps={{ readOnly: true, }} required id="standard-required" label="Country" autoComplete="off" placeholder="Country" fullWidth margin="normal" name="Country1" value={this.state.Country1} onChange={this.handleChange}/>   
+                                  <Checkbox
+                                  checked={this.state.checked} onChange={this.handleCheckClick}
+                                    inputProps={{ 'aria-label': 'primary checkbox' }} style={{ color: '#4caf50',position:'relative',top:'0.5em',right:'0.5em' }}
+                                    />
+                                  <p id="AddressText">Is Present Address is same as Permanent Address</p>  
                                   </Col>
                             </div>
                             <div id="FormAddressInfo1">
                             <p id="PresentAddress">Present Address</p>
                                   <Col>                   
-                                  <TextField type="text" required id="standard-required" label="Present Address" autoComplete="off" placeholder="Present Address" fullWidth margin="normal" name="Address2" value={this.state.Address2} onChange={this.handleChange}/>
-                                  <TextField type="text" required id="standard-required" label="City" autoComplete="off" placeholder="City" fullWidth margin="normal" name="City2" value={this.state.City2} onChange={this.handleChange}/> 
+                                  <TextField type="text" InputProps={this.state.check===true?{ readOnly: true, }:{ readOnly: false, }} required id="standard-required" label="Present Address" autoComplete="off" placeholder="Present Address" fullWidth margin="normal" name="Address2" value={this.state.check===true?this.state.Address1:this.state.Address2} onChange={this.handleChange}/>
+                                  <TextField type="text" InputProps={this.state.check===true?{ readOnly: true, }:{ readOnly: false, }} required id="standard-required" label="City" autoComplete="off" placeholder="City" fullWidth margin="normal" name="City2" value={this.state.check===true?this.state.City1:this.state.City2} onChange={this.handleChange}/> 
                                   <TextField id="standard-required"
                                   select
                                   label="State" fullWidth margin="normal"
-                                  name="State2"
-                                  value={this.state.State2} onChange={this.handleChange}
+                                  name="State2" InputProps={this.state.check===true?{ readOnly: true, }:{ readOnly: false, }}
+                                  value={this.state.check===true?this.state.State1:this.state.State2} onChange={this.handleChange}
                                     helperText="Please select your State"
                                   >
                                   {State1.map(option => (
@@ -328,8 +341,8 @@ return (
                       <Col sm={5} >  
                       </Col>  
                       <Col sm={1} id="PersonalButton">  
-                      <ButtonMat id="submit"type="button" disabled={!this.state.Gender||!this.state.DateOfBirth||!this.state.PlaceOfBirth||!this.state.MaritalStatus||!this.state.BloodGroup||
-                    !this.state.Address1||!this.state.City1||!this.state.State1||!this.state.Country1||!this.state.Address2||!this.state.City2||!this.state.State2||!this.state.Country2} 
+                      <ButtonMat id="submit"type="button" disabled={this.state.check===true?!this.state.Address1||!this.state.City1||!this.state.State1||!this.state.Country1:!this.state.Gender||!this.state.DateOfBirth||!this.state.PlaceOfBirth||!this.state.MaritalStatus||!this.state.BloodGroup||
+                      !this.state.Address1||!this.state.City1||!this.state.State1||!this.state.Country1||!this.state.Address2||!this.state.City2||!this.state.State2||!this.state.Country2} 
                       onClick={this.AddPersonalInfo} variant="contained" color="primary">
                       Submit
                       </ButtonMat> 

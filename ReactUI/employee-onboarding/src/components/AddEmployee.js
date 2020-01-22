@@ -173,9 +173,8 @@ return (
       </IconButton>
       ]}
       />
-     <PrimarySearchAppBar/>
-     <Navigation/>
-
+      <PrimarySearchAppBar/>
+      <Navigation/>
       <Card id="EmployeeCard" elevation={7} style={{ backgroundColor: myTheme.background, color: myTheme.text }}>
               <CardContent elevation={7}> 
               <h3 className="PageHeading">Enter New-Hire's Details</h3> 
