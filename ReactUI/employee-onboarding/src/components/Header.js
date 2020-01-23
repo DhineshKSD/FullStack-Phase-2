@@ -19,7 +19,7 @@ import { BrowserRouter as Router, Link } from 'react-router-dom';
 import DarkTheme, { createTheme } from 'react-dark-theme'
 
 const lightTheme = {
-  background: '#f7f8f7',
+  background: '#c5cae965',
   text:'black',
 }
  

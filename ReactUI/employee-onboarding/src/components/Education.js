@@ -11,10 +11,11 @@ import Snackbar from '@material-ui/core/Snackbar';
 import MenuItem from '@material-ui/core/MenuItem';
 import { Container, Col, Form, FormGroup } from 'reactstrap';
 import Avatar from '@material-ui/core/Avatar';
-import DarkTheme, { createTheme } from 'react-dark-theme'
+import DarkTheme, { createTheme } from 'react-dark-theme';
+import Checkbox from '@material-ui/core/Checkbox';
 
 const lightTheme = {
-  background: '#f7f8f7',
+  background: '#c5cae965',
   text:'black'
 }
  
@@ -54,21 +55,28 @@ Institute:'',
 GradePoint:'',  
 From:'',  
 To:'',  
-YearOfPassing:'', 
+YearOfPassing:'123', 
 CourseCode1:'HSC',
 Course1:'',  
 Institute1:'',  
 GradePoint1:'',  
 From1:'',  
 To1:'',  
-YearOfPassing1:'', 
-CourseCode2:'Undergraduate',
+YearOfPassing1:'123', 
+CourseCode2:'UnderGraduate',
 Course2:'',  
 Institute2:'',  
 GradePoint2:'',  
 From2:'',  
 To2:'',  
-YearOfPassing2:'', 
+YearOfPassing2:'123', 
+CourseCode3:'PostGraduate',
+Course3:'',  
+Institute3:'',  
+GradePoint3:'',  
+From3:'',  
+To3:'',  
+YearOfPassing3:'123',
 isButtonDisabled: false,
 snackbaropen :false, snackbarmsg:'',
 isAvailable:false,
@@ -86,7 +94,8 @@ ReportingTo:'',
 MailStatus:'',
 Salt:'',HashedPassword:'',
 SubmissionStatus:'' ,
-DateOfBirth:''
+DateOfBirth:'',
+check: false
 }; 
 this.handleChange = this.handleChange.bind(this);   
 }
@@ -167,6 +176,22 @@ if(json.data.Status==='Success')
 })
 
 axios.post('https://localhost:44319/api/AddEducation1/'+userId, {
+    Course:this.state.Course3,  
+    CourseCode:this.state.CourseCode3,  
+    Institute:this.state.Institute3,  
+    GradePoint:this.state.GradePoint3, 
+    From:this.state.From3,
+    To:this.state.To3,  
+    YearOfPassing:this.state.YearOfPassing3,
+    isButtonDisabled: true})  
+.then(json => {  
+if(json.data.Status==='Success')
+{ 
+    console.log(json.data.Status) 
+}  
+})
+
+axios.post('https://localhost:44319/api/AddEducation1/'+userId, {
     Course:this.state.Course1,  
     CourseCode:this.state.CourseCode1,  
     Institute:this.state.Institute1,  
@@ -229,6 +254,11 @@ this.setState({[e.target.name]:e.target.value});
 this.setState( {isAvailable: true });    
 }
 
+handleCheckClick = () => {
+    this.setState({ checked: !this.state.checked });
+    this.setState({ check: !this.state.check});
+  }
+
 render() {
     var temp = new Date(this.state.DateOfBirth);
     var year = temp.getFullYear()+15;
@@ -238,8 +268,18 @@ render() {
     var year2 = temp2.getFullYear()+1;
     var temp3 = new Date(this.state.From2);
     var year3 = temp3.getFullYear()+1;
+    var temp4 = new Date(this.state.From3);
+    var year4 = temp4.getFullYear()+1;
+    var temp5 = new Date(this.state.To);
+    var year5 = temp5.getFullYear();
+    var temp6 = new Date(this.state.To1);
+    var year6 = temp6.getFullYear();
+    var temp7 = new Date(this.state.To2);
+    var year7 = temp7.getFullYear();
+    var temp8 = new Date(this.state.To3);
+    var year8 = temp8.getFullYear();
         return (
-            <div>
+            <div id="outer" style={{ backgroundColor: myTheme.background, color: myTheme.text }}>
                  <PrimarySearchAppBar/>
                     <Snackbar 
                     anchorOrigin={{vertical:'bottom',horizontal:'right'}}
@@ -259,7 +299,7 @@ render() {
                     <Avatar id="Eduline1" style={{backgroundColor: '#e91e63',color: '#f3e5f5'}}>1</Avatar><div className="Eduhr-line"></div><Avatar id="Eduline2" style={{backgroundColor: '#e91e63',color: '#f3e5f5'}}>2</Avatar><div className="Eduhr-line1"></div><Avatar id="Eduline3" style={{backgroundColor: '#969696',color: '#f3e5f5'}}>3</Avatar>
                     <Container className="EduContainer">
                     <h6 id="EduHeading">Education Details</h6>
-                    <Card id="EducationCard" elevation={10} style={{ backgroundColor: myTheme.background, color: myTheme.text }}>
+                    <Card id="EducationCard" elevation={10} >
                             <CardContent id="EduCard">
                                 <div id="EduCard1">
                                     <TextField type="text" required id="standard-required" InputProps={{ readOnly: true, }} label="CourseType" autoComplete="off" placeholder="CourseType" fullWidth margin="normal" name="CourseCode" value={this.state.CourseCode} onChange={this.handleChange}/>    
@@ -275,11 +315,11 @@ render() {
 
                                     <TextField id="date" label="To" type="date" inputProps={{min: year1+'-01-01'}} fullWidth margin="normal" name="To" value={this.state.To} onChange={this.handleChange} InputLabelProps={{shrink: true, }}/>
 
-                                    <TextField type="number" required id="standard-required" label="Year.of.Passing" autoComplete="off" placeholder="Year.of.Passing" fullWidth margin="normal" name="YearOfPassing" value={this.state.YearOfPassing} onInput={(e)=>{ e.target.value = Math.max(0, parseInt(e.target.value) ).toString().slice(0,4)}} onChange={this.handleChange}/> 
+                                    <TextField type="number" InputProps={{ readOnly: true, }} required id="standard-required" label="Year.of.Passing" autoComplete="off" placeholder="Year.of.Passing" fullWidth margin="normal" name="YearOfPassing" value={year5} onInput={(e)=>{ e.target.value = Math.max(0, parseInt(e.target.value) ).toString().slice(0,4)}} onChange={this.handleChange}/> 
                                 </div>  
                             </CardContent>
                     </Card>
-                    <Card id="EducationCarda" elevation={10} style={{ backgroundColor: myTheme.background, color: myTheme.text }}>
+                    <Card id="EducationCarda" elevation={10} >
                             <CardContent id="EduCarda">
                                 
                                 <div id="EduCardb">
@@ -296,11 +336,11 @@ render() {
 
                                     <TextField id="date" label="To" type="date" inputProps={{min: year2+'-01-01'}} fullWidth margin="normal" name="To1" value={this.state.To1} onChange={this.handleChange} InputLabelProps={{shrink: true, }}/>
 
-                                    <TextField type="number" required id="standard-required" label="Year.of.Passing" autoComplete="off" placeholder="Year.of.Passing" fullWidth margin="normal" name="YearOfPassing1" value={this.state.YearOfPassing1} onInput={(e)=>{ e.target.value = Math.max(0, parseInt(e.target.value) ).toString().slice(0,4)}} onChange={this.handleChange}/> 
+                                    <TextField type="number" InputProps={{ readOnly: true, }} required id="standard-required" label="Year.of.Passing" autoComplete="off" placeholder="Year.of.Passing" fullWidth margin="normal" name="YearOfPassing1" value={year6} onInput={(e)=>{ e.target.value = Math.max(0, parseInt(e.target.value) ).toString().slice(0,4)}} onChange={this.handleChange}/> 
                                 </div>
                             </CardContent>
                             </Card>
-                            <Card id="EducationCardc" elevation={10} style={{ backgroundColor: myTheme.background, color: myTheme.text }}>
+                            <Card id="EducationCardc" elevation={10} >
                             <CardContent id="EduCardd">
                                 
                                 <div id="EduCarde">
@@ -316,11 +356,39 @@ render() {
 
                                     <TextField id="date" label="To" type="date" inputProps={{min: year3+'-01-01'}} fullWidth margin="normal" name="To2" value={this.state.To2} onChange={this.handleChange} InputLabelProps={{shrink: true, }}/>
 
-                                    <TextField type="number" required id="standard-required" label="Year.of.Passing" autoComplete="off" placeholder="Year.of.Passing" fullWidth margin="normal" name="YearOfPassing2" value={this.state.YearOfPassing2} onInput={(e)=>{ e.target.value = Math.max(0, parseInt(e.target.value) ).toString().slice(0,4)}} onChange={this.handleChange}/> 
+                                    <TextField type="number" InputProps={{ readOnly: true, }} required id="standard-required" label="Year.of.Passing" autoComplete="off" placeholder="Year.of.Passing" fullWidth margin="normal" name="YearOfPassing2" value={year7} onInput={(e)=>{ e.target.value = Math.max(0, parseInt(e.target.value) ).toString().slice(0,4)}} onChange={this.handleChange}/> 
+                                </div>  
+                            </CardContent>
+                            </Card>
+                            <Card id="EducationCardd" elevation={10} >
+                            <CardContent id="EduCardg">
+                            <Checkbox
+                                  checked={this.state.checked} onChange={this.handleCheckClick}
+                                    inputProps={{ 'aria-label': 'primary checkbox' }} style={{ color: '#e91e63',position:'relative',top:'0.5em',left:'1.3em' }}
+                                    />
+                                  <p id="PGText">Click and start filling the details if you have done 'PostGraduate'</p>
+                                <div id="EduCardh">
+                                    <TextField type="text" disabled={this.state.check===false} required id="standard-required" InputProps={{ readOnly: true, }} label="CourseType" autoComplete="off" placeholder="CourseType" fullWidth margin="normal" name="CourseCode3" value={this.state.CourseCode3} onChange={this.handleChange}/>   
+                                    <TextField type="text" disabled={this.state.check===false} required id="standard-required" label="Course" autoComplete="off" placeholder="Course" fullWidth margin="normal" name="Course3" value={this.state.Course3} onChange={this.handleChange}/>
+
+                                    <TextField type="text" disabled={this.state.check===false} required id="standard-required" label="Institute"autoComplete="off" placeholder="Institute" fullWidth margin="normal" name="Institute3" value={this.state.Institute3} onChange={this.handleChange}/>
+
+                                    <TextField type="number" disabled={this.state.check===false} required id="standard-required" label="GradePoint"autoComplete="off" placeholder="GradePoint" fullWidth margin="normal" name="GradePoint3" value={this.state.GradePoint3} onChange={this.handleChange}/>
                                 </div>
-                                <ButtonMat id="Educationsubmit"type="button" onClick={this.AddEducation} disabled={!this.state.CourseCode||!this.state.Course||!this.state.Institute||!this.state.From||!this.state.To||!this.state.YearOfPassing||
-                                                                                                                   !this.state.CourseCode1||!this.state.Course1||!this.state.Institute1||!this.state.From1||!this.state.To1||!this.state.YearOfPassing1||
-                                                                                                                   !this.state.CourseCode2||!this.state.Course2||!this.state.Institute2||!this.state.From2||!this.state.To2||!this.state.YearOfPassing2} variant="contained" color="primary">
+                                <div id="EduCardi">
+                                    <TextField id="date" disabled={this.state.check===false} label="From" type="date" inputProps={{min: this.state.To2}} fullWidth margin="normal" name="From3" value={this.state.From3} onChange={this.handleChange} InputLabelProps={{shrink: true, }}/>
+
+                                    <TextField id="date" disabled={this.state.check===false} label="To" type="date" inputProps={{min: year4+'-01-01'}} fullWidth margin="normal" name="To3" value={this.state.To3} onChange={this.handleChange} InputLabelProps={{shrink: true, }}/>
+
+                                    <TextField type="number" InputProps={{ readOnly: true, }} disabled={this.state.check===false} required id="standard-required" label="Year.of.Passing" autoComplete="off" placeholder="Year.of.Passing" fullWidth margin="normal" name="YearOfPassing3" value={year8} onInput={(e)=>{ e.target.value = Math.max(0, parseInt(e.target.value) ).toString().slice(0,4)}} onChange={this.handleChange}/> 
+                                </div>
+                                <ButtonMat id="Educationsubmit"type="button" onClick={this.AddEducation} disabled={this.state.check===false?!this.state.CourseCode||!this.state.Course||!this.state.Institute||!this.state.From||!this.state.To||
+                                                                                                                   !this.state.CourseCode1||!this.state.Course1||!this.state.Institute1||!this.state.From1||!this.state.To1||
+                                                                                                                   !this.state.CourseCode2||!this.state.Course2||!this.state.Institute2||!this.state.From2||!this.state.To2:
+                                                                                                                   !this.state.CourseCode||!this.state.Course||!this.state.Institute||!this.state.From||!this.state.To||
+                                                                                                                   !this.state.CourseCode1||!this.state.Course1||!this.state.Institute1||!this.state.From1||!this.state.To1||
+                                                                                                                   !this.state.CourseCode2||!this.state.Course2||!this.state.Institute2||!this.state.From2||!this.state.To2||
+                                                                                                                   !this.state.CourseCode3||!this.state.Course3||!this.state.Institute3||!this.state.From3||!this.state.To3} variant="contained" color="primary">
                                 Submit
                                 </ButtonMat>  
                             </CardContent>

@@ -6,6 +6,7 @@ import Employee from '../Assets/EmployeeEntry.png';
 import PrimarySearchAppBar from '../components/Header';
 import '../Navigation.css';
 import Navigation from '../components/Navigation';
+import NavTab from '../NavTab'
 import '../Home.css';
 import axios from 'axios';
 import ThanksAvatar from '../Assets/ThanksAvatar.png'; 
@@ -16,6 +17,18 @@ import Delayed from '../components/Delayed';
 import Loader from 'react-loader-spinner';
 import Carousel from 'react-bootstrap/Carousel';
 import Onboarding from '../Assets/LoginImage.png'; 
+import DarkTheme, { createTheme } from 'react-dark-theme';
+
+const lightTheme = {
+  background: '#c5cae965',
+  text:'black'
+}
+ 
+const darkTheme = {
+  background: '#a9aaa9',
+  text: 'black',
+}
+const myTheme = createTheme(darkTheme, lightTheme)
 
 export class Home extends Component {
     constructor(props){  
@@ -67,11 +80,11 @@ IsTokenExpired(){
     localStorage.removeItem('User');
     localStorage.removeItem('FirstName');
     }
-}
+}z
     
 render() {
     return ( 
-        <div id="Homecard">
+        <div id="Homecard" style={{ backgroundColor: myTheme.background, color: myTheme.text }}>
             <Loader 
                 type="Circles"
                 color="#e91e63"
@@ -84,7 +97,6 @@ render() {
             <Delayed waitBeforeShow={1500}>
             <PrimarySearchAppBar/>
             <Navigation/>
-            <Card id="CardMessage" elevation={0}>
                     <Card id="card1" elevation={10}>
                         <CardContent>
                         <Carousel>
@@ -121,7 +133,7 @@ render() {
                             <p id="Welcome">Welcome To Psiog's Employee On-Boarding Hub</p>
                         </CardContent>
                     </Card>
-            </Card> 
+            
             </Delayed>  
         </div>
     )

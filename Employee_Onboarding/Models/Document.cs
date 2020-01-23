@@ -15,7 +15,7 @@ namespace Employee_Onboarding.Models
     public partial class Document
     {
         public int Document_id { get; set; }
-        public int Employee_id { get; set; }
+        public Nullable<int> Employee_id { get; set; }
         public string DocumentCode { get; set; }
         public string DocumentPath { get; set; }
         public string DocumentDescription { get; set; }

@@ -1,7 +1,11 @@
+#outer{
+    position: relative;
+    height:297vh;  
+}
 .EduContainer{
 position: relative;
 top: 1em;
-height:200vh;
+height:275vh;
 }
 #EducationCard{
 position: relative;
@@ -27,6 +31,14 @@ left:15%;
 height: 60vh;
 background-color:#f7f8f7;    
 }
+#EducationCardd{
+    position: relative;
+    width:68%;
+    top:9em;
+    left:15%;
+    height: 68vh;
+    background-color:#f7f8f7;    
+    }
 #EduCard{
 position: relative;
 width:80%;
@@ -59,6 +71,12 @@ width:40%;
 left:6%;
 top:1em;  
 }
+#EduCardh{
+    position: relative;
+    width:40%;
+    left:6%;
+    bottom:1.6em;  
+    }
 #EduCard2{
 position: relative;
 width:50%;
@@ -71,6 +89,12 @@ width:40%;
 left:54%;
 bottom:17em;  
 }
+#EduCardi{
+    position: relative;
+    width:40%;
+    left:54%;
+    bottom:19.7em;  
+}
 #EduCardf{
 position: relative;
 width:40%;
@@ -80,7 +104,7 @@ bottom:17em;
 #Educationsubmit{
 position: relative;
 left:44%;
-bottom:13em;
+bottom:15em;
 }
 #EducationFinish{
 position: relative;
@@ -115,4 +139,10 @@ position: relative;
 Top:2.4em;
 left:42.6em;
 border-bottom: 2px solid #969696;
+}
+#PGText{
+    position: relative;
+    left:4.6em;
+    bottom:1.4em;
+    font-style: oblique;
 }

@@ -98,10 +98,10 @@ componentDidMount() {
 
     render() {  
         return (
-          <div>
+          <div className="ViewCard">
               <Router><PrimarySearchAppBar/> </Router>
             
-            <Container className="ViewCard"> 
+            <Container > 
             <Card elevation={5} id="EmployeeTotalView" style={{ backgroundColor: myTheme.background, color: myTheme.text }}>
             <Avatar id="EmpAvatar" style={{backgroundColor: '#333333',color: '#2DB7BC',fontSize:'4em'}}>{this.state.FirstName.charAt(0)}</Avatar> 
                   <Card elevation={10} id="EmployeeView">

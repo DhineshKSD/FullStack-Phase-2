@@ -6,6 +6,7 @@ import Tab from '@material-ui/core/Tab';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom'; 
 import Employeelist from '../src/components/EmployeeList'; 
 import ButtonMat from '@material-ui/core/Button';
+import './NavTab.css'
 
 const useStyles = makeStyles({
   root: {
@@ -22,7 +23,7 @@ export default function CenteredTabs() {
   };
 
   return (
-    <Paper className={classes.root}>
+    <Paper className={classes.root} style={{position:'relative',top:'4.1em'}}>
       <Tabs
         value={value}
         onChange={handleChange}
@@ -30,9 +31,8 @@ export default function CenteredTabs() {
         textColor="primary"
         centered
       >
-        
         <Router>
-        <Link to={'/Home'} style={{ textDecoration: 'none' }} onClick={event =>  window.location.href='/Home'}><Tab label="Home"/></Link>
+        <Link to={'/'} style={{ textDecoration: 'none' }} onClick={event =>  window.location.href='/'}><Tab label="Home" /></Link>
         </Router>
         <Router>
         <Link to={'/AddEmployee'} style={{ textDecoration: 'none' }} onClick={event =>  window.location.href='/AddEmployee'}><Tab label="Add Employee" /></Link>

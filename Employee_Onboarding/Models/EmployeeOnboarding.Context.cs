@@ -13,10 +13,10 @@ namespace Employee_Onboarding.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class EmployeeOnboardingEntities : DbContext
+    public partial class EmployeeOnboardingEntities1 : DbContext
     {
-        public EmployeeOnboardingEntities()
-            : base("name=EmployeeOnboardingEntities")
+        public EmployeeOnboardingEntities1()
+            : base("name=EmployeeOnboardingEntities1")
         {
         }
     
@@ -25,11 +25,11 @@ namespace Employee_Onboarding.Models
             throw new UnintentionalCodeFirstException();
         }
     
+        public DbSet<Document> Documents { get; set; }
         public DbSet<Education> Educations { get; set; }
         public DbSet<Employee> Employees { get; set; }
         public DbSet<PersonalInfo> PersonalInfoes { get; set; }
         public DbSet<PreviousEmployment> PreviousEmployments { get; set; }
         public DbSet<Proof> Proofs { get; set; }
-        public DbSet<Document> Documents { get; set; }
     }
 }

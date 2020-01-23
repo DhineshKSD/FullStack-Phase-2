@@ -1,4 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans|Roboto&display=swap');
+#edit{
+    height: 100vh;
+}
 .EmployeeEditCard{
 position: relative;
 height:90vh;

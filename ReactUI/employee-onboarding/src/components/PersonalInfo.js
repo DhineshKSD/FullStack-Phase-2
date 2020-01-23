@@ -17,7 +17,7 @@ import DarkTheme, { createTheme } from 'react-dark-theme';
 import Checkbox from '@material-ui/core/Checkbox';
 
 const lightTheme = {
-  background: '#f7f8f7',
+  background: '#c5cae965',
   text:'black'
 }
  
@@ -200,7 +200,7 @@ clearform = (e) =>{
  
 render() {  
 return (  
-  <div>
+  <div className="PersonalInfoContainer" style={{ backgroundColor: myTheme.background, color: myTheme.text }}>
      <PrimarySearchAppBar/>
       <Snackbar 
         anchorOrigin={{vertical:'bottom',horizontal:'right'}}
@@ -217,10 +217,10 @@ return (
           </IconButton>
         ]}
         />
-        <Container className="PersonalInfoContainer">
+        <Container>
         <Avatar id="line1" style={{backgroundColor: '#e91e63',color: '#f3e5f5'}}>1</Avatar><div class="hr-line"></div><Avatar id="line2" style={{backgroundColor: '#969696',color: '#f3e5f5'}}>2</Avatar><div class="hr-line1"></div><Avatar id="line3" style={{backgroundColor: '#969696',color: '#f3e5f5'}}>3</Avatar>
               <Form className="form" autoComplete="off"> 
-                  <Card elevation={10} id="PersonalInfoCard" style={{ backgroundColor: myTheme.background, color: myTheme.text }}>
+                  <Card elevation={10} id="PersonalInfoCard" >
                       <CardContent>  
                         <h3 className="PersonalInfoPageHeading">Personal Information Section</h3>  
                         <div id="FormPersonalInfo">
@@ -283,7 +283,7 @@ return (
                   </Card>   
                   
                     
-                  <Card elevation={10} id="AddressInfoCard" style={{ backgroundColor: myTheme.background, color: myTheme.text }}>
+                  <Card elevation={10} id="AddressInfoCard">
                         <CardContent> 
                             <h3 className="AddressInfoPageHeading">Address Information Section</h3>  
                             <div id="FormAddressInfo">
@@ -307,7 +307,7 @@ return (
                                   <TextField type="text" InputProps={{ readOnly: true, }} required id="standard-required" label="Country" autoComplete="off" placeholder="Country" fullWidth margin="normal" name="Country1" value={this.state.Country1} onChange={this.handleChange}/>   
                                   <Checkbox
                                   checked={this.state.checked} onChange={this.handleCheckClick}
-                                    inputProps={{ 'aria-label': 'primary checkbox' }} style={{ color: '#4caf50',position:'relative',top:'0.5em',right:'0.5em' }}
+                                    inputProps={{ 'aria-label': 'primary checkbox' }} style={{ color: '#e91e63',position:'relative',top:'0.5em',right:'0.5em' }}
                                     />
                                   <p id="AddressText">Is Present Address is same as Permanent Address</p>  
                                   </Col>

@@ -15,7 +15,7 @@ namespace Employee_Onboarding.Controllers
 {
     public class DocumentController : ApiController
     {
-        private EmployeeOnboardingEntities db = new EmployeeOnboardingEntities();
+        private EmployeeOnboardingEntities1 db = new EmployeeOnboardingEntities1();
         [HttpPost]
         [ResponseType(typeof(Document))]
         [Route("api/AddDocument/")]

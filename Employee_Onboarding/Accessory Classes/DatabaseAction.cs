@@ -13,7 +13,7 @@ namespace Employee_Onboarding.Accessory_Classes
         {
             try
             {
-                using (EmployeeOnboardingEntities db = new EmployeeOnboardingEntities())
+                using (EmployeeOnboardingEntities1 db = new EmployeeOnboardingEntities1())
                 {
                     emp = db.Employees.Where(l => l.UserName == username).FirstOrDefault();
                    
@@ -49,7 +49,7 @@ namespace Employee_Onboarding.Accessory_Classes
         {
             try
             {
-                using (EmployeeOnboardingEntities db = new EmployeeOnboardingEntities())
+                using (EmployeeOnboardingEntities1 db = new EmployeeOnboardingEntities1())
                 {
                     var v = db.Employees.Where(u => u.UserName == username).FirstOrDefault();
                     return v == null ? false : true;
@@ -65,7 +65,7 @@ namespace Employee_Onboarding.Accessory_Classes
         {
             try
             {
-                using (EmployeeOnboardingEntities db = new EmployeeOnboardingEntities())
+                using (EmployeeOnboardingEntities1 db = new EmployeeOnboardingEntities1())
                 {
                     var res = db.Educations.Where(u => u.Employee_id == id && course == u.CourseCode).FirstOrDefault();
 
@@ -83,7 +83,7 @@ namespace Employee_Onboarding.Accessory_Classes
         {
             try
             {
-                using (EmployeeOnboardingEntities db = new EmployeeOnboardingEntities())
+                using (EmployeeOnboardingEntities1 db = new EmployeeOnboardingEntities1())
                 {
                     var res = db.PersonalInfoes.Where(u => u.Employee_id == id).FirstOrDefault();
 
@@ -100,7 +100,7 @@ namespace Employee_Onboarding.Accessory_Classes
         {
             try
             {
-                using (EmployeeOnboardingEntities db = new EmployeeOnboardingEntities())
+                using (EmployeeOnboardingEntities1 db = new EmployeeOnboardingEntities1())
                 {
                     var v = db.Employees.Where(u => u.PersonalEmail == EmailID).FirstOrDefault();
                     return v == null ? false : true;
@@ -117,7 +117,7 @@ namespace Employee_Onboarding.Accessory_Classes
         {
             try
             {
-                using (EmployeeOnboardingEntities db = new EmployeeOnboardingEntities())
+                using (EmployeeOnboardingEntities1 db = new EmployeeOnboardingEntities1())
                 {
                     var v = db.Employees.Where(u => u.UserName == userName).FirstOrDefault();
                     return v.Employee_id;

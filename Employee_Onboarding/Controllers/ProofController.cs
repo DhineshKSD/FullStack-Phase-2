@@ -14,7 +14,7 @@ namespace Employee_Onboarding.Controllers
 {
     public class ProofController : ApiController
     {
-        private EmployeeOnboardingEntities db = new EmployeeOnboardingEntities();
+        private EmployeeOnboardingEntities1 db = new EmployeeOnboardingEntities1();
 
 
         [ResponseType(typeof(Proof))]

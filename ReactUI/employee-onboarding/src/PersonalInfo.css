@@ -1,7 +1,8 @@
 .PersonalInfoContainer{
 position: relative;
-top: 6em;
-height:175vh;
+top: 2em;
+height:185vh;
+background-color: #c5cae965;
 }
 .PersonalInfoPageHeading
 {

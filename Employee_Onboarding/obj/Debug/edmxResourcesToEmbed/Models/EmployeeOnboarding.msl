@@ -1,13 +1,26 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="EmployeeOnboardingModelStoreContainer" CdmEntityContainer="EmployeeOnboardingEntities">
+  <EntityContainerMapping StorageEntityContainer="EmployeeOnboardingModelStoreContainer" CdmEntityContainer="EmployeeOnboardingEntities1">
+    <EntitySetMapping Name="Documents">
+      <EntityTypeMapping TypeName="EmployeeOnboardingModel.Document">
+        <MappingFragment StoreEntitySet="Document">
+          <ScalarProperty Name="Document_id" ColumnName="Document_id" />
+          <ScalarProperty Name="Employee_id" ColumnName="Employee_id" />
+          <ScalarProperty Name="DocumentCode" ColumnName="DocumentCode" />
+          <ScalarProperty Name="DocumentPath" ColumnName="DocumentPath" />
+          <ScalarProperty Name="DocumentDescription" ColumnName="DocumentDescription" />
+          <ScalarProperty Name="DocumentType" ColumnName="DocumentType" />
+          <ScalarProperty Name="Data" ColumnName="Data" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="Educations">
       <EntityTypeMapping TypeName="EmployeeOnboardingModel.Education">
         <MappingFragment StoreEntitySet="Education">
-          <ScalarProperty Name="CourseCode" ColumnName="CourseCode" />
           <ScalarProperty Name="Education_id" ColumnName="Education_id" />
           <ScalarProperty Name="Employee_id" ColumnName="Employee_id" />
           <ScalarProperty Name="Course" ColumnName="Course" />
+          <ScalarProperty Name="CourseCode" ColumnName="CourseCode" />
           <ScalarProperty Name="Institute" ColumnName="Institute" />
           <ScalarProperty Name="GradePoint" ColumnName="GradePoint" />
           <ScalarProperty Name="From" ColumnName="From" />
@@ -19,10 +32,6 @@
     <EntitySetMapping Name="Employees">
       <EntityTypeMapping TypeName="EmployeeOnboardingModel.Employee">
         <MappingFragment StoreEntitySet="Employee">
-          <ScalarProperty Name="SubmissionStatus" ColumnName="SubmissionStatus" />
-          <ScalarProperty Name="HashedPassword" ColumnName="HashedPassword" />
-          <ScalarProperty Name="Salt" ColumnName="Salt" />
-          <ScalarProperty Name="MailStatus" ColumnName="MailStatus" />
           <ScalarProperty Name="Employee_id" ColumnName="Employee_id" />
           <ScalarProperty Name="FirstName" ColumnName="FirstName" />
           <ScalarProperty Name="LastName" ColumnName="LastName" />
@@ -36,20 +45,16 @@
           <ScalarProperty Name="Password" ColumnName="Password" />
           <ScalarProperty Name="ReportingTo" ColumnName="ReportingTo" />
           <ScalarProperty Name="isAdmin" ColumnName="isAdmin" />
+          <ScalarProperty Name="MailStatus" ColumnName="MailStatus" />
+          <ScalarProperty Name="Salt" ColumnName="Salt" />
+          <ScalarProperty Name="HashedPassword" ColumnName="HashedPassword" />
+          <ScalarProperty Name="SubmissionStatus" ColumnName="SubmissionStatus" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="PersonalInfoes">
       <EntityTypeMapping TypeName="EmployeeOnboardingModel.PersonalInfo">
         <MappingFragment StoreEntitySet="PersonalInfo">
-          <ScalarProperty Name="Country2" ColumnName="Country2" />
-          <ScalarProperty Name="State2" ColumnName="State2" />
-          <ScalarProperty Name="City2" ColumnName="City2" />
-          <ScalarProperty Name="Address2" ColumnName="Address2" />
-          <ScalarProperty Name="Country1" ColumnName="Country1" />
-          <ScalarProperty Name="State1" ColumnName="State1" />
-          <ScalarProperty Name="City1" ColumnName="City1" />
-          <ScalarProperty Name="Address1" ColumnName="Address1" />
           <ScalarProperty Name="PersonalInfo_id" ColumnName="PersonalInfo_id" />
           <ScalarProperty Name="Employee_id" ColumnName="Employee_id" />
           <ScalarProperty Name="Gender" ColumnName="Gender" />
@@ -57,6 +62,14 @@
           <ScalarProperty Name="PlaceOfBirth" ColumnName="PlaceOfBirth" />
           <ScalarProperty Name="MaritalStatus" ColumnName="MaritalStatus" />
           <ScalarProperty Name="BloodGroup" ColumnName="BloodGroup" />
+          <ScalarProperty Name="Address1" ColumnName="Address1" />
+          <ScalarProperty Name="City1" ColumnName="City1" />
+          <ScalarProperty Name="State1" ColumnName="State1" />
+          <ScalarProperty Name="Country1" ColumnName="Country1" />
+          <ScalarProperty Name="Address2" ColumnName="Address2" />
+          <ScalarProperty Name="City2" ColumnName="City2" />
+          <ScalarProperty Name="State2" ColumnName="State2" />
+          <ScalarProperty Name="Country2" ColumnName="Country2" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -81,19 +94,6 @@
           <ScalarProperty Name="ProofCode" ColumnName="ProofCode" />
           <ScalarProperty Name="ProofName" ColumnName="ProofName" />
           <ScalarProperty Name="ProofId" ColumnName="ProofId" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Documents">
-      <EntityTypeMapping TypeName="EmployeeOnboardingModel.Document">
-        <MappingFragment StoreEntitySet="Document">
-          <ScalarProperty Name="Data" ColumnName="Data" />
-          <ScalarProperty Name="DocumentType" ColumnName="DocumentType" />
-          <ScalarProperty Name="DocumentDescription" ColumnName="DocumentDescription" />
-          <ScalarProperty Name="DocumentPath" ColumnName="DocumentPath" />
-          <ScalarProperty Name="DocumentCode" ColumnName="DocumentCode" />
-          <ScalarProperty Name="Employee_id" ColumnName="Employee_id" />
-          <ScalarProperty Name="Document_id" ColumnName="Document_id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

@@ -21,7 +21,7 @@ import DialogTitle from '@material-ui/core/DialogTitle';
 import Slide from '@material-ui/core/Slide';
 
 const lightTheme = {
-  background: '#f7f8f7',
+  background: '#c5cae965',
   text:'black'
 }
  
@@ -185,7 +185,7 @@ Next=()=>{
     
 render() {
     return (
-        <div>
+        <div id='emp'style={{ backgroundColor: myTheme.background, color: myTheme.text }}>
             <Router><PrimarySearchAppBar/></Router>
             <Snackbar 
             anchorOrigin={{vertical:'bottom',horizontal:'right'}}
@@ -227,7 +227,7 @@ render() {
             <br/><br/>
       </Dialog>
             <Avatar id="Empline1" style={{backgroundColor: '#e91e63',color: '#f3e5f5'}}>1</Avatar><div class="Emphr-line"></div><Avatar id="Empline2" style={{backgroundColor: '#e91e63',color: '#f3e5f5'}}>2</Avatar><div class="Emphr-line1"></div><Avatar id="Empline3" style={{backgroundColor: '#e91e63',color: '#f3e5f5'}}>3</Avatar>
-            <Card id="EmploymentCard" elevation={10} style={{ backgroundColor: myTheme.background, color: myTheme.text }}>
+            <Card id="EmploymentCard" elevation={10}>
                     <CardContent id="EmpCard">
                         <h6 id="EmpHeading">Employment Details</h6>
                         <div id="EmpCard1">

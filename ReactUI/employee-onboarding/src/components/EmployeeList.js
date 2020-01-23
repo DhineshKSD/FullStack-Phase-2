@@ -8,10 +8,15 @@ import CardContent from '@material-ui/core/CardContent';
 import PrimarySearchAppBar from '../components/Header';
 import Navigation from '../components/Navigation';
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
-import DarkTheme, { createTheme } from 'react-dark-theme'
+import DarkTheme, { createTheme } from 'react-dark-theme';
+import Checkbox from '@material-ui/core/Checkbox';
+import NavigateNextIcon from '@material-ui/icons/NavigateNext';
+import ButtonMat from '@material-ui/core/Button';
+import Fab from '@material-ui/core/Fab';
+import NavTab from '../NavTab'
 
 const lightTheme = {
-  background: '#f7f8f7',
+  background: '#c5cae965',
   text:'black'
 }
  
@@ -46,16 +51,17 @@ tabRow(){
   return this.state.business.map(function(object, i){
       return <Table obj={object} key={i} />; 
   });  
-}  
+} 
 
 render() {
     return (  
-      <div> 
+      <div id="tablecard" style={{ backgroundColor: myTheme.background, color: myTheme.text }}> 
         <PrimarySearchAppBar/>
         <Navigation/> 
-        <Card id="EmpListCard" elevation={7} style={{ backgroundColor: myTheme.background, color: myTheme.text }}>
+        <Card id="EmpListCard" elevation={7} >
               <CardContent>
-                  <h5 className="EmpListHeading" align="center">On-Boarding Queue</h5>  
+                  <h5 className="EmpListHeading" align="center">On-Boarding Queue</h5>
+                  <div id="list"> 
                     <table className="table table-hover" style={{ marginTop: '2em' ,textAlign:'center'}}>  
                       <thead style={{backgroundColor:'#c3c5c4'}}>  
                           <tr>  
@@ -71,7 +77,8 @@ render() {
                       <tbody>  
                           { this.tabRow() }   
                       </tbody>  
-                  </table>  
+                  </table>
+                  </div>  
                </CardContent>
         </Card>
       </div>  

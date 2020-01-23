@@ -1,18 +1,59 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans|Roboto&display=swap');
+#tablecard{
+background-color: #c5cae965;
+width:100%;
+min-height: 100vh;
+}
 .EmpListHeading{
 position: relative;
 font-family: 'Open Sans', sans-serif;
 text-align: center;
 font-weight: bold;
-font-size: 1.8em;
+font-size: 1.5em;
 top:0.3em;
 }
-#EmpListCard{
+#EmpListCard
+{
 position: relative;
-top:10.5em;
-min-height: 70vh;
+top:9.5em;
 background-color:#f7f8f7;
-height:auto;
 width:85%;
 left:6em;
+}
+#list{
+position: relative; 
+bottom:1em;
+max-height: 60vh;  
+min-height: 60vh;
+overflow: auto;
+}
+#show{
+position: absolute;
+top:8.8em;
+left:18em;
+z-index: +1;
+padding:10px;
+border:solid 1px black;
+background-color:#333333;
+color: #2db7bc;
+}
+#show1{
+position: absolute;
+top:8.8em;
+left:25.5em;
+z-index: +1;
+padding:10px;
+border:solid 1px black;
+background-color:#333333;
+color: #2db7bc;
+}
+#show2{
+position: absolute;
+top:8.8em;
+left:35.5em;
+z-index: +1;
+padding:10px;
+border:solid 1px black;
+background-color:#333333;
+color: #2db7bc;
 }

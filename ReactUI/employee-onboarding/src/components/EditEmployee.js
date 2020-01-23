@@ -13,7 +13,7 @@ import PrimarySearchAppBar from '../components/Header';
 import DarkTheme, { createTheme } from 'react-dark-theme'
 
 const lightTheme = {
-  background: '#f7f8f7',
+  background: '#c5cae965',
   text:'black'
 }
  
@@ -219,10 +219,10 @@ onChangeSubmissionStatus(e){
     }  
     render() {  
         return (
-          <div>
+          <div id="edit" style={{ backgroundColor: myTheme.background, color: myTheme.text }}>
             <PrimarySearchAppBar/> 
             <Container className="EmployeeEditCard">  
-                  <Card elevation={3} id="EmployeeEdit" style={{ backgroundColor: myTheme.background, color: myTheme.text }}>
+                  <Card elevation={3} id="EmployeeEdit" >
                       <CardContent>
                       <h4 className="EmployeeEditPageHeading">Update Employee Informations</h4>  
                           <Form className="form" onSubmit={this.onSubmit}>  

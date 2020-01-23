@@ -16,7 +16,19 @@ import Instruction from '../components/Instruction';
 import decode from 'jwt-decode';
 import Delayed from '../components/Delayed';
 import Loader from 'react-loader-spinner';
-import Carousel from 'react-bootstrap/Carousel'
+import Carousel from 'react-bootstrap/Carousel';
+import DarkTheme, { createTheme } from 'react-dark-theme';
+
+const lightTheme = {
+  background: '#c5cae965',
+  text:'black'
+}
+ 
+const darkTheme = {
+  background: '#a9aaa9',
+  text: 'black',
+}
+const myTheme = createTheme(darkTheme, lightTheme)
 
 export class UserHome extends Component {
     constructor(props){  
@@ -76,7 +88,7 @@ IsTokenExpired(){
       
 render() {
     return (
-        <div id="UserHomecard" >
+        <div id="UserHomecard" style={{ backgroundColor: myTheme.background, color: myTheme.text }}>
             <Loader 
                 type="Circles"
                 color="#e91e63"
@@ -91,9 +103,9 @@ render() {
             <Col sm={1} id="Instructions">  
             <ButtonMat color="secondary" disabled={this.state.SubmissionStatus}><Instruction /></ButtonMat>
             </Col> 
-            <Card id="UserCardMessage"elevation={0}>
+            
                 
-                    <Card id="card1" elevation={10}>
+                    <Card id="card3" elevation={10}>
                     <CardContent>
                     <Carousel>
                         <Carousel.Item>
@@ -121,7 +133,7 @@ render() {
                     </CardContent>
                     </Card>
             
-                    <Card id="card2" elevation={10}>
+                    <Card id="card4" elevation={10}>
                     <CardContent>
                     <img src={ThanksAvatar} className="WelcomeAvatar" alt="WelcomeAvatar" />
 
@@ -129,7 +141,7 @@ render() {
                     <p id="Welcome">Welcome To Psiog's Employee On-Boarding Hub</p>
                     </CardContent>
                     </Card>
-            </Card>
+            
             </Delayed>   
         </div>
         )

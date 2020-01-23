@@ -15,13 +15,13 @@ export class Navigation extends React.Component {
                         <div className="collapse navbar-collapse" >  
                             <ul className="navbar-nav mr-auto"> 
                             <li className="nav-item">  
-                                <NavLink to={'/'} exact={true} activeClassName="active" onClick={event =>  window.location.href='/'} className="nav-link">Home</NavLink>  
+                                <NavLink to={'/'} exact={true} activeClassName="activeNav" onClick={event =>  window.location.href='/'} className="nav-link">Home</NavLink>  
                             </li> 
                             <li className="nav-item">  
-                                <NavLink to={'/AddEmployee'} activeClassName="active" onClick={event =>  window.location.href='/AddEmployee'}className="nav-link">Add Employee</NavLink>  
+                                <NavLink to={'/AddEmployee'} activeClassName="activeNav" onClick={event =>  window.location.href='/AddEmployee'}className="nav-link">Add Employee</NavLink>  
                             </li>  
                             <li className="nav-item">  
-                                <NavLink to={'/Employeelist'} activeClassName="active" onClick={event =>  window.location.href='/Employeelist'}className="nav-link">Employee List</NavLink>  
+                                <NavLink to={'/Employeelist'} activeClassName="activeNav" onClick={event =>  window.location.href='/Employeelist'}className="nav-link">Employee List</NavLink>  
                             </li>  
                             </ul>  
                         </div>  

@@ -4,9 +4,9 @@
     <Key>
       <PropertyRef Name="Document_id" />
     </Key>
-    <Property Name="Document_id" Type="int" Nullable="false" />
-    <Property Name="Employee_id" Type="int" Nullable="false" />
-    <Property Name="DocumentCode" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="Document_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Employee_id" Type="int" />
+    <Property Name="DocumentCode" Type="varchar" MaxLength="10" />
     <Property Name="DocumentPath" Type="nvarchar(max)" />
     <Property Name="DocumentDescription" Type="nvarchar(max)" />
     <Property Name="DocumentType" Type="nvarchar(max)" />
@@ -91,7 +91,7 @@
     <Property Name="ProofId" Type="nvarchar(max)" Nullable="false" />
   </EntityType>
   <Association Name="BackgroundCheck_NewRecruit">
-    <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
+    <End Role="Employee" Type="Self.Employee" Multiplicity="0..1" />
     <End Role="Document" Type="Self.Document" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Employee">

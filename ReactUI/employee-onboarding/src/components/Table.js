@@ -95,34 +95,34 @@ DeleteStudent= () =>{
 render() {
     return (
         <tr>  
-          <td>  
+          <td style={{ padding:'7px'}}>  
            <Avatar style={this.props.obj.DOJ.split('T')[0]===dateCheck ?{backgroundColor: '#388e3c',color: '#f3e5f5'}:{backgroundColor: '#3f51b5',color: '#f3e5f5'}}>{this.props.obj.FirstName.charAt(0)}</Avatar>  
           </td>
-          <td>  
+          <td style={{ paddingTop:'15px',paddingBottom:'6px'}}>  
             {this.props.obj.FirstName}  
           </td>  
-          <td>  
+          <td style={{ paddingTop:'15px',paddingBottom:'6px'}}>  
             {this.props.obj.DOJ.split('T')[0]}  
           </td>  
-          <td>  
+          <td style={{ paddingTop:'15px',paddingBottom:'6px'}}>  
             {this.props.obj.JobTitle}  
           </td>  
-          <td>  
+          <td style={{ paddingTop:'15px',paddingBottom:'6px'}}>  
             {this.props.obj.Department}  
           </td>
-          <td>
+          <td style={{ paddingTop:'8px',paddingBottom:'6px'}}>
           <Checkbox
           checked={this.props.obj.SubmissionStatus===true}
           inputProps={{ 'aria-label': 'primary checkbox' }} style={{ color: '#4caf50' }}
           />  
           </td>  
-          <td>  
+          <td style={{ padding:'8px'}}>  
           <Link to={"/edit/"+this.props.obj.Employee_id} style={{ textDecoration: 'none' }}><ButtonMat elevation={3} variant="contained" color="primary" startIcon={<EditIcon />}>Edit</ButtonMat></Link>  
           </td>  
-          <td>  
+          <td style={{ padding:'8px'}}>  
           <ButtonMat elevation={3} type="button" onClick={this.DeleteStudent} disabled={this.props.obj.MailStatus==="Initiated"} variant="contained" style={{backgroundColor: '#e91e63',color: '#f3e5f5'}} startIcon={<DeleteIcon />}>Delete</ButtonMat> 
           </td>  
-          <td>  
+          <td style={{ padding:'8px'}}>  
           <ButtonMat elevation={3} type="button" variant="contained" disabled={this.props.obj.MailStatus==="Initiated"} onClick={this.SendMail} style={this.props.obj.MailStatus==="Initiated"?{backgroundColor: '#3f51b5',color: '#f3e5f5'}:{backgroundColor: '#969696',color: '#f3e5f5'}} startIcon={<SendIcon />}>{this.props.obj.MailStatus}</ButtonMat>
           <Snackbar 
             anchorOrigin={{vertical:'bottom',horizontal:'right'}}
@@ -140,7 +140,7 @@ render() {
             ]}
             />
           </td>
-          <td>  
+          <td style={{ padding:'8px'}}>  
           <Link to={"/view/"+this.props.obj.Employee_id} style={{ textDecoration: 'none' }}><ButtonMat elevation={3} type="button" variant="contained" style={this.props.obj.SubmissionStatus?{backgroundColor: '#e91e63',color: '#f3e5f5'}:{backgroundColor: '#969696',color: '#f3e5f5'}} startIcon={<VisibilityIcon />}>View</ButtonMat></Link>
           </td> 
         </tr>  

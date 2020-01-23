@@ -15,7 +15,7 @@ namespace Employee_Onboarding.Controllers
 {
     public class EmployeeController : ApiController
     {
-        private EmployeeOnboardingEntities db = new EmployeeOnboardingEntities();
+        private EmployeeOnboardingEntities1 db = new EmployeeOnboardingEntities1();
        
         [HttpGet]
         [Route("api/GetEmployees")]

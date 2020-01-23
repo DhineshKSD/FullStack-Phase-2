@@ -13,10 +13,11 @@ import Navigation from '../components/Navigation';
 import { Col, Form, FormGroup} from 'reactstrap';  
 import IconButton from '@material-ui/icons/Cancel';
 import Snackbar from '@material-ui/core/Snackbar';
-import DarkTheme, { createTheme } from 'react-dark-theme'
+import DarkTheme, { createTheme } from 'react-dark-theme';
+import NavTab from '../NavTab'
 
 const lightTheme = {
-  background: '#f7f8f7',
+  background: '#c5cae965',
   text:'black'
 }
  
@@ -157,7 +158,7 @@ clearform = (e) =>{
  
 render() {  
 return (  
-  <div id="card">
+  <div id="card" style={{ backgroundColor: myTheme.background, color: myTheme.text }}>
       <Snackbar 
       anchorOrigin={{vertical:'bottom',horizontal:'right'}}
       open = {this.state.snackbaropen}
@@ -175,7 +176,7 @@ return (
       />
       <PrimarySearchAppBar/>
       <Navigation/>
-      <Card id="EmployeeCard" elevation={7} style={{ backgroundColor: myTheme.background, color: myTheme.text }}>
+      <Card id="EmployeeCard" elevation={7} >
               <CardContent elevation={7}> 
               <h3 className="PageHeading">Enter New-Hire's Details</h3> 
                     <Form className="form" required>  
@@ -222,13 +223,13 @@ return (
                               <FormGroup row id="button">  
                                 <Col sm={5} >  
                                 </Col>  
-                                <Col sm={1} id="AddEmpButton">  
+                                <Col sm={1} id="AddEmpButton1">  
                                 <ButtonMat id="submit"type="button" disabled={!this.state.UserName||!this.state.Password||!this.state.PersonalEmail||!this.state.Contact||!this.state.JobTitle||
                                 !this.state.Department||!this.state.DOJ||!this.state.UserName||!this.state.ReportingTo} onClick={this.handleSubmit} variant="contained" color="primary">
                                 Submit
                                 </ButtonMat> 
                                 </Col>  
-                                <Col sm={1} id="AddEmpButton">  
+                                <Col sm={1} id="AddEmpButton2">  
                                 <ButtonMat variant="contained" color="secondary" onClick={this.clearform}>Cancel</ButtonMat>{' '} 
                                 </Col>  
                                 <Col sm={5}>  

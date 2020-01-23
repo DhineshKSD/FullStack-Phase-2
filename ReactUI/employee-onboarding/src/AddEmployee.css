@@ -7,9 +7,9 @@ color :black !important;
 }
 #card{
   position: relative;
-  height: 118vh;
-  width:80%;
-  left:9%;
+  height: 100vh;
+  width:100%;
+  background-color: #f5f5f565;
 }
 body{
 overflow: auto;
@@ -24,28 +24,36 @@ position: relative;
 text-align: center;
 font-family: 'Open Sans', sans-serif;
 font-weight: bold;
-top:0.5em;
+font-size: 1.5em;
+top:0em;
 }
 #EmployeeCard{
 position: relative;
-height: 35em;
-top:10.6em;
+height: 30.5em;
+top:9em;
+width:70%;
+left:15%;
 background-color:#f7f8f7;
 }
 #formemp{
 position: relative;
 width: 40%;
 Left:6.5%;
-top:0.5em;
+bottom:1em;
 }
 #formemp1{
 position: relative;
 width: 40%;
 Left:54%;
-bottom: 22em;
+bottom: 23.6em;
 }
-#AddEmpButton{
+#AddEmpButton1{
 position: relative;
-top:4.7em; 
-right: 0.8em;
+top:1.7em; 
+right: 1.4em;
 }
+#AddEmpButton2{
+  position: relative;
+  top:1.7em; 
+  right: 0.4em;
+  }

@@ -1,25 +1,38 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="EmployeeOnboardingModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Document">
+    <Key>
+      <PropertyRef Name="Document_id" />
+    </Key>
+    <Property Name="Document_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Employee_id" Type="Int32" />
+    <Property Name="DocumentCode" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="DocumentPath" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DocumentDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DocumentType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Data" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Employee" Relationship="Self.BackgroundCheck_NewRecruit" FromRole="Document" ToRole="Employee" />
+  </EntityType>
   <EntityType Name="Education">
     <Key>
       <PropertyRef Name="Education_id" />
     </Key>
-    <Property Name="Education_id" Type="Int32" Nullable="false" />
+    <Property Name="Education_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Employee_id" Type="Int32" Nullable="false" />
     <Property Name="Course" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CourseCode" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="Institute" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="GradePoint" Type="Single" Nullable="false" />
     <Property Name="From" Type="DateTime" Nullable="false" Precision="0" />
     <Property Name="To" Type="DateTime" Nullable="false" Precision="0" />
     <Property Name="YearOfPassing" Type="Int64" Nullable="false" />
     <NavigationProperty Name="Employee" Relationship="Self.Education_NewRecruit" FromRole="Education" ToRole="Employee" />
-    <Property Name="CourseCode" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
   </EntityType>
   <EntityType Name="Employee">
     <Key>
       <PropertyRef Name="Employee_id" />
     </Key>
-    <Property Name="Employee_id" Type="Int32" Nullable="false" />
+    <Property Name="Employee_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="FirstName" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="LastName" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="PersonalEmail" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
@@ -32,42 +45,42 @@
     <Property Name="Password" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="ReportingTo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="isAdmin" Type="Boolean" Nullable="false" />
-    <NavigationProperty Name="Educations" Relationship="Self.Education_NewRecruit" FromRole="Employee" ToRole="Education" />
-    <NavigationProperty Name="PersonalInfoes" Relationship="Self.PersonalInfo_NewRecruit" FromRole="Employee" ToRole="PersonalInfo" />
-    <NavigationProperty Name="PreviousEmployments" Relationship="Self.PreviousEmployment_NewRecruit" FromRole="Employee" ToRole="PreviousEmployment" />
-    <NavigationProperty Name="Proofs" Relationship="Self.Proof_Employee" FromRole="Employee" ToRole="Proof" />
-    <NavigationProperty Name="Documents" Relationship="EmployeeOnboardingModel.BackgroundCheck_NewRecruit" FromRole="Employee" ToRole="Document" />
     <Property Name="MailStatus" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="Salt" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="HashedPassword" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="SubmissionStatus" Type="Boolean" />
+    <NavigationProperty Name="Documents" Relationship="Self.BackgroundCheck_NewRecruit" FromRole="Employee" ToRole="Document" />
+    <NavigationProperty Name="Educations" Relationship="Self.Education_NewRecruit" FromRole="Employee" ToRole="Education" />
+    <NavigationProperty Name="PersonalInfoes" Relationship="Self.PersonalInfo_NewRecruit" FromRole="Employee" ToRole="PersonalInfo" />
+    <NavigationProperty Name="PreviousEmployments" Relationship="Self.PreviousEmployment_NewRecruit" FromRole="Employee" ToRole="PreviousEmployment" />
+    <NavigationProperty Name="Proofs" Relationship="Self.Proof_Employee" FromRole="Employee" ToRole="Proof" />
   </EntityType>
   <EntityType Name="PersonalInfo">
     <Key>
       <PropertyRef Name="PersonalInfo_id" />
     </Key>
-    <Property Name="PersonalInfo_id" Type="Int32" Nullable="false" />
+    <Property Name="PersonalInfo_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Employee_id" Type="Int32" Nullable="false" />
     <Property Name="Gender" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="DateOfBirth" Type="DateTime" Nullable="false" Precision="0" />
     <Property Name="PlaceOfBirth" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="MaritalStatus" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="BloodGroup" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Address1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="City1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="State1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Country1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Address2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="City2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="State2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Country2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
     <NavigationProperty Name="Employee" Relationship="Self.PersonalInfo_NewRecruit" FromRole="PersonalInfo" ToRole="Employee" />
-    <Property Name="Address1" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <Property Name="City1" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <Property Name="State1" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <Property Name="Country1" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <Property Name="Address2" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <Property Name="City2" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <Property Name="State2" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <Property Name="Country2" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
   </EntityType>
   <EntityType Name="PreviousEmployment">
     <Key>
       <PropertyRef Name="PreviousEmployment_id" />
     </Key>
-    <Property Name="PreviousEmployment_id" Type="Int32" Nullable="false" />
+    <Property Name="PreviousEmployment_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Employee_id" Type="Int32" Nullable="false" />
     <Property Name="EmployerName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="StartDate" Type="DateTime" Precision="0" />
@@ -80,13 +93,25 @@
     <Key>
       <PropertyRef Name="Proof_id" />
     </Key>
-    <Property Name="Proof_id" Type="Int32" Nullable="false" />
+    <Property Name="Proof_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Employee_id" Type="Int32" Nullable="false" />
     <Property Name="ProofCode" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="ProofName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="ProofId" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
     <NavigationProperty Name="Employee" Relationship="Self.Proof_Employee" FromRole="Proof" ToRole="Employee" />
   </EntityType>
+  <Association Name="BackgroundCheck_NewRecruit">
+    <End Role="Employee" Type="Self.Employee" Multiplicity="0..1" />
+    <End Role="Document" Type="Self.Document" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employee">
+        <PropertyRef Name="Employee_id" />
+      </Principal>
+      <Dependent Role="Document">
+        <PropertyRef Name="Employee_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="Education_NewRecruit">
     <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
     <End Role="Education" Type="Self.Education" Multiplicity="*" />
@@ -135,12 +160,17 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <EntityContainer Name="EmployeeOnboardingEntities" annotation:LazyLoadingEnabled="true">
+  <EntityContainer Name="EmployeeOnboardingEntities1" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Documents" EntityType="Self.Document" />
     <EntitySet Name="Educations" EntityType="Self.Education" />
     <EntitySet Name="Employees" EntityType="Self.Employee" />
     <EntitySet Name="PersonalInfoes" EntityType="Self.PersonalInfo" />
     <EntitySet Name="PreviousEmployments" EntityType="Self.PreviousEmployment" />
     <EntitySet Name="Proofs" EntityType="Self.Proof" />
+    <AssociationSet Name="BackgroundCheck_NewRecruit" Association="Self.BackgroundCheck_NewRecruit">
+      <End Role="Employee" EntitySet="Employees" />
+      <End Role="Document" EntitySet="Documents" />
+    </AssociationSet>
     <AssociationSet Name="Education_NewRecruit" Association="Self.Education_NewRecruit">
       <End Role="Employee" EntitySet="Employees" />
       <End Role="Education" EntitySet="Educations" />
@@ -157,35 +187,5 @@
       <End Role="Employee" EntitySet="Employees" />
       <End Role="Proof" EntitySet="Proofs" />
     </AssociationSet>
-    <EntitySet Name="Documents" EntityType="EmployeeOnboardingModel.Document" />
-    <AssociationSet Name="BackgroundCheck_NewRecruit" Association="EmployeeOnboardingModel.BackgroundCheck_NewRecruit">
-      <End Role="Employee" EntitySet="Employees" />
-      <End Role="Document" EntitySet="Documents" />
-    </AssociationSet>
   </EntityContainer>
-  <EntityType Name="Document">
-    <Key>
-      <PropertyRef Name="Document_id" />
-    </Key>
-    <Property Name="Document_id" Type="Int32" Nullable="false" />
-    <Property Name="Employee_id" Type="Int32" Nullable="false" />
-    <Property Name="DocumentCode" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
-    <Property Name="DocumentPath" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <Property Name="DocumentDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <Property Name="DocumentType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <Property Name="Data" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <NavigationProperty Name="Employee" Relationship="EmployeeOnboardingModel.BackgroundCheck_NewRecruit" FromRole="Document" ToRole="Employee" />
-  </EntityType>
-  <Association Name="BackgroundCheck_NewRecruit">
-    <End Type="EmployeeOnboardingModel.Employee" Role="Employee" Multiplicity="1" />
-    <End Type="EmployeeOnboardingModel.Document" Role="Document" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Employee">
-        <PropertyRef Name="Employee_id" />
-      </Principal>
-      <Dependent Role="Document">
-        <PropertyRef Name="Employee_id" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
 </Schema>

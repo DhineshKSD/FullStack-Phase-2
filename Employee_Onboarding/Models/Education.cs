@@ -17,12 +17,12 @@ namespace Employee_Onboarding.Models
         public int Education_id { get; set; }
         public int Employee_id { get; set; }
         public string Course { get; set; }
+        public string CourseCode { get; set; }
         public string Institute { get; set; }
         public float GradePoint { get; set; }
         public System.DateTime From { get; set; }
         public System.DateTime To { get; set; }
         public long YearOfPassing { get; set; }
-        public string CourseCode { get; set; }
     
         public virtual Employee Employee { get; set; }
     }

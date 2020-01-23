@@ -154,6 +154,36 @@
     <Compile Include="Models\Document.cs">
       <DependentUpon>EmployeeOnboarding.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Education.cs">
+      <DependentUpon>EmployeeOnboarding.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Employee.cs">
+      <DependentUpon>EmployeeOnboarding.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EmployeeOnboarding.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EmployeeOnboarding.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EmployeeOnboarding.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EmployeeOnboarding.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EmployeeOnboarding.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EmployeeOnboarding.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PersonalInfo.cs">
+      <DependentUpon>EmployeeOnboarding.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PreviousEmployment.cs">
+      <DependentUpon>EmployeeOnboarding.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Proof.cs">
+      <DependentUpon>EmployeeOnboarding.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Response.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
@@ -201,38 +231,8 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\Education.cs">
-      <DependentUpon>EmployeeOnboarding.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Employee.cs">
-      <DependentUpon>EmployeeOnboarding.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\EmployeeOnboarding.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>EmployeeOnboarding.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\EmployeeOnboarding.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>EmployeeOnboarding.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\EmployeeOnboarding.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>EmployeeOnboarding.edmx</DependentUpon>
-    </Compile>
     <Compile Include="Models\IAuthContainerModel.cs" />
     <Compile Include="Models\JWTContainerModel.cs" />
-    <Compile Include="Models\PersonalInfo.cs">
-      <DependentUpon>EmployeeOnboarding.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\PreviousEmployment.cs">
-      <DependentUpon>EmployeeOnboarding.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Proof.cs">
-      <DependentUpon>EmployeeOnboarding.tt</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -246,8 +246,8 @@
     <Content Include="Global.asax" />
     <Content Include="Models\EmployeeOnboarding.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>EmployeeOnboarding.Context.cs</LastGenOutput>
       <DependentUpon>EmployeeOnboarding.edmx</DependentUpon>
+      <LastGenOutput>EmployeeOnboarding.Context.cs</LastGenOutput>
     </Content>
     <Content Include="Models\EmployeeOnboarding.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
