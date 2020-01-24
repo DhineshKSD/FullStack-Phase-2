@@ -10,6 +10,9 @@ import IconButton from '@material-ui/icons/Cancel';
 import Snackbar from '@material-ui/core/Snackbar';
 import Checkbox from '@material-ui/core/Checkbox';
 import VisibilityIcon from '@material-ui/icons/Visibility';
+import Fab from '@material-ui/core/Fab';
+import ReactTooltip from 'react-tooltip';
+import HelpIcon from '@material-ui/icons/Help';
 
 var tempDate = new Date();
 var date = tempDate.getFullYear() + '-' + ("0"+tempDate.getMonth()+1).slice(-2);
@@ -34,7 +37,7 @@ class Table extends Component {
         ReportingTo:'',
         MailStatus:'',
         snackbaropen :false, snackbarmsg:'',Salt:'',HashedPassword:'',
-        SubmissionStatus:'',
+        SubmissionStatus:'',check: false
     }; 
     this.SendMail = this.SendMail.bind(this);   
     } 
@@ -74,7 +77,7 @@ SendMail=(e)=>{
           this.setState({snackbaropen:true , snackbarmsg : "On-Boarding Mail Sent Successfully"}) 
           window.setTimeout(function(){
           window.location.href='/Employeelist'; 
-          },2000);
+          },1500);
           }
         })  
         .catch(function (error) {  
@@ -88,15 +91,25 @@ DeleteStudent= () =>{
     this.setState({snackbaropen:true , snackbarmsg : "Employee Record Deleted Successfully"})
     window.setTimeout(function(){ 
     window.location.href='/Employeelist';
-    },2000);
+    },1500);
   })  
 } 
+handleCheckClick = () => {
+  this.setState({ checked: !this.state.checked });
+  this.setState({ check: !this.state.check});
+}
 
 render() {
     return (
         <tr>  
           <td style={{ padding:'7px'}}>  
-           <Avatar style={this.props.obj.DOJ.split('T')[0]===dateCheck ?{backgroundColor: '#388e3c',color: '#f3e5f5'}:{backgroundColor: '#3f51b5',color: '#f3e5f5'}}>{this.props.obj.FirstName.charAt(0)}</Avatar>  
+           <Avatar data-tip data-for='happyFace5' style={this.props.obj.DOJ.split('T')[0]===dateCheck ?{backgroundColor: '#388e3c',color: '#f3e5f5'}:{backgroundColor: '#3f51b5',color: '#f3e5f5'}}>{this.props.obj.FirstName.charAt(0)}</Avatar>  
+           {
+          this.state.check?
+          <ReactTooltip id='happyFace5' type='dark' effect='solid'>
+            <span> Note: Avatar Color Turns To Green When<br/> Current Date is 7 Days Before The NewHire<br/> Date.of.Joining</span>
+          </ReactTooltip>:null
+          }
           </td>
           <td style={{ paddingTop:'15px',paddingBottom:'6px'}}>  
             {this.props.obj.FirstName}  
@@ -113,21 +126,39 @@ render() {
           <td style={{ paddingTop:'8px',paddingBottom:'6px'}}>
           <Checkbox
           checked={this.props.obj.SubmissionStatus===true}
-          inputProps={{ 'aria-label': 'primary checkbox' }} style={{ color: '#4caf50' }}
-          />  
+          inputProps={{ 'aria-label': 'primary checkbox' }} data-tip data-for='happyFace4' style={{ color: '#4caf50' }}
+          />
+          {
+            this.state.check?
+          <ReactTooltip id='happyFace4' type='dark' effect='solid'>
+            <span>Checkbox Will Be Checked When NewHire Submitted The Pre-Joining Form.</span>
+          </ReactTooltip>:null
+          }  
           </td>  
           <td style={{ padding:'8px'}}>  
-          <Link to={"/edit/"+this.props.obj.Employee_id} style={{ textDecoration: 'none' }}><ButtonMat elevation={3} variant="contained" color="primary" startIcon={<EditIcon />}>Edit</ButtonMat></Link>  
+          <Link to={"/edit/"+this.props.obj.Employee_id} style={{ textDecoration: 'none' }}><Fab size="small" elevation={3} variant="contained" data-tip data-for='happyFace' color="primary"><EditIcon fontSize="small" /></Fab></Link>  
+          {
+          this.state.check?
+          <ReactTooltip id='happyFace' type='dark' effect='solid'>
+            <span>Click Here To Edit The NewHire Details</span>
+          </ReactTooltip>:null
+          }
           </td>  
           <td style={{ padding:'8px'}}>  
-          <ButtonMat elevation={3} type="button" onClick={this.DeleteStudent} disabled={this.props.obj.MailStatus==="Initiated"} variant="contained" style={{backgroundColor: '#e91e63',color: '#f3e5f5'}} startIcon={<DeleteIcon />}>Delete</ButtonMat> 
+          <Fab size="small" elevation={3} type="button" data-tip data-for='happyFace1' onClick={this.DeleteStudent} disabled={this.props.obj.MailStatus==="Initiated"} variant="contained" style={this.props.obj.MailStatus==="Initiated"?{backgroundColor: '#969696',color: '#f3e5f5'}:{backgroundColor: '#e91e63',color: '#f3e5f5'}}><DeleteIcon fontSize="small"/></Fab> 
+          {
+          this.state.check?
+          <ReactTooltip id='happyFace1' type='dark' effect='solid'>
+            <span>Click Here To Delete NewHire Details. <br/> Note: Details Can't Be Able To Delete When OnBoading Has Been Initiated</span>
+          </ReactTooltip>:null
+          }
           </td>  
           <td style={{ padding:'8px'}}>  
-          <ButtonMat elevation={3} type="button" variant="contained" disabled={this.props.obj.MailStatus==="Initiated"} onClick={this.SendMail} style={this.props.obj.MailStatus==="Initiated"?{backgroundColor: '#3f51b5',color: '#f3e5f5'}:{backgroundColor: '#969696',color: '#f3e5f5'}} startIcon={<SendIcon />}>{this.props.obj.MailStatus}</ButtonMat>
+          <Fab size="small" elevation={3} type="button" variant="contained"  data-tip data-for='happyFace2' disabled={this.props.obj.MailStatus==="Initiated"} onClick={this.SendMail} style={this.props.obj.MailStatus==="Initiated"?{backgroundColor: '#969696',color: '#f3e5f5'}:{backgroundColor: '#3f51b5',color: '#f3e5f5'}}><SendIcon fontSize="small"/></Fab>
           <Snackbar 
             anchorOrigin={{vertical:'bottom',horizontal:'right'}}
             open = {this.state.snackbaropen}
-            autoHideDuration = {2000}
+            autoHideDuration = {1500}
             onClose={this.snackbarClose}
             message = {<span id="message-id">{this.state.snackbarmsg}</span>}
             action ={[
@@ -139,11 +170,27 @@ render() {
             </IconButton>
             ]}
             />
+            {
+            this.state.check?
+            <ReactTooltip id='happyFace2' type='dark' effect='solid'>
+            <span>Click Here To Initiate Onboarding For NewHire</span>
+          </ReactTooltip>:null
+          }
           </td>
           <td style={{ padding:'8px'}}>  
-          <Link to={"/view/"+this.props.obj.Employee_id} style={{ textDecoration: 'none' }}><ButtonMat elevation={3} type="button" variant="contained" style={this.props.obj.SubmissionStatus?{backgroundColor: '#e91e63',color: '#f3e5f5'}:{backgroundColor: '#969696',color: '#f3e5f5'}} startIcon={<VisibilityIcon />}>View</ButtonMat></Link>
-          </td> 
-        </tr>  
+          <Link to={"/view/"+this.props.obj.Employee_id} data-tip data-for='happyFace3' style={{ textDecoration: 'none' }}><Fab size="small" elevation={3} type="button" variant="contained" style={this.props.obj.SubmissionStatus?{backgroundColor: '#e91e63',color: '#f3e5f5'}:{backgroundColor: '#969696',color: '#f3e5f5'}}><VisibilityIcon fontSize="small"/></Fab></Link>
+          {
+            this.state.check?
+          <ReactTooltip id='happyFace3' type='dark' effect='solid'>
+            <span>Click Here To View The Details Submitted By NewHire. <br/> Note: View Button Will Be Enabled Only When Employee Submits The Form.</span>
+          </ReactTooltip>:null
+          }
+          </td>
+          <Checkbox
+         inputProps={{ 'aria-label': 'primary checkbox' }} size="small" checked={this.state.checked} onChange={this.handleCheckClick} style={{ position:'absolute',top:'4.9%',zIndex:'+2',left:'45em',color: '#3f51b5' }}
+         /> 
+        </tr>
+           
     );  
   }  
 }  

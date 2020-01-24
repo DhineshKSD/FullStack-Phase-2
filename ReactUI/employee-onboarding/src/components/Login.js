@@ -45,21 +45,21 @@ if(this.state.UserName==="P100")
   this.setState({snackbaropen:true , snackbarmsg : "Logging in"});
   window.setTimeout(function(){
   window.location.href='/';
-  },2000);  
+  },1000);  
 }
 else
 {
   this.setState({snackbaropen:true , snackbarmsg : "Logging in"});
   window.setTimeout(function(){
   window.location.href='/UserHome';  
-  },2000);  
+  },1000);  
 }
 }).catch(error => { 
   console.log(error);
   this.setState({snackbaropen:true , snackbarmsg : "Login Failed... Invalid Credential."});
   window.setTimeout(function(){
   window.location.href='/Login';
-  },2000);
+  },1000);
 })
 }  
 
@@ -94,7 +94,7 @@ handleSubmit = event => {
           <Snackbar 
           anchorOrigin={{vertical:'bottom',horizontal:'right'}}
           open = {this.state.snackbaropen}
-          autoHideDuration = {2000}
+          autoHideDuration = {1000}
           onClose={this.snackbarClose}
           message = {<span id="message-id">{this.state.snackbarmsg}</span>}
           action ={[

@@ -139,5 +139,49 @@ namespace Employee_Onboarding.Accessory_Classes
 
             return string.Equals(x, storedHash);
         }
+        public static void PassDetails(long id) //Getting Employee id from the User Name
+        {
+            try
+            {
+                using (EmployeeOnboardingEntities1 db = new EmployeeOnboardingEntities1())
+                {
+                    var a = (from pdf in db.Employees.Where(u => u.Employee_id == id) 
+                             select new
+                    {
+                      pdf.FirstName 
+                    }).FirstOrDefault().FirstName;
+                    var b = (from pdf in db.Employees.Where(u => u.Employee_id == id)
+                             select new
+                             {
+                                 pdf.Employee_id
+                             }).FirstOrDefault().Employee_id;
+                    var c = (from pdf in db.Employees.Where(u => u.Employee_id == id)
+                             select new
+                             {
+                                 pdf.DOJ
+                             }).FirstOrDefault().DOJ;
+                    var d = (from pdf in db.Employees.Where(u => u.Employee_id == id)
+                             select new
+                             {
+                                 pdf.LastName
+                             }).FirstOrDefault().LastName;
+                    var e = (from pdf in db.Employees.Where(u => u.Employee_id == id)
+                             select new
+                             {
+                                 pdf.Department
+                             }).FirstOrDefault().Department;
+                    var f = (from pdf in db.Employees.Where(u => u.Employee_id == id)
+                             select new
+                             {
+                                 pdf.PersonalEmail
+                             }).FirstOrDefault().PersonalEmail;
+                    PDF.PrintReceipt(a,b,c,d,e,f);
+                }
+            }
+            catch (Exception ex)
+            {
+                LogFile.WriteLog(ex);
+            }
+        }
     }
 }

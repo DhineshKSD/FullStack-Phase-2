@@ -166,7 +166,7 @@ if(json.data.Status==='Success')
   //alert("Personal Details Saved Successfully"); 
   window.setTimeout(function(){
   window.location.href='/Education';
-  },2000);      
+  },1500);      
 } 
 else if(json.data.Status==='PersonalInfoCheck')
 {  
@@ -174,7 +174,7 @@ this.setState({snackbaropen:true , snackbarmsg : "Personalinfo Detail's Already 
 //alert("Education Detail's Saved Successfully"); 
 window.setTimeout(function(){
 window.location.href='/Education';  
-},2000); 
+},1500); 
 }  
 else
 {
@@ -205,7 +205,7 @@ return (
       <Snackbar 
         anchorOrigin={{vertical:'bottom',horizontal:'right'}}
         open = {this.state.snackbaropen}
-        autoHideDuration = {2000}
+        autoHideDuration = {1500}
         onClose={this.snackbarClose}
         message = {<span id="message-id">{this.state.snackbarmsg}</span>}
         action ={[

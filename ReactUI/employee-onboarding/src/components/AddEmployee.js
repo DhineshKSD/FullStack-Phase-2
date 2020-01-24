@@ -110,7 +110,7 @@ if(json.data.Status==='Success')
   console.log(json.data.Status);  
   window.setTimeout(function(){
   window.location.href='/Employeelist'; 
-  },2000);
+  },1500);
 }
 else if(json.data.Status==='UserNameCheck')
 {  
@@ -162,7 +162,7 @@ return (
       <Snackbar 
       anchorOrigin={{vertical:'bottom',horizontal:'right'}}
       open = {this.state.snackbaropen}
-      autoHideDuration = {2000}
+      autoHideDuration = {1500}
       onClose={this.snackbarClose}
       message = {<span id="message-id">{this.state.snackbarmsg}</span>}
       action ={[

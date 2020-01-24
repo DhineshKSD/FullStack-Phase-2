@@ -16,10 +16,13 @@ import MoreIcon from '@material-ui/icons/MoreVert';
 import '../App.css';  
 import logo from '../Assets/OnboardLogo.png';
 import { BrowserRouter as Router, Link } from 'react-router-dom'; 
-import DarkTheme, { createTheme } from 'react-dark-theme'
+import DarkTheme, { createTheme } from 'react-dark-theme';
+import Avatar from '@material-ui/core/Avatar';
+
+var name=localStorage.getItem('User')
 
 const lightTheme = {
-  background: '#c5cae965',
+  background: '#FFFFFF',
   text:'black',
 }
  
@@ -133,7 +136,7 @@ const renderMenu = (
     open={isMenuOpen}
     onClose={handleMenuClose}
   >
-    <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
+    <MenuItem onClick={handleMenuClose}><b>{localStorage.getItem('FirstName')}</b></MenuItem>
     <MenuItem onClick={handleMenuClose}>My account</MenuItem>
     <Link to='/Login' style={{ textDecoration: 'none' }} onClick={event =>window.location.href='/Login'}><MenuItem onClick={event=>RemoveToken()}>Logout</MenuItem></Link></Menu>
 ); 

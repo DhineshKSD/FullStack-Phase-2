@@ -97,7 +97,7 @@ render() {
             <Delayed waitBeforeShow={1500}>
             <PrimarySearchAppBar/>
             <Navigation/>
-                    <Card id="card1" elevation={10}>
+                    <Card id="card1" elevation={12}>
                         <CardContent>
                         <Carousel>
                         <Carousel.Item>
@@ -125,7 +125,7 @@ render() {
                         </CardContent>
                     </Card>
 
-                    <Card id="card2" elevation={10}>
+                    <Card id="card2" elevation={12}>
                         <CardContent>
                             <img src={ThanksAvatar} className="WelcomeAvatar" alt="WelcomeAvatar" />
 

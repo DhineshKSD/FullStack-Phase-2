@@ -119,7 +119,7 @@ AddEmployment=()=>{
                 //alert("Education Detail's Saved Successfully"); 
                 window.setTimeout(function(){
                 window.location.href='/Employment'; 
-                },2000);   
+                },1500);   
                 }  
                 else
                 { 
@@ -190,7 +190,7 @@ render() {
             <Snackbar 
             anchorOrigin={{vertical:'bottom',horizontal:'right'}}
             open = {this.state.snackbaropen}
-            autoHideDuration = {2000}
+            autoHideDuration = {1500}
             onClose={this.snackbarClose}
             message = {<span id="message-id">{this.state.snackbarmsg}</span>}
             action ={[
@@ -210,13 +210,13 @@ render() {
                 aria-labelledby="alert-dialog-slide-title"
                 aria-describedby="alert-dialog-slide-description"
             >
-            <DialogTitle id="alert-dialog-slide-title">{"Please Confirm"}</DialogTitle>
+            <DialogTitle id="alert-dialog-slide-title">{"Please Read Me!"}</DialogTitle>
             <DialogContent>
                   <DialogContentText id="alert-dialog-slide-description">
                     <b>Note: </b><br/><br/>
-                    1.) <b>Fresher's</b> : Click <b>'Submit'</b> button to complete this section. <br/>  
+                    1.) <b>Fresher's :</b><br/><br/>  - Click <b>'Submit'</b> button to complete this section. <br/>  
                     <br/>
-                    2.) <b>Experienced :</b><br/>  - Click <b>'Submit'</b> button to save your employment details and proceed with filling another employment details(In case of Multiple Work Experience).<br/>
+                    2.) <b>Experienced :</b><br/><br/>  - Click <b>'Submit'</b> button to save your employment details and proceed with filling another employment details(In case of Multiple Work Experience).<br/><br/>
                               - Click <b>'Finish'</b> button to save save your employment details and complete this section and .
                   </DialogContentText>
             </DialogContent>

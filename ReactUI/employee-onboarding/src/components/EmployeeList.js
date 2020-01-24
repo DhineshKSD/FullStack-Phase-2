@@ -13,7 +13,10 @@ import Checkbox from '@material-ui/core/Checkbox';
 import NavigateNextIcon from '@material-ui/icons/NavigateNext';
 import ButtonMat from '@material-ui/core/Button';
 import Fab from '@material-ui/core/Fab';
-import NavTab from '../NavTab'
+import NavTab from '../NavTab';
+import HelpIcon from '@material-ui/icons/LiveHelp';
+import Help from '../Assets/Help.png';
+import ReactTooltip from 'react-tooltip';
 
 const lightTheme = {
   background: '#c5cae965',
@@ -44,24 +47,30 @@ componentDidMount(){
     })  
     .catch(function (error) {  
       console.log(error);  
-    })  
+    }) 
 } 
 
 tabRow(){  
   return this.state.business.map(function(object, i){
       return <Table obj={object} key={i} />; 
   });  
-} 
+}
 
 render() {
     return (  
       <div id="tablecard" style={{ backgroundColor: myTheme.background, color: myTheme.text }}> 
         <PrimarySearchAppBar/>
-        <Navigation/> 
+        <Navigation/>
         <Card id="EmpListCard" elevation={7} >
               <CardContent>
-                  <h5 className="EmpListHeading" align="center">On-Boarding Queue</h5>
-                  <div id="list"> 
+                  <h5 className="EmpListHeading" align="center">On-Boarding Queue</h5><img data-tip data-for='happyFacex'
+                            className="Help"
+                            src={Help} 
+                            alt="Help"
+                            />
+                    <ReactTooltip id='happyFacex' type='dark' effect='solid'>
+                      <span> Click Me For Help Mode </span>
+                    </ReactTooltip> 
                     <table className="table table-hover" style={{ marginTop: '2em' ,textAlign:'center'}}>  
                       <thead style={{backgroundColor:'#c3c5c4'}}>  
                           <tr>  
@@ -72,16 +81,16 @@ render() {
                               <th>Department</th>
                               <th>Status</th>  
                               <th colSpan="4">Action </th>  
-                          </tr>  
+                          </tr> 
                       </thead>  
                       <tbody>  
                           { this.tabRow() }   
                       </tbody>  
                   </table>
-                  </div>  
+                  
                </CardContent>
         </Card>
-      </div>  
+        </div>  
     );  
   }  
 }

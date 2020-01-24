@@ -206,14 +206,14 @@ if(json.data.Status==='Success')
 this.setState({snackbaropen:true , snackbarmsg : "Education Detail's Saved Successfully"}) 
 window.setTimeout(function(){
 window.location.href='/Employment'; 
-},2000);  
+},1500);  
 }  
 else if(json.data.Status==='Coursecheck')
 {  
 this.setState({snackbaropen:true , snackbarmsg : "Education Detail's Already Exist"}) 
 window.setTimeout(function(){
 window.location.href='/Education'; 
-},2000);    
+},1500);    
 }  
 else
 { 
@@ -246,7 +246,7 @@ axios.put('https://localhost:44319/api/PutEmployeeByUserId/'+userId, obj)
 Next=()=>{
     window.setTimeout(function(){
     window.location.href='/Employment';  
-    },2000); 
+    },1500); 
 }
 
 handleChange= (e)=> {  
@@ -284,7 +284,7 @@ render() {
                     <Snackbar 
                     anchorOrigin={{vertical:'bottom',horizontal:'right'}}
                     open = {this.state.snackbaropen}
-                    autoHideDuration = {2000}
+                    autoHideDuration = {1500}
                     onClose={this.snackbarClose}
                     message = {<span id="message-id">{this.state.snackbarmsg}</span>}
                     action ={[

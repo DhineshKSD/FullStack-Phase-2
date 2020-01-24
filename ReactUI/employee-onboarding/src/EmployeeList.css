@@ -19,6 +19,8 @@ top:9.5em;
 background-color:#f7f8f7;
 width:85%;
 left:6em;
+height:auto;
+min-height: 72vh;
 }
 #list{
 position: relative; 
@@ -36,6 +38,13 @@ padding:10px;
 border:solid 1px black;
 background-color:#333333;
 color: #2db7bc;
+}
+.Help{
+position: absolute;
+width:3%;
+height: auto;
+top:3%;
+left:95.7%;
 }
 #show1{
 position: absolute;
@@ -56,4 +65,10 @@ padding:10px;
 border:solid 1px black;
 background-color:#333333;
 color: #2db7bc;
+}
+#search{
+    position: absolute;
+    top:11em;
+    z-index: +1;
+    left:7em;
 }
