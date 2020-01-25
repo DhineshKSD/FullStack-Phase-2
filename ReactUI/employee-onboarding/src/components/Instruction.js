@@ -30,7 +30,7 @@ export default function AlertDialogSlide() {
   const handleClose = () => {
     setOpen(false);
   };
-
+  var JoiningDate = localStorage.getItem("DOJ");
   return (
     <div>
       <Button variant="contained" color="secondary" onClick={handleClickOpen} style={{ width:'100px' }}>
@@ -52,9 +52,10 @@ export default function AlertDialogSlide() {
                     to access our onboarding portal. The portal will allow you to complete all the pre-joining formalities  
                     and submitting all new-hire paperwork, online! <br/><br/>
                     <b>Note: </b><br/><br/>
-                    1.) Please complete all the pre-joining forms and submit before the Date of Joining. 
+                    1.) Please complete all the pre-joining forms and submit before the Date of Joining (<b>{JoiningDate}</b>). 
                     <br/>
-                    2.) Once started to fill the form, complete the entire process and submit the form.
+                    2.) Once started to fill the form, complete the entire process and submit the form.<br/>
+                    3.) Download the Pre-Joining form and bring it on the day one of joining.
                   </DialogContentText>
             </DialogContent>
             <DialogActions>

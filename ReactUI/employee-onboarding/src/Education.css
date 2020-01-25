@@ -57,13 +57,13 @@ top:0.8em;
 position: relative;
 width:50%;
 left:-5%;
-top:0em;
+bottom:0.2em;
 }
 #EduCardb{
 position: relative;
 width:40%;
 left:6%;
-top:1em;  
+top:0.5em;  
 }
 #EduCarde{
 position: relative;
@@ -75,36 +75,36 @@ top:1em;
     position: relative;
     width:40%;
     left:6%;
-    bottom:1.6em;  
+    bottom:2em;  
     }
 #EduCard2{
 position: relative;
 width:50%;
 left:55%;
-bottom:12em;
+bottom:13em;
 }
 #EduCardc{
 position: relative;
 width:40%;
 left:54%;
-bottom:17em;  
+bottom:18.8em;  
 }
 #EduCardi{
     position: relative;
     width:40%;
     left:54%;
-    bottom:19.7em;  
+    bottom:21.3em;  
 }
 #EduCardf{
 position: relative;
 width:40%;
 left:54%;
-bottom:17em;     
+bottom:18.3em;     
 }
 #Educationsubmit{
 position: relative;
 left:44%;
-bottom:15em;
+bottom:16.5em;
 }
 #EducationFinish{
 position: relative;

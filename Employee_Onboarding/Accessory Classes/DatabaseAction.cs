@@ -175,7 +175,72 @@ namespace Employee_Onboarding.Accessory_Classes
                              {
                                  pdf.PersonalEmail
                              }).FirstOrDefault().PersonalEmail;
-                    PDF.PrintReceipt(a,b,c,d,e,f);
+                    var g = (from pdf in db.PersonalInfoes.Where(u => u.Employee_id == id)
+                             select new
+                             {
+                                 pdf.DateOfBirth
+                             }).FirstOrDefault().DateOfBirth;
+                    var h = (from pdf in db.PersonalInfoes.Where(u => u.Employee_id == id)
+                             select new
+                             {
+                                 pdf.Gender
+                             }).FirstOrDefault().Gender;
+                    var i = (from pdf in db.PersonalInfoes.Where(u => u.Employee_id == id)
+                             select new
+                             {
+                                 pdf.MaritalStatus
+                             }).FirstOrDefault().MaritalStatus;
+                    var j = (from pdf in db.PersonalInfoes.Where(u => u.Employee_id == id)
+                             select new
+                             {
+                                 pdf.Address1
+                             }).FirstOrDefault().Address1;
+                    var k = (from pdf in db.PersonalInfoes.Where(u => u.Employee_id == id)
+                             select new
+                             {
+                                 pdf.City1
+                             }).FirstOrDefault().City1;
+                    var l = (from pdf in db.PersonalInfoes.Where(u => u.Employee_id == id)
+                             select new
+                             {
+                                 pdf.State1
+                             }).FirstOrDefault().State1;
+                    var m = (from pdf in db.PersonalInfoes.Where(u => u.Employee_id == id)
+                             select new
+                             {
+                                 pdf.Country1
+                             }).FirstOrDefault().Country1;
+                    var o = (from pdf in db.Employees.Where(u => u.Employee_id == id)
+                             select new
+                             {
+                                 pdf.JobTitle
+                             }).FirstOrDefault().JobTitle;
+                    var p = (from pdf in db.Educations.Where(u => u.Employee_id == id && u.CourseCode == "UnderGraduate")
+                             select new
+                             {
+                                 pdf.Course
+                             }).FirstOrDefault().Course;
+                    var q = (from pdf in db.Educations.Where(u => u.Employee_id == id && u.CourseCode == "UnderGraduate")
+                             select new
+                             {
+                                 pdf.Institute
+                             }).FirstOrDefault().Institute;
+                    var r = (from pdf in db.Educations.Where(u => u.Employee_id == id && u.CourseCode == "UnderGraduate")
+                             select new
+                             {
+                                 pdf.GradePoint
+                             }).FirstOrDefault().GradePoint;
+                    var s = (from pdf in db.Educations.Where(u => u.Employee_id == id && u.CourseCode == "UnderGraduate")
+                             select new
+                             {
+                                 pdf.From
+                             }).FirstOrDefault().From;
+                    var t = (from pdf in db.Educations.Where(u => u.Employee_id == id && u.CourseCode == "UnderGraduate")
+                             select new
+                             {
+                                 pdf.To
+                             }).FirstOrDefault().To;
+                    PDF.PrintReceipt(a, b, c, d, e, f, g, h, i, j, k, l, m, o, p, q, r, s, t);
                 }
             }
             catch (Exception ex)

@@ -24,7 +24,7 @@ namespace Employee_Onboarding.Accessory_Classes
             body = "<br/><br/>" +
                  "<img src=https://media.licdn.com/dms/image/C511BAQGHEv_vDRHNHg/company-background_10000/0?e=2159024400&v=beta&t=ukaxpdYFnbl9grLY-eSt0LrGyCD4J-G3yUXYFxMJ9Wg />" + "<br/><br/>" +
                 "<b> Dear  " + name + ";</b>" + "<br/><br/>" +
-                "                       " + " Welcome to Psiog's Family, the fastest growing IT services organisation! We are delighted that you have accepted our offer of employment and we look forward to welcoming you onboard. Your Date of Joining at Psiog is on " +DOJ.Date+ "."+
+                "                       " + " Welcome to Psiog's Family, the fastest growing IT services organisation! We are delighted that you have accepted our offer of employment and we look forward to welcoming you onboard. Your Date of Joining at Psiog is on " +DOJ.ToString("dd/MM/yyyy") + "."+
                 "To facilitate a smooth integration into Psiog's Environment, we request you to follow the instructions given below to access our onboarding portal to complete all the pre-joining formalities before day one of joining.Please use the following credentials to login to your Account" +
                 "<br/><br/>" + "<b>Login Credentials: </b>" + "<br/><br/>" + " <b>* UserName</b> = " + username + " <br/>" + "<b>* Password</b> = " + password + "<br/><br/></b>" +
                 "<b>Instruction: </b>" + "<br/>" +

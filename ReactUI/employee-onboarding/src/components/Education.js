@@ -308,7 +308,7 @@ render() {
 
                                     <TextField type="text" required id="standard-required" label="Institute"autoComplete="off" placeholder="Institute" fullWidth margin="normal" name="Institute" value={this.state.Institute} onChange={this.handleChange}/>
 
-                                    <TextField type="number" required id="standard-required" label="GradePoint"autoComplete="off" placeholder="GradePoint" fullWidth margin="normal" name="GradePoint" value={this.state.GradePoint} onChange={this.handleChange}/>
+                                    <TextField type="number" helperText="Enter Total Marks In Percentage" required id="standard-required" label="GradePoint"autoComplete="off" placeholder="GradePoint" fullWidth margin="normal" name="GradePoint" value={this.state.GradePoint} onChange={this.handleChange}/>
                                 </div>
                                 <div id="EduCard2">
                                     <TextField id="date" label="From" type="date" inputProps={{min: year+'-01-01'}} fullWidth margin="normal" name="From" value={this.state.From} onChange={this.handleChange} InputLabelProps={{shrink: true, }}/>
@@ -329,7 +329,7 @@ render() {
 
                                     <TextField type="text" required id="standard-required" label="Institute"autoComplete="off" placeholder="Institute" fullWidth margin="normal" name="Institute1" value={this.state.Institute1} onChange={this.handleChange}/>
 
-                                    <TextField type="number" required id="standard-required" label="GradePoint"autoComplete="off" placeholder="GradePoint" fullWidth margin="normal" name="GradePoint1" value={this.state.GradePoint1} onChange={this.handleChange}/>
+                                    <TextField type="number" helperText="Enter Total Marks In Percentage" required id="standard-required" label="GradePoint"autoComplete="off" placeholder="GradePoint" fullWidth margin="normal" name="GradePoint1" value={this.state.GradePoint1} onChange={this.handleChange}/>
                                 </div>
                                 <div id="EduCardc">
                                     <TextField id="date" label="From" type="date" inputProps={{min: this.state.To}} fullWidth margin="normal" name="From1" value={this.state.From1} onChange={this.handleChange} InputLabelProps={{shrink: true, }}/>
@@ -349,7 +349,7 @@ render() {
 
                                     <TextField type="text" required id="standard-required" label="Institute"autoComplete="off" placeholder="Institute" fullWidth margin="normal" name="Institute2" value={this.state.Institute2} onChange={this.handleChange}/>
 
-                                    <TextField type="number" required id="standard-required" label="GradePoint"autoComplete="off" placeholder="GradePoint" fullWidth margin="normal" name="GradePoint2" value={this.state.GradePoint2} onChange={this.handleChange}/>
+                                    <TextField type="number" helperText="Enter Total Marks In Percentage" required id="standard-required" label="GradePoint"autoComplete="off" placeholder="GradePoint" fullWidth margin="normal" name="GradePoint2" value={this.state.GradePoint2} onChange={this.handleChange}/>
                                 </div>
                                 <div id="EduCardf">
                                     <TextField id="date" label="From" type="date" inputProps={{min: this.state.To1}} fullWidth margin="normal" name="From2" value={this.state.From2} onChange={this.handleChange} InputLabelProps={{shrink: true, }}/>
@@ -373,7 +373,7 @@ render() {
 
                                     <TextField type="text" disabled={this.state.check===false} required id="standard-required" label="Institute"autoComplete="off" placeholder="Institute" fullWidth margin="normal" name="Institute3" value={this.state.Institute3} onChange={this.handleChange}/>
 
-                                    <TextField type="number" disabled={this.state.check===false} required id="standard-required" label="GradePoint"autoComplete="off" placeholder="GradePoint" fullWidth margin="normal" name="GradePoint3" value={this.state.GradePoint3} onChange={this.handleChange}/>
+                                    <TextField type="number" helperText="Enter Total Marks In Percentage" disabled={this.state.check===false} required id="standard-required" label="GradePoint"autoComplete="off" placeholder="GradePoint" fullWidth margin="normal" name="GradePoint3" value={this.state.GradePoint3} onChange={this.handleChange}/>
                                 </div>
                                 <div id="EduCardi">
                                     <TextField id="date" disabled={this.state.check===false} label="From" type="date" inputProps={{min: this.state.To2}} fullWidth margin="normal" name="From3" value={this.state.From3} onChange={this.handleChange} InputLabelProps={{shrink: true, }}/>

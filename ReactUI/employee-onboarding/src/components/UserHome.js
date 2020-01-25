@@ -37,6 +37,7 @@ export class UserHome extends Component {
         this.state = {  
         FirstName:'' ,
         SubmissionStatus:true,
+        DOJ:'',
         disp:'',
         spin:true   
         }
@@ -53,9 +54,11 @@ componentDidMount() {
             this.setState({   
                 FirstName: response.data.FirstName,
                 SubmissionStatus :response.data.SubmissionStatus,
+                DOJ : response.data.DOJ,
                 disp : localStorage.setItem('FirstName',response.data.FirstName)   
                 }); 
             localStorage.setItem('FirstName',response.data.FirstName);
+            localStorage.setItem('DOJ',response.data.DOJ.split('T')[0]);
             console.log(this.state.SubmissionStatus);
         })  
         .catch(function (error) {  

@@ -14,12 +14,63 @@ position: relative;
 text-align: center;
 font-size: 2em;
 left:-5%;
-top:9em;
+top:6.5em;
 }
 .ThanksAvatar{
 position: relative;
 width:30%;
 height: auto;
 left:35%;
-top:5.5em;
+top:3.5em;
+}
+#download{
+position: relative;
+left:22%;
+top:2.5em;
+}
+#click{
+position: relative;
+z-index: +1;
+bottom:3em;
+left:38.2%;
+}
+.box{
+    position:absolute;
+    top:79%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    z-index: +1;
+}
+.box span{
+    display: block;
+    width:20px;
+    height:20px;
+    border-bottom: 2px solid black;
+    border-right: 2px solid black;
+    transform: rotate(45deg);
+    margin:-10px;
+    animation: animate 2s infinite;
+}
+.box span:nth-child(1)
+{
+    animation-delay: -0.2s;
+    transform: rotate(45deg) translate(-20px,-20px);
+}
+.box span:nth-child(2)
+{
+    animation-delay: -0.4s;
+    transform: rotate(45deg);
+}
+@keyframes animate{
+    0%{
+        opacity: 0;
+        transform: rotate(45deg) translate(-20px,-20px);
+    }
+    50%{
+        opacity: 1;
+    }
+    100%{
+        opacity: 0;
+        transform: rotate(45deg) translate(-20px,-20px);
+    }
 }
