@@ -104,6 +104,14 @@ render() {
             />
             <Delayed waitBeforeShow={2000}>
             <PrimarySearchAppBar/>
+            {
+                this.state.SubmissionStatus?null:<div class="box1">
+                <span></span>
+                <span></span>
+                <span></span>
+                </div>
+            }
+            
             <Col sm={1} id="Instructions">  
             <ButtonMat color="secondary" data-tip data-for='happyFace' disabled={this.state.SubmissionStatus}><Instruction /><ReactTooltip id='happyFace' place="left" type='dark' effect='solid'>
             <span> Note: Click Here To Start Filling Your Pre-Joining Forms </span>

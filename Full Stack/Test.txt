@@ -1,12 +1,4 @@
-﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Employee_Onboarding.Accessory_Classes;
-using Employee_Onboarding.Features;
-using Employee_Onboarding.Models;
-
-namespace UnitTestProject1
-{
-    [TestClass]
+ [TestClass]
     public class UnitTest1
     {
         [TestMethod]
@@ -49,4 +41,3 @@ namespace UnitTestProject1
             Assert.AreEqual(check, result);
         }
     }
-}
