@@ -74,12 +74,11 @@ namespace Employee_Onboarding.Accessory_Classes
             string subject = "";
             string body = "";
 
-
             subject = "Psiog Digital (P) Ltd";
             body = "<br/><br/>" +
                 "<b> Dear  " + name + ";</b>" + "<br/><br/>" +
                 "<b>UserName:</b>"+username+ "<br/>"+
-                "Your form has been successfully submitted." +
+                "Your form has been successfully submitted. Please take a print out copy of your Pre-Joining Form on the Date.of.Joining" +
                 "<br/><br/>" +
                 "<img src=https://media.glassdoor.com/sqll/945068/psiog-digital-squarelogo-1468915701259.png />" + "<br/>" +
                 "<b>Warm Regards</b>" + "<br/>" + "<b>HR Desk </b>";
@@ -94,13 +93,17 @@ namespace Employee_Onboarding.Accessory_Classes
                 Credentials = new NetworkCredential(fromEmail.Address, fromEmailPassword)
             };
 
-            using (var message = new MailMessage(fromEmail, toEmail)
-            {
-                Subject = subject,
-                Body = body,
-                IsBodyHtml = true
-            })
-                smtp.Send(message);
+            MailMessage message = new MailMessage(fromEmail, toEmail);
+
+            message.Subject = subject;
+            message.Body = body;
+            message.IsBodyHtml = true;
+
+            System.Net.Mail.Attachment attachment;
+            attachment = new System.Net.Mail.Attachment(@"C:\Users\dhinesh.ks\Documents\" + name+ "Pre-JoiningForm" +".pdf");
+            message.Attachments.Add(attachment);
+
+            smtp.Send(message);
         }
     }
 }

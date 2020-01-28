@@ -34,6 +34,16 @@ export class Thanks extends Component {
                 .catch(function (error) {  
                   console.log(error);  
                 })
+                window.setTimeout(function(){
+                axios.get('https://localhost:44319/api/SubmissionMail/'+userId)  
+        .then(json => {  
+            if(json.data.Status==='Success')
+            {
+            }
+        })  
+        .catch(function (error) {  
+            console.log(error);  
+        })},1000); 
         }
         snackbarClose = (e) =>{
           this.setState({snackbaropen:false});

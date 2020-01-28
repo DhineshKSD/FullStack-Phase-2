@@ -14,7 +14,7 @@ namespace Employee_Onboarding.Accessory_Classes
 {
     public class PDF
     {
-        public static void PrintReceipt(string name,long id,DateTime Day,string lastname,string dept,string email,DateTime dob,string gender,string maritalstatus,string address1,string city1,string state1,string country1,string role,string course,string institute,float mark, DateTime from, DateTime to)
+        public static void PrintReceipt(string name,long id,DateTime Day,string lastname,string dept,string email,DateTime dob,string gender,string maritalstatus,string address1,string city1,string state1,string country1,string role,string course,string institute,float mark, DateTime from, DateTime to, string course1, string institute1, float mark1, DateTime from1, DateTime to1, string course2, string institute2, float mark2, DateTime from2, DateTime to2)
         {
             try
             {
@@ -37,6 +37,16 @@ namespace Employee_Onboarding.Accessory_Classes
                 pdfTableFooter2.WidthPercentage = 100;
                 pdfTableFooter2.DefaultCell.HorizontalAlignment = Element.ALIGN_CENTER;
 
+                PdfPTable pdfTableFooter3 = new PdfPTable(1);
+                pdfTableFooter3.DefaultCell.BorderWidth = 0;
+                pdfTableFooter3.WidthPercentage = 100;
+                pdfTableFooter3.DefaultCell.HorizontalAlignment = Element.ALIGN_CENTER;
+
+                PdfPTable pdfTableFooter4 = new PdfPTable(1);
+                pdfTableFooter4.DefaultCell.BorderWidth = 0;
+                pdfTableFooter4.WidthPercentage = 100;
+                pdfTableFooter4.DefaultCell.HorizontalAlignment = Element.ALIGN_CENTER;
+
                 Chunk cnkFooter = new Chunk("General Information", FontFactory.GetFont("Currier"));
                 //cnkFooter.Font.SetStyle(1);
                 cnkFooter.Font.Size = 16;
@@ -53,6 +63,16 @@ namespace Employee_Onboarding.Accessory_Classes
                 cnkFooter2.Font.Size = 16;
                 pdfTableFooter2.AddCell(new Phrase(cnkFooter2));
 
+                Chunk cnkFooter3 = new Chunk("HSC Education Information", FontFactory.GetFont("Currier"));
+                //cnkFooter.Font.SetStyle(1);
+                cnkFooter3.Font.Size = 16;
+                pdfTableFooter3.AddCell(new Phrase(cnkFooter3));
+
+                Chunk cnkFooter4 = new Chunk("SSLC Education Information", FontFactory.GetFont("Currier"));
+                //cnkFooter.Font.SetStyle(1);
+                cnkFooter4.Font.Size = 16;
+                pdfTableFooter4.AddCell(new Phrase(cnkFooter4));
+
                 pdfTableBlank.AddCell(new Phrase(" "));
                 pdfTableBlank.DefaultCell.Border = 0;
                 #endregion
@@ -66,6 +86,9 @@ namespace Employee_Onboarding.Accessory_Classes
                 PdfPTable pdfTable7 = new PdfPTable(2);
                 PdfPTable pdfTable3 = new PdfPTable(2);
                 PdfPTable pdfTable5 = new PdfPTable(2);
+                PdfPTable pdfTable8 = new PdfPTable(2);
+                PdfPTable pdfTable9 = new PdfPTable(2);
+                PdfPTable pdfTable10 = new PdfPTable(1);
 
                 //Font Style
                 System.Drawing.Font fontH1 = new System.Drawing.Font("Currier", 16);
@@ -85,6 +108,13 @@ namespace Employee_Onboarding.Accessory_Classes
                 //pdfTab2e1.DefaultCell.BackgroundColor = new iTextSharp.text.BaseColor(64, 134, 170);
                 pdfTable2.DefaultCell.BorderWidth = 0;
 
+                pdfTable10.WidthPercentage = 80;
+                pdfTable10.DefaultCell.HorizontalAlignment = Element.ALIGN_RIGHT;
+                pdfTable10.DefaultCell.VerticalAlignment = Element.ALIGN_RIGHT;
+                //pdfTab2e1.DefaultCell.BackgroundColor = new iTextSharp.text.BaseColor(64, 134, 170);
+                pdfTable10.DefaultCell.BorderWidth = 0;
+                pdfTable10.DefaultCell.PaddingRight = 80;
+
                 pdfTable6.WidthPercentage = 80;
                 pdfTable6.DefaultCell.HorizontalAlignment = Element.ALIGN_CENTER;
                 pdfTable6.DefaultCell.VerticalAlignment = Element.ALIGN_CENTER;
@@ -95,6 +125,14 @@ namespace Employee_Onboarding.Accessory_Classes
                 pdfTable7.WidthPercentage = 80;
                 pdfTable7.DefaultCell.BorderWidth = 0.5f;
 
+                pdfTable8.DefaultCell.Padding = 5;
+                pdfTable8.WidthPercentage = 80;
+                pdfTable8.DefaultCell.BorderWidth = 0.5f;
+
+                pdfTable9.DefaultCell.Padding = 5;
+                pdfTable9.WidthPercentage = 80;
+                pdfTable9.DefaultCell.BorderWidth = 0.5f;
+
                 pdfTable3.DefaultCell.Padding = 5;
                 pdfTable3.WidthPercentage = 80;
                 pdfTable3.DefaultCell.BorderWidth = 0.5f;
@@ -104,10 +142,10 @@ namespace Employee_Onboarding.Accessory_Classes
                 pdfTable5.DefaultCell.BorderWidth = 0.5f;
 
 
-                Chunk c1 = new Chunk("Pre-Joining Form", FontFactory.GetFont("Times New Roman"));
+                Chunk c1 = new Chunk("Psiog Digital : Pre-Joining Form", FontFactory.GetFont("Times New Roman"));
                 c1.Font.Color = new iTextSharp.text.BaseColor(0, 0, 0);
                 c1.Font.SetStyle(0);
-                c1.Font.Size = 14;
+                c1.Font.Size = 18;
                 Phrase p1 = new Phrase();
                 p1.Add(c1);
                 pdfTable1.AddCell(p1);
@@ -153,8 +191,44 @@ namespace Employee_Onboarding.Accessory_Classes
                 Phrase p5 = new Phrase();
                 p5.Add(c5);
                 pdfTable2.AddCell(p5);
-                
+                Chunk c11 = new Chunk("Signature - ", FontFactory.GetFont("Times New Roman"));
+                c11.Font.Color = new iTextSharp.text.BaseColor(0, 0, 0);
+                c11.Font.SetStyle(0);
+                c11.Font.Size = 11;
+                Phrase p11 = new Phrase();
+                p11.Add(c11);
+                pdfTable10.AddCell(p11);
+                Chunk c12 = new Chunk("Place - ", FontFactory.GetFont("Times New Roman"));
+                c12.Font.Color = new iTextSharp.text.BaseColor(0, 0, 0);
+                c12.Font.SetStyle(0);
+                c12.Font.Size = 11;
+                Phrase p12 = new Phrase();
+                p12.Add(c12);
+                pdfTable10.AddCell(p12);
+                Chunk c13 = new Chunk("Date - ", FontFactory.GetFont("Times New Roman"));
+                c13.Font.Color = new iTextSharp.text.BaseColor(0, 0, 0);
+                c13.Font.SetStyle(0);
+                c13.Font.Size = 11;
+                Phrase p13 = new Phrase();
+                p13.Add(c13);
+                pdfTable10.AddCell(p13);
 
+
+                #endregion
+
+                #region Section-Image
+
+                string imageURL = "https://media-exp1.licdn.com/dms/image/C510BAQGg_o6rmzwRkw/company-logo_200_200/0?e=2159024400&v=beta&t=uTRFbTPIwfiZRT3eHTms1yJWuK6NYCEVKsp_12bn61s";
+                iTextSharp.text.Image jpg = iTextSharp.text.Image.GetInstance(imageURL);
+
+                //Resize image depend upon your need
+                jpg.ScaleToFit(140f, 120f);
+                //Give space before image
+                jpg.SpacingBefore = 10f;
+                //Give some space after the image
+                jpg.SpacingAfter = 1f;
+
+                jpg.Alignment = Element.ALIGN_CENTER;
                 #endregion
 
                 #region section Table
@@ -211,6 +285,29 @@ namespace Employee_Onboarding.Accessory_Classes
                 pdfTable7.AddCell(new Phrase("To"));
                 pdfTable7.AddCell(new Phrase(to.ToString("dd/MM/yyyy")));
 
+
+                pdfTable8.AddCell(new Phrase("Course"));
+                pdfTable8.AddCell(new Phrase(course1));
+                pdfTable8.AddCell(new Phrase("Institute"));
+                pdfTable8.AddCell(new Phrase(institute1));
+                pdfTable8.AddCell(new Phrase("GradePoint"));
+                pdfTable8.AddCell(new Phrase(Convert.ToString(mark1)));
+                pdfTable8.AddCell(new Phrase("From"));
+                pdfTable8.AddCell(new Phrase(from1.ToString("dd/MM/yyyy")));
+                pdfTable8.AddCell(new Phrase("To"));
+                pdfTable8.AddCell(new Phrase(to1.ToString("dd/MM/yyyy")));
+
+                pdfTable9.AddCell(new Phrase("Course"));
+                pdfTable9.AddCell(new Phrase(course2));
+                pdfTable9.AddCell(new Phrase("Institute"));
+                pdfTable9.AddCell(new Phrase(institute2));
+                pdfTable9.AddCell(new Phrase("GradePoint"));
+                pdfTable9.AddCell(new Phrase(Convert.ToString(mark2)));
+                pdfTable9.AddCell(new Phrase("From"));
+                pdfTable9.AddCell(new Phrase(from2.ToString("dd/MM/yyyy")));
+                pdfTable9.AddCell(new Phrase("To"));
+                pdfTable9.AddCell(new Phrase(to2.ToString("dd/MM/yyyy")));
+
                 #endregion
                 #endregion
 
@@ -224,7 +321,7 @@ namespace Employee_Onboarding.Accessory_Classes
 
                 //File Name
                 int fileCount = Directory.GetFiles(@"C:\Users\dhinesh.ks\Documents\").Length;
-                string strFileName = name + "Pre-JoiningForm" + (fileCount + 1) + ".pdf";
+                string strFileName = name + "Pre-JoiningForm"+ ".pdf";
 
                 using (FileStream stream = new FileStream(folderPath + strFileName, FileMode.Create))
                 {
@@ -232,7 +329,9 @@ namespace Employee_Onboarding.Accessory_Classes
                     PdfWriter.GetInstance(pdfDoc, stream);
                     pdfDoc.Open();
                     #region PAGE-1
+                    pdfDoc.Add(jpg);
                     pdfDoc.Add(pdfTable1);
+                    pdfDoc.Add(pdfTable6);
                     pdfDoc.Add(pdfTable2);
                     pdfDoc.Add(pdfTableFooter);
                     pdfDoc.Add(pdfTableBlank);
@@ -248,6 +347,24 @@ namespace Employee_Onboarding.Accessory_Classes
                     pdfDoc.Add(pdfTableBlank);
                     pdfDoc.Add(pdfTable7);
                     pdfDoc.Add(pdfTableBlank);
+                    pdfDoc.Add(pdfTable6);
+                    pdfDoc.Add(pdfTable6);
+                    pdfDoc.Add(pdfTable6);
+                    pdfDoc.Add(pdfTable6);
+                    pdfDoc.Add(pdfTable6);
+                    pdfDoc.Add(pdfTable6);
+                    pdfDoc.Add(pdfTableFooter3);
+                    pdfDoc.Add(pdfTableBlank);
+                    pdfDoc.Add(pdfTable8);
+                    pdfDoc.Add(pdfTableBlank);
+                    pdfDoc.Add(pdfTable6);
+                    pdfDoc.Add(pdfTableFooter4);
+                    pdfDoc.Add(pdfTableBlank);
+                    pdfDoc.Add(pdfTable9);
+                    pdfDoc.Add(pdfTableBlank);
+                    pdfDoc.Add(pdfTable6);
+                    pdfDoc.Add(pdfTable6); pdfDoc.Add(pdfTable6); pdfDoc.Add(pdfTable6);
+                    pdfDoc.Add(pdfTable10);
                     pdfDoc.NewPage();
                     #endregion
 
@@ -266,7 +383,7 @@ namespace Employee_Onboarding.Accessory_Classes
             }
             catch (Exception ex)
             {
-
+                LogFile.WriteLog(ex);
                 throw;
             }
         }

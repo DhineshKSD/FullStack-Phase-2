@@ -136,7 +136,7 @@ render() {
           }  
           </td>  
           <td style={{ padding:'8px'}}>  
-          <Link to={"/edit/"+this.props.obj.Employee_id} style={{ textDecoration: 'none' }}><Fab size="small" elevation={3} variant="contained" data-tip data-for='happyFace' color="primary"><EditIcon fontSize="small" /></Fab></Link>  
+          <Link to={"/edit/"+this.props.obj.Employee_id} style={{ textDecoration: 'none' }}><Fab size="small" elevation={3} variant="round" data-tip data-for='happyFace' color="primary"><EditIcon fontSize="small" /></Fab></Link>  
           {
           this.state.check?
           <ReactTooltip id='happyFace' type='dark' effect='solid'>
@@ -145,7 +145,7 @@ render() {
           }
           </td>  
           <td style={{ padding:'8px'}}>  
-          <Fab size="small" elevation={3} type="button" data-tip data-for='happyFace1' onClick={this.DeleteStudent} disabled={this.props.obj.MailStatus==="Initiated"} variant="contained" style={this.props.obj.MailStatus==="Initiated"?{backgroundColor: '#969696',color: '#f3e5f5'}:{backgroundColor: '#e91e63',color: '#f3e5f5'}}><DeleteIcon fontSize="small"/></Fab> 
+          <Fab size="small" elevation={3} type="button" data-tip data-for='happyFace1' onClick={this.DeleteStudent} disabled={this.props.obj.MailStatus==="Initiated"} variant="round" style={this.props.obj.MailStatus==="Initiated"?{backgroundColor: '#969696',color: '#f3e5f5'}:{backgroundColor: '#e91e63',color: '#f3e5f5'}}><DeleteIcon fontSize="small"/></Fab> 
           {
           this.state.check?
           <ReactTooltip id='happyFace1' type='dark' effect='solid'>
@@ -154,7 +154,7 @@ render() {
           }
           </td>  
           <td style={{ padding:'8px'}}>  
-          <Fab size="small" elevation={3} type="button" variant="contained"  data-tip data-for='happyFace2' disabled={this.props.obj.MailStatus==="Initiated"} onClick={this.SendMail} style={this.props.obj.MailStatus==="Initiated"?{backgroundColor: '#969696',color: '#f3e5f5'}:{backgroundColor: '#3f51b5',color: '#f3e5f5'}}><SendIcon fontSize="small"/></Fab>
+          <Fab size="small" elevation={3} type="button" variant="round"  data-tip data-for='happyFace2' disabled={this.props.obj.MailStatus==="Initiated"} onClick={this.SendMail} style={this.props.obj.MailStatus==="Initiated"?{backgroundColor: '#969696',color: '#f3e5f5'}:{backgroundColor: '#3f51b5',color: '#f3e5f5'}}><SendIcon fontSize="small"/></Fab>
           <Snackbar 
             anchorOrigin={{vertical:'bottom',horizontal:'right'}}
             open = {this.state.snackbaropen}
@@ -178,7 +178,7 @@ render() {
           }
           </td>
           <td style={{ padding:'8px'}}>  
-          <Link to={"/view/"+this.props.obj.Employee_id} data-tip data-for='happyFace3' style={{ textDecoration: 'none' }}><Fab size="small" elevation={3} type="button" variant="contained" style={this.props.obj.SubmissionStatus?{backgroundColor: '#e91e63',color: '#f3e5f5'}:{backgroundColor: '#969696',color: '#f3e5f5'}}><VisibilityIcon fontSize="small"/></Fab></Link>
+          <Link to={"/view/"+this.props.obj.Employee_id} data-tip data-for='happyFace3' style={{ textDecoration: 'none' }}><Fab size="small" elevation={3} type="button" variant="round" style={this.props.obj.SubmissionStatus?{backgroundColor: '#e91e63',color: '#f3e5f5'}:{backgroundColor: '#969696',color: '#f3e5f5'}}><VisibilityIcon fontSize="small"/></Fab></Link>
           {
             this.state.check?
           <ReactTooltip id='happyFace3' type='dark' effect='solid'>

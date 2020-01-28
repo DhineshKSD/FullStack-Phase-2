@@ -135,18 +135,10 @@ Next=()=>{
     var id = localStorage.getItem('User');
     if(this.state.ExperienceType==="Fresher")
     {
-    axios.get('https://localhost:44319/api/SubmissionMail/'+id)  
-    .then(json => {  
-        if(json.data.Status==='Success')
-        {
         window.setTimeout(function(){
         window.location.href='/Thanks'; 
         },1000); 
-        }
-    })  
-    .catch(function (error) {  
-        console.log(error);  
-    })}
+    }
     else
     {
         axios.post('https://localhost:44319/api/AddPreviousEmployment/'+id, {
@@ -168,18 +160,6 @@ Next=()=>{
                 debugger;   
                 }  
                 })   
-        axios.get('https://localhost:44319/api/SubmissionMail/'+id)  
-        .then(json => {  
-            if(json.data.Status==='Success')
-            {
-            window.setTimeout(function(){
-            window.location.href='/Thanks'; 
-            },1000); 
-            }
-        })  
-        .catch(function (error) {  
-            console.log(error);  
-        })
     }       
 }
     

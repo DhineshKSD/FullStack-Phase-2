@@ -240,7 +240,57 @@ namespace Employee_Onboarding.Accessory_Classes
                              {
                                  pdf.To
                              }).FirstOrDefault().To;
-                    PDF.PrintReceipt(a, b, c, d, e, f, g, h, i, j, k, l, m, o, p, q, r, s, t);
+                    var a1 = (from pdf in db.Educations.Where(u => u.Employee_id == id && u.CourseCode == "HSC")
+                             select new
+                             {
+                                 pdf.Course
+                             }).FirstOrDefault().Course;
+                    var a2 = (from pdf in db.Educations.Where(u => u.Employee_id == id && u.CourseCode == "HSC")
+                              select new
+                              {
+                                  pdf.Institute
+                              }).FirstOrDefault().Institute;
+                    var a3 = (from pdf in db.Educations.Where(u => u.Employee_id == id && u.CourseCode == "HSC")
+                              select new
+                              {
+                                  pdf.GradePoint
+                              }).FirstOrDefault().GradePoint;
+                    var a4 = (from pdf in db.Educations.Where(u => u.Employee_id == id && u.CourseCode == "HSC")
+                              select new
+                              {
+                                  pdf.From
+                              }).FirstOrDefault().From;
+                    var a5 = (from pdf in db.Educations.Where(u => u.Employee_id == id && u.CourseCode == "HSC")
+                              select new
+                              {
+                                  pdf.To
+                              }).FirstOrDefault().To;
+                    var b1 = (from pdf in db.Educations.Where(u => u.Employee_id == id && u.CourseCode == "SSLC")
+                              select new
+                              {
+                                  pdf.Course
+                              }).FirstOrDefault().Course;
+                    var b2 = (from pdf in db.Educations.Where(u => u.Employee_id == id && u.CourseCode == "SSLC")
+                              select new
+                              {
+                                  pdf.Institute
+                              }).FirstOrDefault().Institute;
+                    var b3 = (from pdf in db.Educations.Where(u => u.Employee_id == id && u.CourseCode == "SSLC")
+                              select new
+                              {
+                                  pdf.GradePoint
+                              }).FirstOrDefault().GradePoint;
+                    var b4 = (from pdf in db.Educations.Where(u => u.Employee_id == id && u.CourseCode == "SSLC")
+                              select new
+                              {
+                                  pdf.From
+                              }).FirstOrDefault().From;
+                    var b5 = (from pdf in db.Educations.Where(u => u.Employee_id == id && u.CourseCode == "SSLC")
+                              select new
+                              {
+                                  pdf.To
+                              }).FirstOrDefault().To;
+                    PDF.PrintReceipt(a, b, c, d, e, f, g, h, i, j, k, l, m, o, p, q, r, s, t,a1,a2,a3,a4,a5,b1,b2,b3,b4,b5);
                 }
             }
             catch (Exception ex)
