@@ -25,11 +25,35 @@ namespace Employee_Onboarding.Controllers
             try
             {
                 var empId = DatabaseAction.GetEmployeeID(id);
+                DatabaseAction.ConvertImage(empId);
                 DatabaseAction.PassDetails(empId);
                 if (empId == null)
                 {
                     return NotFound();
                 }
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                LogFile.WriteLog(ex);
+                return BadRequest();
+            }
+        }
+
+        [HttpPost]                                                        //All three Education as a single entry
+        [Route("api/PostImage/{id=id}")]
+        [ResponseType(typeof(Document))]
+        public IHttpActionResult PostImage(string id, Document document)
+        {
+            try
+            {
+                document.Employee_id = DatabaseAction.GetEmployeeID(id);
+                if (!ModelState.IsValid)
+                {
+                    return BadRequest(ModelState);
+                }
+                db.Documents.Add(document);
+                db.SaveChanges();
                 return Ok();
             }
             catch (Exception ex)

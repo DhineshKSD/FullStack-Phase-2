@@ -1,5 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
+using System.Drawing.Imaging;
+using System.IO;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Web;
@@ -96,6 +99,45 @@ namespace Employee_Onboarding.Accessory_Classes
                 return false;
             }
         }
+
+        public static void ConvertImage(long id)
+        {
+            // Convert byte[] to Image
+            string filePath = @"C:\Users\dhinesh.ks\Documents\";
+            
+            using (EmployeeOnboardingEntities1 db = new EmployeeOnboardingEntities1())
+            {
+                var g = (from imge in db.Documents.Where(u => u.Employee_id == id)
+                         select new
+                         {
+                             imge.Data
+                         }).FirstOrDefault().Data;
+                var h = (from username in db.Employees.Where(u => u.Employee_id == id)
+                         select new
+                         {
+                             username.FirstName
+                         }).FirstOrDefault().FirstName;
+                string name = h + ".png";
+                string last = g.Substring(g.LastIndexOf(',') + 1);
+                byte[] imageBytes = Convert.FromBase64String(last);
+                MemoryStream ms = new MemoryStream(imageBytes, 0, imageBytes.Length);
+                ms.Write(imageBytes, 0, imageBytes.Length);
+                ms.Position = 0;
+                System.Drawing.Image image = System.Drawing.Image.FromStream(ms, true);
+                System.Drawing.Image img = Base64ToImage(last);
+                img.Save(filePath+name, System.Drawing.Imaging.ImageFormat.Png);
+            }
+        }
+
+        public static System.Drawing.Image Base64ToImage(string base64String)
+        {
+            byte[] imageBytes = Convert.FromBase64String(base64String);
+            MemoryStream ms = new MemoryStream(imageBytes, 0, imageBytes.Length);
+            ms.Write(imageBytes, 0, imageBytes.Length);
+            System.Drawing.Image image = System.Drawing.Image.FromStream(ms, true);
+            return image;
+        } 
+
         public static bool IsEmailExist(string EmailID) //Check Email ID exists in the DB
         {
             try

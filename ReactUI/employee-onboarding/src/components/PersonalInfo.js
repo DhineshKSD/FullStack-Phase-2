@@ -15,6 +15,7 @@ import State1 from '../components/StateList';
 import Avatar from '@material-ui/core/Avatar';
 import DarkTheme, { createTheme } from 'react-dark-theme';
 import Checkbox from '@material-ui/core/Checkbox';
+import Pad from '../components/Pad';
 
 const lightTheme = {
   background: '#c5cae965',
@@ -355,6 +356,14 @@ return (
                     </FormGroup>    
                  </Col> 
             </Form>
+            <Card elevation={10} id="SignatureCard">
+                        <CardContent> 
+                            <h3 className="AddressInfoPageHeading">Signature</h3>  
+                            <Pad/>
+                            <p id="signatureHeading">Signature:</p>
+                            <p id="Note">Note: Please Sign Here And Then Click The Submit Button.</p>
+                      </CardContent>
+                </Card>
         </Container>
   </div>  
 );  

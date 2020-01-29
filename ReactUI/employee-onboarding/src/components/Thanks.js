@@ -8,6 +8,7 @@ import axios from 'axios';
 import ButtonMat from '@material-ui/core/Button';
 import Snackbar from '@material-ui/core/Snackbar';
 import IconButton from '@material-ui/icons/Cancel';
+import Pad from '../components/Pad'
 
 const lightTheme = {
   background: '#c5cae965',
@@ -43,7 +44,7 @@ export class Thanks extends Component {
         })  
         .catch(function (error) {  
             console.log(error);  
-        })},1000); 
+        })},2000); 
         }
         snackbarClose = (e) =>{
           this.setState({snackbaropen:false});

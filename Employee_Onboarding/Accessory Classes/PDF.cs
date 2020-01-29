@@ -109,11 +109,11 @@ namespace Employee_Onboarding.Accessory_Classes
                 pdfTable2.DefaultCell.BorderWidth = 0;
 
                 pdfTable10.WidthPercentage = 80;
-                pdfTable10.DefaultCell.HorizontalAlignment = Element.ALIGN_RIGHT;
-                pdfTable10.DefaultCell.VerticalAlignment = Element.ALIGN_RIGHT;
+                pdfTable10.DefaultCell.HorizontalAlignment = Element.ALIGN_CENTER;
+                pdfTable10.DefaultCell.VerticalAlignment = Element.ALIGN_CENTER;
                 //pdfTab2e1.DefaultCell.BackgroundColor = new iTextSharp.text.BaseColor(64, 134, 170);
                 pdfTable10.DefaultCell.BorderWidth = 0;
-                pdfTable10.DefaultCell.PaddingRight = 80;
+                //pdfTable10.DefaultCell.PaddingRight = 80;
 
                 pdfTable6.WidthPercentage = 80;
                 pdfTable6.DefaultCell.HorizontalAlignment = Element.ALIGN_CENTER;
@@ -191,27 +191,13 @@ namespace Employee_Onboarding.Accessory_Classes
                 Phrase p5 = new Phrase();
                 p5.Add(c5);
                 pdfTable2.AddCell(p5);
-                Chunk c11 = new Chunk("Signature - ", FontFactory.GetFont("Times New Roman"));
+                Chunk c11 = new Chunk("Signature :" , FontFactory.GetFont("Times New Roman"));
                 c11.Font.Color = new iTextSharp.text.BaseColor(0, 0, 0);
                 c11.Font.SetStyle(0);
                 c11.Font.Size = 11;
                 Phrase p11 = new Phrase();
                 p11.Add(c11);
                 pdfTable10.AddCell(p11);
-                Chunk c12 = new Chunk("Place - ", FontFactory.GetFont("Times New Roman"));
-                c12.Font.Color = new iTextSharp.text.BaseColor(0, 0, 0);
-                c12.Font.SetStyle(0);
-                c12.Font.Size = 11;
-                Phrase p12 = new Phrase();
-                p12.Add(c12);
-                pdfTable10.AddCell(p12);
-                Chunk c13 = new Chunk("Date - ", FontFactory.GetFont("Times New Roman"));
-                c13.Font.Color = new iTextSharp.text.BaseColor(0, 0, 0);
-                c13.Font.SetStyle(0);
-                c13.Font.Size = 11;
-                Phrase p13 = new Phrase();
-                p13.Add(c13);
-                pdfTable10.AddCell(p13);
 
 
                 #endregion
@@ -229,7 +215,20 @@ namespace Employee_Onboarding.Accessory_Classes
                 jpg.SpacingAfter = 1f;
 
                 jpg.Alignment = Element.ALIGN_CENTER;
-                #endregion
+
+                string imageURL1 = @"C:\Users\dhinesh.ks\Documents\";
+                string filename = name + ".png";
+                iTextSharp.text.Image png = iTextSharp.text.Image.GetInstance(imageURL1+filename);
+
+                //Resize image depend upon your need
+                png.ScaleToFit(100f, 20f);
+                //Give space before image
+                png.SpacingBefore = 10f;
+                //Give some space after the image
+                png.SpacingAfter = 1f;
+
+                png.Alignment = Element.ALIGN_CENTER;
+                 #endregion
 
                 #region section Table
                 pdfTable3.AddCell(new Phrase("FirstName "));
@@ -365,6 +364,8 @@ namespace Employee_Onboarding.Accessory_Classes
                     pdfDoc.Add(pdfTable6);
                     pdfDoc.Add(pdfTable6); pdfDoc.Add(pdfTable6); pdfDoc.Add(pdfTable6);
                     pdfDoc.Add(pdfTable10);
+                    pdfDoc.Add(png);
+
                     pdfDoc.NewPage();
                     #endregion
 

@@ -74,3 +74,13 @@ left:38.2%;
         transform: rotate(45deg) translate(-20px,-20px);
     }
 }
+#pop{
+    position: absolute;
+    z-index: +1;
+    left:10%;
+}
+.signatureCanvas {
+    border: 1px solid black;
+    width: 100%;
+    min-height: 500px;
+  }
