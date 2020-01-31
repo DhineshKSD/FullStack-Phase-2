@@ -1,7 +1,7 @@
 .PersonalInfoContainer{
 position: relative;
 top: 2em;
-height:250vh;
+height:240vh;
 background-color: #c5cae965;
 }
 .PersonalInfoPageHeading
@@ -41,7 +41,7 @@ background-color:#f7f8f7;
 #SignatureCard{
 position: relative;
 top:0em;
-height:54vh;
+height:45vh;
 left:3em;
 width:90%;
 background-color:#f7f8f7;
@@ -65,7 +65,7 @@ left:31em;
 }
 #PersonalButton{
 position: relative;
-top:50.5em;
+top:47em;
 right:1.5em;
 }
 #PermanentAddress{
@@ -124,6 +124,6 @@ top:6em;
 position:absolute;
 font-size: 1em;
 left:3em;
-top:18em;
+top:15em;
 font-style: italic;
 }

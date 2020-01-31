@@ -51,7 +51,7 @@ top:3em;
 #SignIn{
 position: relative;
 top:5em;
-left:39%;
+left:15%;
 font-family: 'Open Sans', sans-serif;
 }
 #ForgotPassword{
@@ -69,4 +69,9 @@ position: relative;
 font-size: 0.9em;
 left:40.5em;
 bottom:30em;
+}
+#eye{
+position: relative;
+left:17.2em;bottom:3.3em;
+background-color: #ffffff;
 }

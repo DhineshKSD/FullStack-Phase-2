@@ -1,10 +1,54 @@
 .signatureCanvas {
     border: 1px solid black;
     width: 100%;
-    min-height: 20em;
+    min-height: 300px;
   }
 .Pad{
   position: absolute;
   left:80%;
   z-index: +1;
 }
+#b1{
+  position: relative;
+  left: 16em;
+  background-color: #bfbfc0;
+  font-size: 0.8em;
+  color: rgb(27, 27, 27);
+  font-weight: bold;
+}
+#b2{
+  position: relative;
+  left: 17em;
+  background-color:#bfbfc0;
+  font-size: 0.8em;
+  color: rgb(27, 27, 27);
+  font-weight: bold;
+}
+#b3{
+  position: relative;
+  left: 18em;
+  background-color: #bfbfc0;
+  font-size: 0.8em;
+  color: rgb(27, 27, 27);
+  font-weight: bold;
+}
+#b4{
+  position: relative;
+  left: 40em;
+  background-color: #faf6f6;
+  color: rgb(221, 57, 57);
+  font-weight: bold;
+  border-radius: 50px;
+  width:20px;height: 20px;
+}
+#cicon{
+  position: relative;
+  right:0.4em;
+  bottom:0.2em
+}
+#signpad{
+  background-color: #1976d2;
+  color:#f5f3f3;
+  font-size: small;
+}
+

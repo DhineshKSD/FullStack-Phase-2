@@ -4,6 +4,8 @@ import SignaturePad from "react-signature-canvas";
 import axios from 'axios'; 
 import '../Pad.css';
 import Fab from '@material-ui/core/Fab';
+import ButtonMat from '@material-ui/core/Button';
+import CancelIcon from '@material-ui/icons/Cancel';
 
 var id=localStorage.getItem('User');
  function Pad() {
@@ -34,11 +36,12 @@ var id=localStorage.getItem('User');
     <div className="Pad">
       <Popup
         modal
-        trigger={<Fab variant="extended" color="primary" size="small"> Open Signature Pad </Fab>}
+        trigger={<Fab variant="extended" id="signpad"color="primary" size="small"> Open Signature Pad </Fab>}
         closeOnDocumentClick={false}
       >
         {close => (
           <>
+          <button id="b4" size="small" variant="round" onClick={close}><CancelIcon id="cicon"/></button>
             <SignaturePad
               ref={sigCanvas}
               canvasProps={{
@@ -46,10 +49,10 @@ var id=localStorage.getItem('User');
               }}
             />
             {/* Button to trigger save canvas image */}
-            <button onClick={save}>Set</button>
-            <button onClick={Post}>Save</button>
-            <button onClick={clear}>Clear</button>
-            <button onClick={close}>Close</button>
+            <ButtonMat id="b1" variant="contained" onClick={save}>Trim</ButtonMat>
+            <ButtonMat id="b2" variant="contained" onClick={Post}>Set</ButtonMat>
+            <ButtonMat id="b3" variant="contained" onClick={clear}>Clear</ButtonMat>
+            
           </>
         )}
       </Popup>

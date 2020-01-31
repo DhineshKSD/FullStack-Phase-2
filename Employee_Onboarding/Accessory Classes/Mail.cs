@@ -78,7 +78,7 @@ namespace Employee_Onboarding.Accessory_Classes
             body = "<br/><br/>" +
                 "<b> Dear  " + name + ";</b>" + "<br/><br/>" +
                 "<b>UserName:</b>"+username+ "<br/>"+
-                "Your form has been successfully submitted. Please take a print out copy of your Pre-Joining Form on the Date.of.Joining" +
+                "Your form has been successfully submitted. Please take a print out copy of your Pre-Joining Form and bring it on the Date.of.Joining" +
                 "<br/><br/>" +
                 "<img src=https://media.glassdoor.com/sqll/945068/psiog-digital-squarelogo-1468915701259.png />" + "<br/>" +
                 "<b>Warm Regards</b>" + "<br/>" + "<b>HR Desk </b>";

@@ -223,7 +223,7 @@ return (
               <Form className="form" autoComplete="off"> 
                   <Card elevation={10} id="PersonalInfoCard" >
                       <CardContent>  
-                        <h3 className="PersonalInfoPageHeading">Personal Information Section</h3>  
+                        <h3 className="PersonalInfoPageHeading">Personal Information</h3>  
                         <div id="FormPersonalInfo">
                             <Col>  
                                 <TextField type="text" required id="standard-required" label="FirstName" autoComplete="off" placeholder="FirstName" fullWidth margin="normal" name="FirstName" InputProps={{ readOnly: true, }} value={this.state.FirstName}/>
@@ -286,7 +286,7 @@ return (
                     
                   <Card elevation={10} id="AddressInfoCard">
                         <CardContent> 
-                            <h3 className="AddressInfoPageHeading">Address Information Section</h3>  
+                            <h3 className="AddressInfoPageHeading">Address Information</h3>  
                             <div id="FormAddressInfo">
                               <p id="PermanentAddress">Permanent Address</p>
                                   <Col>                   

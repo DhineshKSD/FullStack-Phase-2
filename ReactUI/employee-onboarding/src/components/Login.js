@@ -16,6 +16,9 @@ import axios from 'axios';
 import SnackBar from "@material-ui/core/Snackbar";
 import IconButton from '@material-ui/icons/Cancel';
 import Snackbar from '@material-ui/core/Snackbar';
+import VisibilityIcon from '@material-ui/icons/Visibility';
+import Fab from '@material-ui/core/Fab';
+import VisibilityOffIcon from '@material-ui/icons/VisibilityOff';
 
 export class Login extends Component {
 constructor(props){  
@@ -25,7 +28,7 @@ UserName:'',
 Password:'', 
 grant_type: 'Password',   
 snackbaropen :false, snackbarmsg:'',
-isAvailable:false
+isAvailable:false,isPasswordShown:true
 } ;
 this.handleChange = this.handleChange.bind(this);
 }
@@ -68,6 +71,11 @@ this.setState({[e.target.name]:e.target.value});
 this.setState( {isAvailable: true }); 
 }  
 
+passwordhandleChange= (e)=> {  
+  const {isPasswordShown}=this.state;
+  this.setState( {isPasswordShown: !isPasswordShown }); 
+} 
+
 componentDidMount() { 
   if (localStorage.getItem("Token")) 
   {
@@ -89,6 +97,7 @@ handleSubmit = event => {
 };
 
   render() {
+    const {isPasswordShown}=this.state;
     return (
       <div id="LoginCard">
           <Snackbar 
@@ -122,7 +131,8 @@ handleSubmit = event => {
                     <div id="LoginContent">
                         <TextField type="text" required id="standard-required" inputProps={{ maxLength: 4 }} label="UserName" autoComplete="off" placeholder="UserName" fullWidth margin="normal" name="UserName" value={this.state.UserName} onChange={this.handleChange}/>
 
-                        <TextField type="password" required id="standard-required" inputProps={{ maxLength: 9 }} label="Password"autoComplete="off" placeholder="Password" fullWidth margin="normal" name="Password" value={this.state.Password} onChange={this.handleChange}/>
+                        <TextField type={(isPasswordShown)?"password":"text"} required id="standard-required" inputProps={{ maxLength: 9 }} label="Password"autoComplete="off" placeholder="Password" fullWidth margin="normal" name="Password" value={this.state.Password} onChange={this.handleChange}/>
+                         <ButtonMat id="eye" size="small" onClick={this.passwordhandleChange} variant="extended">{this.state.isPasswordShown?<VisibilityOffIcon/>:<VisibilityIcon/>}</ButtonMat>
                         <ButtonMat id="SignIn" type="submit" variant="contained" color="primary">
                         Login
                         </ButtonMat>

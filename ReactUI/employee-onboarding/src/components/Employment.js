@@ -151,6 +151,9 @@ Next=()=>{
                 if(json.data.Status==='Success')
                 {  
                 this.setState({snackbaropen:true , snackbarmsg : "Employment Details Successfully Saved"}) 
+                window.setTimeout(function(){
+                    window.location.href='/Thanks'; 
+                    },1500);   
                 //alert("Education Detail's Saved Successfully");    
                 }  
                 else

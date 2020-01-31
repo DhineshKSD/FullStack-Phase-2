@@ -149,7 +149,7 @@ render() {
           {
           this.state.check?
           <ReactTooltip id='happyFace1' type='dark' effect='solid'>
-            <span>Click Here To Delete NewHire Details. <br/> Note: Details Can't Be Able To Delete When OnBoading Has Been Initiated</span>
+            <span>Click Here To Delete NewHire Details.</span>
           </ReactTooltip>:null
           }
           </td>  
@@ -182,7 +182,7 @@ render() {
           {
             this.state.check?
           <ReactTooltip id='happyFace3' type='dark' effect='solid'>
-            <span>Click Here To View The Details Submitted By NewHire. <br/> Note: View Button Will Be Enabled Only When Employee Submits The Form.</span>
+            <span>Click Here To View The Pre-Joining Form.</span>
           </ReactTooltip>:null
           }
           </td>
