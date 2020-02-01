@@ -13,7 +13,8 @@ import '../src/Navigation.css';
 import '../src/Login.css';
 import Education from '../src/components/Education';
 import Employment from '../src/components/Employment';
-import View from '../src/components/View'
+import View from '../src/components/View';
+import Camera from '../src/components/Camera'
 
 const AppRouter = () => {
     return(
@@ -30,6 +31,7 @@ const AppRouter = () => {
                         <Route path='/UserHome' component={UserHome} /> 
                         <Route path='/Employment' component={Employment} /> 
                         <Route path='/view/:id' component={View}/>
+                        <Route path='/WebCamera' component={Camera}/>
                 </Switch>  
         </Router>  
     )

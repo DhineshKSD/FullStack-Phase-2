@@ -44,7 +44,7 @@ export class Thanks extends Component {
         })  
         .catch(function (error) {  
             console.log(error);  
-        })},2000); 
+        })},1500); 
         }
         snackbarClose = (e) =>{
           this.setState({snackbaropen:false});

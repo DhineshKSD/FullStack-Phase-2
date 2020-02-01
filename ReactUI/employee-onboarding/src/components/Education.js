@@ -14,6 +14,11 @@ import Avatar from '@material-ui/core/Avatar';
 import DarkTheme, { createTheme } from 'react-dark-theme';
 import Checkbox from '@material-ui/core/Checkbox';
 
+var xtempDate = new Date();
+var xcurrentyear = xtempDate.getFullYear(); 
+var xcurrentmonth=(xtempDate.getMonth()+1); 
+var xcurrentdate = ('0' +xtempDate.getDate()).slice(-2);
+console.log(xcurrentyear+'-'+'0'+xcurrentmonth+'-'+xcurrentdate);
 const lightTheme = {
   background: '#c5cae965',
   text:'black'
@@ -311,9 +316,9 @@ render() {
                                     <TextField type="number" helperText="Enter Total Marks In Percentage" required id="standard-required" label="GradePoint"autoComplete="off" placeholder="GradePoint" fullWidth margin="normal" name="GradePoint" value={this.state.GradePoint} onChange={this.handleChange}/>
                                 </div>
                                 <div id="EduCard2">
-                                    <TextField id="date" label="From" type="date" inputProps={{min: year+'-01-01'}} fullWidth margin="normal" name="From" value={this.state.From} onChange={this.handleChange} InputLabelProps={{shrink: true, }}/>
+                                    <TextField id="date" label="From" type="date" inputProps={{max:xcurrentyear+'-'+'0'+xcurrentmonth+'-'+xcurrentdate, min: year+'-01-01'}} fullWidth margin="normal" name="From" value={this.state.From} onChange={this.handleChange} InputLabelProps={{shrink: true, }}/>
 
-                                    <TextField id="date" label="To" type="date" inputProps={{min: year1+'-01-01'}} fullWidth margin="normal" name="To" value={this.state.To} onChange={this.handleChange} InputLabelProps={{shrink: true, }}/>
+                                    <TextField id="date" label="To" type="date" inputProps={{max:xcurrentyear+'-'+'0'+xcurrentmonth+'-'+xcurrentdate,min: year1+'-01-01'}} fullWidth margin="normal" name="To" value={this.state.To} onChange={this.handleChange} InputLabelProps={{shrink: true, }}/>
 
                                     <TextField type="number" InputProps={{ readOnly: true, }} required id="standard-required" label="Year.of.Passing" autoComplete="off" placeholder="Year.of.Passing" fullWidth margin="normal" name="YearOfPassing" value={year5} onInput={(e)=>{ e.target.value = Math.max(0, parseInt(e.target.value) ).toString().slice(0,4)}} onChange={this.handleChange}/> 
                                 </div>  
@@ -332,9 +337,9 @@ render() {
                                     <TextField type="number" helperText="Enter Total Marks In Percentage" required id="standard-required" label="GradePoint"autoComplete="off" placeholder="GradePoint" fullWidth margin="normal" name="GradePoint1" value={this.state.GradePoint1} onChange={this.handleChange}/>
                                 </div>
                                 <div id="EduCardc">
-                                    <TextField id="date" label="From" type="date" inputProps={{min: this.state.To}} fullWidth margin="normal" name="From1" value={this.state.From1} onChange={this.handleChange} InputLabelProps={{shrink: true, }}/>
+                                    <TextField id="date" label="From" type="date" inputProps={{max:xcurrentyear+'-'+'0'+xcurrentmonth+'-'+xcurrentdate,min: this.state.To}} fullWidth margin="normal" name="From1" value={this.state.From1} onChange={this.handleChange} InputLabelProps={{shrink: true, }}/>
 
-                                    <TextField id="date" label="To" type="date" inputProps={{min: year2+'-01-01'}} fullWidth margin="normal" name="To1" value={this.state.To1} onChange={this.handleChange} InputLabelProps={{shrink: true, }}/>
+                                    <TextField id="date" label="To" type="date" inputProps={{max:xcurrentyear+'-'+'0'+xcurrentmonth+'-'+xcurrentdate,min: year2+'-01-01'}} fullWidth margin="normal" name="To1" value={this.state.To1} onChange={this.handleChange} InputLabelProps={{shrink: true, }}/>
 
                                     <TextField type="number" InputProps={{ readOnly: true, }} required id="standard-required" label="Year.of.Passing" autoComplete="off" placeholder="Year.of.Passing" fullWidth margin="normal" name="YearOfPassing1" value={year6} onInput={(e)=>{ e.target.value = Math.max(0, parseInt(e.target.value) ).toString().slice(0,4)}} onChange={this.handleChange}/> 
                                 </div>
@@ -352,9 +357,9 @@ render() {
                                     <TextField type="number" helperText="Enter Total Marks In Percentage" required id="standard-required" label="GradePoint"autoComplete="off" placeholder="GradePoint" fullWidth margin="normal" name="GradePoint2" value={this.state.GradePoint2} onChange={this.handleChange}/>
                                 </div>
                                 <div id="EduCardf">
-                                    <TextField id="date" label="From" type="date" inputProps={{min: this.state.To1}} fullWidth margin="normal" name="From2" value={this.state.From2} onChange={this.handleChange} InputLabelProps={{shrink: true, }}/>
+                                    <TextField id="date" label="From" type="date" inputProps={{max:xcurrentyear+'-'+'0'+xcurrentmonth+'-'+xcurrentdate,min: this.state.To1}} fullWidth margin="normal" name="From2" value={this.state.From2} onChange={this.handleChange} InputLabelProps={{shrink: true, }}/>
 
-                                    <TextField id="date" label="To" type="date" inputProps={{min: year3+'-01-01'}} fullWidth margin="normal" name="To2" value={this.state.To2} onChange={this.handleChange} InputLabelProps={{shrink: true, }}/>
+                                    <TextField id="date" label="To" type="date" inputProps={{max:xcurrentyear+'-'+'0'+xcurrentmonth+'-'+xcurrentdate,min: year3+'-01-01'}} fullWidth margin="normal" name="To2" value={this.state.To2} onChange={this.handleChange} InputLabelProps={{shrink: true, }}/>
 
                                     <TextField type="number" InputProps={{ readOnly: true, }} required id="standard-required" label="Year.of.Passing" autoComplete="off" placeholder="Year.of.Passing" fullWidth margin="normal" name="YearOfPassing2" value={year7} onInput={(e)=>{ e.target.value = Math.max(0, parseInt(e.target.value) ).toString().slice(0,4)}} onChange={this.handleChange}/> 
                                 </div>  
@@ -376,9 +381,9 @@ render() {
                                     <TextField type="number" helperText="Enter Total Marks In Percentage" disabled={this.state.check===false} required id="standard-required" label="GradePoint"autoComplete="off" placeholder="GradePoint" fullWidth margin="normal" name="GradePoint3" value={this.state.GradePoint3} onChange={this.handleChange}/>
                                 </div>
                                 <div id="EduCardi">
-                                    <TextField id="date" disabled={this.state.check===false} label="From" type="date" inputProps={{min: this.state.To2}} fullWidth margin="normal" name="From3" value={this.state.From3} onChange={this.handleChange} InputLabelProps={{shrink: true, }}/>
+                                    <TextField id="date" disabled={this.state.check===false} label="From" type="date" inputProps={{max:xcurrentyear+'-'+'0'+xcurrentmonth+'-'+xcurrentdate,min: this.state.To2}} fullWidth margin="normal" name="From3" value={this.state.From3} onChange={this.handleChange} InputLabelProps={{shrink: true, }}/>
 
-                                    <TextField id="date" disabled={this.state.check===false} label="To" type="date" inputProps={{min: year4+'-01-01'}} fullWidth margin="normal" name="To3" value={this.state.To3} onChange={this.handleChange} InputLabelProps={{shrink: true, }}/>
+                                    <TextField id="date" disabled={this.state.check===false} label="To" type="date" inputProps={{max:xcurrentyear+'-'+'0'+xcurrentmonth+'-'+xcurrentdate,min: year4+'-01-01'}} fullWidth margin="normal" name="To3" value={this.state.To3} onChange={this.handleChange} InputLabelProps={{shrink: true, }}/>
 
                                     <TextField type="number" InputProps={{ readOnly: true, }} disabled={this.state.check===false} required id="standard-required" label="Year.of.Passing" autoComplete="off" placeholder="Year.of.Passing" fullWidth margin="normal" name="YearOfPassing3" value={year8} onInput={(e)=>{ e.target.value = Math.max(0, parseInt(e.target.value) ).toString().slice(0,4)}} onChange={this.handleChange}/> 
                                 </div>

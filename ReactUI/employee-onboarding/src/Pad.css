@@ -4,9 +4,10 @@
     min-height: 300px;
   }
 .Pad{
-  position: absolute;
+  position: relative;
   left:80%;
   z-index: +1;
+  top:4em;
 }
 #b1{
   position: relative;
@@ -50,5 +51,14 @@
   background-color: #1976d2;
   color:#f5f3f3;
   font-size: small;
+}
+#mysign{
+  position: relative;
+  display: block;
+  margin: 0 auto;
+  border: 1px solid black;
+  width: 200px;
+  right:60em;
+  bottom: 5em;
 }
 

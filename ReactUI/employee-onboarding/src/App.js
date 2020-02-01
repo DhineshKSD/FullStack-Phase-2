@@ -2,6 +2,7 @@ import React from 'react';
 import AppRouter from '../src/AppRouter'  
 import 'bootstrap/dist/css/bootstrap.css'; 
 import Container from '@material-ui/core/Container';
+import Camera from '../src/components/Camera'
 import './App.css';  
 /*import CenteredTabs from './NavTab';
 import PersonalInfo from '../src/components/PersonalInfo';

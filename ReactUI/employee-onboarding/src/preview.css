@@ -1,0 +1,36 @@
+.demo-image-preview {
+    position: relative;
+    top:8em;
+    left:6em;
+    text-align: center;
+    border-radius: 500px;
+  }
+  
+  .demo-image-preview > img {
+    width: 500px;
+    border-radius: 100px;
+    height:auto;
+  }
+  
+  @media(max-width:768px){
+    .demo-image-preview > img {
+      width: 100%;
+      border-radius: 100px;
+    }
+  }
+  /* fullscreen enable by props */
+  .demo-image-preview-fullscreen > img {
+    width: 100vw;
+    height:100vh;
+    border-radius: 100px;
+  }
+  #photosave{
+      position: relative;
+      top:16em;
+      right:24em;
+  }
+  #photoretake{
+    position: relative;
+    top:16em;
+    right:23em;
+}

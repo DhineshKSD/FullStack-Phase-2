@@ -16,6 +16,8 @@ import Avatar from '@material-ui/core/Avatar';
 import DarkTheme, { createTheme } from 'react-dark-theme';
 import Checkbox from '@material-ui/core/Checkbox';
 import Pad from '../components/Pad';
+import Delayed from '../components/Delayed';
+import Loader from 'react-loader-spinner';
 
 const lightTheme = {
   background: '#c5cae965',
@@ -120,7 +122,7 @@ this.state = {
   State2:'',
   Country2:'India', 
   snackbaropen :false, snackbarmsg:'',
-  isAvailable:false,
+  isAvailable:false,spin:true,
   check: false    
 }; 
 this.handleChange = this.handleChange.bind(this);   
@@ -131,6 +133,10 @@ snackbarClose = (e) =>{
 } 
 
 componentDidMount() {  
+  this.setState({spin:true})
+  setTimeout(() => { 
+      this.setState({spin:false})
+  }, 1500); 
   axios.get('https://localhost:44319/api/GetEmployeeById/'+id)  
       .then(response => {  
           this.setState({   
@@ -202,6 +208,16 @@ clearform = (e) =>{
 render() {  
 return (  
   <div className="PersonalInfoContainer" style={{ backgroundColor: myTheme.background, color: myTheme.text }}>
+     <Loader 
+                type="Circles"
+                color="#e91e63"
+                height={100}
+                width={100}
+                //timeout={3000} //3 secs
+                visible = {this.state.spin}
+                style={{position:'relative',height:'55vh',top:'15em',left:'46%',zIndex: '2'}}
+            />
+            <Delayed waitBeforeShow={1500}>
      <PrimarySearchAppBar/>
       <Snackbar 
         anchorOrigin={{vertical:'bottom',horizontal:'right'}}
@@ -365,6 +381,7 @@ return (
                       </CardContent>
                 </Card>
         </Container>
+        </Delayed>
   </div>  
 );  
 }  

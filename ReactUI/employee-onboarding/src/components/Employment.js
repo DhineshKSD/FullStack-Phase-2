@@ -33,6 +33,12 @@ const myTheme = createTheme(darkTheme, lightTheme)
 var tempDate = new Date();
 var Year=tempDate.getFullYear() + '-' + ("0"+tempDate.getMonth()+1).slice(-2)+'-'+tempDate.getDate();
 
+var xtempDate = new Date();
+var xcurrentyear = xtempDate.getFullYear(); 
+var xcurrentmonth=(xtempDate.getMonth()+1); 
+var xcurrentdate = ('0' +xtempDate.getDate()).slice(-2);
+console.log(xcurrentyear+'-'+'0'+xcurrentmonth+'-'+xcurrentdate);
+
 const ExperienceType=[
     {
         value: 'Fresher',
@@ -200,7 +206,7 @@ render() {
                     1.) <b>Fresher's :</b><br/><br/>  - Click <b>'Submit'</b> button to complete this section. <br/>  
                     <br/>
                     2.) <b>Experienced :</b><br/><br/>  - Click <b>'Submit'</b> button to save your employment details and proceed with filling another employment details(In case of Multiple Work Experience).<br/><br/>
-                              - Click <b>'Finish'</b> button to save save your employment details and complete this section and .
+                              - Click <b>'Finish'</b> button to save your employment details and complete this section.
                   </DialogContentText>
             </DialogContent>
             <DialogActions>
@@ -234,9 +240,9 @@ render() {
                             
                             </div>
                             <div id="EmpSection2">
-                            <TextField id="date" disabled={this.state.ExperienceType==='Fresher'} label="StartDate" type="date" inputProps={{max: Year}} fullWidth margin="normal" name="StartDate" value={this.state.StartDate} onChange={this.handleChange} InputLabelProps={{shrink: true, }}/>
+                            <TextField id="date" disabled={this.state.ExperienceType==='Fresher'} label="StartDate" type="date" inputProps={{max:xcurrentyear+'-'+'0'+xcurrentmonth+'-'+xcurrentdate}} fullWidth margin="normal" name="StartDate" value={this.state.StartDate} onChange={this.handleChange} InputLabelProps={{shrink: true, }}/>
 
-                            <TextField id="date" inputProps={{min: this.state.StartDate}} inputProps={{max: Year,min:this.state.StartDate}} disabled={this.state.ExperienceType==='Fresher'} label="EndDate" type="date"  fullWidth margin="normal" name="EndDate" value={this.state.EndDate} onChange={this.handleChange} InputLabelProps={{shrink: true, }}/>
+                            <TextField id="date" inputProps={{min: this.state.StartDate}} inputProps={{max:xcurrentyear+'-'+'0'+xcurrentmonth+'-'+xcurrentdate,min:this.state.StartDate}} disabled={this.state.ExperienceType==='Fresher'} label="EndDate" type="date"  fullWidth margin="normal" name="EndDate" value={this.state.EndDate} onChange={this.handleChange} InputLabelProps={{shrink: true, }}/>
 
                             <TextField type="number" disabled={this.state.ExperienceType==='Fresher'} required id="standard-required" label="Compensation" autoComplete="off" placeholder="Compensation" fullWidth margin="normal" name="Compensation" value={this.state.Compensation} onChange={this.handleChange}/>
                             </div>

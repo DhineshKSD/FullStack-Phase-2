@@ -152,5 +152,31 @@ namespace Employee_Onboarding.Controllers
                 return BadRequest();
             }
         }
+
+        [HttpPost]                                                        //All three Education as a single entry
+        [Route("api/PostPhoto/{id=id}")]
+        [ResponseType(typeof(Proof))]
+        public IHttpActionResult PostImage(string id, Proof proof)
+        {
+            try
+            {
+                proof.Employee_id = DatabaseAction.GetEmployeeID(id);
+               
+                if (!ModelState.IsValid)
+                {
+                    return BadRequest(ModelState);
+                }
+                db.Proofs.Add(proof);
+                db.SaveChanges();
+                DatabaseAction.ConvertImage1(DatabaseAction.GetEmployeeID(id));
+                return Ok();
+
+            }
+            catch (Exception ex)
+            {
+                LogFile.WriteLog(ex);
+                return BadRequest();
+            }
+        }
     }
 }

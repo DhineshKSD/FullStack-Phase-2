@@ -117,7 +117,7 @@ namespace Employee_Onboarding.Accessory_Classes
                          {
                              username.FirstName
                          }).FirstOrDefault().FirstName;
-                string name = h + ".png";
+                string name = h + "Sign.png";
                 string last = g.Substring(g.LastIndexOf(',') + 1);
                 byte[] imageBytes = Convert.FromBase64String(last);
                 MemoryStream ms = new MemoryStream(imageBytes, 0, imageBytes.Length);
@@ -126,6 +126,35 @@ namespace Employee_Onboarding.Accessory_Classes
                 System.Drawing.Image image = System.Drawing.Image.FromStream(ms, true);
                 System.Drawing.Image img = Base64ToImage(last);
                 img.Save(filePath+name, System.Drawing.Imaging.ImageFormat.Png);
+            }
+        }
+
+        public static void ConvertImage1(long id)
+        {
+            // Convert byte[] to Image
+            string filePath = @"C:\Users\dhinesh.ks\Documents\";
+
+            using (EmployeeOnboardingEntities1 db = new EmployeeOnboardingEntities1())
+            {
+                var g = (from imge in db.Proofs.Where(u => u.Employee_id == id)
+                         select new
+                         {
+                             imge.ProofId
+                         }).FirstOrDefault().ProofId;
+                var h = (from username in db.Employees.Where(u => u.Employee_id == id)
+                         select new
+                         {
+                             username.FirstName
+                         }).FirstOrDefault().FirstName;
+                string name = h + ".jpeg";
+                string last = g.Substring(g.LastIndexOf(',') + 1);
+                byte[] imageBytes = Convert.FromBase64String(last);
+                MemoryStream ms = new MemoryStream(imageBytes, 0, imageBytes.Length);
+                ms.Write(imageBytes, 0, imageBytes.Length);
+                ms.Position = 0;
+                System.Drawing.Image image = System.Drawing.Image.FromStream(ms, true);
+                System.Drawing.Image img = Base64ToImage(last);
+                img.Save(filePath + name, System.Drawing.Imaging.ImageFormat.Jpeg);
             }
         }
 

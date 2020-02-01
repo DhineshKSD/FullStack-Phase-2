@@ -217,7 +217,7 @@ namespace Employee_Onboarding.Accessory_Classes
                 jpg.Alignment = Element.ALIGN_CENTER;
 
                 string imageURL1 = @"C:\Users\dhinesh.ks\Documents\";
-                string filename = name + ".png";
+                string filename = name + "Sign.png";
                 iTextSharp.text.Image png = iTextSharp.text.Image.GetInstance(imageURL1+filename);
 
                 //Resize image depend upon your need
@@ -228,7 +228,20 @@ namespace Employee_Onboarding.Accessory_Classes
                 png.SpacingAfter = 1f;
 
                 png.Alignment = Element.ALIGN_CENTER;
-                 #endregion
+
+                string imageURL2 = @"C:\Users\dhinesh.ks\Documents\";
+                string filename2 = name + ".JPEG";
+                iTextSharp.text.Image jpg1 = iTextSharp.text.Image.GetInstance(imageURL2 + filename2);
+
+                //Resize image depend upon your need
+                jpg1.ScaleToFit(100f, 100f);
+                //Give space before image
+                jpg1.SpacingBefore = 10f;
+                //Give some space after the image
+                jpg1.SpacingAfter = 1f;
+
+                jpg1.Alignment = Element.ALIGN_CENTER;
+                #endregion
 
                 #region section Table
                 pdfTable3.AddCell(new Phrase("FirstName "));
@@ -363,6 +376,8 @@ namespace Employee_Onboarding.Accessory_Classes
                     pdfDoc.Add(pdfTableBlank);
                     pdfDoc.Add(pdfTable6);
                     pdfDoc.Add(pdfTable6); pdfDoc.Add(pdfTable6); pdfDoc.Add(pdfTable6);
+                    pdfDoc.Add(jpg1);
+                    pdfDoc.Add(pdfTable6);
                     pdfDoc.Add(pdfTable10);
                     pdfDoc.Add(png);
 

@@ -58,8 +58,10 @@ const Department = [
 const regexp = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
 var tempDate = new Date();
-var currentdate = tempDate.getFullYear() + '-' + ("0"+tempDate.getMonth()+1).slice(-2) + '-' + tempDate.getDate();
-console.log(currentdate)
+var currentyear = tempDate.getFullYear(); 
+var currentmonth=(tempDate.getMonth()+1); 
+var currentdate = ('0' +tempDate.getDate()).slice(-2);
+console.log(currentyear+'-'+'0'+currentmonth+'-'+currentdate);
 class AddEmployee extends React.Component{  
 constructor(props){  
 super(props)  
@@ -210,7 +212,7 @@ return (
                                   ))}
                                   </TextField>
                             
-                                  <TextField id="date" inputProps={{min: currentdate}} label="Joining Date" type="date" fullWidth margin="normal" name="DOJ" value={this.state.DOJ} onChange={this.handleChange} InputLabelProps={{shrink: true, }}/>
+                                  <TextField id="date" inputProps={{min: currentyear+'-'+'0'+currentmonth+'-'+currentdate}} label="Joining Date" type="date" fullWidth margin="normal" name="DOJ" value={this.state.DOJ} onChange={this.handleChange} InputLabelProps={{shrink: true, }}/>
                                   
                                   <TextField type="text" required id="standard-required" label="UserName" autoComplete="off" placeholder="UserName" fullWidth margin="normal" name="UserName" inputProps={{ maxLength: 4 }} value={this.state.UserName} onChange={this.handleChange}/>
 

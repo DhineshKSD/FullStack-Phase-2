@@ -15,8 +15,9 @@ import ReactTooltip from 'react-tooltip';
 import HelpIcon from '@material-ui/icons/Help';
 
 var tempDate = new Date();
-var date = tempDate.getFullYear() + '-' + ("0"+tempDate.getMonth()+1).slice(-2);
-var date1 = tempDate.getDate()+7;
+tempDate.setDate(tempDate.getDate()+7)
+var date = tempDate.getFullYear() + '-' +'0'+ (tempDate.getMonth()+1);
+var date1 = ('0' +tempDate.getDate()).slice(-2);
 console.log(date+'-'+date1);
 var dateCheck = date+'-'+date1;
 

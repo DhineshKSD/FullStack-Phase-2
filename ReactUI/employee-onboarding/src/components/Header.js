@@ -192,7 +192,7 @@ const renderMenu = (
           <Typography id="Heading" className={classes.title} variant="h6" noWrap>
             On-Board Hub
           </Typography>
-          <div style={{ position: 'relative',left:'54.2em',top:'0.25em' }}>
+          <div style={{ position: 'relative',left:'55.2em',top:'0.25em' }}>
           <DarkTheme light={lightTheme} dark={darkTheme}/>
           </div>
           <div className={classes.grow} />

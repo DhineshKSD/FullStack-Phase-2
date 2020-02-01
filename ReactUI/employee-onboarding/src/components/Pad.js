@@ -50,7 +50,7 @@ var id=localStorage.getItem('User');
             />
             {/* Button to trigger save canvas image */}
             <ButtonMat id="b1" variant="contained" onClick={save}>Trim</ButtonMat>
-            <ButtonMat id="b2" variant="contained" onClick={Post}>Set</ButtonMat>
+            <ButtonMat id="b2" variant="contained" onClick={() => { Post(); close();}}>Save</ButtonMat>
             <ButtonMat id="b3" variant="contained" onClick={clear}>Clear</ButtonMat>
             
           </>
@@ -64,12 +64,7 @@ var id=localStorage.getItem('User');
         <img
           src={imageURL}
           alt="my signature"
-          style={{
-            display: "block",
-            margin: "0 auto",
-            border: "1px solid black",
-            width: "150px"
-          }}
+          id="mysign"
         />
       ) : null}
     </div>

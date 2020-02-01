@@ -51,6 +51,12 @@ export default function AlertDialogSlide() {
                     To facilitate a smooth integration into Psiog's Work Environment, we request you to follow the instructions given below 
                     to access our onboarding portal. The portal will allow you to complete all the pre-joining formalities  
                     and submitting all new-hire paperwork, online! <br/><br/>
+
+                    <b>Section:1</b> - Take Photo.<br/>
+                    <b>Section:2</b> - Personal Information.<br/>
+                    <b>Section:3</b> - Education.<br/>
+                    <b>Section:4</b> - Employment.<br/><br/>
+
                     <b>Note: </b><br/><br/>
                     1.) Please complete all the pre-joining forms and submit before the Date of Joining (<b>{JoiningDate}</b>). 
                     <br/>
@@ -66,7 +72,7 @@ export default function AlertDialogSlide() {
             inputProps={{ 'aria-label': 'primary checkbox' }} style= {{position:'relative',right:'12.4em',bottom:'0.275em'}}
             /> <p style= {{position:'relative',right:'19em'}}>I agree the terms and conditions.</p>
             </DialogActions>
-            <Link to={'/PersonalInfo'} style={{ textDecoration: 'none' }}><ButtonMat data-tip data-for='happyFace1' variant="contained" disabled={!checked} color="primary" style= {{position:'relative',width:'30%',left:'34%',top:'1em'}}>Start Filling
+            <Link to={'/WebCamera'} style={{ textDecoration: 'none' }}><ButtonMat data-tip data-for='happyFace1' variant="contained" disabled={!checked} color="primary" style= {{position:'relative',width:'30%',left:'34%',top:'1em'}}>Start Filling
             <ReactTooltip id='happyFace1' place="bottom" type='dark' effect='solid'>
             <span> Reminder : Once You Started To Fill The Form<br/> You Need To Complete The Entire Process </span>
             </ReactTooltip></ButtonMat>{' '}</Link>
